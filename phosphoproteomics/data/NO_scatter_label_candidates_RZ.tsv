@@ -1,0 +1,107 @@
+Gene.short	logFC_Tryp	logFC_NO	module	sig_category	plot	label
+Ajuba/Wtip	1.044	0.5677	Rho signaling	Tryptamine only	A+B	
+Ank1/2/3	2.3556	2.2231	Other	Significant in both	A only	TRUE
+Anks3	0.8688	1.9954	Other	Significant in both	A only	
+Apbb2	0.9406	0.8607	Other	Significant in both	A only	
+Arhgap39	1.1324	1.7703	Rho signaling	Significant in both	A+B	TRUE
+Arhgap5/35	-0.7375	0.1596	Rho signaling	Tryptamine only	B only	TRUE
+Arhgap9/12/15/27	0.8241	1.2134	Rho signaling	Tryptamine only	B only	TRUE
+Arhgef6/7	0.8549	0.2828	Rho signaling	Tryptamine only	B only	TRUE
+Atp13a2/3/4/5	1.02	0.7261	Other	Significant in both	A only	
+c101148-g1	-1.3606	-0.6049	Other	Significant in both	A only	
+c101713-g1	1.5266	0.6763	Other	Significant in both	A only	
+c103535-g1	1.0494	0.6837	Other	Significant in both	A only	
+c88285-g2	0.9492	2.036	Other	Significant in both	A only	
+c92348-g1	0.9562	2.2067	Other	Significant in both	A only	
+c95939-g2	0.6489	0.6454	Other	Significant in both	A only	
+c97368-g1	1.1882	0.5919	Other	Significant in both	A only	
+c97665-g1	2.0266	0.5927	Other	Significant in both	A only	
+c98982-g1	1.0169	1.628	Other	Significant in both	A only	
+c99339-g3	1.0342	0.9695	Other	Significant in both	A only	
+c99838-g1	1.5456	1.2224	Other	Significant in both	A only	
+Calcium-binding EF hand fam...	1.2426	1.0337	Regulation of calcium signaling	Significant in both	A+B	
+Camk2a/b/d/g	0.1347	0.7678	Regulation of calcium signaling	NO only	B only	TRUE
+Cation efflux family	1.5879	0.8263	Other	Significant in both	A only	
+Ccdc92*	1.1562	0.5964	Other	Significant in both	A only	
+Clip1	0.8912	1.3156	Other	Significant in both	A only	
+Cps1	1.6232	1.4759	Other	Significant in both	A only	
+Dctn1	1.1051	1.258	Other	Significant in both	A only	
+Ddx3x	0.8782	0.6002	Other	Significant in both	A only	
+Dennd2a/Dennd2d/Dennd2c/St5	-0.7531	-0.3782	Rho signaling	Tryptamine only	B only	
+Deptor	0.7589	0.9557	Other	Significant in both	A only	
+Dnah2	0.7608	1.9298	Other	Significant in both	A only	
+Dnmbp	1.4531	1.3785	Other	Significant in both	A only	
+Dock1/2/5	-0.5923	-0.7314	Rho signaling	Significant in both	A+B	TRUE
+Dok1*	-1.0345	-0.6031	Other	Significant in both	A only	
+Dok7	0.6694	0.6029	Other	Significant in both	A only	
+Ecl2*	1.2068	1.1814	Other	Significant in both	A only	
+Eprs	1.7344	0.8392	Other	Significant in both	A only	
+Fam109a/b	1.0139	0.6439	Other	Significant in both	A only	
+Fam13b	-0.6968	0.0552	Rho signaling	Tryptamine only	B only	
+Fam213b	0.6833	0.2675	NO signaling	Tryptamine only	B only	
+Fgd5/6	-0.7923	0.0333	Rho signaling	Tryptamine only	B only	
+Filamin/ABP280 repeat	1.0758	0.9567	Other	Significant in both	A only	TRUE
+"guanylate cyclase 1, soluble"	0.6162	0.8346	NO signaling	Significant in both	A+B	TRUE
+Itgb1bp1*	1.1425	0.5892	Other	Significant in both	A only	
+Itpr1/2/3	0.2306	1.4995	Regulation of calcium signaling	NO only	B only	TRUE
+Jph1/2/3/4	0.5907	0.304	Regulation of calcium signaling	Tryptamine only	B only	
+Kalrn/Arhgef25/Trio	0.703	0.2523	Rho signaling	Tryptamine only	B only	
+Kcnip2/4	1.4659	0.8494	Regulation of calcium signaling	Significant in both	A+B	
+Kiaa1109	0.9812	0.6045	Other	Significant in both	A only	
+Lima1	1.2636	1.6999	Rho signaling	Significant in both	A+B	TRUE
+Lrba/Nbea	0.784	2.2929	Other	Significant in both	A only	
+Lrch1/2/3/4	0.5586	1.2132	Rho signaling	NO only	B only	
+Lrrc10	0.6958	1.0514	Regulation of calcium signaling	Significant in both	A+B	
+Mapk1/3	0.6174	1.047	Other	Significant in both	A only	
+Mapk11/4	0.9	1.2382	Other	Significant in both	A only	
+Mast1/2/3/4	0.6764	0.0537	NO signaling	Tryptamine only	B only	
+Mat2b	1.1426	0.6568	Other	Significant in both	A only	
+Melk	1.0544	1.3817	Other	Significant in both	A only	
+Micu2/3	-0.9083	-0.2612	Regulation of calcium signaling	Tryptamine only	B only	
+Mos	1.6456	1.2589	Other	Significant in both	A only	
+Mpdz	1.4564	1.521	Other	Significant in both	A only	
+Myd88	0.7966	1.0391	Other	Significant in both	A only	TRUE
+Myh9/10/11/14	0.6449	0.2283	Rho signaling	Tryptamine only	B only	TRUE
+Myo1e/f	0.8777	0.9395	Other	Significant in both	A only	TRUE
+Myo9a/b	1.6218	0.5357	Rho signaling	Tryptamine only	B only	TRUE
+Nadk	1.0017	0.6808	NO signaling	Significant in both	A+B	
+Ncoa7/Oxr1	0.5991	0.1803	NO signaling	Tryptamine only	B only	
+Nf1	1.4994	0.9819	Rho signaling	Tryptamine only	B only	
+Nos1/2/3	0.6624	1.3421	NO signaling	Significant in both	A+B	TRUE
+Ocrl/Inpp5b	1.5704	1.2902	Other	Significant in both	A only	
+Pard6a/b/g	-0.7538	-0.0672	Rho signaling	Tryptamine only	B only	
+Pde1a/c	1.4431	2.0663	NO signaling	Significant in both	A+B	TRUE
+Pde8a/b	0.6894	0.0656	Regulation of calcium signaling	Tryptamine only	B only	
+Pex1	1.1179	0.3834	NO signaling	Tryptamine only	B only	
+Pfkl/m/p	1.0257	0.8724	Other	Significant in both	A only	
+Pik3cg	0.5462	0.6218	Rho signaling	NO only	B only	
+Pik3r3	0.4294	1.2346	Rho signaling	NO only	B only	
+Pik3r4	0.622	0.0501	Rho signaling	Tryptamine only	B only	
+Pik3r5	0.8377	0.048	Rho signaling	Tryptamine only	B only	
+Pink1	0.9577	-0.1675	NO signaling	Tryptamine only	B only	
+Plxna1/3	1.2	1.044	Other	Significant in both	A only	
+Rgs12/4	0.8423	0.9388	Other	Significant in both	A only	TRUE
+Rgs6/7/9/11	0.7422	0.6122	Other	Significant in both	A only	TRUE
+Rimbp2	-0.7736	-0.0593	Regulation of calcium signaling	Tryptamine only	B only	TRUE
+Rnf41	1.1687	0.7472	Other	Significant in both	A only	
+Rock1/2	0.685	0.0434	Rho signaling	Tryptamine only	B only	TRUE
+Rph3a/l	1.1846	0.5348	Regulation of calcium signaling	Tryptamine only	B only	
+serine threonine-protein ph...	0.8066	0.7519	Other	Significant in both	A only	
+SH3 domain	0.9473	0.6363	Other	Significant in both	A only	
+Slc39a14	0.7797	0.5877	Other	Significant in both	A only	
+Smtn	-0.7642	0.0266	Regulation of calcium signaling	Tryptamine only	B only	
+Smurf1/2	0.7156	0.2898	Rho signaling	Tryptamine only	B only	
+Srgap1/Arhgap4/Srgap3/Srgap2	0.753	1.6478	Rho signaling	Significant in both	A+B	
+Stk17a/b	1.247	0.7001	Other	Significant in both	A only	
+Stk33	0.603	0.677	Other	Significant in both	A only	
+Syap1	1.833	1.786	Other	Significant in both	A only	
+Syt17	1.061	1.2182	Other	Significant in both	A only	
+Syvn1	1.0878	0.7733	Other	Significant in both	A only	
+Tesk1/2	0.6424	0.8814	Other	Significant in both	A only	
+TNF receptor-associated factor	1.969	0.7829	Other	Significant in both	A only	
+Traf4	1.4662	0.7146	Other	Significant in both	A only	
+Unc13d/Baiap3	0.9986	1.9354	Regulation of calcium signaling	Significant in both	A+B	TRUE
+Ush1c	2.5561	1.5214	Other	Significant in both	A only	TRUE
+Vipas39	0.7564	0.855	Other	Significant in both	A only	
+Vps13c	1.3895	0.8628	Other	Significant in both	A only	
+Vps37b	0.673	1.1557	Other	Significant in both	A only	

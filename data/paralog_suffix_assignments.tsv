@@ -1,0 +1,642 @@
+original_zang	seurat_name	suffix	suffixed_name	mean_expr
+ADP-ribose	c97668-g1 (Poly(ADP-ribose) polymerase catalytic domain) - emapper OG	A	ADP-ribose A	0.21355798336597612
+ADP-ribose	c101010-g1 (Poly (ADP-ribose) glycohydrolase) - emapper OG	B	ADP-ribose B	0.034203372619349394
+ADP-ribose	c91600-g2 (Poly(ADP-ribose) polymerase catalytic domain) - emapper OG	C	ADP-ribose C	0.02123344879165162
+ADP-ribose	c98394-g1 (Poly(ADP-ribose) polymerase catalytic domain) - emapper OG	D	ADP-ribose D	0.02095738172641824
+ADP-ribose	c103775-g2 (Poly(ADP-ribose) polymerase catalytic domain) - emapper OG	E	ADP-ribose E	0.0165562220356567
+ADP-ribose	c100043-g1 (Poly(ADP-ribose) polymerase catalytic domain) - emapper OG	F	ADP-ribose F	0.014323896870129417
+ADP-ribose	c89496-g2 (Poly(ADP-ribose) polymerase catalytic domain) - emapper OG	G	ADP-ribose G	0.002335582351248708
+AIG1 family	c104119-g1 (AIG1 family) - emapper OG	A	AIG1 family A	0.14596961910923922
+AIG1 family	c98504-g1 (AIG1 family) - emapper OG	B	AIG1 family B	0.11463728745841865
+AIG1 family	c99766-g1 (AIG1 family) - emapper OG	C	AIG1 family C	0.06337118390662264
+AIG1 family	c101145-g1 (AIG1 family) - emapper OG	D	AIG1 family D	0.0077514480986411016
+Adamtsl1	c88951-g2 1-to-1 ADAMTSL1 ADAMTS like 1	A	Adamtsl1 A	0.6369786632225267
+Adamtsl1	c102600-g1 ADAMTSL1 (ADAMTS-like) - emapper OG	B	Adamtsl1 B	0.6034399999058705
+Ankyrin Repeat Protein	c104979-g1 (Ankyrin Repeat Protein) - emapper OG	A	Ankyrin Repeat Protein A	1.0195757014336835
+Ankyrin Repeat Protein	c88008-g1 (Ankyrin Repeat Protein) - emapper OG	AA	Ankyrin Repeat Protein AA	9.587810626205854e-4
+Ankyrin Repeat Protein	c93869-g1 (Ankyrin Repeat Protein) - emapper OG	AB	Ankyrin Repeat Protein AB	7.126785353577741e-4
+Ankyrin Repeat Protein	c22505-g1 (Inherit from KOG: Ankyrin Repeat Protein) - emapper OG	AC	Ankyrin Repeat Protein AC	5.735240233966239e-4
+Ankyrin Repeat Protein	c104809-g3 (Ankyrin Repeat Protein) - emapper OG	AD	Ankyrin Repeat Protein AD	5.220162234122011e-4
+Ankyrin Repeat Protein	c102975-g1 (Inherit from euNOG: Ankyrin Repeat Protein) - emapper OG	AE	Ankyrin Repeat Protein AE	3.017711777498447e-4
+Ankyrin Repeat Protein	c104788-g4 (Inherit from euNOG: Ankyrin Repeat Protein) - emapper OG	AF	Ankyrin Repeat Protein AF	1.9128983212018404e-4
+Ankyrin Repeat Protein	c101726-g1 (Ankyrin Repeat Protein) - emapper OG	AG	Ankyrin Repeat Protein AG	1.6573570229511252e-4
+Ankyrin Repeat Protein	c104488-g2 (Ankyrin Repeat Protein) - emapper OG	B	Ankyrin Repeat Protein B	0.8080453886069039
+Ankyrin Repeat Protein	c104708-g4 (Ankyrin Repeat Protein) - emapper OG	C	Ankyrin Repeat Protein C	0.6263913269316408
+Ankyrin Repeat Protein	c103287-g1 (Ankyrin Repeat Protein) - emapper OG	D	Ankyrin Repeat Protein D	0.45280943452342887
+Ankyrin Repeat Protein	c103472-g1 (Ankyrin Repeat Protein) - emapper OG	E	Ankyrin Repeat Protein E	0.22010079481830802
+Ankyrin Repeat Protein	c102683-g1 (Ankyrin Repeat Protein) - emapper OG	F	Ankyrin Repeat Protein F	0.14294458389728046
+Ankyrin Repeat Protein	c101981-g2 (Ankyrin Repeat Protein) - emapper OG	G	Ankyrin Repeat Protein G	0.140725698677858
+Ankyrin Repeat Protein	c93968-g1 (Ankyrin Repeat Protein) - emapper OG	H	Ankyrin Repeat Protein H	0.13383937991625205
+Ankyrin Repeat Protein	c102560-g1 (Ankyrin Repeat Protein) - emapper OG	I	Ankyrin Repeat Protein I	0.11660882096454266
+Ankyrin Repeat Protein	c101290-g1 (Ankyrin Repeat Protein) - emapper OG	J	Ankyrin Repeat Protein J	0.07634231429048115
+Ankyrin Repeat Protein	c101239-g1 (Inherit from KOG: Ankyrin Repeat Protein) - emapper OG	K	Ankyrin Repeat Protein K	0.0728654551656178
+Ankyrin Repeat Protein	c103739-g5 (Ankyrin Repeat Protein) - emapper OG	L	Ankyrin Repeat Protein L	0.03406771585957624
+Ankyrin Repeat Protein	c55842-g1 (Inherit from KOG: Ankyrin Repeat Protein) - emapper OG	M	Ankyrin Repeat Protein M	0.02608831329785849
+Ankyrin Repeat Protein	c101094-g2 (Ankyrin Repeat Protein) - emapper OG	N	Ankyrin Repeat Protein N	0.024445958878304228
+Ankyrin Repeat Protein	c102295-g6 (Ankyrin Repeat Protein) - emapper OG	O	Ankyrin Repeat Protein O	0.02082367810093024
+Ankyrin Repeat Protein	c102295-g1 (Ankyrin Repeat Protein) - emapper OG	P	Ankyrin Repeat Protein P	0.013033274946074836
+Ankyrin Repeat Protein	c90479-g2 (Ankyrin Repeat Protein) - emapper OG	Q	Ankyrin Repeat Protein Q	0.0048536757637868
+Ankyrin Repeat Protein	c97750-g1 (Ankyrin Repeat Protein) - emapper OG	R	Ankyrin Repeat Protein R	0.0044054660287543585
+Ankyrin Repeat Protein	c78602-g1 (Ankyrin Repeat Protein) - emapper OG	S	Ankyrin Repeat Protein S	0.002281222175426934
+Ankyrin Repeat Protein	c95909-g2 (Inherit from KOG: Ankyrin Repeat Protein) - emapper OG	T	Ankyrin Repeat Protein T	0.0020788936377841567
+Ankyrin Repeat Protein	c101999-g1 (Ankyrin Repeat Protein) - emapper OG	U	Ankyrin Repeat Protein U	0.0020483357960177796
+Ankyrin Repeat Protein	c103338-g2 (Inherit from KOG: Ankyrin Repeat Protein) - emapper OG	V	Ankyrin Repeat Protein V	0.001648262912904449
+Ankyrin Repeat Protein	c94050-g2 (Ankyrin Repeat Protein) - emapper OG	W	Ankyrin Repeat Protein W	0.0015092907670111349
+Ankyrin Repeat Protein	c88381-g1 (Ankyrin Repeat Protein) - emapper OG	X	Ankyrin Repeat Protein X	0.001423164217712831
+Ankyrin Repeat Protein	c98935-g2 (Inherit from KOG: Ankyrin Repeat Protein) - emapper OG	Y	Ankyrin Repeat Protein Y	0.0014205798685563529
+Ankyrin Repeat Protein	c102975-g3 (Ankyrin Repeat Protein) - emapper OG	Z	Ankyrin Repeat Protein Z	0.0013599082378928419
+Anxa7	c104282-g6 4-to-1 ANXA7 annexin A7	A	Anxa7 A	2.6403895015531464
+Anxa7	c99792-g2 ANXA7 (annexin A11) - emapper OG	B	Anxa7 B	0.9071097989985215
+Anxa7	c101187-g1 2-to-1 ANXA7 annexin A7	C	Anxa7 C	0.20166770448837779
+Anxa7	c104282-g5 ANXA7 (annexin A11) - emapper OG	D	Anxa7 D	0.05855138970379498
+Anxa7	c104282-g3 3-to-1 ANXA7 annexin A7	E	Anxa7 E	0.03245523565869091
+Anxa7	c6335-g2 ANXA7 (annexin A11) - emapper OG	F	Anxa7 F	0.010058483509714836
+Anxa7	c104282-g4 3-to-1 ANXA7 annexin A7	G	Anxa7 G	0.0014130626976927
+Arcn1	c97419-g1 ARCN1 (Archain 1) - emapper OG	A	Arcn1 A	0.510844220428316
+Arcn1	c105510-g1 ARCN1 (Archain 1) - emapper OG	B	Arcn1 B	0.025988016226387235
+Arcn1	c94867-g1 ARCN1 (Archain 1) - emapper OG	C	Arcn1 C	0.0031331083531109033
+Armc4	c81224-g1 ARMC4 (Armadillo repeat containing 4) - emapper OG	A	Armc4 A	0.04854097604620802
+Armc4	c35304-g1 ARMC4 (Armadillo repeat containing 4) - emapper OG	B	Armc4 B	0.04846977123500037
+Arsb	c101828-g1 ARSB (Arylsulfatase) - emapper OG	A	Arsb A	0.13514738765184112
+Arsb	c104052-g1 ARSB (oculocutaneous albinism II) - emapper OG	B	Arsb B	0.08927131968954323
+Arsb	c96723-g1 ARSB (oculocutaneous albinism II) - emapper OG	C	Arsb C	0.0649254913880439
+Atp1a2/1A4/4A/12A	c102821-g5 4-to-6 ATP12A,ATP4A,ATP1A2,ATP1A4... ATPase H+/K+ transporting non-gastric alpha2 subunit	A	Atp1a2/1A4/4A/12A A	0.1279402060963753
+Atp1a2/1A4/4A/12A	c96910-g1 4-to-6 ATP12A,ATP4A,ATP1A2,ATP1A4... ATPase H+/K+ transporting non-gastric alpha2 subunit	B	Atp1a2/1A4/4A/12A B	0.1169404316813491
+Atp1a2/1A4/4A/12A	c104555-g4 4-to-6 ATP12A,ATP4A,ATP1A2,ATP1A4... ATPase H+/K+ transporting non-gastric alpha2 subunit	C	Atp1a2/1A4/4A/12A C	0.07139034938737933
+Atp1a2/1A4/4A/12A	c102821-g6 3-to-6 ATP12A,ATP4A,ATP1A2,ATP1A4... ATPase H+/K+ transporting non-gastric alpha2 subunit	D	Atp1a2/1A4/4A/12A D	0.01366235727498542
+Atp1a2/1A4/4A/12A	c92763-g1 4-to-6 ATP12A,ATP4A,ATP1A2,ATP1A4... ATPase H+/K+ transporting non-gastric alpha2 subunit	E	Atp1a2/1A4/4A/12A E	0.007932143923092435
+Atp1a2/1A4/4A/12A	c103519-g2 5-to-6 ATP12A,ATP4A,ATP1A2,ATP1A4... ATPase H+/K+ transporting non-gastric alpha2 subunit	F	Atp1a2/1A4/4A/12A F	0.006067172133264193
+Atp1a2/1A4/4A/12A	c102821-g2 5-to-6 ATP12A,ATP4A,ATP1A2,ATP1A4... ATPase H+/K+ transporting non-gastric alpha2 subunit	G	Atp1a2/1A4/4A/12A G	9.639806768896481e-4
+Atp1a2/1A4/4A/12A	c103519-g1 4-to-6 ATP12A,ATP4A,ATP1A2,ATP1A4... ATPase H+/K+ transporting non-gastric alpha2 subunit	H	Atp1a2/1A4/4A/12A H	7.313843447781578e-4
+Atp1a2/1A4/4A/12A	c102821-g4 3-to-6 ATP12A,ATP4A,ATP1A2,ATP1A4... ATPase H+/K+ transporting non-gastric alpha2 subunit	I	Atp1a2/1A4/4A/12A I	3.825514497275602e-4
+Atp6v0a1/Tcirg1/Atp6v0a4/At...	c101259-g2 2-to-4 ATP6V0A1,TCIRG1,ATP6V0A4,ATP6V0A2 ATPase H+ transporting V0 subunit a1	A	Atp6v0a1/Tcirg1/Atp6v0a4/At... A	0.42384498507788393
+Atp6v0a1/Tcirg1/Atp6v0a4/At...	c101589-g1 2-to-4 ATP6V0A1,TCIRG1,ATP6V0A4,ATP6V0A2 ATPase H+ transporting V0 subunit a1	B	Atp6v0a1/Tcirg1/Atp6v0a4/At... B	0.3551174699055904
+Atp6v0a1/Tcirg1/Atp6v0a4/At...	c101259-g3 4-to-4 ATP6V0A1,TCIRG1,ATP6V0A4,ATP6V0A2 ATPase H+ transporting V0 subunit a1	C	Atp6v0a1/Tcirg1/Atp6v0a4/At... C	0.004972430802013037
+Atp6v0a1/Tcirg1/Atp6v0a4/At...	c85572-g1 3-to-4 ATP6V0A1,TCIRG1,ATP6V0A4,ATP6V0A2 ATPase H+ transporting V0 subunit a1	D	Atp6v0a1/Tcirg1/Atp6v0a4/At... D	5.002413506931564e-4
+Atp6v0a1/Tcirg1/Atp6v0a4/At...	c105658-g1 3-to-4 ATP6V0A1,TCIRG1,ATP6V0A4,ATP6V0A2 ATPase H+ transporting V0 subunit a1	E	Atp6v0a1/Tcirg1/Atp6v0a4/At... E	4.4036286197739515e-5
+Avp*	c93934-g1 hs-AVP,DEFB132,WFDC12,WFDC1,ESM1,DEFB128,DEFB127,DEFB..	A	Avp* A	0.6615918435079309
+Avp*	c96665-g1 hs-AVP,DEFB132,IGFL4,LRCOL1	B	Avp* B	0.3944090143884449
+Avp*	c95955-g1 hs-AVP,LRCOL1	C	Avp* C	0.1865650822486412
+Avp*	c102838-g2 hs-AVP,WFDC12,DEFB109B	D	Avp* D	0.17802379158555912
+Avp*	c91067-g1 AVP, Equus caballus	E	Avp* E	7.086088331734034e-4
+Bms1	c98290-g1 1-to-1 BMS1 BMS1, ribosome biogenesis factor	A	Bms1 A	0.04362374034290419
+Bms1	c98803-g3 1-to-1 BMS1 BMS1, ribosome biogenesis factor	B	Bms1 B	0.0026488866139351905
+C4orf50*	c97793-g1 hs-C4orf50,CCDC92,NBPF5P	A	C4orf50* A	0.004257457540829508
+C4orf50*	c101474-g3 hs-C4orf50,BEGAIN,GOLGA8DP,GOLGA8F	B	C4orf50* B	0.0026941842794709517
+Cad	c100296-g2 2-to-1 CAD carbamoyl-phosphate synthetase 2, aspartate transcarbamylase, and dihydroorotase	A	Cad A	0.0046235677008105635
+Cad	c100296-g1 CAD (Carbamoyl-phosphate synthetase 2, aspartate transcarbamylase, and dihydroorotase) - emapper OG	B	Cad B	7.695088139771569e-4
+Calml3	c98532-g1 CALML3 (Calcium binding protein) - emapper OG	A	Calml3 A	0.39361503288974636
+Calml3	c98735-g1 CALML3 (calmodulin-like 3) - emapper OG	B	Calml3 B	0.30024685955125524
+Cbp	c101065-g1 CBP (Sarcoplasmic calcium-binding protein) - emapper OG	A	Cbp A	0.5493125678359244
+Cbp	c101065-g2 CBP (Sarcoplasmic calcium-binding protein) - emapper OG	B	Cbp B	0.11558972152625623
+Cbp	c99483-g1 CBP (Sarcoplasmic calcium-binding protein) - emapper OG	C	Cbp C	0.022762727428950604
+Cbp	c9316-g1 CBP (Sarcoplasmic calcium-binding protein) - emapper OG	D	Cbp D	0
+Chn1/2	c101149-g1 4-to-2 CHN2,CHN1 chimerin 2	A	Chn1/2 A	0.15301952522213622
+Chn1/2	c102971-g2 4-to-2 CHN2,CHN1 chimerin 2	B	Chn1/2 B	0.1296134060268274
+Chn1/2	c99748-g1 1-to-2 CHN2,CHN1 chimerin 2	C	Chn1/2 C	0.0889799980851158
+Chn1/2	c97841-g1 4-to-2 CHN2,CHN1 chimerin 2	D	Chn1/2 D	0.03912699318518356
+Col1a1	c100522-g2 COL1A1 (collagen, type I, alpha 1) - emapper OG	A	Col1a1 A	0.008757788245077369
+Col1a1	c110086-g1 COL1A1 (collagen, type I, alpha 1) - emapper OG	B	Col1a1 B	0.0037813581863131323
+Col1a1	c110692-g1 COL1A1 (collagen, type I, alpha 1) - emapper OG	C	Col1a1 C	0.00125391823038274
+Cyp46a1	c103941-g3 14-to-1 CYP46A1 cytochrome P450 family 46 subfamily A member 1	A	Cyp46a1 A	0.20360738632088782
+Cyp46a1	c104875-g2 14-to-1 CYP46A1 cytochrome P450 family 46 subfamily A member 1	B	Cyp46a1 B	0.16766934069862377
+Cyp46a1	c102838-g3 14-to-1 CYP46A1 cytochrome P450 family 46 subfamily A member 1	C	Cyp46a1 C	0.1572454086345804
+Cyp46a1	c103941-g1 CYP46A1 (cytochrome P450, family 46, subfamily a, polypeptide 1) - emapper OG	D	Cyp46a1 D	0.11659789484116159
+Cyp46a1	c104403-g1 14-to-1 CYP46A1 cytochrome P450 family 46 subfamily A member 1	E	Cyp46a1 E	0.07860728479718716
+Cyp46a1	c100422-g1 17-to-1 CYP46A1 cytochrome P450 family 46 subfamily A member 1	F	Cyp46a1 F	0.060801561401050606
+Cyp46a1	c104084-g2 14-to-1 CYP46A1 cytochrome P450 family 46 subfamily A member 1	G	Cyp46a1 G	0.043360918506582975
+Cyp46a1	c102375-g1 14-to-1 CYP46A1 cytochrome P450 family 46 subfamily A member 1	H	Cyp46a1 H	0.039091989334320905
+Cyp46a1	c88992-g1 16-to-1 CYP46A1 cytochrome P450 family 46 subfamily A member 1	I	Cyp46a1 I	0.038553005541110595
+Cyp46a1	c103771-g1 14-to-1 CYP46A1 cytochrome P450 family 46 subfamily A member 1	J	Cyp46a1 J	0.036718375265396494
+Cyp46a1	c104274-g1 13-to-1 CYP46A1 cytochrome P450 family 46 subfamily A member 1	K	Cyp46a1 K	0.030612606789891802
+Cyp46a1	c104075-g3 17-to-1 CYP46A1 cytochrome P450 family 46 subfamily A member 1	L	Cyp46a1 L	0.016412379245325612
+Cyp46a1	c94461-g1 16-to-1 CYP46A1 cytochrome P450 family 46 subfamily A member 1	M	Cyp46a1 M	0.01419657045030027
+Cyp46a1	c85165-g1 CYP46A1 (Cytochrome P450, family 46, subfamily a, polypeptide 1) - emapper OG	N	Cyp46a1 N	0.01313151306344401
+Cyp46a1	c103225-g2 14-to-1 CYP46A1 cytochrome P450 family 46 subfamily A member 1	O	Cyp46a1 O	0.008788092248248646
+Cyp46a1	c84736-g2 15-to-1 CYP46A1 cytochrome P450 family 46 subfamily A member 1	P	Cyp46a1 P	0.005200514079241999
+Cyp46a1	c93444-g1 14-to-1 CYP46A1 cytochrome P450 family 46 subfamily A member 1	Q	Cyp46a1 Q	0.004605927788534704
+Cyp46a1	c104075-g4 CYP46A1 (Cytochrome P450, family 46, subfamily a, polypeptide 1) - emapper OG	R	Cyp46a1 R	0.0024967177846254188
+Cyp46a1	c94461-g2 14-to-1 CYP46A1 cytochrome P450 family 46 subfamily A member 1	S	Cyp46a1 S	0.002282379131917214
+Cyp46a1	c112186-g1 16-to-1 CYP46A1 cytochrome P450 family 46 subfamily A member 1	T	Cyp46a1 T	6.785233529671978e-4
+Cyp46a1	c52821-g1 16-to-1 CYP46A1 cytochrome P450 family 46 subfamily A member 1	U	Cyp46a1 U	5.563683717186365e-4
+Cyp46a1	c94461-g4 14-to-1 CYP46A1 cytochrome P450 family 46 subfamily A member 1	V	Cyp46a1 V	1.6874812648451397e-4
+Dgkd/h/k	c102435-g1 1-to-3 DGKD,DGKH,DGKK diacylglycerol kinase delta	A	Dgkd/h/k A	0.04607492369023182
+Dgkd/h/k	c99029-g1 1-to-3 DGKD,DGKH,DGKK diacylglycerol kinase delta	B	Dgkd/h/k B	0.0014114901846646428
+Dok1	c81641-g1 4-to-1 DOK1 docking protein 1	A	Dok1 A	0.0836727899937921
+Dok1	c103999-g1 1-to-1 DOK1 docking protein 1	B	Dok1 B	0.019379549170956554
+Dok1	c4019-g1 6-to-1 DOK1 docking protein 1	C	Dok1 C	3.382116389697053e-4
+Dok1	c96061-g2 5-to-1 DOK1 docking protein 1	D	Dok1 D	2.3991647130203102e-4
+Eef1a1	c41805-g1 EEF1A1 (This protein promotes the GTP-dependent binding of aminoacyl-tRNA to the A-site of ribosomes	A	Eef1a1 A	3.4396900968702955
+Eef1a1	c88048-g1 EEF1A1 (This protein promotes the GTP-dependent binding of aminoacyl-tRNA to the A-site of ribosomes	B	Eef1a1 B	0.25821920348195754
+Eef1a1	c41002-g1 EEF1A1 (This protein promotes the GTP-dependent binding of aminoacyl-tRNA to the A-site of ribosomes	C	Eef1a1 C	0.13517788988910495
+Eef1a1	c88079-g1 EEF1A1 (This protein promotes the GTP-dependent binding of aminoacyl-tRNA to the A-site of ribosomes	D	Eef1a1 D	0
+Eef1a1	c88079-g2 EEF1A1 (This protein promotes the GTP-dependent binding of aminoacyl-tRNA to the A-site of ribosomes	E	Eef1a1 E	0
+Fam219a*	c99956-g1 hs-FAM219A,FAM219B	A	Fam219a* A	0.4338545592113121
+Fam219a*	c104730-g3 fam219a, Danio rerio	B	Fam219a* B	0.13047577977290756
+Fam219a*	c104266-g5 Fam219a, Mus musculus	C	Fam219a* C	0.010341249602439142
+Fam219a*	c97039-g1 fam219a, Danio rerio	D	Fam219a* D	0.0012928092444460168
+Fatty acid desaturase	c103984-g1 (Inherit from opiNOG: Fatty acid desaturase) - emapper OG	A	Fatty acid desaturase A	0.20426108497167833
+Fatty acid desaturase	c53902-g1 (Inherit from opiNOG: Fatty acid desaturase) - emapper OG	B	Fatty acid desaturase B	0.07314106067407408
+Fatty acid desaturase	c103984-g2 (Inherit from opiNOG: Fatty acid desaturase) - emapper OG	C	Fatty acid desaturase C	0.052965925195968044
+Fatty acid desaturase	c105753-g1 (Inherit from opiNOG: Fatty acid desaturase) - emapper OG	D	Fatty acid desaturase D	0.007836499766316736
+Fatty acid desaturase	c95252-g2 (Inherit from opiNOG: Fatty acid desaturase) - emapper OG	E	Fatty acid desaturase E	0.007499915015849877
+Fer/s	c104602-g2 2-to-2 FER,FES FER tyrosine kinase	A	Fer/s A	0.15072407267624796
+Fer/s	c104153-g1 2-to-2 FER,FES FER tyrosine kinase	B	Fer/s B	0.09715325788745911
+Fer/s	c96283-g2 4-to-2 FER,FES FER tyrosine kinase	C	Fer/s C	0.009817059935219983
+Fer/s	c104602-g3 3-to-2 FER,FES FER tyrosine kinase	D	Fer/s D	0.006584010130762028
+Fer/s	c93353-g2 4-to-2 FER,FES FER tyrosine kinase	E	Fer/s E	0.003951002710429653
+Fer/s	c96283-g1 4-to-2 FER,FES FER tyrosine kinase	F	Fer/s F	1.4790374423792653e-4
+Flnb	c101752-g1 FLNB (Filamin A, alpha) - emapper OG	A	Flnb A	0.6174325475184409
+Flnb	c103902-g5 FLNB (Filamin A, alpha) - emapper OG	B	Flnb B	0.4646006076653239
+Flnb	c96316-g1 FLNB (Filamin A, alpha) - emapper OG	C	Flnb C	0.20519627002791352
+Flnb	c103148-g3 FLNB (IG-FLMN) - emapper OG	D	Flnb D	0.10574647062327451
+Flnb	c99035-g2 FLNB (filamin B, beta) - emapper OG	E	Flnb E	0.10541479997835468
+Flnb	c104201-g1 FLNB (Filamin A, alpha) - emapper OG	F	Flnb F	0.07793471151397835
+Flnb	c103345-g3 FLNB (IG-FLMN) - emapper OG	G	Flnb G	0.06235760752025683
+Flnb	c104806-g2 FLNB (Filamin A, alpha) - emapper OG	H	Flnb H	0.05633030689058294
+Flnb	c103345-g4 FLNB (Filamin A, alpha) - emapper OG	I	Flnb I	0.04030456546739761
+Flnb	c103902-g6 FLNB (Filamin A, alpha) - emapper OG	J	Flnb J	0.011897237889508626
+Flnb	c100523-g4 FLNB (Filamin A, alpha) - emapper OG	K	Flnb K	0.0010984024886144142
+Flnb	c93815-g3 FLNB (Filamin A, alpha) - emapper OG	L	Flnb L	7.254736328939614e-4
+Flnb	c100523-g1 FLNB (Filamin A, alpha) - emapper OG	M	Flnb M	2.021242430867478e-4
+GABA	c105754-g1 (Gamma-aminobutyric acid (GABA) B receptor) - emapper OG	A	GABA A	0.052423231873835234
+GABA	c91941-g1 (Gamma-aminobutyric acid (GABA) B receptor) - emapper OG	B	GABA B	0.032784419665453486
+GABA	c93360-g1 (Gamma-aminobutyric acid (GABA) B receptor) - emapper OG	C	GABA C	0.03021862830950422
+GABA	c100319-g2 (Gamma-aminobutyric acid (GABA) B receptor) - emapper OG	D	GABA D	0.026969579033477933
+GABA	c98465-g1 (Gamma-aminobutyric acid (GABA) B receptor) - emapper OG	E	GABA E	0.019247190008206756
+GABA	c105859-g1 (Gamma-aminobutyric acid (GABA) B receptor) - emapper OG	F	GABA F	0.01882118095876812
+GABA	c90237-g1 (Gamma-aminobutyric acid (GABA) B receptor) - emapper OG	G	GABA G	0.012707476052561308
+GABA	c98237-g1 (Gamma-aminobutyric acid (GABA) B receptor) - emapper OG	H	GABA H	0.007235562012174755
+GABA	c86337-g1 (Gamma-aminobutyric acid (GABA) B receptor) - emapper OG	I	GABA I	0.005722534953168973
+GABA	c104630-g2 (Gamma-aminobutyric acid (GABA) B receptor) - emapper OG	J	GABA J	0.0030321997506988336
+GABA	c100319-g1 (Gamma-aminobutyric acid (GABA) B receptor) - emapper OG	K	GABA K	0.0015562911907434024
+GABA	c93147-g1 (Gamma-aminobutyric acid (GABA) B receptor) - emapper OG	L	GABA L	6.313290369719741e-4
+GABA	c96020-g1 (Gamma-aminobutyric acid (GABA) B receptor) - emapper OG	M	GABA M	5.531598192586052e-4
+GABA	c96405-g1 (Gamma-aminobutyric acid (GABA) B receptor) - emapper OG	N	GABA N	4.247434923235521e-4
+GABA	c105192-g1 (Gamma-aminobutyric acid (GABA) B receptor) - emapper OG	O	GABA O	3.346298888243024e-4
+GABA	c96405-g2 (Gamma-aminobutyric acid (GABA) B receptor) - emapper OG	P	GABA P	2.54045622075697e-4
+GABA	c85234-g1 (Gamma-aminobutyric acid (GABA) B receptor) - emapper OG	Q	GABA Q	7.168104326746126e-5
+GABA	c84116-g2 (Gamma-aminobutyric acid (GABA) B receptor) - emapper OG	R	GABA R	1.9128007965406662e-5
+GABA	c98237-g3 (Gamma-aminobutyric acid (GABA) B receptor) - emapper OG	S	GABA S	0
+GABA	c98237-g4 (Gamma-aminobutyric acid (GABA) B receptor) - emapper OG	T	GABA T	0
+Gigyf1	c102069-g1 GIGYF1 (GRB10 interacting GYF protein 1) - emapper OG	A	Gigyf1 A	0.09680330893244368
+Gigyf1	c103994-g3 GIGYF1 (GRB10 interacting GYF protein 2) - emapper OG	B	Gigyf1 B	0.07575041396461708
+Git2	c104382-g2 GIT2 (G protein-coupled receptor kinase interacting ArfGAP) - emapper OG	A	Git2 A	0.09767729017476245
+Git2	c104382-g1 GIT2 (G protein-coupled receptor kinase interacting ArfGAP) - emapper OG	B	Git2 B	0.07355592741576149
+Gypc*	c103420-g3 hs-GYPC,SERTM2,CRB3,SERTM1,SPN,ECSCR,SMAGP,EQTN	A	Gypc* A	0.3232866969966119
+Gypc*	c102617-g2 hs-GYPC,SERTM1,SERTM2,KCNE2,SMAGP,CRB3,RPRM,TMEM154,K..	B	Gypc* B	0.3109161153020642
+Gypc*	c102822-g1 hs-GYPC,KCNE2,TMEM154,TNFRSF13C,C3orf18,SERTM1,NCMAP,..	C	Gypc* C	0.21953682705831712
+Gypc*	c92891-g1 hs-GYPC,C3orf18,TMEM154,SERTM1,SMAGP,TNFRSF13C,EVI2A,..	D	Gypc* D	0.19577316074670295
+Gypc*	c101749-g2 hs-GYPC,SMAGP,SERTM1,TNFRSF13C,CRB3,SERTM2,NCMAP,TMEM..	E	Gypc* E	0.11528716312275458
+Gypc*	c98679-g1 hs-GYPC,SERTM1,KCNE5,TMEM154,KCNE2,TNFRSF13C,SERTM2,C..	F	Gypc* F	0.10660300150219773
+Gypc*	c104636-g1 hs-GYPC,SMAGP,SERTM1,CRB3,SERTM2,TMEM154,NCMAP,KCNE2,..	G	Gypc* G	0.07628475787006188
+Gypc*	c92531-g1 hs-GYPC,RPRM,FXYD1	H	Gypc* H	0.058074900735963046
+Gypc*	c93958-g1 hs-GYPC,SERTM2,SMAGP,FXYD7,SMIM22,SERTM1,FXYD2,CTXN1,..	I	Gypc* I	0.05058238264667245
+Gypc*	c93994-g2 hs-GYPC,SMAGP,SERTM2,GYPA,SERTM1,CRB3,KCNE3,KCNE2,RPR..	J	Gypc* J	0.04522928608624196
+Gypc*	c92380-g1 hs-GYPC,SMAGP,SERTM2,SERTM1,NCMAP,TNFRSF13C,KCNE2,CRB..	K	Gypc* K	0.029909163869505376
+Gypc*	c102873-g2 hs-GYPC,SERTM2,SERTM1,SMAGP,CRB3,KCNE2,TNFRSF13C,EVI2..	L	Gypc* L	0.021556152907792475
+Gypc*	c89461-g1 hs-GYPC,SMAGP,SERTM1,KCNE2,NCMAP,SERTM2,TNFRSF13C,FXY..	M	Gypc* M	0.01113817677911251
+Gypc*	c104615-g4 hs-GYPC,ECSCR,EVI2A,EQTN,CRB3,SPN,GYPA,NPDC1,PRIMA1,S..	N	Gypc* N	0.009987225146898699
+Gypc*	c112745-g1 hs-GYPC,SMAGP,NCMAP,SMIM33,C3orf18,TNFRSF13C,TMEM154,..	O	Gypc* O	0.004598049898034865
+Gypc*	c95979-g1 hs-GYPC,SMAGP,SERTM1,KCNE2,TMEM154,NCMAP,SERTM2,C3orf..	P	Gypc* P	0.003775325767631979
+Gypc*	c95325-g1 hs-GYPC,SMAGP,ECSCR,SERTM1,CRB3,SERTM2	Q	Gypc* Q	0.002143941497419405
+Gypc*	c103864-g4 hs-GYPC	R	Gypc* R	9.492785597599968e-4
+Gypc*	c83670-g1 hs-GYPC,NPDC1,LRRC25,SERTM1,TREML1,CD300LF,DCBLD1	S	Gypc* S	3.1078049177576337e-4
+Gypc*	c77943-g1 hs-GYPC,SERTM2,SERTM1,CRB3,SMAGP,KCNE5,KCNE2,KCNE3,RP..	T	Gypc* T	2.963063864345064e-4
+Gypc*	c98129-g2 hs-GYPC,SMAGP,SERTM2,SERTM1,KCNE2,CRB3,NCMAP,GYPA,C3o..	U	Gypc* U	2.5121315188210875e-4
+Gypc*	c104962-g2 hs-GYPC,SMAGP,NCMAP,FXYD7,SERTM1,SERTM2,FXYD6,SMIM22,..	V	Gypc* V	1.784927317125328e-4
+Gypc*	c89651-g1 hs-GYPC,SMAGP,SERTM2,FXYD2,SERTM1,NCMAP,FXYD7,SMIM22,..	W	Gypc* W	1.5377411453559606e-4
+Gypc*	c95598-g1 hs-GYPC	X	Gypc* X	1.238133002224404e-4
+Gypc*	c86774-g1 hs-GYPC,SERTM1,SMAGP,FXYD7,SERTM2,NCMAP,CRB3,FXYD6,SM..	Y	Gypc* Y	9.881983114920914e-5
+Helz	c102570-g1 HELZ (Helicase with zinc finger) - emapper OG	A	Helz A	0.5245895647559273
+Helz	c104742-g1 HELZ (helicase with zinc finger) - blastp	B	Helz B	0.17467319998675393
+Helz	c101467-g1 HELZ (Helicase with zinc finger) - emapper OG	C	Helz C	0.05495297019103147
+Helz	c104287-g3 HELZ (Helicase with zinc finger) - emapper OG	D	Helz D	0.004989442201008667
+Helz	c101842-g3 HELZ (Helicase with zinc finger) - emapper OG	E	Helz E	0.002278077990310977
+Helz	c104185-g1 HELZ (Helicase with zinc finger) - emapper OG	F	Helz F	0.0021476343203443255
+Helz	c104013-g3 HELZ (Helicase with zinc finger) - emapper OG	G	Helz G	0.002084724472541389
+Helz	c93101-g3 HELZ (Helicase with zinc finger) - emapper OG	H	Helz H	3.323702346344434e-4
+Helz	c101842-g4 HELZ (Helicase with zinc finger) - emapper OG	I	Helz I	2.517296386593481e-4
+Helz	c101842-g1 HELZ (Helicase with zinc finger) - emapper OG	J	Helz J	1.2785286020274375e-4
+Helz	c91226-g1 HELZ (Helicase with zinc finger) - emapper OG	K	Helz K	8.131560911246774e-5
+Helz	c22527-g1 HELZ (Involved in the cellular defense against the biological effects of O6-methylguanine (O6-MeG) i	L	Helz L	3.5852214003279393e-5
+Ido1/2	c90297-g1 3-to-2 IDO1,IDO2 indoleamine 2,3-dioxygenase 1	A	Ido1/2 A	0.015658913684137972
+Ido1/2	c85274-g1 3-to-2 IDO1,IDO2 indoleamine 2,3-dioxygenase 1	B	Ido1/2 B	0.0014889581094881888
+Ido1/2	c80379-g2 3-to-2 IDO1,IDO2 indoleamine 2,3-dioxygenase 1	C	Ido1/2 C	3.123077793823061e-4
+Ifih1	c101586-g1 IFIH1 (box polypeptide 58) - emapper OG	A	Ifih1 A	0.0384191426569515
+Ifih1	c93646-g1 IFIH1 (box polypeptide 58) - emapper OG	B	Ifih1 B	0.031407626902100375
+Ifih1	c88552-g1 IFIH1 (box polypeptide 58) - emapper OG	C	Ifih1 C	0.0018115810313720602
+Ifih1	c95910-g1 IFIH1 (box polypeptide 58) - emapper OG	D	Ifih1 D	4.339184925533278e-4
+Il2*	c88171-g1 hs-IL2	A	Il2* A	0.9691372632587676
+Il2*	c103435-g1 hs-IL2,GUCA2A,GUCA2B	B	Il2* B	0.41333411553017024
+Il2*	c98533-g1 IL2, Vulpes vulpes	C	Il2* C	0.27749358321235
+Il2*	c99835-g1 hs-IL2,CSF2,IL5	D	Il2* D	0.19207695613463832
+Il2*	c102385-g1 hs-IL2	E	Il2* E	0.02398337762837789
+Il2*	c92204-g1 hs-IL2	F	Il2* F	0
+Inter-alpha-trypsin inhibit...	c104421-g2 (Inherit from euNOG: Inter-alpha-trypsin inhibitor heavy chain) - emapper OG	A	Inter-alpha-trypsin inhibit... A	0.47842982025444125
+Inter-alpha-trypsin inhibit...	c104421-g1 (Inherit from euNOG: Inter-alpha-trypsin inhibitor heavy chain) - emapper OG	B	Inter-alpha-trypsin inhibit... B	0.11260199478010706
+Inter-alpha-trypsin inhibit...	c101894-g1 (Inherit from euNOG: Inter-alpha-trypsin inhibitor heavy chain) - emapper OG	C	Inter-alpha-trypsin inhibit... C	0.06131817702808588
+Inter-alpha-trypsin inhibit...	c46855-g1 (Inherit from euNOG: Inter-alpha-trypsin inhibitor heavy chain) - emapper OG	D	Inter-alpha-trypsin inhibit... D	0.059797603292626914
+Inter-alpha-trypsin inhibit...	c107014-g1 (Inherit from euNOG: Inter-alpha-trypsin inhibitor heavy chain) - emapper OG	E	Inter-alpha-trypsin inhibit... E	0.029784807033483258
+Inter-alpha-trypsin inhibit...	c102089-g1 (Inherit from euNOG: Inter-alpha-trypsin inhibitor heavy chain) - emapper OG	F	Inter-alpha-trypsin inhibit... F	0.011605625016736256
+Iqsec1/2/3	c104364-g1 5-to-3 IQSEC2,IQSEC3,IQSEC1 IQ motif and Sec7 domain 2	A	Iqsec1/2/3 A	0.10718306586063596
+Iqsec1/2/3	c91856-g2 2-to-3 IQSEC2,IQSEC3,IQSEC1 IQ motif and Sec7 domain 2	B	Iqsec1/2/3 B	0.07198778046248146
+Iqsec1/2/3	c101940-g2 2-to-3 IQSEC2,IQSEC3,IQSEC1 IQ motif and Sec7 domain 2	C	Iqsec1/2/3 C	0.03296297995608104
+Klhdc2	c104342-g1 5-to-1 KLHDC2 kelch domain containing 2	A	Klhdc2 A	0.18568371387151847
+Klhdc2	c101155-g1 KLHDC2 (kelch domain containing 2) - blastp	B	Klhdc2 B	0.16294110020593178
+Klhdc2	c93839-g1 3-to-1 KLHDC2 kelch domain containing 2	C	Klhdc2 C	0.0037796724664886693
+Lactbl1	c103459-g2 2-to-1 LACTBL1 lactamase beta like 1	A	Lactbl1 A	0.24912083711668626
+Lactbl1	c95641-g1 2-to-1 LACTBL1 lactamase beta like 1	B	Lactbl1 B	0.21242062855818725
+Lactbl1	c102120-g3 LACTBL1 (lactamase, beta-like 1) - emapper OG	C	Lactbl1 C	0.18479702730334135
+Leucine-rich repeat kinase	c103475-g1 (Leucine-rich repeat kinase) - emapper OG	A	Leucine-rich repeat kinase A	0.5047729239079115
+Leucine-rich repeat kinase	c96036-g1 (Leucine-rich repeat kinase) - emapper OG	B	Leucine-rich repeat kinase B	0.0465593151553236
+Leucine-rich repeat kinase	c104497-g10 (Leucine-rich repeat kinase) - emapper OG	C	Leucine-rich repeat kinase C	0.04616353129194104
+Leucine-rich repeat kinase	c100240-g3 (Leucine-rich repeat kinase) - emapper OG	D	Leucine-rich repeat kinase D	0.023280330039294694
+Leucine-rich repeat kinase	c102721-g1 (Leucine-rich repeat kinase) - emapper OG	E	Leucine-rich repeat kinase E	0.016330678257151805
+Leucine-rich repeat kinase	c97717-g1 (Leucine-rich repeat kinase) - emapper OG	F	Leucine-rich repeat kinase F	0.015448243615129382
+Leucine-rich repeat kinase	c104497-g1 (Leucine-rich repeat kinase) - emapper OG	G	Leucine-rich repeat kinase G	0.014598136468508322
+Leucine-rich repeat kinase	c93697-g1 (Leucine-rich repeat kinase) - emapper OG	H	Leucine-rich repeat kinase H	0.007451681824025783
+Leucine-rich repeat kinase	c98425-g2 (Leucine-rich repeat kinase) - emapper OG	I	Leucine-rich repeat kinase I	0.0013643147221063163
+Leucine-rich repeat kinase	c89894-g1 (Leucine-rich repeat kinase) - emapper OG	J	Leucine-rich repeat kinase J	0.0011256480224342252
+Leucine-rich repeat kinase	c104497-g3 (Leucine-rich repeat kinase) - emapper OG	K	Leucine-rich repeat kinase K	5.277860390486072e-4
+Leucine-rich repeat kinase	c85815-g1 (Leucine-rich repeat kinase) - emapper OG	L	Leucine-rich repeat kinase L	2.022103821435771e-4
+Leucine-rich repeat kinase	c98425-g1 (Leucine-rich repeat kinase) - emapper OG	M	Leucine-rich repeat kinase M	1.9903174758859136e-4
+Leucine-rich repeat kinase	c104497-g7 (Leucine-rich repeat kinase) - emapper OG	N	Leucine-rich repeat kinase N	1.701283538203648e-4
+Leucine-rich repeat kinase	c100240-g2 (Leucine-rich repeat kinase) - emapper OG	O	Leucine-rich repeat kinase O	1.2484285025798813e-4
+Lrrk2	c101560-g1 1-to-1 LRRK2 leucine rich repeat kinase 2	A	Lrrk2 A	0.04125931584937581
+Lrrk2	c102713-g1 LRRK2 (leucine-rich repeat kinase 2) - blastp	B	Lrrk2 B	0.04042373191521989
+Lrrk2	c105343-g1 LRRK2 (leucine-rich repeat kinase 2) - blastp	C	Lrrk2 C	0.036943980363957116
+Lrrk2	c101812-g1 LRRK2 (leucine-rich repeat kinase 2) - blastp	D	Lrrk2 D	0.03098445988086444
+Lrrk2	c106990-g1 LRRK2 (leucine-rich repeat kinase 2) - blastp	E	Lrrk2 E	0.020605217553939955
+Lrrk2	c42392-g1 LRRK2 (leucine-rich repeat kinase 2) - blastp	F	Lrrk2 F	0.01318484053499076
+Lrrk2	c104752-g3 LRRK2 (protein kinase kinase kinase) - emapper OG	G	Lrrk2 G	0.0071334705631516905
+Lrrk2	c96636-g1 1-to-1 LRRK2 leucine rich repeat kinase 2	H	Lrrk2 H	0.0038320924346956797
+Lrrk2	c98179-g1 LRRK2 (leucine-rich repeat kinase 2) - blastp	I	Lrrk2 I	8.673490638947748e-4
+Mttp*	c104893-g3 hs-MTTP	A	Mttp* A	0.6632798184212383
+Mttp*	c104639-g2 hs-MTTP	B	Mttp* B	0.11798148061864848
+Mttp*	c104924-g1 hs-MTTP	C	Mttp* C	0.08907503455680378
+Mttp*	c104190-g2 hs-MTTP	D	Mttp* D	0.04340890239507377
+Mttp*	c104468-g1 hs-MTTP	E	Mttp* E	0.011285030732509188
+Nap1l1	c98164-g1 NAP1L1 (nucleosome assembly protein 1-like) - emapper OG	A	Nap1l1 A	1.0582901166456427
+Nap1l1	c98164-g2 NAP1L1 (nucleosome assembly protein 1-like) - emapper OG	B	Nap1l1 B	0.007104577376688713
+Nasp	c93759-g1 1-to-1 NASP nuclear autoantigenic sperm protein	A	Nasp A	0.700540570634411
+Nasp	c94586-g1 1-to-1 NASP nuclear autoantigenic sperm protein	B	Nasp B	0.031979473084712565
+Ncl	c98739-g1 NCL (Nucleolin) - emapper OG	A	Ncl A	0.6273002421359436
+Ncl	c90745-g1 NCL (Nucleolin) - emapper OG	B	Ncl B	0.01051149926450969
+Nfkb1/2	c104698-g3 1-to-2 NFKB1,NFKB2 nuclear factor kappa B subunit 1	A	Nfkb1/2 A	0.28908155203046354
+Nfkb1/2	c104460-g1 1-to-2 NFKB1,NFKB2 nuclear factor kappa B subunit 1	B	Nfkb1/2 B	0.012575097232558001
+Nup155	c100579-g2 1-to-1 NUP155 nucleoporin 155	A	Nup155 A	0.05871042915357061
+Nup155	c97087-g2 1-to-1 NUP155 nucleoporin 155	B	Nup155 B	0.01053457183789159
+Nup98	c103700-g2 1-to-1 NUP98 nucleoporin 98	A	Nup98 A	0.14081719165119294
+Nup98	c103700-g1 1-to-1 NUP98 nucleoporin 98	B	Nup98 B	0.0010556785330358713
+Nvl	c97575-g3 1-to-1 NVL nuclear VCP-like	A	Nvl A	0.03130033173955048
+Nvl	c97575-g2 1-to-1 NVL nuclear VCP-like	B	Nvl B	0.0037031565191718106
+Pik3cg	c102714-g3 1-to-1 PIK3CG phosphatidylinositol-4,5-bisphosphate 3-kinase catalytic subunit gamma	A	Pik3cg A	0.2378607231956397
+Pik3cg	c88339-g1 1-to-1 PIK3CG phosphatidylinositol-4,5-bisphosphate 3-kinase catalytic subunit gamma	B	Pik3cg B	0.002943987052589893
+Pla2g15/Lcat	c100610-g1 6-to-2 PLA2G15,LCAT phospholipase A2 group XV	A	Pla2g15/Lcat A	0.3785548806850688
+Pla2g15/Lcat	c101039-g2 6-to-2 PLA2G15,LCAT phospholipase A2 group XV	B	Pla2g15/Lcat B	0.296765907799107
+Pla2g15/Lcat	c103993-g1 6-to-2 PLA2G15,LCAT phospholipase A2 group XV	C	Pla2g15/Lcat C	0.20781990327342964
+Pla2g15/Lcat	c103531-g4 4-to-2 PLA2G15,LCAT phospholipase A2 group XV	D	Pla2g15/Lcat D	0.0011729771209135914
+Pla2g15/Lcat	c103531-g2 5-to-2 PLA2G15,LCAT phospholipase A2 group XV	E	Pla2g15/Lcat E	0.0010628537718955805
+Pla2g15/Lcat	c86451-g1 5-to-2 PLA2G15,LCAT phospholipase A2 group XV	F	Pla2g15/Lcat F	4.890505287352542e-4
+Pla2g6	c102534-g1 5-to-1 PLA2G6 phospholipase A2 group VI	A	Pla2g6 A	0.26580915788494974
+Pla2g6	c104750-g1 4-to-1 PLA2G6 phospholipase A2 group VI	B	Pla2g6 B	0.2052616203291736
+Pla2g6	c102868-g2 PLA2G6 (phospholipase A2 group VI) - blastp	C	Pla2g6 C	0.18135055174046852
+Pla2g6	c102557-g1 PLA2G6 (phospholipase A2 group VI) - blastp	D	Pla2g6 D	0.07363898685370583
+Pla2g6	c104830-g2 8-to-1 PLA2G6 phospholipase A2 group VI	E	Pla2g6 E	0.06404333241323436
+Pla2g6	c78372-g1 PLA2G6 (Calcium-independent phospholipase) - emapper OG	F	Pla2g6 F	0.049586505547708486
+Pla2g6	c97613-g3 4-to-1 PLA2G6 phospholipase A2 group VI	G	Pla2g6 G	0.0279041550526182
+Pla2g6	c87894-g1 5-to-1 PLA2G6 phospholipase A2 group VI	H	Pla2g6 H	0.02084156190119663
+Pla2g6	c97613-g1 PLA2G6 (Calcium-independent phospholipase) - emapper OG	I	Pla2g6 I	0.0055488665906816064
+Pla2g6	c91234-g1 PLA2G6 (Calcium-independent phospholipase) - emapper OG	J	Pla2g6 J	0.0016118737570956548
+Pla2g6	c97613-g2 PLA2G6 (Calcium-independent phospholipase) - emapper OG	K	Pla2g6 K	7.018593186917766e-4
+Pla2g6	c39489-g1 PLA2G6 (Calcium-independent phospholipase) - emapper OG	L	Pla2g6 L	4.840555326505835e-4
+Plaat3*	c87833-g1 hs-PLAAT3,PLAAT2,PLAAT1,PLAAT4,LRAT	A	Plaat3* A	0.28668142927959905
+Plaat3*	c104224-g1 hs-PLAAT3,LRAT,PLAAT2,PLAAT1,DESI1,PLAAT4,MKRN2OS	B	Plaat3* B	0.10528725374541813
+Plek	c100831-g1 PLEK (pleckstrin) - blastp	A	Plek A	0.5869361116224661
+Plek	c99454-g1 PLEK (Pleckstrin) - emapper OG	B	Plek B	0.5480559671398244
+Plekhg1	c100272-g1 PLEKHG1 (Pleckstrin homology domain containing, family G (With RhoGef domain) member 1) - emapper O	A	Plekhg1 A	0.004191481404152771
+Plekhg1	c102366-g1 PLEKHG1 (Pleckstrin homology domain containing, family G (With RhoGef domain) member 1) - emapper O	B	Plekhg1 B	0.002686340316397142
+Plekhg1	c98514-g1 PLEKHG1 (pleckstrin homology domain containing, family G (with RhoGef domain) member) - emapper OG	C	Plekhg1 C	0.0026096586072865374
+Ppp1r9a	c103269-g1 PPP1R9A (protein phosphatase 1 regulatory subunit 9A) - blastp	A	Ppp1r9a A	0.0722638732544184
+Ppp1r9a	c103269-g2 PPP1R9A (Protein phosphatase 1, regulatory subunit) - emapper OG	B	Ppp1r9a B	0.023530445848198772
+Ppp1r9a	c98068-g1 1-to-1 PPP1R9A protein phosphatase 1 regulatory subunit 9A	C	Ppp1r9a C	0.01738529935059013
+Ptpn13	c102046-g1 PTPN13 (protein tyrosine phosphatase, non-receptor type 13 (APO-1 CD95 (Fas)-associated phosphatase	A	Ptpn13 A	0.0036188124944477
+Ptpn13	c94893-g3 PTPN13 (protein tyrosine phosphatase, non-receptor type 13 (APO-1/CD95 (Fas)-associated phosphatase)	B	Ptpn13 B	0.0017715701087444987
+Riok3	c103267-g1 1-to-1 RIOK3 RIO kinase 3	A	Riok3 A	0.15529609058876334
+Riok3	c103267-g4 1-to-1 RIOK3 RIO kinase 3	B	Riok3 B	0.06446839172472853
+Rnf213	c102358-g1 RNF213 (ring finger protein 213) - blastp	A	Rnf213 A	0.11536362570192489
+Rnf213	c105143-g1 8-to-1 RNF213 ring finger protein 213	AA	Rnf213 AA	2.583935348976509e-4
+Rnf213	c106214-g1 7-to-1 RNF213 ring finger protein 213	AB	Rnf213 AB	0.00023208453320970084
+Rnf213	c40293-g2 6-to-1 RNF213 ring finger protein 213	AC	Rnf213 AC	1.0906642582851578e-4
+Rnf213	c93143-g2 RNF213 (Ring finger protein 213) - emapper OG	AD	Rnf213 AD	8.76244562145077e-5
+Rnf213	c80194-g1 7-to-1 RNF213 ring finger protein 213	AE	Rnf213 AE	2.6848642175276444e-5
+Rnf213	c18379-g1 8-to-1 RNF213 ring finger protein 213	AF	Rnf213 AF	0
+Rnf213	c99451-g7 8-to-1 RNF213 ring finger protein 213	AG	Rnf213 AG	0
+Rnf213	c103788-g2 7-to-1 RNF213 ring finger protein 213	B	Rnf213 B	0.10524087271582112
+Rnf213	c100673-g4 6-to-1 RNF213 ring finger protein 213	C	Rnf213 C	0.08641765960406042
+Rnf213	c100052-g1 RNF213 (ring finger protein 213) - blastp	D	Rnf213 D	0.07408352674292244
+Rnf213	c104883-g1 6-to-1 RNF213 ring finger protein 213	E	Rnf213 E	0.03607985599246691
+Rnf213	c102678-g1 5-to-1 RNF213 ring finger protein 213	F	Rnf213 F	0.030868268085066954
+Rnf213	c103893-g1 6-to-1 RNF213 ring finger protein 213	G	Rnf213 G	0.024501622982612353
+Rnf213	c104540-g1 3-to-1 RNF213 ring finger protein 213	H	Rnf213 H	0.016992499306798588
+Rnf213	c100270-g2 RNF213 (Ring finger protein 213) - emapper OG	I	Rnf213 I	0.01466491842261059
+Rnf213	c107702-g1 5-to-1 RNF213 ring finger protein 213	J	Rnf213 J	0.013313427229906359
+Rnf213	c104540-g3 RNF213 (Ring finger protein 213) - emapper OG	K	Rnf213 K	0.007065636004555346
+Rnf213	c100673-g2 8-to-1 RNF213 ring finger protein 213	L	Rnf213 L	0.006720036538896183
+Rnf213	c93143-g3 RNF213 (Ring finger protein 213) - emapper OG	M	Rnf213 M	0.0029079004945889043
+Rnf213	c100673-g3 7-to-1 RNF213 ring finger protein 213	N	Rnf213 N	0.0015599698562412537
+Rnf213	c100673-g6 5-to-1 RNF213 ring finger protein 213	O	Rnf213 O	0.0012318441763463149
+Rnf213	c93143-g4 5-to-1 RNF213 ring finger protein 213	P	Rnf213 P	7.734976242880855e-4
+Rnf213	c100270-g3 4-to-1 RNF213 ring finger protein 213	Q	Rnf213 Q	6.726831599980067e-4
+Rnf213	c96402-g2 6-to-1 RNF213 ring finger protein 213	R	Rnf213 R	6.326810619312116e-4
+Rnf213	c102594-g3 7-to-1 RNF213 ring finger protein 213	S	Rnf213 S	6.00352749789517e-4
+Rnf213	c105075-g1 6-to-1 RNF213 ring finger protein 213	T	Rnf213 T	5.500738369960132e-4
+Rnf213	c78982-g1 7-to-1 RNF213 ring finger protein 213	U	Rnf213 U	4.95889044139814e-4
+Rnf213	c93143-g6 7-to-1 RNF213 ring finger protein 213	V	Rnf213 V	4.702655563032933e-4
+Rnf213	c94017-g2 7-to-1 RNF213 ring finger protein 213	W	Rnf213 W	4.4090056626835787e-4
+Rnf213	c103891-g5 7-to-1 RNF213 ring finger protein 213	X	Rnf213 X	3.847184518807261e-4
+Rnf213	c94017-g1 6-to-1 RNF213 ring finger protein 213	Y	Rnf213 Y	3.4325219245113077e-4
+Rnf213	c93143-g5 RNF213 (Ring finger protein) - emapper OG	Z	Rnf213 Z	3.3227484745037276e-4
+Rpl4	c104433-g6 RPL4 (Ribosomal protein L4) - emapper OG	A	Rpl4 A	2.0710352092137043
+Rpl4	c104433-g3 RPL4 (Ribosomal protein L4) - emapper OG	B	Rpl4 B	0.06341544463430308
+Rpl4	c104433-g7 RPL4 (Ribosomal protein L4) - emapper OG	C	Rpl4 C	0.016037198106857567
+Scp*	c89980-g2 SCP, Saimiriine herpesvirus 2 (strain 11)	A	Scp* A	0.0019261610244082532
+Scp*	c100053-g1 SCP, Saimiriine herpesvirus 2 (strain 11)	B	Scp* B	0.0010266815373524247
+Scp*	c81166-g1 SCP, Saimiriine herpesvirus 2 (strain 11)	C	Scp* C	4.237249596341159e-4
+Scp*	c104055-g2 SCP, Lymnaea stagnalis	D	Scp* D	4.120388743759717e-4
+Sh2d6*	c100926-g1 hs-SH2D6,SOCS1	A	Sh2d6* A	0.48883299298241
+Sh2d6*	c99043-g1 hs-SH2D6,SOCS1	B	Sh2d6* B	0.2576314623261398
+Sh2d6*	c92112-g1 hs-SH2D6,SOCS1	C	Sh2d6* C	0.13298911610749078
+Sh2d6*	c111555-g1 hs-SH2D6,SOCS1	D	Sh2d6* D	0.03859830879020735
+Sh2d6*	c96458-g1 hs-SH2D6,SOCS2,SOCS1	E	Sh2d6* E	0.025668979064453912
+Sh2d6*	c88208-g1 hs-SH2D6,SOCS1	F	Sh2d6* F	0.023877717253692258
+Skiv2l2	c104349-g1 1-to-1 SKIV2L2 Ski2 like RNA helicase 2	A	Skiv2l2 A	0.05622938762092539
+Skiv2l2	c104349-g4 1-to-1 SKIV2L2 Ski2 like RNA helicase 2	B	Skiv2l2 B	0.0013009397813140717
+Slc25a2/15	c94480-g1 3-to-2 SLC25A2,SLC25A15 solute carrier family 25 member 2	A	Slc25a2/15 A	1.185846172302425
+Slc25a2/15	c100691-g1 3-to-2 SLC25A2,SLC25A15 solute carrier family 25 member 2	B	Slc25a2/15 B	0.17686342404246372
+Slc25a2/15	c99214-g1 3-to-2 SLC25A2,SLC25A15 solute carrier family 25 member 2	C	Slc25a2/15 C	0.15340570013945762
+Thioredoxin	c40427-g1 (Thioredoxin) - emapper OG	A	Thioredoxin A	2.1119553701312754
+Thioredoxin	c102920-g2 (Inherit from COG: Thioredoxin) - emapper OG	B	Thioredoxin B	0.4644449103307094
+Thioredoxin	c97130-g1 (Thioredoxin) - emapper OG	C	Thioredoxin C	0.29861948294663065
+Thioredoxin	c95674-g1 (Inherit from COG: Thioredoxin) - emapper OG	D	Thioredoxin D	0.11471999238184301
+Thioredoxin	c101924-g1 (Inherit from COG: Thioredoxin) - emapper OG	E	Thioredoxin E	0.08451922123552556
+Thioredoxin	c85388-g1 (Inherit from COG: Thioredoxin) - emapper OG	F	Thioredoxin F	0.07445821922094358
+Thioredoxin	c97312-g1 (Inherit from COG: Thioredoxin) - emapper OG	G	Thioredoxin G	0.058182647031718784
+Thioredoxin	c96752-g2 (Inherit from COG: Thioredoxin) - emapper OG	H	Thioredoxin H	0.04422720720241259
+Thioredoxin	c102386-g1 (Inherit from COG: Thioredoxin) - emapper OG	I	Thioredoxin I	0.04118662307019542
+Thioredoxin	c103155-g2 (Inherit from COG: Thioredoxin) - emapper OG	J	Thioredoxin J	0.04014444179307484
+Thioredoxin	c113699-g1 (Thioredoxin) - emapper OG	K	Thioredoxin K	0.011237704590427765
+Thioredoxin	c102794-g1 (Inherit from COG: Thioredoxin) - emapper OG	L	Thioredoxin L	0.005839640592208643
+Thioredoxin	c107300-g1 (Inherit from COG: Thioredoxin) - emapper OG	M	Thioredoxin M	0.0036619040175502513
+Thioredoxin	c88239-g1 (Inherit from COG: Thioredoxin) - emapper OG	N	Thioredoxin N	0.003588661058725844
+Tmem116*	c97180-g1 hs-TMEM116	A	Tmem116* A	0.0964053336176287
+Tmem116*	c94264-g1 hs-TMEM116,GNRHR2	B	Tmem116* B	0.08961222598442678
+Tmem116*	c85820-g1 hs-TMEM116,GNRHR2	C	Tmem116* C	0.08565996422508157
+Tmem116*	c80445-g1 hs-TMEM116,GNRHR2	D	Tmem116* D	0.08007986209595327
+Tmem116*	c84328-g2 hs-TMEM116	E	Tmem116* E	0.06040518370183395
+Tmem116*	c90233-g1 hs-TMEM116	F	Tmem116* F	0.02920569439900531
+Tmem116*	c93744-g2 hs-TMEM116,GJB1	G	Tmem116* G	0.029052255036572047
+Tmem116*	c86618-g2 hs-TMEM116	H	Tmem116* H	0.020170775994348723
+Tmem116*	c94803-g1 hs-TMEM116	I	Tmem116* I	0.01842507621426726
+Tmem116*	c86637-g1 hs-TMEM116	J	Tmem116* J	0.017545914239241938
+Tmem116*	c112973-g1 hs-TMEM116	K	Tmem116* K	0.016761822243932096
+Tmem116*	c96820-g1 hs-TMEM116	L	Tmem116* L	0.016533594336141013
+Tmem116*	c78392-g1 hs-TMEM116	M	Tmem116* M	0.008911541655902718
+Tmem116*	c99107-g1 hs-TMEM116,ADGRA1	N	Tmem116* N	0.0065596590569333485
+Tmem116*	c91820-g1 hs-TMEM116	O	Tmem116* O	0.004291134999299229
+Tmem116*	c92337-g1 hs-TMEM116	P	Tmem116* P	0.0017662177178908488
+Tmem91*	c102641-g3 hs-TMEM91,PRRT1,TRARG1,PRRT1B,SYNDIG1,PMIS2	A	Tmem91* A	0.43185743628333617
+Tmem91*	c99981-g1 hs-TMEM91,TRARG1,IFITM2,IFITM3,MDFIC2	B	Tmem91* B	0.20151482926883962
+Tmem91*	c98172-g1 hs-TMEM91,PMIS2,TRARG1,IFITM2,IFITM3	C	Tmem91* C	0.136508116226621
+Tmem91*	c100011-g2 hs-TMEM91,IFITM3,IFITM2,PMIS2,TRARG1	D	Tmem91* D	0.10070782888392536
+Tmem91*	c77405-g1 hs-TMEM91	E	Tmem91* E	0.0524477214988051
+Tmem91*	c81005-g1 hs-TMEM91,IFITM2,IFITM3,NDFIP1,PMIS2	F	Tmem91* F	0.00647785891126796
+Traf2	c104149-g1 4-to-1 TRAF2 TNF receptor associated factor 2	A	Traf2 A	1.0614222446677009
+Traf2	c95451-g1 2-to-1 TRAF2 TNF receptor associated factor 2	B	Traf2 B	0.6420374794997473
+Traf2	c102973-g1 1-to-1 TRAF2 TNF receptor associated factor 2	C	Traf2 C	0.4386698889567742
+Traf3	c99198-g1 3-to-1 TRAF3 TNF receptor associated factor 3	A	Traf3 A	0.4891984658701908
+Traf3	c103293-g2 TRAF3 (TNF receptor-associated factor) - emapper OG	B	Traf3 B	0.22487843214126313
+Traf3	c100230-g1 TRAF3 (TNF receptor-associated factor) - emapper OG	C	Traf3 C	0.0032575473692967047
+Traf3	c104751-g4 TRAF3 (TNF receptor-associated factor) - emapper OG	D	Traf3 D	6.021012457451214e-4
+Traf3	c99347-g2 TRAF3 (TNF receptor-associated factor) - emapper OG	E	Traf3 E	5.971141381650505e-4
+Traf3	c94685-g1 TRAF3 (TNF receptor-associated factor) - emapper OG	F	Traf3 F	1.875265861684576e-4
+Traf3	c104751-g2 5-to-1 TRAF3 TNF receptor associated factor 3	G	Traf3 G	1.1956428589527559e-4
+Transient receptor potentia...	c104960-g2 (Transient receptor potential cation channel subfamily A member) - emapper OG	A	Transient receptor potentia... A	0.1410282427296676
+Transient receptor potentia...	c104809-g4 (Transient receptor potential cation channel subfamily A member) - emapper OG	B	Transient receptor potentia... B	0.033328100942873674
+Transient receptor potentia...	c103000-g2 (Transient receptor potential cation channel subfamily A member) - emapper OG	C	Transient receptor potentia... C	0.03245697204380315
+Transient receptor potentia...	c104308-g2 (Transient receptor potential cation channel subfamily A member) - emapper OG	D	Transient receptor potentia... D	0.031139635479614673
+Transient receptor potentia...	c100233-g2 (Inherit from KOG: Transient receptor potential cation channel subfamily A member) - emapper OG	E	Transient receptor potentia... E	0.028602483761327454
+Transient receptor potentia...	c85380-g1 (Transient receptor potential cation channel subfamily A member) - emapper OG	F	Transient receptor potentia... F	0.018594983635195014
+Transient receptor potentia...	c102145-g4 (Inherit from KOG: Transient receptor potential cation channel subfamily A member) - emapper OG	G	Transient receptor potentia... G	0.015851540652431186
+Transient receptor potentia...	c104919-g1 (Transient receptor potential cation channel subfamily A member) - emapper OG	H	Transient receptor potentia... H	0.014577058145908811
+Transient receptor potentia...	c102145-g2 (Inherit from KOG: Transient receptor potential cation channel subfamily A member) - emapper OG	I	Transient receptor potentia... I	0.010406770513770284
+Transient receptor potentia...	c104308-g3 (Transient receptor potential cation channel subfamily A member) - emapper OG	J	Transient receptor potentia... J	0.00628521724127135
+Transient receptor potentia...	c100056-g2 (Inherit from KOG: Transient receptor potential cation channel subfamily A member) - emapper OG	K	Transient receptor potentia... K	0.002299539445996032
+Transient receptor potentia...	c82702-g1 (Transient receptor potential cation channel subfamily A member) - emapper OG	L	Transient receptor potentia... L	6.592653681719881e-4
+Transient receptor potentia...	c80674-g1 (Transient receptor potential cation channel subfamily A member) - emapper OG	M	Transient receptor potentia... M	3.7229510657133756e-4
+Transient receptor potentia...	c93105-g1 (Transient receptor potential cation channel subfamily A member) - emapper OG	N	Transient receptor potentia... N	0
+Transient receptor potentia...	c95778-g2 (Transient receptor potential cation channel subfamily A member) - emapper OG	O	Transient receptor potentia... O	0
+Trim2	c102776-g1 TRIM2 (Inherit from KOG: listerin E3 ubiquitin protein ligase 1) - emapper OG	A	Trim2 A	0.3537527000610993
+Trim2	c102291-g1 TRIM2 (Inherit from KOG: listerin E3 ubiquitin protein ligase 1) - emapper OG	B	Trim2 B	0.12582952209937914
+Trim2	c95684-g1 TRIM2 (Inherit from KOG: listerin E3 ubiquitin protein ligase 1) - emapper OG	C	Trim2 C	0.08110162331215816
+Trim2	c100908-g3 2-to-1 TRIM2 tripartite motif containing 2	D	Trim2 D	0.06068956272877687
+Trim2	c87469-g1 TRIM2 (tripartite motif containing 2) - blastp	E	Trim2 E	0.05852513019323627
+Trim2	c88097-g1 TRIM2 (Inherit from KOG: listerin E3 ubiquitin protein ligase 1) - emapper OG	F	Trim2 F	0.04420698159994968
+Trim2	c84043-g1 TRIM2 (Inherit from KOG: listerin E3 ubiquitin protein ligase 1) - emapper OG	G	Trim2 G	0.02805713954111637
+Trim2	c101769-g1 TRIM2 (Inherit from KOG: listerin E3 ubiquitin protein ligase 1) - emapper OG	H	Trim2 H	0.023710771935845913
+Trim2	c104598-g1 TRIM2 (tripartite motif containing 2) - blastp	I	Trim2 I	0.0225179904295413
+Trim2	c93040-g1 TRIM2 (tripartite motif containing 2) - emapper OG	J	Trim2 J	0.0026385742642076335
+Trim2	c112860-g1 TRIM2 (tripartite motif containing 2) - blastp	K	Trim2 K	0.001505990619626414
+Trim2	c78039-g1 TRIM2 (tripartite motif containing 2) - emapper OG	L	Trim2 L	8.869117958336456e-4
+Trim2	c37032-g1 TRIM2 (Inherit from KOG: listerin E3 ubiquitin protein ligase 1) - emapper OG	M	Trim2 M	4.2921968297234935e-4
+Trio	c104184-g2 1-to-1 TRIO trio Rho guanine nucleotide exchange factor	A	Trio A	0.13786462787387763
+Trio	c104706-g1 1-to-1 TRIO trio Rho guanine nucleotide exchange factor	B	Trio B	0.007343300430095489
+Trip11	c96119-g1 1-to-1 TRIP11 thyroid hormone receptor interactor 11	A	Trip11 A	0.16503886974199647
+Trip11	c99815-g1 1-to-1 TRIP11 thyroid hormone receptor interactor 11	B	Trip11 B	0.01765646553416548
+Ttf2	c100388-g1 1-to-1 TTF2 transcription termination factor 2	A	Ttf2 A	0.04950248005138792
+Ttf2	c88486-g1 1-to-1 TTF2 transcription termination factor 2	B	Ttf2 B	0.01649038239326971
+Unc13d/Baiap3	c102769-g1 6-to-2 UNC13D,BAIAP3 unc-13 homolog D	A	Unc13d/Baiap3 A	0.15752103325196706
+Unc13d/Baiap3	c103778-g3 8-to-2 UNC13D,BAIAP3 unc-13 homolog D	B	Unc13d/Baiap3 B	0.05385718718129751
+Unc13d/Baiap3	c101369-g1 4-to-2 UNC13D,BAIAP3 unc-13 homolog D	C	Unc13d/Baiap3 C	0.04728750550292748
+Unc13d/Baiap3	c94634-g1 9-to-2 UNC13D,BAIAP3 unc-13 homolog D	D	Unc13d/Baiap3 D	0.028207224335059924
+Unc13d/Baiap3	c102520-g4 12-to-2 UNC13D,BAIAP3 unc-13 homolog D	E	Unc13d/Baiap3 E	0.01397414682419464
+Unc13d/Baiap3	c102708-g1 13-to-2 UNC13D,BAIAP3 unc-13 homolog D	F	Unc13d/Baiap3 F	9.319583315118545e-4
+Usp4	c100116-g1 USP4 (ubiquitin specific peptidase) - emapper OG	A	Usp4 A	0.10876159232629312
+Usp4	c41298-g1 USP4 (ubiquitin specific peptidase 4 (proto-oncogene)) - blastp	B	Usp4 B	0.042332427146030326
+Usp4	c93848-g1 1-to-1 USP4 ubiquitin specific peptidase 4	C	Usp4 C	0.0036420479006448437
+Utp20	c99463-g1 1-to-1 UTP20 UTP20, small subunit processome component	A	Utp20 A	0.04555044747548069
+Utp20	c94291-g2 1-to-1 UTP20 UTP20, small subunit processome component	B	Utp20 B	0.004161534944059213
+Uts2b*	c103071-g3 hs-UTS2B,PYY3,GHRL,SST,PTH,C5orf46	A	Uts2b* A	0.0016957854324694578
+Uts2b*	c99138-g1 hs-UTS2B,NPPC,CCK,GAST,NPY,VIP,PYY	B	Uts2b* B	6.80038509470905e-4
+Uts2b*	c109014-g1 hs-UTS2B,SST,C3orf85	C	Uts2b* C	0
+Virma	c104717-g3 1-to-1 VIRMA vir like m6A methyltransferase associated	A	Virma A	0.07524999081274197
+Virma	c104717-g2 1-to-1 VIRMA vir like m6A methyltransferase associated	B	Virma B	0.004335840842616385
+Vwa5b1/2	c104926-g1 3-to-2 VWA5B1,VWA5B2 von Willebrand factor A domain containing 5B1	A	Vwa5b1/2 A	0.5600569126347131
+Vwa5b1/2	c102410-g1 3-to-2 VWA5B1,VWA5B2 von Willebrand factor A domain containing 5B1	B	Vwa5b1/2 B	0.1634723720681956
+Wars	c101014-g2 2-to-1 WARS tryptophanyl-tRNA synthetase	A	Wars A	0.7840719625094063
+Wars	c103838-g4 2-to-1 WARS tryptophanyl-tRNA synthetase	B	Wars B	0.21375555027249474
+Zg16*	c97705-g1 hs-ZG16,ZG16B	A	Zg16* A	0.8498887291674225
+Zg16*	c85305-g1 hs-ZG16	B	Zg16* B	0.032188903995895836
+Zg16*	c100020-g1 hs-ZG16	C	Zg16* C	0.006179859009311424
+Zg16*	c51345-g1 hs-ZG16	D	Zg16* D	2.064437820221795e-5
+Zg16*	c100167-g1 hs-ZG16,ZG16B	E	Zg16* E	0
+a.k.a. RRM, RBD, or RNP domain	c95711-g2 (RNA recognition motif. (a.k.a. RRM, RBD, or RNP domain)) - emapper OG	A	a.k.a. RRM, RBD, or RNP domain A	0.6253690649272405
+a.k.a. RRM, RBD, or RNP domain	c79365-g1 (RNA recognition motif. (a.k.a. RRM, RBD, or RNP domain)) - emapper OG	B	a.k.a. RRM, RBD, or RNP domain B	0.006255577838289009
+chitin synthase	c104626-g2 (chitin synthase) - emapper OG	A	chitin synthase A	0.022866532997043172
+chitin synthase	c100476-g2 (chitin synthase) - emapper OG	B	chitin synthase B	0.009669297178936961
+chitin synthase	c102134-g4 (chitin synthase) - emapper OG	C	chitin synthase C	0.007429039897229207
+chitin synthase	c100476-g3 (chitin synthase) - emapper OG	D	chitin synthase D	0.004909095095209732
+chitin synthase	c104267-g2 (chitin synthase) - emapper OG	E	chitin synthase E	0.0034947245032158846
+chitin synthase	c102134-g1 (chitin synthase) - emapper OG	F	chitin synthase F	0.0012889742850868528
+chitin synthase	c100188-g2 (chitin synthase) - emapper OG	G	chitin synthase G	7.546560784345665e-4
+chitin synthase	c80825-g1 (chitin synthase) - emapper OG	H	chitin synthase H	7.189866737355607e-4
+chitin synthase	c102134-g3 (chitin synthase) - emapper OG	I	chitin synthase I	6.44648416341585e-4
+chitin synthase	c104626-g6 (chitin synthase) - emapper OG	J	chitin synthase J	2.9281720309101396e-4
+chitin synthase	c104626-g1 (chitin synthase) - emapper OG	K	chitin synthase K	2.120544615672919e-4
+chitin synthase	c104626-g7 (chitin synthase) - emapper OG	L	chitin synthase L	9.147412211790174e-5
+chitin synthase	c104267-g3 (chitin synthase) - emapper OG	M	chitin synthase M	0
+chitin synthase	c104626-g4 (chitin synthase) - emapper OG	N	chitin synthase N	0
+glycine-rich RNA binding pr...	c90745-g2 (Inherit from opiNOG: glycine-rich RNA binding protein) - emapper OG	A	glycine-rich RNA binding pr... A	2.4857944829735743
+glycine-rich RNA binding pr...	c96925-g1 (Inherit from opiNOG: glycine-rich RNA binding protein) - emapper OG	B	glycine-rich RNA binding pr... B	0.7587384643462476
+latent transforming growth ...	c99674-g1 (latent transforming growth factor beta binding protein 2) - emapper OG	A	latent transforming growth ... A	0.03171754482498232
+latent transforming growth ...	c95767-g1 (latent transforming growth factor beta binding protein 2) - emapper OG	B	latent transforming growth ... B	0.02913077656304259
+latent transforming growth ...	c100333-g1 (latent transforming growth factor beta binding protein 2) - emapper OG	C	latent transforming growth ... C	0.027534447773718274
+latent transforming growth ...	c104844-g1 (latent transforming growth factor beta binding protein 2) - emapper OG	D	latent transforming growth ... D	0.010189534210035413
+latent transforming growth ...	c97065-g1 (latent transforming growth factor beta binding protein 2) - emapper OG	E	latent transforming growth ... E	0.007736815120418642
+latent transforming growth ...	c103286-g1 (latent transforming growth factor beta binding protein 2) - emapper OG	F	latent transforming growth ... F	0.007435140992389197
+latent transforming growth ...	c103410-g1 (latent transforming growth factor beta binding protein 2) - emapper OG	G	latent transforming growth ... G	0.007314833311730108
+latent transforming growth ...	c97617-g1 (latent transforming growth factor beta binding protein 2) - emapper OG	H	latent transforming growth ... H	0.0060853550180553755
+latent transforming growth ...	c104290-g3 (latent transforming growth factor beta binding protein 2) - emapper OG	I	latent transforming growth ... I	0.0034197444220079613
+latent transforming growth ...	c101439-g3 (latent transforming growth factor beta binding protein 2) - emapper OG	J	latent transforming growth ... J	0.0015368990072272505
+latent transforming growth ...	c95453-g1 (latent transforming growth factor beta binding protein 2) - emapper OG	K	latent transforming growth ... K	6.668947204201511e-4
+latent transforming growth ...	c96142-g1 (latent transforming growth factor beta binding protein 2) - emapper OG	L	latent transforming growth ... L	6.366427078773546e-4
+latent transforming growth ...	c97955-g2 (latent transforming growth factor beta binding protein 2) - emapper OG	M	latent transforming growth ... M	3.811112775264505e-4
+latent transforming growth ...	c97989-g1 (latent transforming growth factor beta binding protein 2) - emapper OG	N	latent transforming growth ... N	3.742732060701134e-4
+latent transforming growth ...	c101296-g5 (latent transforming growth factor beta binding protein 2) - emapper OG	O	latent transforming growth ... O	2.469329664016893e-4
+latent transforming growth ...	c100547-g2 (latent transforming growth factor beta binding protein 2) - emapper OG	P	latent transforming growth ... P	9.386358471166342e-5
+latent transforming growth ...	c101296-g8 (latent transforming growth factor beta binding protein 2) - emapper OG	Q	latent transforming growth ... Q	7.523412488948067e-5
+latent transforming growth ...	c101296-g1 (latent transforming growth factor beta binding protein 2) - emapper OG	R	latent transforming growth ... R	0
+latent transforming growth ...	c101296-g6 (latent transforming growth factor beta binding protein 2) - emapper OG	S	latent transforming growth ... S	0
+latent transforming growth ...	c101439-g4 (latent transforming growth factor beta binding protein 2) - emapper OG	T	latent transforming growth ... T	0
+morphogenesis of an epithelium	c104948-g3 (morphogenesis of an epithelium) - emapper OG	A	morphogenesis of an epithelium A	0.17388431006607527
+morphogenesis of an epithelium	c103805-g1 (morphogenesis of an epithelium) - emapper OG	B	morphogenesis of an epithelium B	0.15168881315407376
+morphogenesis of an epithelium	c103980-g5 (morphogenesis of an epithelium) - emapper OG	C	morphogenesis of an epithelium C	0.08332297034404745
+morphogenesis of an epithelium	c104275-g3 (morphogenesis of an epithelium) - emapper OG	D	morphogenesis of an epithelium D	0.07481035604257055
+morphogenesis of an epithelium	c98099-g1 (morphogenesis of an epithelium) - emapper OG	E	morphogenesis of an epithelium E	0.026967109471967236
+morphogenesis of an epithelium	c104948-g1 (morphogenesis of an epithelium) - emapper OG	F	morphogenesis of an epithelium F	0.01025683922578242
+morphogenesis of an epithelium	c104275-g4 (morphogenesis of an epithelium) - emapper OG	G	morphogenesis of an epithelium G	0.00834370530291068
+morphogenesis of an epithelium	c104948-g2 (morphogenesis of an epithelium) - emapper OG	H	morphogenesis of an epithelium H	0.004880961978365262
+morphogenesis of an epithelium	c103908-g4 (morphogenesis of an epithelium) - emapper OG	I	morphogenesis of an epithelium I	0.004813454910466167
+morphogenesis of an epithelium	c87842-g1 (morphogenesis of an epithelium) - emapper OG	J	morphogenesis of an epithelium J	0.0029632244414466513
+morphogenesis of an epithelium	c104275-g2 (morphogenesis of an epithelium) - emapper OG	K	morphogenesis of an epithelium K	0.0016066037870577348
+morphogenesis of an epithelium	c104701-g1 (morphogenesis of an epithelium) - emapper OG	L	morphogenesis of an epithelium L	0.001316523523824884
+morphogenesis of an epithelium	c103908-g1 (morphogenesis of an epithelium) - emapper OG	M	morphogenesis of an epithelium M	0.0011094255990758755
+morphogenesis of an epithelium	c5245-g1 (morphogenesis of an epithelium) - emapper OG	N	morphogenesis of an epithelium N	7.92718187833903e-4
+morphogenesis of an epithelium	c94460-g2 (morphogenesis of an epithelium) - emapper OG	O	morphogenesis of an epithelium O	6.339663257085732e-4
+morphogenesis of an epithelium	c94460-g1 (morphogenesis of an epithelium) - emapper OG	P	morphogenesis of an epithelium P	5.201611222665672e-4
+morphogenesis of an epithelium	c104701-g4 (morphogenesis of an epithelium) - emapper OG	Q	morphogenesis of an epithelium Q	2.1636995526822864e-4
+morphogenesis of an epithelium	c104275-g5 (morphogenesis of an epithelium) - emapper OG	R	morphogenesis of an epithelium R	1.0236926453528475e-4
+morphogenesis of an epithelium	c104275-g6 (morphogenesis of an epithelium) - emapper OG	S	morphogenesis of an epithelium S	3.226658980711579e-5
+morphogenesis of an epithelium	c104275-g1 (morphogenesis of an epithelium) - emapper OG	T	morphogenesis of an epithelium T	2.848461542648437e-5
+morphogenesis of an epithelium	c107565-g1 (morphogenesis of an epithelium) - emapper OG	U	morphogenesis of an epithelium U	0
+morphogenesis of an epithelium	c26396-g1 (morphogenesis of an epithelium) - emapper OG	V	morphogenesis of an epithelium V	0
+multicellular organismal de...	c103418-g1 (multicellular organismal development) - emapper OG	A	multicellular organismal de... A	0.14743650706549713
+multicellular organismal de...	c54157-g1 (multicellular organismal development) - emapper OG	AA	multicellular organismal de... AA	1.1269125893737702e-4
+multicellular organismal de...	c104713-g1 (multicellular organismal development) - emapper OG	AB	multicellular organismal de... AB	9.43272049834474e-5
+multicellular organismal de...	c96172-g1 (multicellular organismal development) - emapper OG	AC	multicellular organismal de... AC	8.964446738196117e-5
+multicellular organismal de...	c79946-g1 (multicellular organismal development) - emapper OG	AD	multicellular organismal de... AD	6.493874344182298e-5
+multicellular organismal de...	c85270-g1 (multicellular organismal development) - emapper OG	AE	multicellular organismal de... AE	6.303130109040403e-5
+multicellular organismal de...	c94802-g1 (multicellular organismal development) - emapper OG	AF	multicellular organismal de... AF	5.757693801590763e-5
+multicellular organismal de...	c81497-g1 (multicellular organismal development) - emapper OG	AG	multicellular organismal de... AG	5.519813497462046e-5
+multicellular organismal de...	c78078-g1 (multicellular organismal development) - emapper OG	AH	multicellular organismal de... AH	5.2402975853360356e-5
+multicellular organismal de...	c84935-g2 (multicellular organismal development) - emapper OG	AI	multicellular organismal de... AI	4.745335530660453e-5
+multicellular organismal de...	c107366-g1 (multicellular organismal development) - emapper OG	AJ	multicellular organismal de... AJ	0
+multicellular organismal de...	c32374-g1 (multicellular organismal development) - emapper OG	AK	multicellular organismal de... AK	0
+multicellular organismal de...	c38015-g1 (multicellular organismal development) - emapper OG	AL	multicellular organismal de... AL	0
+multicellular organismal de...	c84238-g1 (multicellular organismal development) - emapper OG	AM	multicellular organismal de... AM	0
+multicellular organismal de...	c90427-g2 (multicellular organismal development) - emapper OG	AN	multicellular organismal de... AN	0
+multicellular organismal de...	c90970-g1 (multicellular organismal development) - emapper OG	AO	multicellular organismal de... AO	0
+multicellular organismal de...	c94611-g1 (multicellular organismal development) - emapper OG	AP	multicellular organismal de... AP	0
+multicellular organismal de...	c104923-g1 (multicellular organismal development) - emapper OG	B	multicellular organismal de... B	0.09704920743972725
+multicellular organismal de...	c104713-g2 (multicellular organismal development) - emapper OG	C	multicellular organismal de... C	0.02918080475941969
+multicellular organismal de...	c104743-g1 (multicellular organismal development) - emapper OG	D	multicellular organismal de... D	0.02843090840112764
+multicellular organismal de...	c99494-g4 (multicellular organismal development) - emapper OG	E	multicellular organismal de... E	0.01555786759315488
+multicellular organismal de...	c104841-g1 (multicellular organismal development) - emapper OG	F	multicellular organismal de... F	0.01277515494586492
+multicellular organismal de...	c96933-g2 (multicellular organismal development) - emapper OG	G	multicellular organismal de... G	0.011563438204408381
+multicellular organismal de...	c104901-g1 (multicellular organismal development) - emapper OG	H	multicellular organismal de... H	0.009429688041365056
+multicellular organismal de...	c100049-g1 (multicellular organismal development) - emapper OG	I	multicellular organismal de... I	0.008454031544651514
+multicellular organismal de...	c94857-g1 (multicellular organismal development) - emapper OG	J	multicellular organismal de... J	0.007647456050213538
+multicellular organismal de...	c103670-g1 (multicellular organismal development) - emapper OG	K	multicellular organismal de... K	0.007194139242526819
+multicellular organismal de...	c88855-g1 (multicellular organismal development) - emapper OG	L	multicellular organismal de... L	0.007090680479226907
+multicellular organismal de...	c102853-g3 (multicellular organismal development) - emapper OG	M	multicellular organismal de... M	0.006966835607682246
+multicellular organismal de...	c111767-g1 (multicellular organismal development) - emapper OG	N	multicellular organismal de... N	0.004527580295470149
+multicellular organismal de...	c102957-g3 (multicellular organismal development) - emapper OG	O	multicellular organismal de... O	0.004394295968593965
+multicellular organismal de...	c45946-g1 (multicellular organismal development) - emapper OG	P	multicellular organismal de... P	0.003931145809581562
+multicellular organismal de...	c93307-g1 (multicellular organismal development) - emapper OG	Q	multicellular organismal de... Q	0.00370825795300731
+multicellular organismal de...	c79719-g1 (multicellular organismal development) - emapper OG	R	multicellular organismal de... R	0.0021948482408586556
+multicellular organismal de...	c106412-g1 (multicellular organismal development) - emapper OG	S	multicellular organismal de... S	9.475654692410073e-4
+multicellular organismal de...	c91043-g1 (multicellular organismal development) - emapper OG	T	multicellular organismal de... T	4.550010285198052e-4
+multicellular organismal de...	c85043-g1 (multicellular organismal development) - emapper OG	U	multicellular organismal de... U	4.0166231630082804e-4
+multicellular organismal de...	c83294-g1 (multicellular organismal development) - emapper OG	V	multicellular organismal de... V	3.278234094594314e-4
+multicellular organismal de...	c54876-g1 (multicellular organismal development) - emapper OG	W	multicellular organismal de... W	1.8438442675261323e-4
+multicellular organismal de...	c79009-g1 (multicellular organismal development) - emapper OG	X	multicellular organismal de... X	1.4648766162907303e-4
+multicellular organismal de...	c96933-g1 (multicellular organismal development) - emapper OG	Y	multicellular organismal de... Y	1.2303956928559772e-4
+multicellular organismal de...	c5602-g1 (multicellular organismal development) - emapper OG	Z	multicellular organismal de... Z	1.2299193613118738e-4
+scavenger receptor cysteine...	c102639-g1 (scavenger receptor cysteine rich domain containing) - emapper OG	A	scavenger receptor cysteine... A	0.0957513963632615
+scavenger receptor cysteine...	c102915-g2 (scavenger receptor cysteine rich domain containing) - emapper OG	B	scavenger receptor cysteine... B	0.020158066611328115
+scavenger receptor cysteine...	c99965-g2 (scavenger receptor cysteine rich domain containing) - emapper OG	C	scavenger receptor cysteine... C	0.01357035165894078
+scavenger receptor cysteine...	c101394-g1 (scavenger receptor cysteine rich domain containing) - emapper OG	D	scavenger receptor cysteine... D	0.01218998022750195
+scavenger receptor cysteine...	c111582-g1 (scavenger receptor cysteine rich domain containing) - emapper OG	E	scavenger receptor cysteine... E	0.004579966512250962
+scavenger receptor cysteine...	c104299-g1 (scavenger receptor cysteine rich domain containing) - emapper OG	F	scavenger receptor cysteine... F	0.0024875943489337383
+scavenger receptor cysteine...	c104597-g4 (scavenger receptor cysteine rich domain containing) - emapper OG	G	scavenger receptor cysteine... G	0.00212901525086433
+scavenger receptor cysteine...	c96976-g1 (scavenger receptor cysteine rich domain containing) - emapper OG	H	scavenger receptor cysteine... H	0.0020129164778741695
+scavenger receptor cysteine...	c100012-g3 (scavenger receptor cysteine rich domain containing) - emapper OG	I	scavenger receptor cysteine... I	0.0011627415489591391
+scavenger receptor cysteine...	c98666-g1 (scavenger receptor cysteine rich domain containing) - emapper OG	J	scavenger receptor cysteine... J	0.0011473336828571102
+scavenger receptor cysteine...	c91022-g1 (scavenger receptor cysteine rich domain containing) - emapper OG	K	scavenger receptor cysteine... K	7.869876286529254e-5
+scavenger receptor cysteine...	c81450-g1 (scavenger receptor cysteine rich domain containing) - emapper OG	L	scavenger receptor cysteine... L	0
+serine threonine-protein ph...	c103060-g1 (serine threonine-protein phosphatase) - emapper OG	A	serine threonine-protein ph... A	0.1379988587268089
+serine threonine-protein ph...	c93204-g1 (serine threonine-protein phosphatase 6 regulatory ankyrin repeat subunit) - emapper OG	B	serine threonine-protein ph... B	0.1236565425337638
+serine threonine-protein ph...	c105497-g1 (serine threonine-protein phosphatase) - emapper OG	C	serine threonine-protein ph... C	0.03997979437311008
+serine threonine-protein ph...	c98821-g1 (serine threonine-protein phosphatase 6 regulatory ankyrin repeat subunit) - emapper OG	D	serine threonine-protein ph... D	0.022246586018640286
+serine threonine-protein ph...	c104725-g2 (serine threonine-protein phosphatase 6 regulatory ankyrin repeat subunit) - emapper OG	E	serine threonine-protein ph... E	0.016796570582596326
+serine threonine-protein ph...	c100903-g4 (serine threonine-protein phosphatase 6 regulatory ankyrin repeat subunit) - emapper OG	F	serine threonine-protein ph... F	0.011109601154174788
+serine threonine-protein ph...	c98082-g2 (serine threonine-protein phosphatase 6 regulatory ankyrin repeat subunit) - emapper OG	G	serine threonine-protein ph... G	0.002750891977947335
+serine threonine-protein ph...	c104689-g1 (serine threonine-protein phosphatase 6 regulatory ankyrin repeat subunit) - emapper OG	H	serine threonine-protein ph... H	0.002707601640477832
+serine threonine-protein ph...	c104689-g6 (serine threonine-protein phosphatase 6 regulatory ankyrin repeat subunit) - emapper OG	I	serine threonine-protein ph... I	0.001496604056842856
+serine threonine-protein ph...	c107829-g1 (serine threonine-protein phosphatase 6 regulatory ankyrin repeat subunit) - emapper OG	J	serine threonine-protein ph... J	5.583002397363956e-4
+serine threonine-protein ph...	c102533-g3 (serine threonine-protein phosphatase 6 regulatory ankyrin repeat subunit) - emapper OG	K	serine threonine-protein ph... K	2.6130784992117924e-4
+to reverse transcriptase	c97248-g1 (Inherit from opiNOG: to reverse transcriptase) - emapper OG	A	to reverse transcriptase A	0.06105188478540061
+to reverse transcriptase	c91219-g1 (Inherit from opiNOG: to reverse transcriptase) - emapper OG	AA	to reverse transcriptase AA	1.0000775247225796e-4
+to reverse transcriptase	c39032-g1 (Inherit from opiNOG: to reverse transcriptase) - emapper OG	AB	to reverse transcriptase AB	8.106905771042484e-5
+to reverse transcriptase	c91499-g1 (Inherit from opiNOG: to reverse transcriptase) - emapper OG	AC	to reverse transcriptase AC	6.268856617797276e-5
+to reverse transcriptase	c111594-g1 (Inherit from opiNOG: to reverse transcriptase) - emapper OG	AD	to reverse transcriptase AD	0
+to reverse transcriptase	c86689-g1 (Inherit from opiNOG: to reverse transcriptase) - emapper OG	AE	to reverse transcriptase AE	0
+to reverse transcriptase	c88090-g1 (Inherit from opiNOG: to reverse transcriptase) - emapper OG	B	to reverse transcriptase B	0.04241880152580364
+to reverse transcriptase	c100756-g1 (Inherit from opiNOG: to reverse transcriptase) - emapper OG	C	to reverse transcriptase C	0.02169833075293673
+to reverse transcriptase	c102297-g2 (Inherit from opiNOG: to reverse transcriptase) - emapper OG	D	to reverse transcriptase D	0.014836186565518479
+to reverse transcriptase	c99545-g1 (Inherit from opiNOG: to reverse transcriptase) - emapper OG	E	to reverse transcriptase E	0.010721722573507198
+to reverse transcriptase	c103852-g4 (Inherit from opiNOG: to reverse transcriptase) - emapper OG	F	to reverse transcriptase F	0.007850357041272064
+to reverse transcriptase	c87509-g1 (Inherit from opiNOG: to reverse transcriptase) - emapper OG	G	to reverse transcriptase G	0.006224011798348699
+to reverse transcriptase	c102878-g2 (Inherit from opiNOG: to reverse transcriptase) - emapper OG	H	to reverse transcriptase H	0.0053071881263954245
+to reverse transcriptase	c47139-g1 (Inherit from opiNOG: to reverse transcriptase) - emapper OG	I	to reverse transcriptase I	0.004289752936117869
+to reverse transcriptase	c104876-g1 (Inherit from opiNOG: to reverse transcriptase) - emapper OG	J	to reverse transcriptase J	0.004214007625181955
+to reverse transcriptase	c108338-g1 (Inherit from opiNOG: to reverse transcriptase) - emapper OG	K	to reverse transcriptase K	0.003974330655224902
+to reverse transcriptase	c111891-g1 (Inherit from opiNOG: to reverse transcriptase) - emapper OG	L	to reverse transcriptase L	0.0028215043516604606
+to reverse transcriptase	c101614-g1 (Inherit from opiNOG: to reverse transcriptase) - emapper OG	M	to reverse transcriptase M	0.002516256191843544
+to reverse transcriptase	c100479-g1 (Inherit from opiNOG: to reverse transcriptase) - emapper OG	N	to reverse transcriptase N	0.0024965893848777213
+to reverse transcriptase	c77548-g1 (Inherit from opiNOG: to reverse transcriptase) - emapper OG	O	to reverse transcriptase O	0.0016472989604149344
+to reverse transcriptase	c97454-g2 (Inherit from opiNOG: to reverse transcriptase) - emapper OG	P	to reverse transcriptase P	8.245727727753037e-4
+to reverse transcriptase	c105177-g1 (Inherit from opiNOG: to reverse transcriptase) - emapper OG	Q	to reverse transcriptase Q	8.048120243513421e-4
+to reverse transcriptase	c34734-g2 (Inherit from opiNOG: to reverse transcriptase) - emapper OG	R	to reverse transcriptase R	3.686987899938844e-4
+to reverse transcriptase	c78496-g1 (Inherit from opiNOG: to reverse transcriptase) - emapper OG	S	to reverse transcriptase S	2.525416128100433e-4
+to reverse transcriptase	c86862-g1 (Inherit from opiNOG: to reverse transcriptase) - emapper OG	T	to reverse transcriptase T	1.7398972904740235e-4
+to reverse transcriptase	c110374-g1 (Inherit from opiNOG: to reverse transcriptase) - emapper OG	U	to reverse transcriptase U	1.5065974946370955e-4
+to reverse transcriptase	c39955-g1 (Inherit from opiNOG: to reverse transcriptase) - emapper OG	V	to reverse transcriptase V	1.4431824588650465e-4
+to reverse transcriptase	c105789-g1 (Inherit from opiNOG: to reverse transcriptase) - emapper OG	W	to reverse transcriptase W	1.2864877513404636e-4
+to reverse transcriptase	c103852-g5 (Inherit from opiNOG: to reverse transcriptase) - emapper OG	X	to reverse transcriptase X	1.2483260129580206e-4
+to reverse transcriptase	c89813-g2 (Inherit from opiNOG: to reverse transcriptase) - emapper OG	Y	to reverse transcriptase Y	1.2422188887276894e-4
+to reverse transcriptase	c110327-g1 (Inherit from opiNOG: to reverse transcriptase) - emapper OG	Z	to reverse transcriptase Z	1.0373337043452166e-4
+ubiquitin carboxyl-terminal...	c98365-g1 (ubiquitin carboxyl-terminal hydrolase) - emapper OG	A	ubiquitin carboxyl-terminal... A	0.09124490804629391
+ubiquitin carboxyl-terminal...	c98977-g1 (ubiquitin carboxyl-terminal hydrolase) - emapper OG	B	ubiquitin carboxyl-terminal... B	0.005140912164926821
+ubiquitin carboxyl-terminal...	c96595-g1 (ubiquitin carboxyl-terminal hydrolase) - emapper OG	C	ubiquitin carboxyl-terminal... C	9.426611411192206e-4

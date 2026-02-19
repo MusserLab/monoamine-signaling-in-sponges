@@ -1,0 +1,89 @@
+automated_name	Gene.short	modules_list	n_modules	suggested_primary
+c95797-g1 ABRACL (ABRA C-terminal like) - emapper OG	ABRACL	Actin dynamics; Rho signaling	2	Actin dynamics
+c105383-g1 (Inherit from euNOG: Cofilin/tropomyosin-type actin-binding protein) - emapper OG	Cofilin/tropomyosin-type ac…	Actin dynamics	1	Actin dynamics
+c104806-g1 FLNA (Filamin A, alpha) - emapper OG	FLNA (Filamin A	Actin dynamics; Actomyosin contractility	2	Actin dynamics
+c96316-g1 FLNB (Filamin A, alpha) - emapper OG	FLNB (Filamin A	Actin dynamics; Actomyosin contractility	2	Actin dynamics
+c103897-g2 8-to-3 FLNC,FLNA,FLNB filamin C	FLNC (+2)	Actin dynamics; Actomyosin contractility	2	Actin dynamics
+c103027-g1 FMNL1 (formin like 1) - blastp	FMNL1	Actin dynamics	1	Actin dynamics
+c95437-g1 1-to-3 FMNL2,FMNL1,FMNL3 formin like 2	FMNL2 (+2)	Actin dynamics	1	Actin dynamics
+c103703-g1 (Filamin/ABP280 repeat) - emapper OG	Filamin/ABP280 repeat	Actin dynamics; Actomyosin contractility	2	Actin dynamics
+c103269-g1 PPP1R9A (protein phosphatase 1 regulatory subunit 9A) - blastp	PPP1R9A	Actin dynamics	1	Actin dynamics
+c98068-g1 1-to-1 PPP1R9A protein phosphatase 1 regulatory subunit 9A	PPP1R9A	Actin dynamics	1	Actin dynamics
+c103890-g1 ACTB (Actins are highly conserved proteins that are involved in various types of cell motility and	ACTB	Actin dynamics; Actin network assembly; Actomyosin contractility	3	Actin network assembly
+c97953-g1 (Actin) - emapper OG	Actin-like	Actin dynamics; Actin network assembly; Actomyosin contractility	3	Actin network assembly
+c97124-g1 3-to-2 HCLS1,CTTN hematopoietic cell-specific Lyn substrate 1	CTTN/HCLS1	Actin network assembly	1	Actin network assembly
+c97124-g3 CORTACTIN (Hematopoietic cell-specific lyn substrate 1) - emapper OG	CTTN/HCLS1	Actin network assembly	1	Actin network assembly
+c103345-g3 FLNB (IG-FLMN) - emapper OG	FLNB	Actin network assembly; Regulation of cytoskeleton at the membrane	2	Actin network assembly
+c104872-g1 1-to-1 SPTBN5 spectrin beta, non-erythrocytic 5	SPTBN5 spectrin beta	Actin network assembly	1	Actin network assembly
+c104553-g2 1-to-2 MYO18B,MYO18A myosin XVIIIB	MYO18B/MYO18A	Actomyosin contractility	1	Actomyosin contractility
+c102562-g2 MYO22 (MYSc) - emapper OG	Myosin	Actomyosin contractility	1	Actomyosin contractility
+c103609-g2 1-to-10 MYH1/2/3/4/6/7/8/13/15 myosin heavy chain 1	Myosin	Actomyosin contractility	1	Actomyosin contractility
+c88998-g1 3-to-1 ABRA actin binding Rho activating protein	Abra	Actin dynamics; Differentiation (muscle cell related); RhoA GTPase signaling	3	Differentiation (muscle cell related)
+c88176-g1 1-to-1 SNAP29 synaptosome associated protein 29	SNAP29	Exocytosis; Vesicular trafficking	2	Exocytosis
+c99180-g1 1-to-1 STX8 syntaxin 8	STX8	Exocytosis; Vesicular trafficking	2	Exocytosis
+c104451-g2 1-to-5 SYTL2,SYTL4,SYTL5,SYTL1... synaptotagmin like 2	SYTL2 (+3)	Exocytosis; Vesicular trafficking	2	Exocytosis
+c103516-g2 1-to-1 STXBP4 syntaxin binding protein 4	Stxbp4	Exocytosis; Regulation of cytoskeleton at the membrane; Vesicular trafficking	3	Exocytosis
+c101179-g1 1-to-1 SYT17 synaptotagmin 17	Synaptotagmin	Exocytosis; Vesicular trafficking	2	Exocytosis
+c101325-g4 CELSR1 (cadherin, EGF LAG seven-pass G-type receptor 1) - blastp	CELSR1 (cadherin	GPCR signaling; Regulation of adhesion complexes	2	GPCR signaling
+c103807-g1 (Gamma-aminobutyric acid (GABA) B receptor) - emapper OG	Gabbr1/2	GPCR signaling	1	GPCR signaling
+c104630-g1 (Gamma-aminobutyric acid (GABA) B receptor) - emapper OG	Gabbr1/2	GPCR signaling	1	GPCR signaling
+c104478-g3 1-to-2 RGS12,RGS14 regulator of G protein signaling 12	RGS12/RGS14	GPCR signaling	1	GPCR signaling
+c98800-g1 RGS14 (Regulator of G-protein signaling) - emapper OG	RGS14	GPCR signaling	1	GPCR signaling
+c100915-g1 RGS4 (regulator of G-protein signaling 4) - emapper OG	RGS4	GPCR signaling	1	GPCR signaling
+c103623-g1 1-to-4 RGS9,RGS7,RGS11,RGS6 regulator of G protein signaling 9	RGS9 (+3)	GPCR signaling	1	GPCR signaling
+c92727-g1 (7 transmembrane receptor (rhodopsin family)) - emapper OG	rhodopsin family	GPCR signaling	1	GPCR signaling
+c100927-g1 1-to-3 DIAPH2,DIAPH1,DIAPH3 diaphanous related formin 2	DIAPH2 (+2)	Actin dynamics; Microtubule dynamics; Regulation of adhesion complexes	3	Microtubule dynamics
+c102714-g3 1-to-1 PIK3CG phosphatidylinositol-4,5-bisphosphate 3-kinase catalytic subunit gamma	PIK3CG	GPCR signaling; Phospholipid signaling; PI3K signaling; Rac1 GTPase signaling; Rho signaling	5	PI3K signaling
+c88339-g1 1-to-1 PIK3CG phosphatidylinositol-4,5-bisphosphate 3-kinase catalytic subunit gamma	PIK3CG	GPCR signaling; Phospholipid signaling; PI3K signaling; Rac1 GTPase signaling; Rho signaling	5	PI3K signaling
+c101932-g1 PIK3R3 (Phosphoinositide-3-kinase, regulatory subunit) - emapper OG	PIK3R3 (Phosphoinositide-3-…	GPCR signaling; Phospholipid signaling; PI3K signaling; Rac1 GTPase signaling; Rho signaling	5	PI3K signaling
+c100945-g1 1-to-1 PIK3R4 phosphoinositide-3-kinase regulatory subunit 4	PIK3R4	GPCR signaling; Phospholipid signaling; PI3K signaling; Rac1 GTPase signaling; Rho signaling	5	PI3K signaling
+c102697-g2 1-to-1 PIK3R5 phosphoinositide-3-kinase regulatory subunit 5	PIK3R5	GPCR signaling; Phospholipid signaling; PI3K signaling; Rac1 GTPase signaling; Rho signaling	5	PI3K signaling
+c104155-g3 1-to-1 PTEN phosphatase and tensin homolog	PTEN	Phospholipid signaling; PI3K signaling	2	PI3K signaling
+c97076-g1 GPSM2 (G-protein signaling modulator) - emapper OG	Gpsm1/2	GPCR signaling; Phospholipid signaling	2	Phospholipid signaling
+c103102-g1 1-to-3 PIP5K1B,PIP5K1A,PIP5K1C phosphatidylinositol-4-phosphate 5-kinase type 1 beta	PIP5K1B (+2)	Phospholipid signaling; Regulation of cytoskeleton at the membrane	2	Phospholipid signaling
+c103421-g1 2-to-4 PLCB2,PLCB1,PLCB4,PLCB3 phospholipase C beta 2	PLCB2 (+3)	GPCR signaling; Phospholipid signaling	2	Phospholipid signaling
+c100686-g2 DLG5 (Inherit from NOG: discs, large homolog 5 (Drosophila)) - emapper OG	DLG5 (Inherit from NOG: dis…	Post-synaptic scaffold; Regulation of adhesion complexes	2	Post-synaptic scaffold
+c102027-g2 2-to-4 DLG1,DLG3,DLG2,DLG4 discs large MAGUK scaffold protein 1	Dlg1/2/3/4	Post-synaptic scaffold; Regulation of adhesion complexes	2	Post-synaptic scaffold
+c103212-g3 3-to-4 DLG1,DLG3,DLG2,DLG4 discs large MAGUK scaffold protein 1	Dlg1/2/3/4	Post-synaptic scaffold; Regulation of adhesion complexes	2	Post-synaptic scaffold
+c102719-g1 SHANK2 (SH3 and multiple ankyrin repeat domains) - emapper OG	Shank	Post-synaptic scaffold; Regulation of calcium signaling	2	Post-synaptic scaffold
+c103750-g2 ARHGAP5 (rho GTPase activating protein) - emapper OG	ARHGAP5	Rac1 GTPase signaling; RhoA GTPase signaling	2	Rac1 GTPase signaling
+c104768-g1 1-to-3 PKN3,PKN1,PKN2 protein kinase N3	PKN3 (+2)	GPCR signaling; Rac1 GTPase signaling; Regulation of adhesion complexes; RhoA GTPase signaling; Rho signaling	5	Rac1 GTPase signaling
+c104706-g1 1-to-1 TRIO trio Rho guanine nucleotide exchange factor	TRIO	GPCR signaling; Rac1 GTPase signaling; RhoA GTPase signaling; Rho signaling	4	Rac1 GTPase signaling
+c104665-g3 CDHR3 (Cadherins are calcium dependent cell adhesion proteins (By similarity)) - emapper OG	CDHR3	Regulation of adhesion complexes	1	Regulation of adhesion complexes
+c104087-g1 CTNNAL1 (catenin (cadherin-associated protein), alpha-like 1) - emapper OG	CTNNAL1 (catenin (cadherin-…	Regulation of adhesion complexes	1	Regulation of adhesion complexes
+c99236-g1 (Catenin (Cadherin-associated protein)) - emapper OG	Cadherin-associated protein	Regulation of adhesion complexes	1	Regulation of adhesion complexes
+c103674-g3 1-to-7 MXRA5,CNTN3,CNTN2,PXDNL... matrix remodeling associated 5	Ig-like	Regulation of adhesion complexes	1	Regulation of adhesion complexes
+c104344-g1 3-to-1 ITGB1 integrin subunit beta 1	ItgB	Regulation of adhesion complexes	1	Regulation of adhesion complexes
+c101590-g2 PCDH15 (protocadherin-related 15) - emapper OG	PCDH15	Regulation of adhesion complexes	1	Regulation of adhesion complexes
+c102823-g1 (Catenin (Cadherin-associated protein)) - emapper OG	Vinculin-like	Regulation of adhesion complexes	1	Regulation of adhesion complexes
+c94614-g1 hs-ITGB1BP1,PID1	hs-ITGB1BP1/PID1	Regulation of adhesion complexes	1	Regulation of adhesion complexes
+c99144-g2 RIMBP2 (RIMS binding protein 2) - blastp	RIMBP2	Exocytosis; Regulation of calcium signaling; Vesicular trafficking	3	Regulation of calcium signaling
+c103426-g1 (Inherit from NOG: bZIP Maf transcription factor) - emapper OG	Stxbp5	Exocytosis; Regulation of calcium signaling	2	Regulation of calcium signaling
+c101369-g1 4-to-2 UNC13D,BAIAP3 unc-13 homolog D	UNC13D/BAIAP3	Exocytosis; Regulation of calcium signaling; Vesicular trafficking	3	Regulation of calcium signaling
+c102769-g1 6-to-2 UNC13D,BAIAP3 unc-13 homolog D	UNC13D/BAIAP3	Exocytosis; Regulation of calcium signaling; Vesicular trafficking	3	Regulation of calcium signaling
+c104430-g1 1-to-2 MYO7A,MYO7B myosin VIIA	Myosin	Actomyosin contractility; Regulation of ciliary function; Regulation of cytoskeleton at the membrane	3	Regulation of ciliary function
+c101975-g1 NEO1 (deleted in colorectal carcinoma) - emapper OG	Cntn/L1cam/Nrcam/Nfasc	Regulation of adhesion complexes; Regulation of cytoskeleton at the membrane	2	Regulation of cytoskeleton at the membrane
+c101598-g1 1-to-3 CTNNA1,CTNNA2,CTNNA3 catenin alpha 1	CtnnA1/2/3	Regulation of adhesion complexes; Regulation of cytoskeleton at the membrane	2	Regulation of cytoskeleton at the membrane
+c102372-g1 1-to-4 ARVCF,CTNND2,PKP4,CTNND1 armadillo repeat gene deleted in velocardiofacial syndrome	CtnnD1/2/Arvcf/Pkp4	Regulation of adhesion complexes; Regulation of cytoskeleton at the membrane	2	Regulation of cytoskeleton at the membrane
+c103615-g1 1-to-3 ITGA3,ITGA6,ITGA7 integrin subunit alpha 3	ItgA	Regulation of adhesion complexes; Regulation of cytoskeleton at the membrane	2	Regulation of cytoskeleton at the membrane
+c99272-g1 1-to-2 MYO1E,MYO1F myosin IE	MYO1E/MYO1F	Actomyosin contractility; Regulation of cytoskeleton at the membrane	2	Regulation of cytoskeleton at the membrane
+c104071-g2 1-to-2 MYO1G,MYO1D myosin IG	MYO1G/MYO1D	Actomyosin contractility; Regulation of cytoskeleton at the membrane	2	Regulation of cytoskeleton at the membrane
+c53310-g1 1-to-11 PCDHB2,PCDHB5,PCDH12,PCDHB12... protocadherin beta 2	PCDHB2 (+3)	Regulation of adhesion complexes; Regulation of cytoskeleton at the membrane	2	Regulation of cytoskeleton at the membrane
+c104374-g1 3-to-2 TLN1,TLN2 talin 1	TLN1/TLN2	Actomyosin contractility; Regulation of adhesion complexes; Regulation of cytoskeleton at the membrane	3	Regulation of cytoskeleton at the membrane
+c100686-g1 1-to-3 TJP1,TJP2,TJP3 tight junction protein 1	Tjp1/2/3	Regulation of adhesion complexes; Regulation of cytoskeleton at the membrane	2	Regulation of cytoskeleton at the membrane
+c103122-g3 4-to-2 TLN1,TLN2 talin 1	Tln1/2	Regulation of adhesion complexes; Regulation of cytoskeleton at the membrane	2	Regulation of cytoskeleton at the membrane
+c103718-g2 3-to-2 TLN1,TLN2 talin 1	Tln1/2	Actomyosin contractility; Regulation of adhesion complexes; Regulation of cytoskeleton at the membrane	3	Regulation of cytoskeleton at the membrane
+c104780-g1 TLN1 (K06271 talin) - emapper OG	Tln1/2	Actomyosin contractility; Regulation of adhesion complexes; Regulation of cytoskeleton at the membrane	3	Regulation of cytoskeleton at the membrane
+c103354-g1 1-to-1 VCL vinculin	Vcl	Regulation of adhesion complexes; Regulation of cytoskeleton at the membrane	2	Regulation of cytoskeleton at the membrane
+c104302-g1 2-to-2 ARHGAP5,ARHGAP35 Rho GTPase activating protein 5	ARHGAP5/ARHGAP35	RhoA GTPase signaling; Rho signaling	2	RhoA GTPase signaling
+c102295-g3 1-to-2 ARHGEF10,ARHGEF10L Rho guanine nucleotide exchange factor 10	ARHGEF10/ARHGEF10L	GPCR signaling; RhoA GTPase signaling; Rho signaling	3	RhoA GTPase signaling
+c104187-g2 ARHGEF12 (RHo Guanine nucleotide exchange Factor) - emapper OG	ARHGEF12	GPCR signaling; RhoA GTPase signaling; Rho signaling	3	RhoA GTPase signaling
+c103389-g3 1-to-6 ARHGEF5,NGEF,ARHGEF19,ARHGEF26... Rho guanine nucleotide exchange factor 5	ARHGEF5 (+3)	GPCR signaling; RhoA GTPase signaling; Rho signaling	3	RhoA GTPase signaling
+c102807-g1 1-to-2 LIMK1,LIMK2 LIM domain kinase 1	LIMK1/LIMK2	Actin dynamics; Actomyosin contractility; RhoA GTPase signaling	3	RhoA GTPase signaling
+c102262-g1 1-to-2 MYO9A,MYO9B myosin IXA	MYO9A/MYO9B	Actomyosin contractility; RhoA GTPase signaling; Rho signaling	3	RhoA GTPase signaling
+c104726-g3 1-to-4 MYH9/10/11/14 myosin heavy chain 1	Myosin	Actomyosin contractility; GPCR signaling; RhoA GTPase signaling; Rho signaling	4	RhoA GTPase signaling
+c104457-g1 1-to-2 PPP1R16A,PPP1R16B protein phosphatase 1 regulatory subunit 16A	PPP1R16A/PPP1R16B	Actomyosin contractility; GPCR signaling; RhoA GTPase signaling; Rho signaling	4	RhoA GTPase signaling
+c108134-g1 1-to-2 PPP1R16A,PPP1R16B protein phosphatase 1 regulatory subunit 16A	PPP1R16A/PPP1R16B	Actomyosin contractility; GPCR signaling; RhoA GTPase signaling; Rho signaling	4	RhoA GTPase signaling
+c104144-g1 1-to-2 ROCK2,ROCK1 Rho associated coiled-coil containing protein kinase 2	ROCK2/ROCK1	Actomyosin contractility; GPCR signaling; RhoA GTPase signaling; Rho signaling	4	RhoA GTPase signaling
+c91405-g1 2-to-1 INF2 inverted formin, FH2 and WH2 domain containing	INF2 inverted formin	Actin dynamics; Vesicular trafficking	2	Vesicular trafficking
+c91461-g1 1-to-2 SPIRE2,SPIRE1 spire type actin nucleation factor 2	SPIRE2/SPIRE1	Actin dynamics; Vesicular trafficking	2	Vesicular trafficking

@@ -1,0 +1,983 @@
+GeneID,Gene.short,cleangeneName,Important,Module
+"c102301-g1 19, Bacteriophage PS34",19,"19,",NA,NA
+"c90566-g1 6.7, Escherichia phage T7",6.7,"6.7,",NA,NA
+c96016-g1 (7 transmembrane sweet-taste receptor of 3 GCPR) - emapper OG,7 transmembrane sweet-taste…,7transmembranesweet-tastereceptorof3GCPR,NA,NA
+"c99010-g3 8K, Potato mop-top virus (isolate Potato/Sweden/Sw..",8K,"8K,",NA,NA
+"c105327-g1 a92, Sulfolobus spindle-shape virus 1",a92,"a92,",NA,NA
+"c99999-g1 AA13, Aspergillus oryzae (strain ATCC 42149 / RIB ..",AA13,"AA13,",NA,NA
+"c99392-g1 AA-PRI1, Cyclocybe aegerita",AA-PRI1,"AA-PRI1,",NA,NA
+"c84518-g1 hs-AARD,C19orf25",hs-AARD/C19orf25,"AARD,C19orf25",NA,NA
+"c103367-g1 1-to-2 AARSD1,PTGES3L-AARSD1 alanyl-tRNA synthetase domain containing 1",AARSD1/PTGES3L-AARSD1,"AARSD1,PTGES3L-AARSD1",NA,NA
+c98029-g1 1-to-1 AATF apoptosis antagonizing transcription factor,AATF,AATF,NA,NA
+c73128-g1 3-to-1 ABCC4 ATP binding cassette subfamily C member 4,ABCC4,ABCC4,NA,NA
+c103209-g2 1-to-1 ABCE1 ATP binding cassette subfamily E member 1,ABCE1,ABCE1,NA,NA
+c104080-g1 1-to-1 ABCF3 ATP binding cassette subfamily F member 3,ABCF3,ABCF3,NA,NA
+"c103667-g1 1-to-2 AC245033.1,CPEB1 cytoplasmic polyadenylation element binding protein 1",AC245033.1/CPEB1,"AC245033.1,CPEB1",NA,NA
+c104237-g1 1-to-1 ACMSD aminocarboxymuconate semialdehyde decarboxylase,ACMSD,ACMSD,NA,NA
+c92467-g1 1-to-1 ACOT13 acyl-CoA thioesterase 13,ACOT13,ACOT13,NA,NA
+c98330-g1 (acyl-CoA dehydrogenase AidB-like) - emapper OG,acyl-CoA dehydrogenase AidB…,acyl-CoAdehydrogenaseAidB-like,NA,NA
+c88951-g2 1-to-1 ADAMTSL1 ADAMTS like 1,ADAMTSL1,ADAMTSL1,NA,NA
+c102600-g1 ADAMTSL1 (ADAMTS-like) - emapper OG,ADAMTSL1,ADAMTSL1,NA,NA
+"c104454-g1 2-to-2 ADAP2,ADAP1 ArfGAP with dual PH domains 2",ADAP2/ADAP1,"ADAP2,ADAP1",TRUE,Vesicular trafficking
+"c101253-g2 1-to-2 ADARB1,ADARB2 adenosine deaminase, RNA specific B1",ADARB1,"ADARB1,ADARB2",NA,NA
+c104913-g1 ADGRL3 (adhesion G protein-coupled receptor L3) - blastp,ADGRL3,ADGRL3,TRUE,Adhesion complex
+c101484-g1 (Adhesin-like protein) - emapper OG,Adhesin-like protein,Adhesin-likeprotein,NA,NA
+c101702-g6 ADK (adenosine kinase) - emapper OG,ADK,ADK,NA,NA
+"c99392-g2 AFUA_3G00590, Neosartorya fumigata (strain ATCC MY..",AFUA_3G00590,"AFUA_3G00590,",NA,NA
+c91478-g1 AGBL5 (ATP GTP binding protein-like 5) - emapper OG,AGBL5,AGBL5,NA,NA
+c100376-g1 1-to-1 AGXT2 alanine--glyoxylate aminotransferase 2,AGXT2,AGXT2,NA,NA
+c33921-g1 1-to-1 AHCTF1 AT-hook containing transcription factor 1,AHCTF1,AHCTF1,NA,NA
+c77726-g1 AHCY (adenosylhomocysteinase) - emapper OG,AHCY,AHCY,NA,NA
+c101834-g1 1-to-1 AIFM1 apoptosis inducing factor mitochondria associated 1,AIFM1,AIFM1,NA,NA
+c99766-g1 (AIG1 family) - emapper OG,AIG1 family,AIG1family,NA,NA
+c101145-g1 (AIG1 family) - emapper OG,AIG1 family,AIG1family,NA,NA
+"c101883-g2 AIM21, Lachancea thermotolerans (strain ATCC 56472..",AIM21,"AIM21,",NA,NA
+c98184-g2 AKAP1 (A kinase (PRKA) anchor protein 1) - emapper OG,AKAP1,AKAP1,NA,NA
+c90290-g1 1-to-1 AKAP14 A-kinase anchoring protein 14,AKAP14,AKAP14,NA,NA
+c104015-g3 1-to-1 ALDH16A1 aldehyde dehydrogenase 16 family member A1,ALDH16A1,ALDH16A1,NA,NA
+"c92113-g1 allo-1, Caenorhabditis elegans",allo-1,"allo-1,",NA,NA
+"c100244-g2 5-to-6 ALOX12,ALOXE3,ALOX12B,ALOX5... arachidonate 12-lipoxygenase, 12S type",ALOX12,"ALOX12,ALOXE3,ALOX12B,ALOX5...",NA,NA
+"c103865-g1 8-to-6 ALOX12,ALOXE3,ALOX12B,ALOX5... arachidonate 12-lipoxygenase, 12S type",ALOX12,"ALOX12,ALOXE3,ALOX12B,ALOX5...",NA,NA
+"c103115-g1 6-to-6 ALOX12,ALOXE3,ALOX12B,ALOX5... arachidonate 12-lipoxygenase, 12S type",ALOX12,"ALOX12,ALOXE3,ALOX12B,ALOX5...",NA,NA
+"c103871-g1 6-to-6 ALOX12,ALOXE3,ALOX12B,ALOX5... arachidonate 12-lipoxygenase, 12S type",ALOX12,"ALOX12,ALOXE3,ALOX12B,ALOX5...",NA,NA
+c102278-g1 (amidohydrolase 2) - emapper OG,amidohydrolase 2,amidohydrolase2,NA,NA
+c103983-g1 (Amidohydrolase family) - emapper OG,Amidohydrolase family,Amidohydrolasefamily,NA,NA
+c101209-g1 (amine oxidase) - emapper OG,amine oxidase,amineoxidase,NA,NA
+c97310-g2 1-to-1 AMOT angiomotin,AMOT,AMOT,NA,NA
+c110923-g1 1-to-1 ANAPC2 anaphase promoting complex subunit 2,ANAPC2,ANAPC2,NA,NA
+c101449-g1 ANKRD44 (ankyrin repeat domain) - emapper OG,ANKRD44,ANKRD44,TRUE,Membrane achoring
+c98120-g1 1-to-1 ANKRD45 ankyrin repeat domain 45,ANKRD45,ANKRD45,TRUE,Membrane achoring
+c103775-g1 ANKS1A (ankyrin repeat and sterile alpha motif domain containing 1A) - blastp,ANKS1A,ANKS1A,TRUE,Membrane achoring
+"c103118-g2 (ankyrin 3, node of Ranvier (ankyrin G)) - emapper OG",(ankyrin 3,"ankyrin3,nodeofRanvierankyrinG",TRUE,Membrane achoring
+c84634-g1 (Ankyrin Repeat) - emapper OG,Ankyrin Repeat,AnkyrinRepeat,TRUE,Membrane achoring
+c104488-g2 (Ankyrin Repeat Protein) - emapper OG,Ankyrin Repeat Protein,AnkyrinRepeatProtein,TRUE,Membrane achoring
+c103590-g1 2-to-1 ANXA13 annexin A13,ANXA13,ANXA13,TRUE,Calcium signaling
+"c103921-g2 hs-ANXA2P2,ANXA2",hs-ANXA2P2/ANXA2,"ANXA2P2,ANXA2",TRUE,Calcium signaling
+c104282-g4 3-to-1 ANXA7 annexin A7,ANXA7,ANXA7,TRUE,Calcium signaling
+c104282-g5 ANXA7 (annexin A11) - emapper OG,ANXA7,ANXA7,TRUE,Calcium signaling
+c104714-g1 1-to-1 AP3D1 adaptor related protein complex 3 delta 1 subunit,AP3D1,AP3D1,TRUE,Vesicular trafficking
+c101482-g1 1-to-1 APEX1 apurinic/apyrimidinic endodeoxyribonuclease 1,APEX1,APEX1,NA,NA
+c103962-g2 1-to-1 API5 apoptosis inhibitor 5,API5,API5,NA,NA
+"c102913-g5 hs-APLN,SPAG11B,SST,C17orf67,UTS2B,APOC3,PYY,NPY,CALC..",hs-APLN (+8),"APLN,SPAG11B,SST,C17orf67,UTS2B,APOC3,PYY,NPY,CALC..",TRUE,Secreted peptide
+c81900-g1 hs-APOL6,hs-APOL6,APOL6,NA,NA
+"c36132-g1 hs-AQP11,AQP8,AQP9,AQP3,AQP10",hs-AQP11 (+4),"AQP11,AQP8,AQP9,AQP3,AQP10",NA,NA
+"c79432-g2 ARB_00595, Arthroderma benhamiae (strain ATCC MYA-..",ARB_00595,"ARB_00595,",NA,NA
+"c98558-g1 hs-ARF3,ARF1,ARL3,ARL5A,ARL2,ARL4D,ARF5,ARL8B,ARL6,AR..",hs-ARF3 (+9),"ARF3,ARF1,ARL3,ARL5A,ARL2,ARL4D,ARF5,ARL8B,ARL6,AR..",TRUE,Vesicular trafficking
+"c102843-g1 1-to-2 ARG2,ARG1 arginase 2",ARG2/ARG1,"ARG2,ARG1",TRUE,NO signaling
+c97430-g1 ARL3 (ADP-ribosylation factor-like 3) - emapper OG,ARL3,ARL3,NA,NA
+c102927-g1 hs-ARL6IP6,hs-ARL6IP6,ARL6IP6,NA,NA
+c100145-g3 2-to-1 ASCC3 activating signal cointegrator 1 complex subunit 3,ASCC3,ASCC3,NA,NA
+"c100103-g3 ASH2L (ash2 (absent, small, or homeotic)-like (Drosophila)) - emapper OG",ASH2L (ash2 (absent,ASH2L,NA,NA
+"c100382-g1 2-to-2 ASMT,ASMTL acetylserotonin O-methyltransferase",ASMT/ASMTL,"ASMT,ASMTL",NA,NA
+"c101179-g2 asnA, Salmonella agona (strain SL483)",asnA,"asnA,",NA,NA
+"c100664-g1 (Aspartate/ornithine carbamoyltransferase, carbamoyl-P binding domain) - emapper OG",(Aspartate/ornithine carbam…,"Aspartate/ornithinecarbamoyltransferase,carbamoyl-Pbindingdomain",NA,NA
+"c101376-g1 ASPRV1 (aspartic peptidase, retroviral-like 1) - blastp",ASPRV1 (aspartic peptidase,ASPRV1,NA,NA
+"c96706-g1 1-to-1 ASZ1 ankyrin repeat, SAM and basic leucine zipper domain containing 1",ASZ1 ankyrin repeat,ASZ1,NA,NA
+"c104387-g5 At2g15010, Arabidopsis thaliana",At2g15010,"At2g15010,",NA,NA
+"c101431-g1 1-to-3 ATAD3B,ATAD3A,ATAD3C ATPase family, AAA domain containing 3B",ATAD3B,"ATAD3B,ATAD3A,ATAD3C",NA,NA
+"c102360-g1 hs-ATF4,ATF5,HLF,CEBPB,CEBPD,CEBPA,JUNB,CEBPE,TEF,JUN..",hs-ATF4 (+9),"ATF4,ATF5,HLF,CEBPB,CEBPD,CEBPA,JUNB,CEBPE,TEF,JUN..",NA,NA
+c90411-g1 1-to-1 ATM ATM serine/threonine kinase,ATM,ATM,NA,NA
+"c102821-g6 3-to-6 ATP12A,ATP4A,ATP1A2,ATP1A4... ATPase H+/K+ transporting non-gastric alpha2 subunit",ATP12A (+3),"ATP12A,ATP4A,ATP1A2,ATP1A4...",NA,NA
+"c103519-g2 5-to-6 ATP12A,ATP4A,ATP1A2,ATP1A4... ATPase H+/K+ transporting non-gastric alpha2 subunit",ATP12A (+3),"ATP12A,ATP4A,ATP1A2,ATP1A4...",NA,NA
+"c95426-g1 4-to-3 ATP6V0A1,ATP6V0A4,ATP6V0A2 ATPase H+ transporting V0 subunit a1",ATP6V0A1 (+2),"ATP6V0A1,ATP6V0A4,ATP6V0A2",NA,NA
+"c85572-g1 3-to-4 ATP6V0A1,TCIRG1,ATP6V0A4,ATP6V0A2 ATPase H+ transporting V0 subunit a1",ATP6V0A1 (+3),"ATP6V0A1,TCIRG1,ATP6V0A4,ATP6V0A2",NA,NA
+"c105658-g1 3-to-4 ATP6V0A1,TCIRG1,ATP6V0A4,ATP6V0A2 ATPase H+ transporting V0 subunit a1",ATP6V0A1 (+3),"ATP6V0A1,TCIRG1,ATP6V0A4,ATP6V0A2",NA,NA
+c97294-g1 (ATPase MipZ) - emapper OG,ATPase MipZ,ATPaseMipZ,NA,NA
+c87824-g1 (Inherit from KOG: ATPdependent RNA helicase) - emapper OG,ATPdependent RNA helicase,ATPdependentRNAhelicase,NA,NA
+c112019-g1 1-to-1 ATR ATR serine/threonine kinase,ATR,ATR,NA,NA
+c94600-g2 1-to-1 AVL9 AVL9 cell migration associated,AVL9,AVL9,NA,NA
+"c91067-g1 AVP, Equus caballus",AVP,"AVP,",TRUE,Secreted peptide
+"c93934-g1 hs-AVP,DEFB132,WFDC12,WFDC1,ESM1,DEFB128,DEFB127,DEFB..",hs-AVP (+7),"AVP,DEFB132,WFDC12,WFDC1,ESM1,DEFB128,DEFB127,DEFB..",TRUE,Secreted peptide
+c102517-g1 BA-3599 (ProFAR isomerase) - emapper OG,BA-3599,BA-3599,NA,NA
+c103778-g1 BAIAP3 (BAI1-associated protein 3) - emapper OG,BAIAP3,BAIAP3,NA,NA
+c98325-g1 3-to-1 BAK1 BCL2 antagonist/killer 1,BAK1,BAK1,NA,NA
+"c100361-g1 5-to-2 BARD1,ANKRD12 BRCA1 associated RING domain 1",BARD1/ANKRD12,"BARD1,ANKRD12",NA,NA
+c103906-g1 1-to-1 BAZ1A bromodomain adjacent to zinc finger domain 1A,BAZ1A,BAZ1A,NA,NA
+"c101008-g1 3-to-2 BCAT2,BCAT1 branched chain amino acid transaminase 2",BCAT2/BCAT1,"BCAT2,BCAT1",NA,NA
+c90083-g1 1-to-1 BIN3 bridging integrator 3,BIN3,BIN3,NA,NA
+"c82739-g1 BLP1, Candida albicans (strain SC5314 / ATCC MYA-2..",BLP1,"BLP1,",NA,NA
+"c94524-g1 bmb, Danio rerio",bmb,"bmb,",NA,NA
+"c99581-g1 hs-BMP6,GDF11,GDF5,BMP5,GDF9,INHBB,TGFB1,TGFB3,BMP7,B..",hs-BMP6 (+9),"BMP6,GDF11,GDF5,BMP5,GDF9,INHBB,TGFB1,TGFB3,BMP7,B..",TRUE,Secreted peptide
+c104026-g3 2-to-1 BMPER BMP binding endothelial regulator,BMPER,BMPER,NA,NA
+"c98290-g1 1-to-1 BMS1 BMS1, ribosome biogenesis factor",BMS1 BMS1,BMS1,NA,NA
+"c98803-g3 1-to-1 BMS1 BMS1, ribosome biogenesis factor",BMS1 BMS1,BMS1,NA,NA
+c98310-g1 1-to-1 BOP1 block of proliferation 1,BOP1,BOP1,NA,NA
+c93616-g1 BPL1 (to biotin apo-protein ligase) - emapper OG,BPL1,BPL1,NA,NA
+"c97811-g1 BRIX1 (BRX1, biogenesis of ribosomes, homolog (S. cerevisiae)) - emapper OG",BRIX1 (BRX1,BRIX1,NA,NA
+c100362-g1 BUR (GMP synthase) - emapper OG,BUR,BUR,NA,NA
+c93879-g1 1-to-1 BYSL bystin like,BYSL,BYSL,NA,NA
+c94980-g1 hs-C19orf85,hs-C19orf85,C19orf85,NA,NA
+c102758-g1 1-to-1 C1QBP complement C1q binding protein,C1QBP,C1QBP,NA,NA
+c110569-g1 1-to-1 C5orf22 chromosome 5 open reading frame 22,C5orf22,C5orf22,NA,NA
+c94116-g1 1-to-1 C7orf26 chromosome 7 open reading frame 26,C7orf26,C7orf26,NA,NA
+"c68735-g1 CA_C3711, Clostridium acetobutylicum (strain ATCC ..",CA_C3711,"CA_C3711,",NA,NA
+c92256-g1 1-to-1 CABIN1 calcineurin binding protein 1,CABIN1,CABIN1,TRUE,Calcium signaling
+c103547-g2 CACHD1 (cache domain containing 1) - emapper OG,CACHD1,CACHD1,NA,NA
+"c99434-g1 1-to-4 CACNB3,CACNB2,CACNB1,CACNB4 calcium voltage-gated channel auxiliary subunit beta 3",CACNB3 (+3),"CACNB3,CACNB2,CACNB1,CACNB4",TRUE,Calcium signaling
+"c100296-g1 CAD (Carbamoyl-phosphate synthetase 2, aspartate transcarbamylase, and dihydroorotase) - emapper OG",CAD (Carbamoyl-phosphate sy…,CAD,NA,NA
+"c100296-g2 2-to-1 CAD carbamoyl-phosphate synthetase 2, aspartate transcarbamylase, and dihydroorotase",CAD carbamoyl-phosphate syn…,CAD,NA,NA
+c103698-g1 CAF1 (Histone-binding protein RBBP4 or subunit C of CAF1 complex) - emapper OG,CAF1,CAF1,NA,NA
+c100546-g1 (Calcineurin-like phosphoesterase) - emapper OG,Calcineurin-like phosphoest…,Calcineurin-likephosphoesterase,TRUE,Calcium signaling
+c84297-g1 (Calcium-binding EGF domain) - emapper OG,Calcium-binding EGF domain,Calcium-bindingEGFdomain,TRUE,Calcium signaling
+c96877-g1 (calcium-dependent protein kinase) - emapper OG,calcium-dependent protein k…,calcium-dependentproteinkinase,TRUE,Calcium signaling
+c98532-g1 CALML3 (Calcium binding protein) - emapper OG,CALML3,CALML3,TRUE,Calcium signaling
+c98735-g1 CALML3 (calmodulin-like 3) - emapper OG,CALML3,CALML3,TRUE,Calcium signaling
+c101992-g1 CAM (calmodulin) - emapper OG,CAM,CAM,TRUE,Calcium signaling
+"c97625-g1 1-to-2 CAPRIN2,CAPRIN1 caprin family member 2",CAPRIN2/CAPRIN1,"CAPRIN2,CAPRIN1",NA,NA
+c90549-g1 hs-CARD17P,hs-CARD17P,CARD17P,NA,NA
+"c100053-g2 3-to-2 CASP2,CASP1 caspase 2",CASP2/CASP1,"CASP2,CASP1",NA,NA
+c98601-g2 (cathepsin) - emapper OG,cathepsin,cathepsin,NA,NA
+c9316-g1 CBP (Sarcoplasmic calcium-binding protein) - emapper OG,CBP,CBP,TRUE,Calcium signaling
+c101065-g1 CBP (Sarcoplasmic calcium-binding protein) - emapper OG,CBP,CBP,TRUE,Calcium signaling
+c102276-g1 CBP1 (Serine Carboxypeptidase) - emapper OG,CBP1,CBP1,NA,NA
+c103774-g1 1-to-1 CCDC47 coiled-coil domain containing 47,CCDC47,CCDC47,NA,NA
+c89129-g1 CCDC86 (coiled-coil domain containing 86) - emapper OG,CCDC86,CCDC86,NA,NA
+"c101786-g1 2-to-3 CCND1,CCND2,CCND3 cyclin D1",CCND1 (+2),"CCND1,CCND2,CCND3",NA,NA
+"c102224-g1 CCT3 (Chaperonin containing Tcp1, subunit 3 (Gamma)) - emapper OG",CCT3 (Chaperonin containing…,CCT3,TRUE,Proteostasis
+c92647-g1 1-to-1 CCT5 chaperonin containing TCP1 subunit 5,CCT5,CCT5,TRUE,Proteostasis
+"c101169-g1 1-to-2 CCT6A,CCT6B chaperonin containing TCP1 subunit 6A",CCT6A/CCT6B,"CCT6A,CCT6B",TRUE,Proteostasis
+c101223-g1 1-to-1 CCT7 chaperonin containing TCP1 subunit 7,CCT7,CCT7,TRUE,Proteostasis
+c98583-g1 1-to-1 CCT8 chaperonin containing TCP1 subunit 8,CCT8,CCT8,TRUE,Proteostasis
+c104055-g5 hs-CD276,hs-CD276,CD276,NA,NA
+c61311-g1 1-to-1 CDA cytidine deaminase,CDA,CDA,NA,NA
+c94974-g1 hs-CDC42EP1,hs-CDC42EP1,CDC42EP1,NA,NA
+"c80896-g1 cdiI, Burkholderia pseudomallei",cdiI,"cdiI,",NA,NA
+"c105005-g1 hs-CDK5R1,SPDYE4,CDK5R2,SPDYE12,SPDYE9,SPDYE11,SPDYE8..",hs-CDK5R1 (+6),"CDK5R1,SPDYE4,CDK5R2,SPDYE12,SPDYE9,SPDYE11,SPDYE8..",NA,NA
+c97435-g1 1-to-1 CDK5RAP1 CDK5 regulatory subunit associated protein 1,CDK5RAP1,CDK5RAP1,NA,NA
+c103449-g1 CDKL1 (Cyclin-dependent kinase-like) - emapper OG,CDKL1,CDKL1,NA,NA
+c92139-g2 1-to-1 CDT1 chromatin licensing and DNA replication factor 1,CDT1,CDT1,NA,NA
+c103801-g2 1-to-1 CEBPZ CCAAT/enhancer binding protein zeta,CEBPZ,CEBPZ,NA,NA
+c103415-g1 CED-3 (apoptosis-related cysteine peptidase) - emapper OG,CED-3,CED-3,NA,NA
+"c102243-g1 1-to-2 CELF1,CELF2 CUGBP Elav-like family member 1",CELF1/CELF2,"CELF1,CELF2",NA,NA
+c87137-g1 hs-CENPQ,hs-CENPQ,CENPQ,NA,NA
+c101433-g1 1-to-1 CETN3 centrin 3,CETN3,CETN3,NA,NA
+"c96560-g1 CEVI57, Solanum lycopersicum",CEVI57,"CEVI57,",NA,NA
+c102614-g3 1-to-1 CFAP206 cilia and flagella associated protein 206,CFAP206,CFAP206,NA,NA
+c100476-g2 (chitin synthase) - emapper OG,chitin synthase,chitinsynthase,NA,NA
+c100476-g3 (chitin synthase) - emapper OG,chitin synthase,chitinsynthase,NA,NA
+c102134-g1 (chitin synthase) - emapper OG,chitin synthase,chitinsynthase,NA,NA
+c102134-g4 (chitin synthase) - emapper OG,chitin synthase,chitinsynthase,NA,NA
+c104626-g6 (chitin synthase) - emapper OG,chitin synthase,chitinsynthase,NA,NA
+"c97708-g3 chlB, Selaginella mollis",chlB,"chlB,",NA,NA
+c95752-g2 1-to-1 CHST15 carbohydrate sulfotransferase 15,CHST15,CHST15,NA,NA
+c3401-g1 1-to-1 CHTF18 chromosome transmission fidelity factor 18,CHTF18,CHTF18,NA,NA
+"c9854-g1 clpS, Mycobacterium marinum (strain ATCC BAA-535 /..",clpS,"clpS,",NA,NA
+"c102552-g1 1-to-1 CLPTM1 CLPTM1, transmembrane protein",CLPTM1 CLPTM1,CLPTM1,NA,NA
+c97721-g2 hs-CLTRN,hs-CLTRN,CLTRN,TRUE,Vesicular trafficking
+c104447-g1 1-to-1 CLUH clustered mitochondria homolog,CLUH,CLUH,NA,NA
+c96908-g1 1-to-1 CMTR1 cap methyltransferase 1,CMTR1,CMTR1,NA,NA
+c104506-g8 COL16A1 (Collagen triple helix repeat (20 copies)) - emapper OG,COL16A1,COL16A1,TRUE,ECM
+"c100522-g2 COL1A1 (collagen, type I, alpha 1) - emapper OG",COL1A1 (collagen,COL1A1,TRUE,ECM
+"c110692-g1 COL1A1 (collagen, type I, alpha 1) - emapper OG",COL1A1 (collagen,COL1A1,TRUE,ECM
+"c102383-g2 COL24A1 (collagen, type XXIV, alpha 1) - blastp",COL24A1 (collagen,COL24A1,TRUE,ECM
+"c107246-g1 1-to-3 COL5A3,COL11A1,COL2A1 collagen type V alpha 3 chain",COL5A3 (+2),"COL5A3,COL11A1,COL2A1",TRUE,ECM
+c100836-g1 (Conserved hypothetical protein) - emapper OG,Conserved hypothetical prot…,Conservedhypotheticalprotein,NA,NA
+"c77707-g1 hs-COX7B,COX7B2,NDUFB2,SMIM8",hs-COX7B (+3),"COX7B,COX7B2,NDUFB2,SMIM8",NA,NA
+c102889-g1 1-to-1 CPSF2 cleavage and polyadenylation specific factor 2,CPSF2,CPSF2,NA,NA
+"c103455-g1 1-to-2 CRELD1,CRELD2 cysteine rich with EGF like domains 1",CRELD1/CRELD2,"CRELD1,CRELD2",NA,NA
+"c97843-g2 hs-CRHR2,FZD9,GHRHR,FZD5,FZD10,VIPR2,FZD8,FZD4,ADGRE4..",hs-CRHR2 (+8),"CRHR2,FZD9,GHRHR,FZD5,FZD10,VIPR2,FZD8,FZD4,ADGRE4..",TRUE,GPCR
+c89777-g2 hs-CRP,hs-CRP,CRP,NA,NA
+c101968-g1 1-to-1 CSE1L chromosome segregation 1 like,CSE1L,CSE1L,NA,NA
+"c102039-g1 hs-CSH1,LIF,CSH2,GH2,GH1,CSHL1",hs-CSH1 (+5),"CSH1,LIF,CSH2,GH2,GH1,CSHL1",NA,NA
+c111169-g1 CSK (c-src tyrosine kinase) - blastp,CSK,CSK,NA,NA
+"c94801-g1 1-to-9 CT45A5,CT45A1,CT45A3,CT45A2... cancer/testis antigen family 45 member A5",CT45A5 (+3),"CT45A5,CT45A1,CT45A3,CT45A2...",NA,NA
+c98030-g1 1-to-1 CTDP1 CTD phosphatase subunit 1,CTDP1,CTDP1,NA,NA
+"c101598-g1 1-to-3 CTNNA1,CTNNA2,CTNNA3 catenin alpha 1",CTNNA1 (+2),"CTNNA1,CTNNA2,CTNNA3",NA,NA
+c102931-g1 1-to-1 CTNNBL1 catenin beta like 1,CTNNBL1,CTNNBL1,NA,NA
+"c97262-g1 CTR9 (Ctr9, Paf1 RNA polymerase II complex component, homolog (S. cerevisiae)) - emapper OG",CTR9 (Ctr9,CTR9,NA,NA
+c101667-g1 CTSA (cathepsin A) - emapper OG,CTSA,CTSA,NA,NA
+c80372-g1 4-to-1 CUL9 cullin 9,CUL9,CUL9,NA,NA
+c104947-g1 CUZD1 (scavenger receptor cysteine rich domain containing) - emapper OG,CUZD1,CUZD1,NA,NA
+c103674-g4 1-to-1 CWC22 CWC22 spliceosome associated protein homolog,CWC22,CWC22,NA,NA
+c92589-g1 CWC27 (CWC27 spliceosome-associated protein homolog (S. cerevisiae)) - emapper OG,CWC27,CWC27,NA,NA
+"c101694-g1 hs-CXCL16,KITLG",hs-CXCL16/KITLG,"CXCL16,KITLG",TRUE,Inflammation
+c84736-g2 15-to-1 CYP46A1 cytochrome P450 family 46 subfamily A member 1,CYP46A1,CYP46A1,NA,NA
+c102375-g1 14-to-1 CYP46A1 cytochrome P450 family 46 subfamily A member 1,CYP46A1,CYP46A1,NA,NA
+"c105352-g1 hs-CYSTM1,CDIP1,PRRT1",hs-CYSTM1 (+2),"CYSTM1,CDIP1,PRRT1",NA,NA
+c98267-g3 hs-DAD1,hs-DAD1,DAD1,NA,NA
+c95755-g1 1-to-1 DAP3 death associated protein 3,DAP3,DAP3,NA,NA
+c91510-g2 DAPP1 (dual adaptor of phosphotyrosine and 3-phosphoinositides) - blastp,DAPP1,DAPP1,NA,NA
+c103752-g1 1-to-1 DARS aspartyl-tRNA synthetase,DARS,DARS,NA,NA
+c100500-g1 DBF4B (DBF4 homolog B (S. cerevisiae)) - emapper OG,DBF4B,DBF4B,NA,NA
+c101006-g1 1-to-1 DBR1 debranching RNA lariats 1,DBR1,DBR1,NA,NA
+c96229-g1 1-to-1 DCAF13 DDB1 and CUL4 associated factor 13,DCAF13,DCAF13,NA,NA
+"c54159-g1 1-to-3 DCAF4L2,DCAF4L1,DCAF4 DDB1 and CUL4 associated factor 4 like 2",DCAF4L2 (+2),"DCAF4L2,DCAF4L1,DCAF4",NA,NA
+c98226-g1 2-to-1 DCP2 decapping mRNA 2,DCP2,DCP2,NA,NA
+"c39649-g1 hs-DCTD,APOBEC2,APOBEC3C,ADAT2",hs-DCTD (+3),"DCTD,APOBEC2,APOBEC3C,ADAT2",NA,NA
+c81441-g1 1-to-1 DCTPP1 dCTP pyrophosphatase 1,DCTPP1,DCTPP1,NA,NA
+c103091-g1 1-to-1 DDHD1 DDHD domain containing 1,DDHD1,DDHD1,NA,NA
+c99677-g2 1-to-1 DDOST dolichyl-diphosphooligosaccharide--protein glycosyltransferase non-catalytic subunit,DDOST,DDOST,NA,NA
+c100629-g1 1-to-1 DDX10 DEAD-box helicase 10,DDX10,DDX10,NA,NA
+c103111-g2 1-to-1 DDX18 DEAD-box helicase 18,DDX18,DDX18,NA,NA
+"c98220-g1 1-to-2 DDX21,DDX50 DExD-box helicase 21",DDX21/DDX50,"DDX21,DDX50",NA,NA
+c102935-g1 1-to-1 DDX24 DEAD-box helicase 24,DDX24,DDX24,NA,NA
+c99951-g2 1-to-1 DDX27 DEAD-box helicase 27,DDX27,DDX27,NA,NA
+c87654-g1 1-to-1 DDX28 DEAD-box helicase 28,DDX28,DDX28,NA,NA
+"c87718-g1 1-to-2 DDX43,DDX53 DEAD-box helicase 43",DDX43/DDX53,"DDX43,DDX53",NA,NA
+c97548-g1 DDX47 (DEAD (Asp-Glu-Ala-Asp) box polypeptide) - emapper OG,DDX47,DDX47,NA,NA
+"c104640-g3 2-to-2 DDX5,DDX17 DEAD-box helicase 5",DDX5/DDX17,"DDX5,DDX17",NA,NA
+c84464-g1 1-to-1 DDX51 DEAD-box helicase 51,DDX51,DDX51,NA,NA
+c91759-g1 1-to-1 DDX52 DExD-box helicase 52,DDX52,DDX52,NA,NA
+c100719-g1 1-to-1 DDX54 DEAD-box helicase 54,DDX54,DDX54,NA,NA
+c108909-g1 1-to-1 DDX55 DEAD-box helicase 55,DDX55,DDX55,NA,NA
+c100808-g1 1-to-1 DDX56 DEAD-box helicase 56,DDX56,DDX56,NA,NA
+c94393-g1 hs-DEFB126,hs-DEFB126,DEFB126,NA,NA
+"c104027-g2 1-to-4 DENND2A,DENND2D,DENND2C,ST5 DENN domain containing 2A",DENND2A (+3),"DENND2A,DENND2D,DENND2C,ST5",NA,NA
+c101503-g1 1-to-1 DERA deoxyribose-phosphate aldolase,DERA,DERA,NA,NA
+c101512-g1 3-to-1 DHDH dihydrodiol dehydrogenase,DHDH,DHDH,NA,NA
+c101055-g1 (DHHC palmitoyltransferase) - emapper OG,DHHC palmitoyltransferase,DHHCpalmitoyltransferase,NA,NA
+c104061-g2 1-to-1 DHX16 DEAH-box helicase 16,DHX16,DHX16,NA,NA
+c54816-g1 1-to-1 DHX37 DEAH-box helicase 37,DHX37,DHX37,NA,NA
+c110325-g1 3-to-1 DHX58 DExH-box helicase 58,DHX58,DHX58,NA,NA
+c93864-g1 1-to-1 DIEXF digestive organ expansion factor homolog (zebrafish),DIEXF,DIEXF,NA,NA
+c103414-g1 (Dimethylaniline monooxygenase (N-oxide-forming)) - emapper OG,N-oxide-forming,DimethylanilinemonooxygenaseN-oxide-forming,NA,NA
+c99124-g1 1-to-1 DIMT1 DIM1 dimethyladenosine transferase 1 homolog,DIMT1,DIMT1,NA,NA
+c91100-g1 hs-DKFZp434F142,hs-DKFZp434F142,DKFZp434F142,NA,NA
+c99359-g1 1-to-1 DLG5 discs large MAGUK scaffold protein 5,DLG5,DLG5,NA,NA
+c88250-g1 dm-Acp53Ea,dm-Acp53Ea,dm-Acp53Ea,NA,NA
+c113822-g1 dm-Mst57Dc,dm-Mst57Dc,dm-Mst57Dc,NA,NA
+c100086-g1 dm-Os-C,dm-Os-C,dm-Os-C,NA,NA
+c99344-g1 dm-Phf5a,dm-Phf5a,dm-Phf5a,NA,NA
+c103756-g3 dm-Spc25,dm-Spc25,dm-Spc25,NA,NA
+c101796-g1 1-to-1 DNAJC3 DnaJ heat shock protein family (Hsp40) member C3,DNAJC3,DNAJC3,TRUE,Proteostasis
+c95982-g1 1-to-1 DNAL1 dynein axonemal light chain 1,DNAL1,DNAL1,NA,NA
+c100964-g1 DNMBP (dynamin binding protein) - emapper OG,DNMBP,DNMBP,NA,NA
+c103588-g1 1-to-1 DNPEP aspartyl aminopeptidase,DNPEP,DNPEP,NA,NA
+c35274-g1 1-to-1 DPH6 diphthamine biosynthesis 6,DPH6,DPH6,NA,NA
+c98335-g1 (DUF218 domain) - emapper OG,DUF218 domain,DUF218domain,NA,NA
+c102802-g4 DUOX1 (Dual oxidase) - emapper OG,DUOX1,DUOX1,NA,NA
+c106025-g1 1-to-1 DUS2 dihydrouridine synthase 2,DUS2,DUS2,NA,NA
+c103494-g1 2-to-1 DUSP11 dual specificity phosphatase 11,DUSP11,DUSP11,NA,NA
+c104722-g1 1-to-1 DYM dymeclin,DYM,DYM,NA,NA
+c101102-g1 (Dynamin family) - emapper OG,Dynamin family,Dynaminfamily,NA,NA
+"c89938-g1 E10, Equine herpesvirus 2 (strain 86/87)",E10,"E10,",NA,NA
+"c79930-g2 Ear, Rattus norvegicus",Ear,"Ear,",NA,NA
+c102314-g1 1-to-1 ECD ecdysoneless cell cycle regulator,ECD,ECD,NA,NA
+c57772-g1 hs-EDARADD,hs-EDARADD,EDARADD,NA,NA
+c41805-g1 EEF1A1 (This protein promotes the GTP-dependent binding of aminoacyl-tRNA to the A-site of ribosomes,EEF1A1,EEF1A1,TRUE,Translation
+c88048-g1 EEF1A1 (This protein promotes the GTP-dependent binding of aminoacyl-tRNA to the A-site of ribosomes,EEF1A1,EEF1A1,TRUE,Translation
+c39449-g1 EEF1G (eukaryotic translation elongation factor 1 gamma) - emapper OG,EEF1G,EEF1G,TRUE,Translation
+c91449-g1 EEF2 (Eukaryotic translation elongation factor 2) - emapper OG,EEF2,EEF2,TRUE,Translation
+c90883-g1 hs-EFCAB10,hs-EFCAB10,EFCAB10,NA,NA
+"c87044-g1 hs-EFCAB8,AIF1L",hs-EFCAB8/AIF1L,"EFCAB8,AIF1L",NA,NA
+c101798-g1 1-to-1 EFTUD2 elongation factor Tu GTP binding domain containing 2,EFTUD2,EFTUD2,NA,NA
+c101391-g1 1-to-1 EIF2A eukaryotic translation initiation factor 2A,EIF2A,EIF2A,TRUE,Translation
+c100562-g1 1-to-1 EIF2B5 eukaryotic translation initiation factor 2B subunit epsilon,EIF2B5,EIF2B5,TRUE,Translation
+"c101771-g1 1-to-2 EIF2S3,AC068775.1 eukaryotic translation initiation factor 2 subunit gamma",EIF2S3/AC068775.1,"EIF2S3,AC068775.1",TRUE,Translation
+c104569-g3 1-to-1 EIF3A eukaryotic translation initiation factor 3 subunit A,EIF3A,EIF3A,TRUE,Translation
+"c101498-g1 EIF3B (Component of the eukaryotic translation initiation factor 3 (eIF-3) complex, which is involv",EIF3B (Component of the euk…,EIF3B,TRUE,Translation
+"c103730-g4 EIF3C (Component of the eukaryotic translation initiation factor 3 (eIF-3) complex, which is requir",EIF3C (Component of the euk…,EIF3C,TRUE,Translation
+c103781-g2 1-to-1 EIF4B eukaryotic translation initiation factor 4B,EIF4B,EIF4B,TRUE,Translation
+c101407-g1 EIF4H (eukaryotic translation initiation factor 4H) - emapper OG,EIF4H,EIF4H,TRUE,Translation
+c105956-g1 1-to-1 ELP1 elongator complex protein 1,ELP1,ELP1,NA,NA
+c103043-g1 1-to-1 EMC1 ER membrane protein complex subunit 1,EMC1,EMC1,NA,NA
+"c100278-g2 1-to-1 EMG1 EMG1, N1-specific pseudouridine methyltransferase",EMG1 EMG1,EMG1,NA,NA
+"c90701-g1 ENOD2, Pisum sativum",ENOD2,"ENOD2,",NA,NA
+"c103321-g1 1-to-2 ENOX1,ENOX2 ecto-NOX disulfide-thiol exchanger 1",ENOX1/ENOX2,"ENOX1,ENOX2",NA,NA
+"c93033-g1 envE, Salmonella typhimurium (strain LT2 / SGSC141..",envE,"envE,",NA,NA
+c104279-g2 (Inherit from KOG: Eph receptor) - emapper OG,Eph receptor,Ephreceptor,NA,NA
+c104279-g4 (Inherit from KOG: Eph receptor) - emapper OG,Eph receptor,Ephreceptor,NA,NA
+c104290-g2 (Inherit from COG: epimerase dehydratase) - emapper OG,epimerase dehydratase,epimerasedehydratase,NA,NA
+c104653-g1 1-to-1 EPRS glutamyl-prolyl-tRNA synthetase,EPRS,EPRS,NA,NA
+"c103098-g2 1-to-2 EPS15,EPS15L1 epidermal growth factor receptor pathway substrate 15",EPS15/EPS15L1,"EPS15,EPS15L1",NA,NA
+c103549-g1 1-to-1 ERMP1 endoplasmic reticulum metallopeptidase 1,ERMP1,ERMP1,NA,NA
+"c101327-g1 1-to-1 ESPL1 extra spindle pole bodies like 1, separase",ESPL1 extra spindle pole bo…,ESPL1,NA,NA
+"c111719-g1 ESR1, Ovis aries",ESR1,"ESR1,",NA,NA
+"c102204-g1 1-to-2 ESRP1,ESRP2 epithelial splicing regulatory protein 1",ESRP1/ESRP2,"ESRP1,ESRP2",NA,NA
+c100711-g1 (Inherit from KOG: Ethylmalonic encephalopathy 1) - emapper OG,Ethylmalonic encephalopathy…,Ethylmalonicencephalopathy1,NA,NA
+c96222-g1 2-to-1 EXD2 exonuclease 3'-5' domain containing 2,EXD2,EXD2,NA,NA
+"c89224-g1 hs-EXOC1L,PLEKHJ1,STXBP6,GARIN1B",hs-EXOC1L (+3),"EXOC1L,PLEKHJ1,STXBP6,GARIN1B",NA,NA
+"c104510-g2 hs-EXOSC1,EXOSC3",hs-EXOSC1/EXOSC3,"EXOSC1,EXOSC3",NA,NA
+c96217-g1 EXOSC4 (exosome component 4) - emapper OG,EXOSC4,EXOSC4,NA,NA
+"c104266-g5 Fam219a, Mus musculus",Fam219a,"Fam219a,",NA,NA
+"c104730-g3 fam219a, Danio rerio",fam219a,"fam219a,",NA,NA
+"c97520-g1 1-to-2 FAM47E,FAM47E-STBD1 family with sequence similarity 47 member E",FAM47E/FAM47E-STBD1,"FAM47E,FAM47E-STBD1",NA,NA
+"c88205-g1 1-to-1 FARS2 phenylalanyl-tRNA synthetase 2, mitochondrial",FARS2 phenylalanyl-tRNA syn…,FARS2,NA,NA
+c53902-g1 (Inherit from opiNOG: Fatty acid desaturase) - emapper OG,Fatty acid desaturase,Fattyaciddesaturase,NA,NA
+c105753-g1 (Inherit from opiNOG: Fatty acid desaturase) - emapper OG,Fatty acid desaturase,Fattyaciddesaturase,NA,NA
+c110616-g1 FBL (Fibrillarin) - emapper OG,FBL,FBL,TRUE,Translation
+c101296-g3 3-to-1 FBLN2 fibulin 2,FBLN2,FBLN2,NA,NA
+c100178-g1 1-to-1 FEN1 flap structure-specific endonuclease 1,FEN1,FEN1,NA,NA
+c93076-g3 FG03615.1 (GMC oxidoreductase) - emapper OG,FG03615.1,FG03615.1,NA,NA
+"c103832-g1 FG09226.1 (Glucosidase, alpha) - emapper OG",FG09226.1 (Glucosidase,FG09226.1,NA,NA
+c103301-g1 FIP1L1 (FIP1 like 1 (S. cerevisiae)) - emapper OG,FIP1L1,FIP1L1,NA,NA
+"c93600-g1 1-to-2 FKBP4,FKBP5 FK506 binding protein 4",FKBP4/FKBP5,"FKBP4,FKBP5",NA,NA
+c92108-g1 (Flavin containing amine oxidoreductase) - emapper OG,Flavin containing amine oxi…,Flavincontainingamineoxidoreductase,NA,NA
+"c99035-g2 FLNB (filamin B, beta) - emapper OG",FLNB (filamin B,FLNB,TRUE,Actin dynamics
+"c103902-g5 FLNB (Filamin A, alpha) - emapper OG",FLNB (Filamin A,FLNB,TRUE,Actin dynamics
+"c103902-g6 FLNB (Filamin A, alpha) - emapper OG",FLNB (Filamin A,FLNB,TRUE,Actin dynamics
+"c89291-g1 1-to-3 FMNL2,FMNL1,FMNL3 formin like 2",FMNL2 (+2),"FMNL2,FMNL1,FMNL3",TRUE,Actin dynamics
+c104239-g1 FNIP1 (folliculin interacting protein) - emapper OG,FNIP1,FNIP1,NA,NA
+c102849-g1 (forkhead box) - emapper OG,forkhead box,forkheadbox,NA,NA
+"c100386-g2 FPV055, Fowlpox virus (strain NVSL)",FPV055,"FPV055,",NA,NA
+c95537-g2 FRAS1 (Fraser extracellular matrix complex subunit 1) - blastp,FRAS1,FRAS1,NA,NA
+c76166-g1 hs-FRS3,hs-FRS3,FRS3,NA,NA
+c104522-g1 1-to-1 FTSJ3 FtsJ homolog 3,FTSJ3,FTSJ3,NA,NA
+"c112118-g1 FV3-064R, Frog virus 3 (isolate Goorha)",FV3-064R,"FV3-064R,",NA,NA
+"c106396-g1 FV3-081R, Frog virus 3 (isolate Goorha)",FV3-081R,"FV3-081R,",NA,NA
+"c109132-g1 hs-G0S2,NMES1",hs-G0S2/NMES1,"G0S2,NMES1",NA,NA
+c103693-g1 G3BP2 (GTPase activating protein (SH3 domain) binding protein) - emapper OG,G3BP2,G3BP2,NA,NA
+c100319-g1 (Gamma-aminobutyric acid (GABA) B receptor) - emapper OG,GABA,Gamma-aminobutyricacidGABA,NA,NA
+c100319-g2 (Gamma-aminobutyric acid (GABA) B receptor) - emapper OG,GABA,Gamma-aminobutyricacidGABA,NA,NA
+c104349-g3 (Gamma-aminobutyric acid (GABA) B receptor) - emapper OG,GABA,Gamma-aminobutyricacidGABA,NA,NA
+c104630-g2 (Gamma-aminobutyric acid (GABA) B receptor) - emapper OG,GABA,Gamma-aminobutyricacidGABA,NA,NA
+c100169-g1 GAR1 (GAR1 ribonucleoprotein homolog (yeast)) - emapper OG,GAR1,GAR1,NA,NA
+c100345-g1 1-to-1 GARS glycyl-tRNA synthetase,GARS,GARS,NA,NA
+"c90685-g1 1-to-2 GAS2,GAS2L3 growth arrest specific 2",GAS2/GAS2L3,"GAS2,GAS2L3",NA,NA
+c103948-g1 1-to-1 GAS7 growth arrest specific 7,GAS7,GAS7,NA,NA
+c103583-g2 (GATA binding protein 4) - emapper OG,GATA binding protein 4,GATAbindingprotein4,NA,NA
+c101288-g1 1-to-1 GCKR glucokinase regulator,GCKR,GCKR,NA,NA
+c90763-g1 GCR1 (Receptor) - emapper OG,GCR1,GCR1,NA,NA
+c100975-g1 (gelsolin) - emapper OG,gelsolin,gelsolin,NA,NA
+c99595-g1 1-to-1 GFM1 G elongation factor mitochondrial 1,GFM1,GFM1,NA,NA
+"c104763-g1 1-to-6 GGTLC1,GGT5,GGT1,GGT2... gamma-glutamyltransferase light chain 1",GGTLC1 (+3),"GGTLC1,GGT5,GGT1,GGT2...",NA,NA
+"c98437-g1 hs-GHRL,DEFA6,IL31,NPPC",hs-GHRL (+3),"GHRL,DEFA6,IL31,NPPC",TRUE,Inflammation
+"c39835-g1 hs-GIMAP5,GIMAP1,GIMAP6,SEPTIN1,GIMAP2,RABL3,GIMAP7",hs-GIMAP5 (+6),"GIMAP5,GIMAP1,GIMAP6,SEPTIN1,GIMAP2,RABL3,GIMAP7",NA,NA
+"c106942-g1 gL, Epstein-Barr virus (strain AG876)",gL,"gL,",NA,NA
+c90745-g2 (Inherit from opiNOG: glycine-rich RNA binding protein) - emapper OG,glycine-rich RNA binding pr…,glycine-richRNAbindingprotein,NA,NA
+c96925-g1 (Inherit from opiNOG: glycine-rich RNA binding protein) - emapper OG,glycine-rich RNA binding pr…,glycine-richRNAbindingprotein,NA,NA
+c103491-g1 GNL3 (guanine nucleotide binding protein-like 3) - emapper OG,GNL3,GNL3,NA,NA
+c90682-g1 1-to-1 GNPAT glyceronephosphate O-acyltransferase,GNPAT,GNPAT,NA,NA
+c95326-g1 (GON domain) - emapper OG,GON domain,GONdomain,NA,NA
+c87240-g1 1-to-1 GPATCH1 G-patch domain containing 1,GPATCH1,GPATCH1,NA,NA
+c102357-g2 GPKOW (g patch domain and KOW) - emapper OG,GPKOW,GPKOW,NA,NA
+c95896-g1 1-to-1 GPN1 GPN-loop GTPase 1,GPN1,GPN1,NA,NA
+"c7165-g1 Gpr50, Rattus norvegicus",Gpr50,"Gpr50,",TRUE,GPCR
+"c103313-g4 hs-GPRC5D,GPR137,GPRC5A,GPR143,S1PR3",hs-GPRC5D (+4),"GPRC5D,GPR137,GPRC5A,GPR143,S1PR3",TRUE,GPCR
+"c103234-g1 2-to-8 GRM6,GRM5,GRM8,GRM7... glutamate metabotropic receptor 6",GRM6 (+3),"GRM6,GRM5,GRM8,GRM7...",TRUE,GPCR
+"c104268-g1 1-to-2 GSPT2,GSPT1 G1 to S phase transition 2",GSPT2/GSPT1,"GSPT2,GSPT1",NA,NA
+c94068-g2 1-to-1 GTF2H3 general transcription factor IIH subunit 3,GTF2H3,GTF2H3,NA,NA
+c100786-g1 1-to-1 GTF2H4 general transcription factor IIH subunit 4,GTF2H4,GTF2H4,NA,NA
+c99980-g2 1-to-1 GTF3C3 general transcription factor IIIC subunit 3,GTF3C3,GTF3C3,NA,NA
+c103422-g1 (Inherit from KOG: Guanylate cyclase) - emapper OG,Guanylate cyclase,Guanylatecyclase,TRUE,NO signaling
+c101017-g1 (guanylate cyclase) - emapper OG,guanylate cyclase,guanylatecyclase,TRUE,NO signaling
+"c100584-g1 hs-GUCA2A,MFAP5",hs-GUCA2A/MFAP5,"GUCA2A,MFAP5",TRUE,NO signaling
+"c111397-g1 hs-GYPA,PIANP,FAM174A,ECSCR,PRIMA1,FAM174C,HCST,FAM17..",hs-GYPA (+7),"GYPA,PIANP,FAM174A,ECSCR,PRIMA1,FAM174C,HCST,FAM17..",NA,NA
+c103864-g4 hs-GYPC,hs-GYPC,GYPC,NA,NA
+"c92891-g1 hs-GYPC,C3orf18,TMEM154,SERTM1,SMAGP,TNFRSF13C,EVI2A,..",hs-GYPC (+7),"GYPC,C3orf18,TMEM154,SERTM1,SMAGP,TNFRSF13C,EVI2A,..",TRUE,Inflammation
+"c102873-g2 hs-GYPC,SERTM2,SERTM1,SMAGP,CRB3,KCNE2,TNFRSF13C,EVI2..",hs-GYPC (+7),"GYPC,SERTM2,SERTM1,SMAGP,CRB3,KCNE2,TNFRSF13C,EVI2..",TRUE,Inflammation
+"c92380-g1 hs-GYPC,SMAGP,SERTM2,SERTM1,NCMAP,TNFRSF13C,KCNE2,CRB..",hs-GYPC (+7),"GYPC,SMAGP,SERTM2,SERTM1,NCMAP,TNFRSF13C,KCNE2,CRB..",TRUE,Inflammation
+c92793-g1 1-to-1 H6PD hexose-6-phosphate dehydrogenase/glucose 1-dehydrogenase,H6PD,H6PD,NA,NA
+"c94361-g1 hs-HAMP,DEFA6,AGRP,DEFA3,ASIP,DEFA5,DEFA1,LEAP2,INSL4..",hs-HAMP (+8),"HAMP,DEFA6,AGRP,DEFA3,ASIP,DEFA5,DEFA1,LEAP2,INSL4..",NA,NA
+"c82732-g1 2-to-2 HARS2,HARS histidyl-tRNA synthetase 2, mitochondrial",HARS2,"HARS2,HARS",NA,NA
+"c100447-g1 2-to-2 HDAC10,HDAC6 histone deacetylase 10",HDAC10/HDAC6,"HDAC10,HDAC6",NA,NA
+c102735-g1 1-to-1 HEATR1 HEAT repeat containing 1,HEATR1,HEATR1,NA,NA
+c98957-g1 (heat shock) - emapper OG,heat shock,heatshock,NA,NA
+"c101494-g1 HECW1 (HECT, C2 and WW domain containing E3 ubiquitin protein ligase) - emapper OG",HECW1 (HECT,HECW1,NA,NA
+"c89301-g2 1-to-1 HELLS helicase, lymphoid specific",HELLS helicase,HELLS,NA,NA
+c101467-g1 HELZ (Helicase with zinc finger) - emapper OG,HELZ,HELZ,NA,NA
+c104742-g1 HELZ (helicase with zinc finger) - blastp,HELZ,HELZ,NA,NA
+"c104215-g3 1-to-2 HEXIM2,HEXIM1 hexamethylene bisacetamide inducible 2",HEXIM2/HEXIM1,"HEXIM2,HEXIM1",NA,NA
+c102633-g2 1-to-1 HIBCH 3-hydroxyisobutyryl-CoA hydrolase,HIBCH,HIBCH,NA,NA
+"c100550-g2 hs-HNRNPA0,ALYREF",hs-HNRNPA0/ALYREF,"HNRNPA0,ALYREF",NA,NA
+c103927-g1 HSC70-4 (heat shock) - emapper OG,HSC70-4,HSC70-4,NA,NA
+c104017-g1 HSC70-5 (heat shock 70 kDa protein cognate) - emapper OG,HSC70-5,HSC70-5,NA,NA
+"c93283-g1 hs-HSH2D,SH2D7",hs-HSH2D/SH2D7,"HSH2D,SH2D7",NA,NA
+"c101507-g2 HSP90AA1 (Molecular chaperone that promotes the maturation, structural maintenance and proper regul",HSP90AA1 (Molecular chapero…,HSP90AA1,TRUE,Proteostasis
+"c103368-g1 HSP90B1 (heat shock protein 90kDa beta (Grp94), member 1) - emapper OG",HSP90B1 (heat shock protein…,HSP90B1,TRUE,Proteostasis
+c94374-g1 1-to-1 HSPA14 heat shock protein family A (Hsp70) member 14,HSPA14,HSPA14,TRUE,Proteostasis
+c39783-g1 1-to-1 HSPA5 heat shock protein family A (Hsp70) member 5,HSPA5,HSPA5,TRUE,Proteostasis
+c103927-g2 HSPA8 (heat shock protein family A (Hsp70) member 8) - blastp,HSPA8,HSPA8,TRUE,Proteostasis
+c96953-g1 1-to-1 HSPD1 heat shock protein family D (Hsp60) member 1,HSPD1,HSPD1,TRUE,Proteostasis
+c103384-g2 (Hydra magnipapillata) - emapper OG,Hydra magnipapillata,Hydramagnipapillata,NA,NA
+c104733-g1 1-to-1 HYOU1 hypoxia up-regulated 1,HYOU1,HYOU1,NA,NA
+c104078-g2 2-to-1 IARS isoleucyl-tRNA synthetase,IARS,IARS,NA,NA
+"c80379-g2 3-to-2 IDO1,IDO2 indoleamine 2,3-dioxygenase 1",IDO1/IDO2,"IDO1,IDO2",TRUE,Tryptophan metabolism
+"c90297-g1 3-to-2 IDO1,IDO2 indoleamine 2,3-dioxygenase 1",IDO1/IDO2,"IDO1,IDO2",TRUE,Tryptophan metabolism
+c93646-g1 IFIH1 (box polypeptide 58) - emapper OG,IFIH1,IFIH1,TRUE,Inflammation
+c95910-g1 IFIH1 (box polypeptide 58) - emapper OG,IFIH1,IFIH1,TRUE,Inflammation
+c101586-g1 IFIH1 (box polypeptide 58) - emapper OG,IFIH1,IFIH1,TRUE,Inflammation
+"c93424-g1 hs-IFITM3,IFITM2,IFITM5,IFITM1",hs-IFITM3 (+3),"IFITM3,IFITM2,IFITM5,IFITM1",TRUE,Inflammation
+c97882-g1 1-to-1 IFT20 intraflagellar transport 20,IFT20,IFT20,NA,NA
+c49953-g1 1-to-1 IFT22 intraflagellar transport 22,IFT22,IFT22,NA,NA
+c102385-g1 hs-IL2,hs-IL2,IL2,TRUE,Inflammation
+"c98533-g1 IL2, Vulpes vulpes",IL2,"IL2,",TRUE,Inflammation
+"c103732-g1 ilcr-1, Caenorhabditis elegans",ilcr-1,"ilcr-1,",TRUE,Inflammation
+c101577-g1 1-to-1 ILF2 interleukin enhancer binding factor 2,ILF2,ILF2,TRUE,Inflammation
+c82373-g1 (Indigoidine synthase A like protein) - emapper OG,Indigoidine synthase A like…,IndigoidinesynthaseAlikeprotein,NA,NA
+c104332-g3 (integrase core domain protein) - emapper OG,integrase core domain prote…,integrasecoredomainprotein,NA,NA
+c91319-g1 1-to-1 INTS1 integrator complex subunit 1,INTS1,INTS1,NA,NA
+c102826-g1 1-to-1 INTS13 integrator complex subunit 13,INTS13,INTS13,NA,NA
+c22349-g1 1-to-1 INTS2 integrator complex subunit 2,INTS2,INTS2,NA,NA
+"c98523-g1 1-to-2 INTS6,INTS6L integrator complex subunit 6",INTS6/INTS6L,"INTS6,INTS6L",NA,NA
+c95414-g1 1-to-1 INTS7 integrator complex subunit 7,INTS7,INTS7,NA,NA
+c88188-g1 1-to-1 INTS8 integrator complex subunit 8,INTS8,INTS8,NA,NA
+c87513-g1 1-to-1 INTS9 integrator complex subunit 9,INTS9,INTS9,NA,NA
+c96267-g1 3-to-1 INVS inversin,INVS,INVS,NA,NA
+c80712-g1 1-to-1 IPO11 importin 11,IPO11,IPO11,NA,NA
+c100923-g1 1-to-1 IPO4 importin 4,IPO4,IPO4,NA,NA
+"c104678-g3 1-to-2 IPO8,IPO7 importin 8",IPO8/IPO7,"IPO8,IPO7",NA,NA
+c96990-g1 1-to-1 IPO9 importin 9,IPO9,IPO9,NA,NA
+"c39690-g1 hs-ISG20,TREX2,TREX1,CNOT8,CNOT7",hs-ISG20 (+4),"ISG20,TREX2,TREX1,CNOT8,CNOT7",NA,NA
+"c89286-g1 hs-ISX,PRRX1,PROP1,RAX,OTP,ALX1,SHOX,NKX2-6,VENTX,PRR..",hs-ISX (+9),"ISX,PRRX1,PROP1,RAX,OTP,ALX1,SHOX,NKX2-6,VENTX,PRR..",NA,NA
+"c96198-g1 ITEVIR, Enterobacteria phage T4",ITEVIR,"ITEVIR,",NA,NA
+c98654-g1 1-to-1 IYD iodotyrosine deiodinase,IYD,IYD,NA,NA
+"c95722-g1 hs-IZUMO2,LAMP5,PROCR",hs-IZUMO2 (+2),"IZUMO2,LAMP5,PROCR",NA,NA
+c94692-g1 1-to-1 JMJD8 jumonji domain containing 8,JMJD8,JMJD8,NA,NA
+"c94729-g1 1-to-1 JMY junction mediating and regulatory protein, p53 cofactor",JMY junction mediating and …,JMY,NA,NA
+c103263-g1 1-to-1 KARS lysyl-tRNA synthetase,KARS,KARS,NA,NA
+"c98178-g1 1-to-3 KHDRBS2,KHDRBS1,KHDRBS3 KH RNA binding domain containing, signal transduction associated 2",KHDRBS2,"KHDRBS2,KHDRBS1,KHDRBS3",NA,NA
+c102009-g2 KIF20A (Kinesin family member) - emapper OG,KIF20A,KIF20A,TRUE,Vesicular Trafficking
+c96134-g1 KLF5 (Kruppel-like factor 5 (intestinal)) - emapper OG,KLF5,KLF5,NA,NA
+c102282-g1 KLF9 (kruppel-like factor) - emapper OG,KLF9,KLF9,NA,NA
+c98945-g1 1-to-1 KLHL20 kelch like family member 20,KLHL20,KLHL20,NA,NA
+c103339-g1 KPNB1 (karyopherin (importin) beta 1) - emapper OG,KPNB1,KPNB1,NA,NA
+"c96945-g1 1-to-1 KRR1 KRR1, small subunit processome component homolog",KRR1 KRR1,KRR1,NA,NA
+c21829-g1 LAC2 (Multicopper oxidase) - emapper OG,LAC2,LAC2,NA,NA
+"c102120-g3 LACTBL1 (lactamase, beta-like 1) - emapper OG",LACTBL1 (lactamase,LACTBL1,NA,NA
+c103459-g2 2-to-1 LACTBL1 lactamase beta like 1,LACTBL1,LACTBL1,NA,NA
+"c71658-g1 1-to-2 LANCL2,LANCL1 LanC like 2",LANCL2/LANCL1,"LANCL2,LANCL1",NA,NA
+"c104101-g2 1-to-2 LARP1B,LARP1 La ribonucleoprotein domain family member 1B",LARP1B/LARP1,"LARP1B,LARP1",NA,NA
+c104621-g4 1-to-1 LARS leucyl-tRNA synthetase,LARS,LARS,NA,NA
+c97955-g2 (latent transforming growth factor beta binding protein 2) - emapper OG,latent transforming growth …,latenttransforminggrowthfactorbetabindingprotein2,NA,NA
+c99674-g1 (latent transforming growth factor beta binding protein 2) - emapper OG,latent transforming growth …,latenttransforminggrowthfactorbetabindingprotein2,NA,NA
+"c100695-g1 (lectin, galactoside-binding, soluble, 8) - emapper OG",(lectin,"lectin,galactoside-binding,soluble,8",NA,NA
+c95230-g1 (leishmanolysin-like (metallopeptidase M8 family)) - emapper OG,metallopeptidase M8 family,leishmanolysin-likemetallopeptidaseM8family,NA,NA
+"c104030-g1 Lemd1, Mus musculus",Lemd1,"Lemd1,",NA,NA
+c97733-g1 LET-767 (hydroxysteroid (17-beta) dehydrogenase 12) - emapper OG,LET-767,LET-767,NA,NA
+c104569-g1 hs-LGMN,hs-LGMN,LGMN,NA,NA
+"c98252-g1 2-to-2 LGR6,LGR4 leucine rich repeat containing G protein-coupled receptor 6",LGR6/LGR4,"LGR6,LGR4",NA,NA
+c103260-g2 1-to-1 LIG1 DNA ligase 1,LIG1,LIG1,NA,NA
+c94233-g1 (Ligand for members of the frizzled family of seven transmembrane receptors (By similarity)) - emapp,Ligand for members of the f…,LigandformembersofthefrizzledfamilyofseventransmembranereceptorsBysimilarity,TRUE,Secreted peptide
+c102049-g1 LMF2 (lipase maturation factor 2) - blastp,LMF2,LMF2,NA,NA
+c102879-g1 3-to-1 LMLN leishmanolysin like peptidase,LMLN,LMLN,NA,NA
+c100379-g1 LOC81691 (EXOnuclease) - emapper OG,LOC81691,LOC81691,NA,NA
+"c103834-g1 1-to-1 LONP1 lon peptidase 1, mitochondrial",LONP1 lon peptidase 1,LONP1,NA,NA
+"c95804-g1 1-to-3 LONRF3,LONRF2,LONRF1 LON peptidase N-terminal domain and ring finger 3",LONRF3 (+2),"LONRF3,LONRF2,LONRF1",NA,NA
+"c104605-g1 1-to-3 LOXL4,LOXL3,LOXL2 lysyl oxidase like 4",LOXL4 (+2),"LOXL4,LOXL3,LOXL2",NA,NA
+"c105031-g1 lp_2275, Lactiplantibacillus plantarum (strain ATC..",lp_2275,"lp_2275,",NA,NA
+"c93242-g1 hs-LRAT,PLAAT2,PLAAT3,PLAAT1,MKRN2OS,PLAAT4",hs-LRAT (+5),"LRAT,PLAAT2,PLAAT3,PLAAT1,MKRN2OS,PLAAT4",NA,NA
+c100012-g1 1-to-1 LRP2 LDL receptor related protein 2,LRP2,LRP2,NA,NA
+c100713-g1 LRP5 (low density lipoprotein receptor-related protein 5) - emapper OG,LRP5,LRP5,NA,NA
+c104003-g1 1-to-1 LRPPRC leucine rich pentatricopeptide repeat containing,LRPPRC,LRPPRC,NA,NA
+"c95058-g1 2-to-7 LRRC4,AMIGO2,LRRC4C,SLIT3... leucine rich repeat containing 4",LRRC4 (+3),"LRRC4,AMIGO2,LRRC4C,SLIT3...",NA,NA
+"c95058-g2 2-to-2 LRRC4,LRRC4B leucine rich repeat containing 4",LRRC4/LRRC4B,"LRRC4,LRRC4B",NA,NA
+c101922-g1 LRRC47 (Leucine rich repeat containing 47) - emapper OG,LRRC47,LRRC47,NA,NA
+c96164-g1 1-to-1 LSG1 large 60S subunit nuclear export GTPase 1,LSG1,LSG1,NA,NA
+c78253-g1 1-to-1 LTA lymphotoxin alpha,LTA,LTA,NA,NA
+c100063-g1 1-to-1 LTA4H leukotriene A4 hydrolase,LTA4H,LTA4H,NA,NA
+c99617-g1 1-to-1 LTV1 LTV1 ribosome biogenesis factor,LTV1,LTV1,NA,NA
+"c94687-g1 Lurap1, Rattus norvegicus",Lurap1,"Lurap1,",NA,NA
+c99301-g1 1-to-1 LYAR Ly1 antibody reactive,LYAR,LYAR,NA,NA
+c100388-g2 1-to-1 MAK16 MAK16 homolog,MAK16,MAK16,NA,NA
+"c94478-g1 Mal-153, African swine fever virus (isolate Tick/M..",Mal-153,"Mal-153,",NA,NA
+c100175-g1 hs-MAMDC2,hs-MAMDC2,MAMDC2,NA,NA
+"c102320-g1 1-to-2 MAN2A1,MAN2A2 mannosidase alpha class 2A member 1",MAN2A1/MAN2A2,"MAN2A1,MAN2A2",NA,NA
+c107990-g1 1-to-1 MAP1A microtubule associated protein 1A,MAP1A,MAP1A,NA,NA
+c101864-g1 2-to-1 MARS methionyl-tRNA synthetase,MARS,MARS,NA,NA
+c97615-g1 MAT1A (Catalyzes the formation of S-adenosylmethionine from methionine and ATP (By similarity)) - em,MAT1A,MAT1A,NA,NA
+"c104820-g1 MBP1, Arabidopsis thaliana",MBP1,"MBP1,",NA,NA
+c100085-g1 1-to-1 MCM3 minichromosome maintenance complex component 3,MCM3,MCM3,NA,NA
+c103199-g1 1-to-1 MCM4 minichromosome maintenance complex component 4,MCM4,MCM4,NA,NA
+c103833-g2 1-to-1 MCM7 minichromosome maintenance complex component 7,MCM7,MCM7,NA,NA
+"c102553-g5 mde1, Schizosaccharomyces pombe (strain 972 / ATCC..",mde1,"mde1,",NA,NA
+c102648-g1 1-to-1 MDN1 midasin AAA ATPase 1,MDN1,MDN1,NA,NA
+c101930-g4 MEC-2 (Stomatin) - emapper OG,MEC-2,MEC-2,NA,NA
+"c109332-g1 med21, Schizosaccharomyces pombe (strain 972 / ATC..",med21,"med21,",NA,NA
+c103533-g2 MED25 (mediator complex subunit 25) - emapper OG,MED25,MED25,NA,NA
+c85951-g1 hs-MEIG1,hs-MEIG1,MEIG1,NA,NA
+c94717-g1 (member RAS oncogene family) - emapper OG,member RAS oncogene family,memberRASoncogenefamily,NA,NA
+"c96672-g1 hs-MEST,EPHX4,EPHX3,ABHD5,ABHD4,ABHD11,PPME1,ABHD6,LI..",hs-MEST (+8),"MEST,EPHX4,EPHX3,ABHD5,ABHD4,ABHD11,PPME1,ABHD6,LI..",NA,NA
+c105144-g1 1-to-1 METTL13 methyltransferase like 13,METTL13,METTL13,NA,NA
+c89889-g1 4-to-1 MFSD4B major facilitator superfamily domain containing 4B,MFSD4B,MFSD4B,NA,NA
+c89066-g1 3-to-1 MIB2 mindbomb E3 ubiquitin protein ligase 2,MIB2,MIB2,NA,NA
+"c95934-g1 MIMI_R321, Acanthamoeba polyphaga mimivirus",MIMI_R321,"MIMI_R321,",NA,NA
+c98643-g1 (Inherit from opiNOG: Mitochondrial genome maintenance protein mgm101) - emapper OG,Mitochondrial genome mainte…,Mitochondrialgenomemaintenanceproteinmgm101,NA,NA
+"c97657-g1 1-to-1 MMS19 MMS19 homolog, cytosolic iron-sulfur assembly component",MMS19 MMS19 homolog,MMS19,NA,NA
+c98099-g1 (morphogenesis of an epithelium) - emapper OG,morphogenesis of an epithel…,morphogenesisofanepithelium,NA,NA
+c104948-g3 (morphogenesis of an epithelium) - emapper OG,morphogenesis of an epithel…,morphogenesisofanepithelium,NA,NA
+c102196-g1 1-to-1 MOV10L1 Mov10 RISC complex RNA helicase like 1,MOV10L1,MOV10L1,NA,NA
+"c95922-g2 MPN_109, Mycoplasma pneumoniae (strain ATCC 29342 ..",MPN_109,"MPN_109,",NA,NA
+c99370-g1 1-to-1 MRPL28 mitochondrial ribosomal protein L28,MRPL28,MRPL28,NA,NA
+c100613-g1 1-to-1 MRPL3 mitochondrial ribosomal protein L3,MRPL3,MRPL3,NA,NA
+c102430-g2 hs-MRPL4,hs-MRPL4,MRPL4,NA,NA
+c100286-g1 1-to-1 MRPL44 mitochondrial ribosomal protein L44,MRPL44,MRPL44,NA,NA
+c100423-g1 1-to-1 MRPS18B mitochondrial ribosomal protein S18B,MRPS18B,MRPS18B,NA,NA
+c92029-g1 1-to-1 MRPS25 mitochondrial ribosomal protein S25,MRPS25,MRPS25,NA,NA
+c99385-g1 1-to-1 MRPS27 mitochondrial ribosomal protein S27,MRPS27,MRPS27,NA,NA
+c99318-g1 1-to-1 MRPS30 mitochondrial ribosomal protein S30,MRPS30,MRPS30,NA,NA
+c101090-g1 1-to-1 MRPS31 mitochondrial ribosomal protein S31,MRPS31,MRPS31,NA,NA
+c103564-g2 1-to-1 MRPS5 mitochondrial ribosomal protein S5,MRPS5,MRPS5,NA,NA
+c93701-g1 1-to-1 MRRF mitochondrial ribosome recycling factor,MRRF,MRRF,NA,NA
+c100313-g1 MRTO4 (mRNA turnover 4 homolog (S. cerevisiae)) - emapper OG,MRTO4,MRTO4,NA,NA
+c96567-g1 1-to-1 MSH2 mutS homolog 2,MSH2,MSH2,NA,NA
+c67184-g1 hs-MSRB1,hs-MSRB1,MSRB1,NA,NA
+"c89063-g1 hs-MSRB3,MSRB2",hs-MSRB3/MSRB2,"MSRB3,MSRB2",NA,NA
+c100830-g2 2-to-1 MTHFR methylenetetrahydrofolate reductase,MTHFR,MTHFR,NA,NA
+c90307-g1 1-to-1 MTO1 mitochondrial tRNA translation optimization 1,MTO1,MTO1,NA,NA
+c104190-g2 hs-MTTP,hs-MTTP,MTTP,NA,NA
+c104893-g3 hs-MTTP,hs-MTTP,MTTP,NA,NA
+c103250-g2 (mucolipin) - emapper OG,mucolipin,mucolipin,NA,NA
+c99494-g4 (multicellular organismal development) - emapper OG,multicellular organismal de…,multicellularorganismaldevelopment,NA,NA
+c104923-g1 (multicellular organismal development) - emapper OG,multicellular organismal de…,multicellularorganismaldevelopment,NA,NA
+c96220-g1 hs-MYD88,hs-MYD88,MYD88,NA,NA
+"c103171-g1 1-to-2 NAA15,NAA16 N(alpha)-acetyltransferase 15, NatA auxiliary subunit",NAA15,"NAA15,NAA16",NA,NA
+"c98981-g1 1-to-1 NAA25 N(alpha)-acetyltransferase 25, NatB auxiliary subunit",NAA25 N(alpha)-acetyltransf…,NAA25,NA,NA
+c98164-g1 NAP1L1 (nucleosome assembly protein 1-like) - emapper OG,NAP1L1,NAP1L1,NA,NA
+c98164-g2 NAP1L1 (nucleosome assembly protein 1-like) - emapper OG,NAP1L1,NAP1L1,NA,NA
+c93759-g1 1-to-1 NASP nuclear autoantigenic sperm protein,NASP,NASP,NA,NA
+c94586-g1 1-to-1 NASP nuclear autoantigenic sperm protein,NASP,NASP,NA,NA
+c88837-g1 1-to-1 NAT10 N-acetyltransferase 10,NAT10,NAT10,NA,NA
+"c101195-g1 NBP2, Saccharomyces cerevisiae (strain ATCC 204508..",NBP2,"NBP2,",NA,NA
+c99455-g1 1-to-1 NCBP1 nuclear cap binding protein subunit 1,NCBP1,NCBP1,NA,NA
+c100124-g4 NCBP2 (nuclear cap binding protein subunit 2) - blastp,NCBP2,NCBP2,NA,NA
+c90745-g1 NCL (Nucleolin) - emapper OG,NCL,NCL,NA,NA
+c98739-g1 NCL (Nucleolin) - emapper OG,NCL,NCL,NA,NA
+c96995-g1 1-to-1 NDC1 NDC1 transmembrane nucleoporin,NDC1,NDC1,NA,NA
+"c99883-g1 nef, Human immunodeficiency virus type 1 group M s..",nef,"nef,",NA,NA
+c94764-g1 1-to-1 NELFCD negative elongation factor complex member C/D,NELFCD,NELFCD,NA,NA
+c101975-g1 NEO1 (deleted in colorectal carcinoma) - emapper OG,NEO1,NEO1,NA,NA
+"c93335-g1 1-to-4 NFATC3,NFATC2,NFATC4,NFATC1 nuclear factor of activated T-cells 3",NFATC3 (+3),"NFATC3,NFATC2,NFATC4,NFATC1",NA,NA
+"c101753-g1 1-to-1 NFX1 nuclear transcription factor, X-box binding 1",NFX1 nuclear transcription …,NFX1,NA,NA
+c94464-g1 NGB (neuroglobin) - blastp,NGB,NGB,NA,NA
+c97850-g1 1-to-1 NGDN neuroguidin,NGDN,NGDN,NA,NA
+"c101534-g2 NGR_a02910, Sinorhizobium fredii (strain NBRC 1019..",NGR_a02910,"NGR_a02910,",NA,NA
+"c92472-g2 Nict2, Nicotiana tabacum",Nict2,"Nict2,",NA,NA
+"c110583-g1 1-to-1 NIP7 NIP7, nucleolar pre-rRNA processing protein",NIP7 NIP7,NIP7,NA,NA
+c89585-g1 NOB1 (NIN1 RPN12 binding protein 1 homolog (S. cerevisiae)) - emapper OG,NOB1,NOB1,NA,NA
+c102900-g1 1-to-1 NOC2L NOC2 like nucleolar associated transcriptional repressor,NOC2L,NOC2L,NA,NA
+c100566-g1 1-to-1 NOC3L NOC3 like DNA replication regulator,NOC3L,NOC3L,NA,NA
+c100949-g1 1-to-1 NOC4L nucleolar complex associated 4 homolog,NOC4L,NOC4L,NA,NA
+"c98234-g1 hs-NODAL,GDF15,INHA,GDF3,INHBE",hs-NODAL (+4),"NODAL,GDF15,INHA,GDF3,INHBE",NA,NA
+c61531-g1 1-to-1 NOL10 nucleolar protein 10,NOL10,NOL10,NA,NA
+c77613-g1 1-to-1 NOL6 nucleolar protein 6,NOL6,NOL6,NA,NA
+c97336-g2 NOL8 (nucleolar protein 8) - emapper OG,NOL8,NOL8,NA,NA
+c102680-g1 1-to-1 NOLC1 nucleolar and coiled-body phosphoprotein 1,NOLC1,NOLC1,NA,NA
+"c103637-g1 1-to-3 NOMO1,NOMO3,NOMO2 NODAL modulator 1",NOMO1 (+2),"NOMO1,NOMO3,NOMO2",NA,NA
+c100426-g1 1-to-1 NOP14 NOP14 nucleolar protein,NOP14,NOP14,NA,NA
+c104223-g1 1-to-1 NOP2 NOP2 nucleolar protein,NOP2,NOP2,NA,NA
+c101772-g1 1-to-1 NOP53 NOP53 ribosome biogenesis factor,NOP53,NOP53,TRUE,Translation
+c99577-g1 1-to-1 NOP56 NOP56 ribonucleoprotein,NOP56,NOP56,TRUE,Translation
+c91929-g1 1-to-1 NOP58 NOP58 ribonucleoprotein,NOP58,NOP58,TRUE,Translation
+c104123-g2 (Notch ligand involved in the mediation of Notch signaling (By similarity)) - emapper OG,Notch ligand involved in th…,NotchligandinvolvedinthemediationofNotchsignalingBysimilarity,NA,NA
+c13624-g1 1-to-1 NOX5 NADPH oxidase 5,NOX5,NOX5,NA,NA
+"c94162-g1 NPH1, Swinepox virus (strain Kasza)",NPH1,"NPH1,",NA,NA
+c95687-g2 1-to-1 NRDC nardilysin convertase,NRDC,NRDC,NA,NA
+"c95723-g1 2-to-2 NRP1,NRP2 neuropilin 1",NRP1/NRP2,"NRP1,NRP2",NA,NA
+c99848-g1 1-to-1 NSUN2 NOP2/Sun RNA methyltransferase family member 2,NSUN2,NSUN2,NA,NA
+"c104797-g3 2-to-2 NT5DC4,NT5C2 5'-nucleotidase domain containing 4",NT5DC4/NT5C2,"NT5DC4,NT5C2",NA,NA
+c93752-g1 (Inherit from NOG: Nucleophosmin nucleoplasmin 2) - emapper OG,Nucleophosmin nucleoplasmin…,Nucleophosminnucleoplasmin2,NA,NA
+c99427-g1 (Inherit from opiNOG: Nucleotide-diphospho-sugar transferase) - emapper OG,Nucleotide-diphospho-sugar …,Nucleotide-diphospho-sugartransferase,NA,NA
+"c88385-g1 1-to-1 NUDC nuclear distribution C, dynein complex regulator",NUDC nuclear distribution C,NUDC,NA,NA
+c100162-g1 1-to-1 NUDT19 nudix hydrolase 19,NUDT19,NUDT19,NA,NA
+c100895-g1 1-to-1 NUP133 nucleoporin 133,NUP133,NUP133,NA,NA
+c101265-g1 NUP153 (nucleoporin 153kDa) - emapper OG,NUP153,NUP153,NA,NA
+c100579-g2 1-to-1 NUP155 nucleoporin 155,NUP155,NUP155,NA,NA
+c97087-g2 1-to-1 NUP155 nucleoporin 155,NUP155,NUP155,NA,NA
+c94913-g1 1-to-1 NUP205 nucleoporin 205,NUP205,NUP205,NA,NA
+c104400-g1 1-to-1 NUP210L nucleoporin 210 like,NUP210L,NUP210L,NA,NA
+c99047-g1 1-to-1 NUP214 nucleoporin 214,NUP214,NUP214,NA,NA
+c102292-g1 1-to-1 NUP93 nucleoporin 93,NUP93,NUP93,NA,NA
+c103700-g2 1-to-1 NUP98 nucleoporin 98,NUP98,NUP98,NA,NA
+c103700-g1 1-to-1 NUP98 nucleoporin 98,NUP98,NUP98,NA,NA
+c97575-g2 1-to-1 NVL nuclear VCP-like,NVL,NVL,NA,NA
+c97575-g3 1-to-1 NVL nuclear VCP-like,NVL,NVL,NA,NA
+c104417-g1 hs-OAF,hs-OAF,OAF,NA,NA
+c100925-g2 OAS1 (2'-5'-oligoadenylate synthetase 1) - blastp,OAS1,OAS1,TRUE,Inflammation
+c99177-g2 OAT (ornithine aminotransferase) - emapper OG,OAT,OAT,NA,NA
+c61777-g1 1-to-1 OGFOD1 2-oxoglutarate and iron dependent oxygenase domain containing 1,OGFOD1,OGFOD1,NA,NA
+c96975-g1 OGT (O-linked N-acetylglucosamine (GlcNAc) transferase) - emapper OG,OGT,OGT,NA,NA
+c102018-g3 1-to-1 OLA1 Obg like ATPase 1,OLA1,OLA1,NA,NA
+"c104387-g3 ONCB, Hydatigena taeniaeformis",ONCB,"ONCB,",NA,NA
+"c91987-g1 OPG201, Monkeypox virus",OPG201,"OPG201,",NA,NA
+c95301-g1 1-to-1 ORC2 origin recognition complex subunit 2,ORC2,ORC2,NA,NA
+"c98107-g1 orchestin, Cryptorchestia cavimana",orchestin,"orchestin,",NA,NA
+"c100614-g1 1-to-1 OS9 OS9, endoplasmic reticulum lectin",OS9 OS9,OS9,NA,NA
+c94307-g1 OSI-21267 (Domain of unknown function (DUF1984)) - emapper OG,OSI-21267,OSI-21267,NA,NA
+c100458-g1 OSI-21370 (ADP-ribosylation) - emapper OG,OSI-21370,OSI-21370,NA,NA
+"c45879-g2 OST5, Saccharomyces cerevisiae (strain ATCC 204508..",OST5,"OST5,",NA,NA
+"c98167-g1 OTU11, Arabidopsis thaliana",OTU11,"OTU11,",NA,NA
+"c100800-g1 2-to-1 OXA1L OXA1L, mitochondrial inner membrane protein",OXA1L OXA1L,OXA1L,NA,NA
+"c99643-g1 1-to-5 P3H1,P3H2,CRTAP,P3H4... prolyl 3-hydroxylase 1",P3H1 (+3),"P3H1,P3H2,CRTAP,P3H4...",NA,NA
+c88950-g1 PA2G4 (Proliferation-associated) - emapper OG,PA2G4,PA2G4,NA,NA
+c98980-g1 hs-PARP11,hs-PARP11,PARP11,NA,NA
+c101234-g1 1-to-1 PAXBP1 PAX3 and PAX7 binding protein 1,PAXBP1,PAXBP1,NA,NA
+c99334-g1 1-to-1 PBDC1 polysaccharide biosynthesis domain containing 1,PBDC1,PBDC1,NA,NA
+c93889-g1 (PbH1) - emapper OG,PbH1,PbH1,NA,NA
+c102550-g1 PCM1 (Pericentriolar material 1) - emapper OG,PCM1,PCM1,NA,NA
+"c99153-g1 PCR1, Arabidopsis thaliana",PCR1,"PCR1,",NA,NA
+c100181-g1 1-to-1 PDAP1 PDGFA associated protein 1,PDAP1,PDAP1,NA,NA
+c102881-g2 1-to-1 PDCD11 programmed cell death 11,PDCD11,PDCD11,NA,NA
+"c88024-g1 PDIA3 (Protein disulfide isomerase family A, member) - emapper OG",PDIA3 (Protein disulfide is…,PDIA3,NA,NA
+"c92849-g1 hs-PEDS1,SC5D,DEGS2,DEGS1",hs-PEDS1 (+3),"PEDS1,SC5D,DEGS2,DEGS1",NA,NA
+"c97636-g1 hs-PEMT,NRM,ICMT",hs-PEMT (+2),"PEMT,NRM,ICMT",NA,NA
+"c102468-g1 (Inherit from COG: peptidase (S8 and S53, subtilisin, kexin, sedolisin) - emapper OG",(Inherit from COG: peptidas…,"peptidaseS8andS53,subtilisin,kexin,sedolisin",NA,NA
+c103850-g1 1-to-1 PES1 pescadillo ribosomal biogenesis factor 1,PES1,PES1,NA,NA
+c101541-g3 1-to-1 PEX16 peroxisomal biogenesis factor 16,PEX16,PEX16,NA,NA
+c99231-g1 PHB (Prohibitin) - emapper OG,PHB,PHB,NA,NA
+c100257-g2 1-to-1 PHB2 prohibitin 2,PHB2,PHB2,NA,NA
+c102939-g1 (phenylalanyl-tRNA synthetase beta subunit) - emapper OG,phenylalanyl-tRNA synthetas…,phenylalanyl-tRNAsynthetasebetasubunit,NA,NA
+c99278-g1 1-to-1 PHF14 PHD finger protein 14,PHF14,PHF14,NA,NA
+c101064-g1 (Inherit from opiNOG: Phosphatase-1 catalytic subunit binding region) - emapper OG,Phosphatase-1 catalytic sub…,Phosphatase-1catalyticsubunitbindingregion,NA,NA
+c103895-g1 (Phospho-ethanolamine) - emapper OG,Phospho-ethanolamine,Phospho-ethanolamine,NA,NA
+c102428-g1 1-to-1 PIGB phosphatidylinositol glycan anchor biosynthesis class B,PIGB,PIGB,NA,NA
+"c93293-g1 PIGT (phosphatidylinositol glycan anchor biosynthesis, class T) - emapper OG",PIGT (phosphatidylinositol …,PIGT,NA,NA
+"c101283-g1 hs-PIK3IP1,SGCE,CLTRN,EVI2A,GYPA,ATP6AP1L",hs-PIK3IP1 (+5),"PIK3IP1,SGCE,CLTRN,EVI2A,GYPA,ATP6AP1L",NA,NA
+"c92171-g2 PIP, Oryctolagus cuniculus",PIP,"PIP,",NA,NA
+c97060-g1 PITHD1 (PITH (C-terminal proteasome-interacting domain of thioredoxin-like) domain containing 1) - e,PITHD1,PITHD1,NA,NA
+c98729-g1 1-to-1 PITRM1 pitrilysin metallopeptidase 1,PITRM1,PITRM1,NA,NA
+"c104940-g2 1-to-3 PIWIL1,PIWIL4,PIWIL3 piwi like RNA-mediated gene silencing 1",PIWIL1 (+2),"PIWIL1,PIWIL4,PIWIL3",NA,NA
+"c101039-g2 6-to-2 PLA2G15,LCAT phospholipase A2 group XV",PLA2G15/LCAT,"PLA2G15,LCAT",NA,NA
+"c103993-g1 6-to-2 PLA2G15,LCAT phospholipase A2 group XV",PLA2G15/LCAT,"PLA2G15,LCAT",NA,NA
+c78372-g1 PLA2G6 (Calcium-independent phospholipase) - emapper OG,PLA2G6,PLA2G6,TRUE,Calcium signaling
+c104750-g1 4-to-1 PLA2G6 phospholipase A2 group VI,PLA2G6,PLA2G6,TRUE,Calcium signaling
+"c104224-g1 hs-PLAAT3,LRAT,PLAAT2,PLAAT1,DESI1,PLAAT4,MKRN2OS",hs-PLAAT3 (+6),"PLAAT3,LRAT,PLAAT2,PLAAT1,DESI1,PLAAT4,MKRN2OS",NA,NA
+"c87833-g1 hs-PLAAT3,PLAAT2,PLAAT1,PLAAT4,LRAT",hs-PLAAT3 (+4),"PLAAT3,PLAAT2,PLAAT1,PLAAT4,LRAT",NA,NA
+"c66459-g1 hs-PLEKHJ1,EXOC1L,PHLDA2,STXBP6",hs-PLEKHJ1 (+3),"PLEKHJ1,EXOC1L,PHLDA2,STXBP6",NA,NA
+"c110982-g1 plp, Oncorhynchus mykiss",plp,"plp,",NA,NA
+c95881-g1 2-to-1 PM20D2 peptidase M20 domain containing 2,PM20D2,PM20D2,NA,NA
+"c99630-g1 1-to-1 PMPCA peptidase, mitochondrial processing alpha subunit",PMPCA peptidase,PMPCA,NA,NA
+"c24575-g1 1-to-1 PMS1 PMS1 homolog 1, mismatch repair system component",PMS1 PMS1 homolog 1,PMS1,NA,NA
+c98937-g1 2-to-1 PNPO pyridoxamine 5'-phosphate oxidase,PNPO,PNPO,NA,NA
+c108415-g1 1-to-1 PNPT1 polyribonucleotide nucleotidyltransferase 1,PNPT1,PNPT1,NA,NA
+"c93287-g1 1-to-1 POLD2 DNA polymerase delta 2, accessory subunit",POLD2 DNA polymerase delta 2,POLD2,NA,NA
+"c11421-g1 1-to-1 POLD3 DNA polymerase delta 3, accessory subunit",POLD3 DNA polymerase delta 3,POLD3,NA,NA
+c101273-g1 1-to-1 POLR1A RNA polymerase I subunit A,POLR1A,POLR1A,NA,NA
+c103757-g1 1-to-1 POLR1B RNA polymerase I subunit B,POLR1B,POLR1B,NA,NA
+c100265-g1 1-to-1 POLR1E RNA polymerase I subunit E,POLR1E,POLR1E,NA,NA
+c103100-g1 1-to-1 POLR2B RNA polymerase II subunit B,POLR2B,POLR2B,NA,NA
+c44931-g1 1-to-1 POLR3B RNA polymerase III subunit B,POLR3B,POLR3B,NA,NA
+c96599-g1 1-to-1 POLR3E RNA polymerase III subunit E,POLR3E,POLR3E,NA,NA
+c102317-g2 1-to-1 POLRMT RNA polymerase mitochondrial,POLRMT,POLRMT,NA,NA
+c91600-g2 (Poly(ADP-ribose) polymerase catalytic domain) - emapper OG,ADP-ribose,PolyADP-ribose,NA,NA
+c98394-g1 (Poly(ADP-ribose) polymerase catalytic domain) - emapper OG,ADP-ribose,PolyADP-ribose,NA,NA
+c100043-g1 (Poly(ADP-ribose) polymerase catalytic domain) - emapper OG,ADP-ribose,PolyADP-ribose,NA,NA
+c99734-g1 hs-PON3,hs-PON3,PON3,NA,NA
+c83903-g1 (Possible lysine decarboxylase) - emapper OG,Possible lysine decarboxyla…,Possiblelysinedecarboxylase,NA,NA
+c99852-g1 (PP2Cc) - emapper OG,PP2Cc,PP2Cc,NA,NA
+c103638-g5 (Inherit from COG: ppe family) - emapper OG,ppe family,ppefamily,NA,NA
+"c103730-g2 1-to-1 PPM1G protein phosphatase, Mg2+/Mn2+ dependent 1G",PPM1G protein phosphatase,PPM1G,NA,NA
+c102632-g2 PPP1R3A (Protein phosphatase 1 regulatory subunit 3A) - emapper OG,PPP1R3A,PPP1R3A,NA,NA
+c96532-g1 1-to-1 PPP5C protein phosphatase 5 catalytic subunit,PPP5C,PPP5C,NA,NA
+c101421-g1 PRKCSH (Protein kinase C substrate 80K-H) - emapper OG,PRKCSH,PRKCSH,NA,NA
+c95254-g1 PRMT1 (Protein arginine methyltransferase) - emapper OG,PRMT1,PRMT1,NA,NA
+c96359-g1 1-to-1 PRMT5 protein arginine methyltransferase 5,PRMT5,PRMT5,NA,NA
+c84564-g1 1-to-1 PRMT7 protein arginine methyltransferase 7,PRMT7,PRMT7,NA,NA
+c82095-g1 (protein Hydra magnipapillata) - emapper OG,protein Hydra magnipapillata,proteinHydramagnipapillata,NA,NA
+c100089-g1 1-to-1 PRPF19 pre-mRNA processing factor 19,PRPF19,PRPF19,NA,NA
+c98512-g1 1-to-1 PRPF4 pre-mRNA processing factor 4,PRPF4,PRPF4,NA,NA
+c103826-g1 PRPF40A (PRP40 pre-mRNA processing factor 40 homolog) - emapper OG,PRPF40A,PRPF40A,NA,NA
+c104159-g1 1-to-1 PRPF6 pre-mRNA processing factor 6,PRPF6,PRPF6,NA,NA
+c104942-g1 1-to-1 PRPF8 pre-mRNA processing factor 8,PRPF8,PRPF8,NA,NA
+c104860-g2 1-to-1 PRRC2C proline rich coiled-coil 2C,PRRC2C,PRRC2C,NA,NA
+"c38640-g1 psaI, Pinus koraiensis",psaI,"psaI,",NA,NA
+c92681-g1 PSMA5 (The proteasome is a multicatalytic proteinase complex which is characterized by its ability t,PSMA5,PSMA5,NA,NA
+c96600-g1 hs-PSMG1,hs-PSMG1,PSMG1,NA,NA
+c97091-g1 1-to-1 PSMG2 proteasome assembly chaperone 2,PSMG2,PSMG2,NA,NA
+c102858-g2 1-to-1 PTCD3 pentatricopeptide repeat domain 3,PTCD3,PTCD3,NA,NA
+"c99874-g1 PTPN6 (Protein tyrosine phosphatase, non-receptor type) - emapper OG",PTPN6 (Protein tyrosine pho…,PTPN6,NA,NA
+c104563-g1 PTPRD (protein tyrosine phosphatase receptor type) - emapper OG,PTPRD,PTPRD,NA,NA
+c17834-g1 PTPRT (protein tyrosine phosphatase receptor type) - emapper OG,PTPRT,PTPRT,NA,NA
+c99515-g1 1-to-1 PUM3 pumilio RNA binding family member 3,PUM3,PUM3,NA,NA
+c102052-g1 1-to-1 PUS1 pseudouridylate synthase 1,PUS1,PUS1,NA,NA
+c95886-g2 1-to-1 PUS3 pseudouridylate synthase 3,PUS3,PUS3,NA,NA
+"c99686-g1 1-to-2 PWP2,FP565260.1 PWP2, small subunit processome component",PWP2,"PWP2,FP565260.1",NA,NA
+"c103549-g6 hs-PYY3,APELA",hs-PYY3/APELA,"PYY3,APELA",NA,NA
+c99536-g1 2-to-1 QARS glutaminyl-tRNA synthetase,QARS,QARS,NA,NA
+c100988-g1 RAB1A (member RAS oncogene family) - emapper OG,RAB1A,RAB1A,TRUE,Vesicular trafficking
+"c100641-g3 3-to-2 RAB1B,RAB1A RAB1B, member RAS oncogene family",RAB1B,"RAB1B,RAB1A",TRUE,Vesicular trafficking
+"c98354-g1 hs-RAB3C,RAB21,RAB33A,RAB17,RAB5C,RAB33B,RAB3A,RAB5B,..",hs-RAB3C (+8),"RAB3C,RAB21,RAB33A,RAB17,RAB5C,RAB33B,RAB3A,RAB5B,..",TRUE,Vesicular trafficking
+"c97464-g1 RAB5B (RAB5B, member RAS oncogene family) - blastp",RAB5B (RAB5B,RAB5B,TRUE,Vesicular trafficking
+c101173-g1 RAB8B (member RAS oncogene family) - emapper OG,RAB8B,RAB8B,TRUE,Vesicular trafficking
+"c97280-g1 2-to-2 RALA,RALB RAS like proto-oncogene A",RALA/RALB,"RALA,RALB",NA,NA
+c96960-g1 RANBP3 (RAN binding protein 3) - emapper OG,RANBP3,RANBP3,NA,NA
+c102169-g1 1-to-1 RARS arginyl-tRNA synthetase,RARS,RARS,NA,NA
+"c6343-g1 ras, Limanda limanda",ras,"ras,",NA,NA
+c102325-g1 (ras and EF-hand domain-containing) - emapper OG,ras and EF-hand domain-cont…,rasandEF-handdomain-containing,NA,NA
+"c104721-g5 hs-RASL11B,RND3,RASL11A,RASD2,RASD1,RIT1,RAB21,RND1,M..",hs-RASL11B (+8),"RASL11B,RND3,RASL11A,RASD2,RASD1,RIT1,RAB21,RND1,M..",NA,NA
+c99021-g1 1-to-1 RBM19 RNA binding motif protein 19,RBM19,RBM19,NA,NA
+c101071-g1 1-to-1 RBM28 RNA binding motif protein 28,RBM28,RBM28,NA,NA
+"c86152-g1 RC0860, Rickettsia conorii (strain ATCC VR-613 / M..",RC0860,"RC0860,",NA,NA
+"c93956-g1 Rcan2, Mus musculus",Rcan2,"Rcan2,",NA,NA
+"c102988-g2 RCN3 (Reticulocalbin 3, EF-hand calcium binding domain) - emapper OG",RCN3 (Reticulocalbin 3,RCN3,TRUE,Calcium signaling
+c99093-g1 RECQL4 (DNA helicase) - emapper OG,RECQL4,RECQL4,NA,NA
+c101363-g2 1-to-1 RERE arginine-glutamic acid dipeptide repeats,RERE,RERE,NA,NA
+"c102434-g3 RF_pd14, Rickettsia felis (strain ATCC VR-1525 / U..",RF_pd14,"RF_pd14,",NA,NA
+"c105051-g1 RFAE (Catalyzes the ADP transfer to D-glycero-D-manno-heptose 1-phosphate, yielding ADP-D,D-heptose",RFAE (Catalyzes the ADP tra…,RFAE,NA,NA
+c100140-g2 1-to-1 RFC1 replication factor C subunit 1,RFC1,RFC1,NA,NA
+c89508-g1 1-to-1 RFWD3 ring finger and WD repeat domain 3,RFWD3,RFWD3,NA,NA
+"c101832-g1 1-to-2 RHOT2,RHOT1 ras homolog family member T2",RHOT2/RHOT1,"RHOT2,RHOT1",NA,NA
+"c103684-g1 1-to-2 RHOV,RHOU ras homolog family member V",RHOV/RHOU,"RHOV,RHOU",NA,NA
+c96662-g1 (Inherit from KOG: Ribosomal protein) - emapper OG,Ribosomal protein,Ribosomalprotein,NA,NA
+c99422-g1 (ribosomal protein L32-like protein) - emapper OG,ribosomal protein L32-like …,ribosomalproteinL32-likeprotein,NA,NA
+c101068-g1 (RING) - emapper OG,RING,RING,NA,NA
+c101085-g6 (Ring finger protein) - emapper OG,Ring finger protein,Ringfingerprotein,NA,NA
+c99063-g1 1-to-1 RIOX1 ribosomal oxygenase 1,RIOX1,RIOX1,NA,NA
+c100236-g1 (Rna-binding protein) - emapper OG,Rna-binding protein,Rna-bindingprotein,NA,NA
+"c79365-g1 (RNA recognition motif. (a.k.a. RRM, RBD, or RNP domain)) - emapper OG",(RNA recognition motif. (a.…,"RNArecognitionmotif.a.k.a.RRM,RBD,orRNPdomain",NA,NA
+"c95711-g2 (RNA recognition motif. (a.k.a. RRM, RBD, or RNP domain)) - emapper OG",(RNA recognition motif. (a.…,"RNArecognitionmotif.a.k.a.RRM,RBD,orRNPdomain",NA,NA
+c98693-g1 1-to-1 RNF11 ring finger protein 11,RNF11,RNF11,NA,NA
+"c81783-g1 hs-RNF144A,RNF144B",hs-RNF144A/RNF144B,"RNF144A,RNF144B",NA,NA
+c91597-g1 1-to-1 RNF170 ring finger protein 170,RNF170,RNF170,NA,NA
+c40293-g2 6-to-1 RNF213 ring finger protein 213,RNF213,RNF213,NA,NA
+c107702-g1 5-to-1 RNF213 ring finger protein 213,RNF213,RNF213,NA,NA
+c94017-g1 6-to-1 RNF213 ring finger protein 213,RNF213,RNF213,NA,NA
+c94017-g2 7-to-1 RNF213 ring finger protein 213,RNF213,RNF213,NA,NA
+c96402-g2 6-to-1 RNF213 ring finger protein 213,RNF213,RNF213,NA,NA
+c105075-g1 6-to-1 RNF213 ring finger protein 213,RNF213,RNF213,NA,NA
+c105143-g1 8-to-1 RNF213 ring finger protein 213,RNF213,RNF213,NA,NA
+c100924-g1 RNH1 (leucine Rich Repeat) - emapper OG,RNH1,RNH1,NA,NA
+c82311-g1 1-to-1 RNMT RNA guanine-7 methyltransferase,RNMT,RNMT,NA,NA
+c96586-g1 1-to-1 RPF1 ribosome production factor 1 homolog,RPF1,RPF1,TRUE,Translation
+c40200-g1 2-to-1 RPL23A ribosomal protein L23a,RPL23A,RPL23A,TRUE,Translation
+c79258-g1 RPL3 (ribosomal protein) - emapper OG,RPL3,RPL3,TRUE,Translation
+c104433-g6 RPL4 (Ribosomal protein L4) - emapper OG,RPL4,RPL4,TRUE,Translation
+c104433-g7 RPL4 (Ribosomal protein L4) - emapper OG,RPL4,RPL4,TRUE,Translation
+c102373-g1 1-to-1 RPN1 ribophorin I,RPN1,RPN1,NA,NA
+c101002-g1 RPP30 (ribonuclease p) - emapper OG,RPP30,RPP30,NA,NA
+c102582-g2 RRM1 (Provides the precursors necessary for DNA synthesis. Catalyzes the biosynthesis of deoxyribon,RRM1,RRM1,NA,NA
+"c95242-g1 1-to-1 RRN3 RRN3 homolog, RNA polymerase I transcription factor",RRN3 RRN3 homolog,RRN3,NA,NA
+c101379-g1 1-to-1 RRP12 ribosomal RNA processing 12 homolog,RRP12,RRP12,TRUE,Translation
+c100533-g6 1-to-1 RRP15 ribosomal RNA processing 15 homolog,RRP15,RRP15,TRUE,Translation
+"c99212-g3 hs-RRP7A,ABT1",hs-RRP7A/ABT1,"RRP7A,ABT1",TRUE,Translation
+"c103497-g1 1-to-1 RRP9 ribosomal RNA processing 9, U3 small nucleolar RNA binding protein",RRP9 ribosomal RNA processi…,RRP9,TRUE,Translation
+c101878-g1 1-to-1 RRS1 ribosome biogenesis regulator homolog,RRS1,RRS1,TRUE,Translation
+c4918-g1 1-to-1 RSAD2 radical S-adenosyl methionine domain containing 2,RSAD2,RSAD2,NA,NA
+c97687-g1 RSL1D1 (Ribosomal L1 domain containing 1) - emapper OG,RSL1D1,RSL1D1,NA,NA
+c92867-g1 1-to-1 RSPH14 radial spoke head 14 homolog,RSPH14,RSPH14,NA,NA
+c102407-g1 1-to-1 RSRC2 arginine and serine rich coiled-coil 2,RSRC2,RSRC2,NA,NA
+c94025-g1 hs-RTBDN,hs-RTBDN,RTBDN,NA,NA
+c102495-g1 RTL1 (retrotransposon-like 1) - blastp,RTL1,RTL1,NA,NA
+c104200-g6 RUNX2 (Runt-related transcription factor) - emapper OG,RUNX2,RUNX2,NA,NA
+c101202-g1 1-to-1 RUVBL1 RuvB like AAA ATPase 1,RUVBL1,RUVBL1,NA,NA
+c103090-g1 1-to-1 RUVBL2 RuvB like AAA ATPase 2,RUVBL2,RUVBL2,NA,NA
+"c86191-g3 Rv0609B, Mycobacterium tuberculosis (strain ATCC 2..",Rv0609B,"Rv0609B,",NA,NA
+"c98490-g1 RXLR126, Plasmopara viticola",RXLR126,"RXLR126,",NA,NA
+"c100036-g1 RXT3, Saccharomyces cerevisiae (strain ATCC 204508..",RXT3,"RXT3,",NA,NA
+"c85994-g1 1-to-2 SAMD9L,SAMD9 sterile alpha motif domain containing 9 like",SAMD9L/SAMD9,"SAMD9L,SAMD9",NA,NA
+c102338-g3 hs-SAP18,hs-SAP18,SAP18,NA,NA
+c104721-g3 SAP-R (Prosaposin) - emapper OG,SAP-R,SAP-R,NA,NA
+"c95887-g1 hs-SAT2,SAT1,NAA50,NAT8B",hs-SAT2 (+3),"SAT2,SAT1,NAA50,NAT8B",NA,NA
+c101367-g1 hs-SCAMP3,hs-SCAMP3,SCAMP3,NA,NA
+c104597-g4 (scavenger receptor cysteine rich domain containing) - emapper OG,scavenger receptor cysteine…,scavengerreceptorcysteinerichdomaincontaining,NA,NA
+c104299-g1 (scavenger receptor cysteine rich domain containing) - emapper OG,scavenger receptor cysteine…,scavengerreceptorcysteinerichdomaincontaining,NA,NA
+c111582-g1 (scavenger receptor cysteine rich domain containing) - emapper OG,scavenger receptor cysteine…,scavengerreceptorcysteinerichdomaincontaining,NA,NA
+"c95399-g1 hs-SCIMP,LST1,GAPT,C1orf185,SMIM36,FAM163B,RHEX,FAM24..",hs-SCIMP (+7),"SCIMP,LST1,GAPT,C1orf185,SMIM36,FAM163B,RHEX,FAM24..",NA,NA
+"c98736-g1 hs-SCML1,SAMD14",hs-SCML1/SAMD14,"SCML1,SAMD14",NA,NA
+"c104055-g2 SCP, Lymnaea stagnalis",SCP,"SCP,",NA,NA
+"c100053-g1 SCP, Saimiriine herpesvirus 2 (strain 11)",SCP,"SCP,",NA,NA
+"c103331-g1 1-to-1 SEC63 SEC63 homolog, protein translocation regulator",SEC63 SEC63 homolog,SEC63,TRUE,Vesicular trafficking
+c6698-g1 (selenoprotein) - emapper OG,selenoprotein,selenoprotein,NA,NA
+c3108-g1 (Septin) - emapper OG,Septin,Septin,NA,NA
+c97934-g1 SERBP1 (SERPINE1 mRNA binding protein 1) - emapper OG,SERBP1,SERBP1,NA,NA
+c103697-g1 (Inherit from opiNOG: Serine protease) - emapper OG,Serine protease,Serineprotease,NA,NA
+c98821-g1 (serine threonine-protein phosphatase 6 regulatory ankyrin repeat subunit) - emapper OG,serine threonine-protein ph…,serinethreonine-proteinphosphatase6regulatoryankyrinrepeatsubunit,NA,NA
+c95700-g2 hs-SERTM1,hs-SERTM1,SERTM1,NA,NA
+c91277-g1 1-to-1 SETDB2 SET domain bifurcated 2,SETDB2,SETDB2,NA,NA
+c100165-g1 1-to-1 SF3A1 splicing factor 3a subunit 1,SF3A1,SF3A1,NA,NA
+c96677-g1 SF3A3 (Splicing factor 3A subunit 3) - emapper OG,SF3A3,SF3A3,NA,NA
+c104031-g1 1-to-1 SF3B3 splicing factor 3b subunit 3,SF3B3,SF3B3,NA,NA
+c102700-g1 hs-SGO1,hs-SGO1,SGO1,NA,NA
+"c99043-g1 hs-SH2D6,SOCS1",hs-SH2D6/SOCS1,"SH2D6,SOCS1",NA,NA
+"c42357-g1 hs-SH3BGRL3,SH3BGRL2,GLRX,SH3BGRL",hs-SH3BGRL3 (+3),"SH3BGRL3,SH3BGRL2,GLRX,SH3BGRL",NA,NA
+"c82847-g1 hs-SIGLECL1,FNDC9",hs-SIGLECL1/FNDC9,"SIGLECL1,FNDC9",NA,NA
+c90536-g1 1-to-1 SKIV2L Ski2 like RNA helicase,SKIV2L,SKIV2L,NA,NA
+c104349-g4 1-to-1 SKIV2L2 Ski2 like RNA helicase 2,SKIV2L2,SKIV2L2,NA,NA
+c104349-g1 1-to-1 SKIV2L2 Ski2 like RNA helicase 2,SKIV2L2,SKIV2L2,NA,NA
+c102515-g2 SLA1 (Cytoskeleton assembly control protein) - emapper OG,SLA1,SLA1,TRUE,Actin dynamics
+c104029-g2 SLC13A3 (Solute carrier family 13) - emapper OG,SLC13A3,SLC13A3,NA,NA
+"c99214-g1 3-to-2 SLC25A2,SLC25A15 solute carrier family 25 member 2",SLC25A2/SLC25A15,"SLC25A2,SLC25A15",NA,NA
+"c94480-g1 3-to-2 SLC25A2,SLC25A15 solute carrier family 25 member 2",SLC25A2/SLC25A15,"SLC25A2,SLC25A15",NA,NA
+"c99867-g1 hs-SLC25A21,SLC25A30,SLC25A44,UCP1,SLC25A20,SLC25A35,..",hs-SLC25A21 (+6),"SLC25A21,SLC25A30,SLC25A44,UCP1,SLC25A20,SLC25A35,..",NA,NA
+c78534-g1 1-to-1 SLC35B2 solute carrier family 35 member B2,SLC35B2,SLC35B2,NA,NA
+c103758-g1 1-to-1 SLC39A7 solute carrier family 39 member 7,SLC39A7,SLC39A7,NA,NA
+c85740-g1 2-to-1 SLFNL1 schlafen like 1,SLFNL1,SLFNL1,NA,NA
+"c101050-g1 1-to-3 SMAD9,SMAD1,SMAD5 SMAD family member 9",SMAD9 (+2),"SMAD9,SMAD1,SMAD5",NA,NA
+"c89345-g1 1-to-1 SMARCAD1 SWI/SNF-related, matrix-associated actin-dependent regulator of chromatin, subfamily",SMARCAD1 SWI/SNF-related,SMARCAD1,TRUE,Actin dynamics
+c99007-g1 1-to-1 SMC5 structural maintenance of chromosomes 5,SMC5,SMC5,NA,NA
+"c22100-g1 hs-SMIM1,SERP2,SERP1,TRIQK",hs-SMIM1 (+3),"SMIM1,SERP2,SERP1,TRIQK",NA,NA
+"c96263-g1 hs-SMIM14,KCNE3,RPRM,SMIM32,SERTM2,ERLN,TRIQK,SMIM42,..",hs-SMIM14 (+8),"SMIM14,KCNE3,RPRM,SMIM32,SERTM2,ERLN,TRIQK,SMIM42,..",NA,NA
+"c102814-g1 hs-SMIM28,TMEM207,C3orf18,C11orf87,MLANA,TMEM210,SMIM..",hs-SMIM28 (+6),"SMIM28,TMEM207,C3orf18,C11orf87,MLANA,TMEM210,SMIM..",NA,NA
+c111220-g1 hs-SMIM40,hs-SMIM40,SMIM40,NA,NA
+c99136-g1 hs-SMPD2,hs-SMPD2,SMPD2,NA,NA
+c105797-g1 1-to-1 SNAPC3 small nuclear RNA activating complex polypeptide 3,SNAPC3,SNAPC3,NA,NA
+c104907-g1 1-to-1 SNRNP200 small nuclear ribonucleoprotein U5 subunit 200,SNRNP200,SNRNP200,NA,NA
+c103529-g1 1-to-1 SNRPA1 small nuclear ribonucleoprotein polypeptide A',SNRPA1,SNRPA1,NA,NA
+c94782-g1 1-to-1 SNU13 small nuclear ribonucleoprotein 13,SNU13,SNU13,NA,NA
+"c92695-g2 SOH1, Phaeosphaeria nodorum (strain SN15 / ATCC MY..",SOH1,"SOH1,",NA,NA
+"c102361-g1 (Solute carrier family 31 (Copper transporters), member 1) - emapper OG",(Solute carrier family 31 (…,Solutecarrierfamily31Coppertransporters,NA,NA
+c88854-g1 1-to-1 SORL1 sortilin related receptor 1,SORL1,SORL1,NA,NA
+"c100140-g1 hs-SPAAR,C10orf105,NCMAP,OPALIN,C3orf18,SMIM33,C1orf2..",hs-SPAAR (+6),"SPAAR,C10orf105,NCMAP,OPALIN,C3orf18,SMIM33,C1orf2..",NA,NA
+"c97383-g2 SPAC1687.07, Schizosaccharomyces pombe (strain 972..",SPAC1687.07,"SPAC1687.07,",NA,NA
+"c104616-g1 SPAC16E8.12c, Schizosaccharomyces pombe (strain 97..",SPAC16E8.12c,"SPAC16E8.12c,",NA,NA
+c100205-g1 SPATA5 (spermatogenesis associated 5) - blastp,SPATA5,SPATA5,NA,NA
+"c97148-g1 hs-SPC24,VMAC,SPC25",hs-SPC24 (+2),"SPC24,VMAC,SPC25",NA,NA
+c102579-g3 hs-SPIN4,hs-SPIN4,SPIN4,NA,NA
+c99241-g1 SPOPL (Speckle-type POZ) - emapper OG,SPOPL,SPOPL,NA,NA
+"c104683-g1 1-to-2 SREBF1,SREBF2 sterol regulatory element binding transcription factor 1",SREBF1/SREBF2,"SREBF1,SREBF2",NA,NA
+c103459-g1 1-to-1 SRP68 signal recognition particle 68,SRP68,SRP68,NA,NA
+"c101277-g3 hs-SRSF10,SRSF2,SRSF12,SREK1,SRSF7,SRSF8,SRSF11,SRSF4..",hs-SRSF10 (+7),"SRSF10,SRSF2,SRSF12,SREK1,SRSF7,SRSF8,SRSF11,SRSF4..",NA,NA
+c100308-g2 SSB (Sjogren syndrome antigen B (autoantigen La)) - emapper OG,SSB,SSB,NA,NA
+c101565-g1 1-to-1 SSRP1 structure specific recognition protein 1,SSRP1,SSRP1,NA,NA
+"c98846-g1 1-to-1 ST13 ST13, Hsp70 interacting protein",ST13 ST13,ST13,TRUE,Proteostasis
+c102228-g1 6-to-1 STARD5 StAR related lipid transfer domain containing 5,STARD5,STARD5,NA,NA
+c99508-g1 7-to-1 STARD9 StAR related lipid transfer domain containing 9,STARD9,STARD9,NA,NA
+c96367-g1 1-to-1 STIP1 stress induced phosphoprotein 1,STIP1,STIP1,NA,NA
+"c100635-g2 stmn2-a, Xenopus laevis",stmn2-a,"stmn2-a,",NA,NA
+c99525-g1 STOML2 (stomatin (Epb7.2)-like 2) - emapper OG,STOML2,STOML2,NA,NA
+c80875-g1 (Inherit from KOG: Strawberry notch homolog) - emapper OG,Strawberry notch homolog,Strawberrynotchhomolog,NA,NA
+"c97736-g1 1-to-1 STT3A STT3A, catalytic subunit of the oligosaccharyltransferase complex",STT3A STT3A,STT3A,NA,NA
+"c104572-g1 1-to-1 STT3B STT3B, catalytic subunit of the oligosaccharyltransferase complex",STT3B STT3B,STT3B,NA,NA
+"c87405-g1 4-to-5 STX1B,STX1A,STX4,STX3... syntaxin 1B",STX1B (+3),"STX1B,STX1A,STX4,STX3...",TRUE,Vesicular trafficking
+c95562-g1 (Subtilase family) - emapper OG,Subtilase family,Subtilasefamily,NA,NA
+c88590-g1 (Sulfatase-modifying factor enzyme 1) - emapper OG,Sulfatase-modifying factor …,Sulfatase-modifyingfactorenzyme1,NA,NA
+"c89788-g1 sunI, Bacillus subtilis (strain 168)",sunI,"sunI,",NA,NA
+c104392-g1 SUPT16H (suppressor of Ty 16 homolog (S. cerevisiae)) - emapper OG,SUPT16H,SUPT16H,NA,NA
+c93125-g1 1-to-1 SUPV3L1 Suv3 like RNA helicase,SUPV3L1,SUPV3L1,NA,NA
+c101056-g1 1-to-1 SURF2 surfeit 2,SURF2,SURF2,NA,NA
+c103079-g1 SURF6 (Surfeit 6) - emapper OG,SURF6,SURF6,NA,NA
+"c101147-g2 1-to-2 SUV39H1,SUV39H2 suppressor of variegation 3-9 homolog 1",SUV39H1/SUV39H2,"SUV39H1,SUV39H2",NA,NA
+"c100626-g1 4-to-3 SV2A,SV2B,SV2C synaptic vesicle glycoprotein 2A",SV2A (+2),"SV2A,SV2B,SV2C",TRUE,Vesicular trafficking
+"c97836-g1 (Synovial apoptosis inhibitor 1, synoviolin) - emapper OG",(Synovial apoptosis inhibit…,"Synovialapoptosisinhibitor1,synoviolin",NA,NA
+c101179-g1 1-to-1 SYT17 synaptotagmin 17,SYT17,SYT17,TRUE,Vesicular trafficking
+c98240-g1 1-to-1 TAF15 TATA-box binding protein associated factor 15,TAF15,TAF15,NA,NA
+c83840-g1 hs-TANGO2,hs-TANGO2,TANGO2,NA,NA
+c104448-g1 TARS (threonyl-tRNA synthetase) - emapper OG,TARS,TARS,NA,NA
+"c96555-g1 hs-TAS2R16,TAS2R50,TAS2R5,GPR141,TAS2R60,TAS2R4,TAS2R..",hs-TAS2R16 (+6),"TAS2R16,TAS2R50,TAS2R5,GPR141,TAS2R60,TAS2R4,TAS2R..",TRUE,GPCR
+c93157-g1 1-to-1 TBC1D19 TBC1 domain family member 19,TBC1D19,TBC1D19,NA,NA
+c2630-g1 1-to-1 TBC1D32 TBC1 domain family member 32,TBC1D32,TBC1D32,NA,NA
+c91931-g1 1-to-1 TBL3 transducin beta like 3,TBL3,TBL3,NA,NA
+c107155-g1 1-to-1 TBX21 T-box 21,TBX21,TBX21,NA,NA
+"c83767-g1 TC_0036, Chlamydia muridarum (strain MoPn / Nigg)",TC_0036,"TC_0036,",NA,NA
+"c97826-g1 1-to-4 TCEA2,TCEA3,TCEA1,TCEANC transcription elongation factor A2",TCEA2 (+3),"TCEA2,TCEA3,TCEA1,TCEANC",NA,NA
+c87425-g1 1-to-1 TCP1 t-complex 1,TCP1,TCP1,NA,NA
+c86866-g1 1-to-1 TDRD5 tudor domain containing 5,TDRD5,TDRD5,NA,NA
+"c96127-g1 1-to-2 TECR,TECRL trans-2,3-enoyl-CoA reductase",TECR/TECRL,"TECR,TECRL",NA,NA
+"c81319-g1 hs-TEX29,KCNE2,SHISAL2B,CYYR1,TMEM9B,TMEM207,SERTM1,S..",hs-TEX29 (+7),"TEX29,KCNE2,SHISAL2B,CYYR1,TMEM9B,TMEM207,SERTM1,S..",NA,NA
+"c103111-g1 1-to-1 THADA THADA, armadillo repeat containing",THADA THADA,THADA,NA,NA
+c95674-g1 (Inherit from COG: Thioredoxin) - emapper OG,Thioredoxin,Thioredoxin,NA,NA
+c97130-g1 (Thioredoxin) - emapper OG,Thioredoxin,Thioredoxin,NA,NA
+c99825-g2 1-to-1 THOC1 THO complex 1,THOC1,THOC1,NA,NA
+c104861-g1 1-to-1 THOC2 THO complex 2,THOC2,THOC2,NA,NA
+c95726-g1 1-to-1 TIMM50 translocase of inner mitochondrial membrane 50,TIMM50,TIMM50,NA,NA
+c97142-g2 1-to-1 TIPIN TIMELESS interacting protein,TIPIN,TIPIN,NA,NA
+c102991-g1 4-to-1 TMEM104 transmembrane protein 104,TMEM104,TMEM104,NA,NA
+c86637-g1 hs-TMEM116,hs-TMEM116,TMEM116,NA,NA
+c112973-g1 hs-TMEM116,hs-TMEM116,TMEM116,NA,NA
+"c99107-g1 hs-TMEM116,ADGRA1",hs-TMEM116/ADGRA1,"TMEM116,ADGRA1",TRUE,Adhesion complex
+"c93744-g2 hs-TMEM116,GJB1",hs-TMEM116/GJB1,"TMEM116,GJB1",NA,NA
+"c104167-g1 hs-TMEM145,TMEM87B,TMEM87A,NEMP2,GPR180,WLS,GPR107,JK..",hs-TMEM145 (+7),"TMEM145,TMEM87B,TMEM87A,NEMP2,GPR180,WLS,GPR107,JK..",TRUE,GPCR
+"c99688-g1 hs-TMEM154,C19orf18,CRB3,TNFRSF13C,KCNE5,GYPC,TMEM273..",hs-TMEM154 (+6),"TMEM154,C19orf18,CRB3,TNFRSF13C,KCNE5,GYPC,TMEM273..",NA,NA
+"c93990-g1 hs-TMEM167A,NDUFA1",hs-TMEM167A/NDUFA1,"TMEM167A,NDUFA1",NA,NA
+"c6758-g1 hs-TMEM186,TMEM70,TMEM223",hs-TMEM186 (+2),"TMEM186,TMEM70,TMEM223",NA,NA
+"c103706-g1 hs-TMEM187,PGAP2",hs-TMEM187/PGAP2,"TMEM187,PGAP2",NA,NA
+c106448-g1 1-to-1 TMEM209 transmembrane protein 209,TMEM209,TMEM209,NA,NA
+"c83995-g1 hs-TMEM212,KRTCAP3,TM4SF4,TM4SF5,TM4SF20,TSPAN13,TSPA..",hs-TMEM212 (+6),"TMEM212,KRTCAP3,TM4SF4,TM4SF5,TM4SF20,TSPAN13,TSPA..",NA,NA
+"c88913-g1 hs-TMEM223,TMEM186,TMEM70",hs-TMEM223 (+2),"TMEM223,TMEM186,TMEM70",NA,NA
+"c95287-g1 hs-TMEM253,SYNGR4,MS4A1,TMEM225,CACNG2,SYNGR1,SCAMP5,..",hs-TMEM253 (+7),"TMEM253,SYNGR4,MS4A1,TMEM225,CACNG2,SYNGR1,SCAMP5,..",NA,NA
+"c81005-g1 hs-TMEM91,IFITM2,IFITM3,NDFIP1,PMIS2",hs-TMEM91 (+4),"TMEM91,IFITM2,IFITM3,NDFIP1,PMIS2",NA,NA
+"c99981-g1 hs-TMEM91,TRARG1,IFITM2,IFITM3,MDFIC2",hs-TMEM91 (+4),"TMEM91,TRARG1,IFITM2,IFITM3,MDFIC2",NA,NA
+c99522-g1 TNAA (Beta-eliminating lyase) - emapper OG,TNAA,TNAA,NA,NA
+"c100195-g1 hs-TNFRSF14,TNFRSF18,CD40,TNFRSF12A,TNFRSF9,TNFRSF4,B..",hs-TNFRSF14 (+6),"TNFRSF14,TNFRSF18,CD40,TNFRSF12A,TNFRSF9,TNFRSF4,B..",NA,NA
+"c93757-g1 hs-TNIP3,CCDC154",hs-TNIP3/CCDC154,"TNIP3,CCDC154",NA,NA
+"c95176-g1 TNKS (tankyrase, TRF1-interacting ankyrin-related ADP-ribose polymerase) - blastp",TNKS (tankyrase,TNKS,NA,NA
+"c102020-g1 toc1, Schizosaccharomyces pombe (strain 972 / ATCC..",toc1,"toc1,",NA,NA
+c94711-g1 1-to-1 TOMM20L translocase of outer mitochondrial membrane 20 like,TOMM20L,TOMM20L,NA,NA
+"c102527-g1 1-to-2 TOMM40L,TOMM40 translocase of outer mitochondrial membrane 40 like",TOMM40L/TOMM40,"TOMM40L,TOMM40",NA,NA
+c103897-g3 1-to-1 TOMM70 translocase of outer mitochondrial membrane 70,TOMM70,TOMM70,NA,NA
+"c104181-g5 1-to-2 TOP2B,TOP2A topoisomerase (DNA) II beta",TOP2B/TOP2A,"TOP2B,TOP2A",NA,NA
+c86689-g1 (Inherit from opiNOG: to reverse transcriptase) - emapper OG,to reverse transcriptase,toreversetranscriptase,NA,NA
+c104876-g1 (Inherit from opiNOG: to reverse transcriptase) - emapper OG,to reverse transcriptase,toreversetranscriptase,NA,NA
+"c79366-g1 1-to-3 TP63,TP53,TP73 tumor protein p63",TP63 (+2),"TP63,TP53,TP73",NA,NA
+c101378-g1 1-to-1 TPMT thiopurine S-methyltransferase,TPMT,TPMT,NA,NA
+"c103413-g1 TPR (translocated promoter region, nuclear basket protein) - blastp",TPR (translocated promoter …,TPR,NA,NA
+"c103313-g1 hs-TPRA1,GPRC5A,GPRC5D,TMEM38B,GPR137B,TMEM121,GPR137",hs-TPRA1 (+6),"TPRA1,GPRC5A,GPRC5D,TMEM38B,GPR137B,TMEM121,GPR137",TRUE,GPCR
+c97847-g1 (Inherit from opiNOG: TPR domain protein) - emapper OG,TPR domain protein,TPRdomainprotein,NA,NA
+c95451-g1 2-to-1 TRAF2 TNF receptor associated factor 2,TRAF2,TRAF2,NA,NA
+c104149-g1 4-to-1 TRAF2 TNF receptor associated factor 2,TRAF2,TRAF2,NA,NA
+c103293-g2 TRAF3 (TNF receptor-associated factor) - emapper OG,TRAF3,TRAF3,NA,NA
+c104751-g4 TRAF3 (TNF receptor-associated factor) - emapper OG,TRAF3,TRAF3,NA,NA
+c82702-g1 (Transient receptor potential cation channel subfamily A member) - emapper OG,Transient receptor potentia…,TransientreceptorpotentialcationchannelsubfamilyAmember,NA,NA
+c102145-g2 (Inherit from KOG: Transient receptor potential cation channel subfamily A member) - emapper OG,Transient receptor potentia…,TransientreceptorpotentialcationchannelsubfamilyAmember,NA,NA
+c112860-g1 TRIM2 (tripartite motif containing 2) - blastp,TRIM2,TRIM2,NA,NA
+c87469-g1 TRIM2 (tripartite motif containing 2) - blastp,TRIM2,TRIM2,NA,NA
+"c78055-g1 5-to-2 TRIM28,TRIM33 tripartite motif containing 28",TRIM28/TRIM33,"TRIM28,TRIM33",NA,NA
+c97541-g1 TRMT112 (tRNA methyltransferase 11-2 homolog (S. cerevisiae)) - emapper OG,TRMT112,TRMT112,NA,NA
+c89264-g1 1-to-1 TRMT2B tRNA methyltransferase 2 homolog B,TRMT2B,TRMT2B,NA,NA
+c97316-g1 1-to-1 TRMT6 tRNA methyltransferase 6,TRMT6,TRMT6,NA,NA
+c90936-g1 1-to-1 TRUB1 TruB pseudouridine synthase family member 1,TRUB1,TRUB1,NA,NA
+"c102855-g1 1-to-1 TSR1 TSR1, ribosome maturation factor",TSR1 TSR1,TSR1,NA,NA
+c101012-g1 2-to-1 TTC28 tetratricopeptide repeat domain 28,TTC28,TTC28,NA,NA
+"c104263-g2 TTE0610, Caldanaerobacter subterraneus subsp. teng..",TTE0610,"TTE0610,",NA,NA
+c95678-g2 1-to-1 TTF1 transcription termination factor 1,TTF1,TTF1,NA,NA
+c88486-g1 1-to-1 TTF2 transcription termination factor 2,TTF2,TTF2,NA,NA
+c100388-g1 1-to-1 TTF2 transcription termination factor 2,TTF2,TTF2,NA,NA
+c98051-g1 1-to-1 TTLL12 tubulin tyrosine ligase like 12,TTLL12,TTLL12,NA,NA
+c101741-g1 1-to-1 TUBGCP6 tubulin gamma complex associated protein 6,TUBGCP6,TUBGCP6,NA,NA
+"c104077-g2 1-to-1 TUFM Tu translation elongation factor, mitochondrial",TUFM Tu translation elongat…,TUFM,NA,NA
+"c86899-g2 TUFT1, Sus scrofa",TUFT1,"TUFT1,",NA,NA
+c101658-g3 1-to-1 TWNK twinkle mtDNA helicase,TWNK,TWNK,NA,NA
+c99576-g1 (tyrosine kinase) - emapper OG,tyrosine kinase,tyrosinekinase,NA,NA
+"c99393-g1 1-to-2 TYW1,TYW1B tRNA-yW synthesizing protein 1 homolog",TYW1/TYW1B,"TYW1,TYW1B",NA,NA
+c97909-g1 1-to-1 UBFD1 ubiquitin family domain containing 1,UBFD1,UBFD1,NA,NA
+c98977-g1 (ubiquitin carboxyl-terminal hydrolase) - emapper OG,ubiquitin carboxyl-terminal…,ubiquitincarboxyl-terminalhydrolase,NA,NA
+c96595-g1 (ubiquitin carboxyl-terminal hydrolase) - emapper OG,ubiquitin carboxyl-terminal…,ubiquitincarboxyl-terminalhydrolase,NA,NA
+c95518-g1 (Ubiquitin protein ligase E3 component n-recognin 4) - emapper OG,Ubiquitin protein ligase E3…,UbiquitinproteinligaseE3componentn-recognin4,NA,NA
+"c94188-g1 hs-UBL3,GGNBP1,NEDD8,ELOB,TINCR",hs-UBL3 (+4),"UBL3,GGNBP1,NEDD8,ELOB,TINCR",NA,NA
+"c96439-g1 UL106, Human cytomegalovirus (strain AD169)",UL106,"UL106,",NA,NA
+"c103778-g3 8-to-2 UNC13D,BAIAP3 unc-13 homolog D",UNC13D/BAIAP3,"UNC13D,BAIAP3",NA,NA
+c78614-g2 1-to-1 URB1 URB1 ribosome biogenesis 1 homolog (S. cerevisiae),URB1,URB1,NA,NA
+"c91773-g1 1-to-1 URI1 URI1, prefoldin like chaperone",URI1 URI1,URI1,TRUE,Proteostasis
+c104126-g1 1-to-1 USP10 ubiquitin specific peptidase 10,USP10,USP10,NA,NA
+c89516-g1 USP15 (ubiquitin- specific peptidase) - emapper OG,USP15,USP15,NA,NA
+c101389-g3 1-to-1 USP39 ubiquitin specific peptidase 39,USP39,USP39,NA,NA
+c41298-g1 USP4 (ubiquitin specific peptidase 4 (proto-oncogene)) - blastp,USP4,USP4,NA,NA
+c86191-g2 5-to-1 USP50 ubiquitin specific peptidase 50,USP50,USP50,NA,NA
+c84662-g1 USP8 (ubiquitin carboxyl-terminal hydrolase) - emapper OG,USP8,USP8,NA,NA
+"c94897-g1 1-to-2 UTP14A,UTP14C UTP14A, small subunit processome component",UTP14A,"UTP14A,UTP14C",NA,NA
+"c79295-g1 1-to-1 UTP15 UTP15, small subunit processome component",UTP15 UTP15,UTP15,NA,NA
+"c100242-g1 1-to-1 UTP18 UTP18, small subunit processome component",UTP18 UTP18,UTP18,NA,NA
+"c94291-g2 1-to-1 UTP20 UTP20, small subunit processome component",UTP20 UTP20,UTP20,NA,NA
+"c99463-g1 1-to-1 UTP20 UTP20, small subunit processome component",UTP20 UTP20,UTP20,NA,NA
+"c98242-g2 1-to-1 UTP3 UTP3, small subunit processome component",UTP3 UTP3,UTP3,NA,NA
+"c99778-g1 1-to-1 UTP4 UTP4, small subunit processome component",UTP4 UTP4,UTP4,NA,NA
+"c100518-g1 1-to-1 UTP6 UTP6, small subunit processome component",UTP6 UTP6,UTP6,NA,NA
+c102913-g4 hs-UTS2,hs-UTS2,UTS2,TRUE,Secreted peptide
+"c99138-g1 hs-UTS2B,NPPC,CCK,GAST,NPY,VIP,PYY",hs-UTS2B (+6),"UTS2B,NPPC,CCK,GAST,NPY,VIP,PYY",TRUE,Secreted peptide
+"c103071-g3 hs-UTS2B,PYY3,GHRL,SST,PTH,C5orf46",hs-UTS2B (+5),"UTS2B,PYY3,GHRL,SST,PTH,C5orf46",TRUE,Secreted peptide
+"c104080-g2 uvrA, Paracoccus denitrificans",uvrA,"uvrA,",NA,NA
+c103033-g1 1-to-1 VARS valyl-tRNA synthetase,VARS,VARS,NA,NA
+"c92558-g1 VI, Enterobacteria phage fd",VI,"VI,",NA,NA
+c104717-g3 1-to-1 VIRMA vir like m6A methyltransferase associated,VIRMA,VIRMA,NA,NA
+c104717-g2 1-to-1 VIRMA vir like m6A methyltransferase associated,VIRMA,VIRMA,NA,NA
+c97539-g1 hs-VN1R17P,hs-VN1R17P,VN1R17P,NA,NA
+c88038-g1 (von Willebrand factor A domain containing 7) - emapper OG,von Willebrand factor A dom…,vonWillebrandfactorAdomaincontaining7,NA,NA
+"c33337-g1 VP24, Lake Victoria marburgvirus (strain Ozolin-75..",VP24,"VP24,",NA,NA
+c100260-g2 VWA5B1 (von Willebrand factor A domain containing) - emapper OG,VWA5B1,VWA5B1,NA,NA
+c103838-g4 2-to-1 WARS tryptophanyl-tRNA synthetase,WARS,WARS,TRUE,Tryptophan metabolism
+c101014-g2 2-to-1 WARS tryptophanyl-tRNA synthetase,WARS,WARS,TRUE,Tryptophan metabolism
+c100550-g1 1-to-1 WDR3 WD repeat domain 3,WDR3,WDR3,NA,NA
+c102861-g1 1-to-1 WDR36 WD repeat domain 36,WDR36,WDR36,NA,NA
+c96697-g1 1-to-1 WDR4 WD repeat domain 4,WDR4,WDR4,NA,NA
+c100091-g1 1-to-1 WDR43 WD repeat domain 43,WDR43,WDR43,NA,NA
+c100496-g1 1-to-1 WDR46 WD repeat domain 46,WDR46,WDR46,NA,NA
+c99923-g1 1-to-1 WDR75 WD repeat domain 75,WDR75,WDR75,NA,NA
+"c109296-g1 hs-WFDC2,WFDC12",hs-WFDC2/WFDC12,"WFDC2,WFDC12",NA,NA
+c96058-g1 (Inherit from euNOG: whole genome shotgun sequence) - emapper OG,whole genome shotgun sequen…,wholegenomeshotgunsequence,NA,NA
+c98815-g1 1-to-1 WNT9A Wnt family member 9A,WNT9A,WNT9A,TRUE,Secreted peptide
+c95228-g1 1-to-1 WRAP53 WD repeat containing antisense to TP53,WRAP53,WRAP53,NA,NA
+c36372-g1 1-to-1 WRNIP1 Werner helicase interacting protein 1,WRNIP1,WRNIP1,NA,NA
+c103148-g5 4-to-1 XAF1 XIAP associated factor 1,XAF1,XAF1,TRUE,Inflammation
+"c102632-g3 XAF1, Bos taurus",XAF1,"XAF1,",TRUE,Inflammation
+c98985-g1 1-to-1 XPO5 exportin 5,XPO5,XPO5,NA,NA
+"c104163-g1 1-to-2 XPO7,RANBP17 exportin 7",XPO7/RANBP17,"XPO7,RANBP17",NA,NA
+c102761-g1 1-to-1 XRCC5 X-ray repair cross complementing 5,XRCC5,XRCC5,NA,NA
+c104588-g1 1-to-1 XRN1 5'-3' exoribonuclease 1,XRN1,XRN1,NA,NA
+c99773-g4 YBIA (Domain of unknown function (DUF1768)) - emapper OG,YBIA,YBIA,NA,NA
+"c96936-g2 ydgT, Salmonella typhimurium (strain SL1344)",ydgT,"ydgT,",NA,NA
+"c97956-g3 YDR048C, Saccharomyces cerevisiae (strain ATCC 204..",YDR048C,"YDR048C,",NA,NA
+"c99795-g1 YHR127W, Saccharomyces cerevisiae (strain ATCC 204..",YHR127W,"YHR127W,",NA,NA
+"c50166-g1 yihI, Aliivibrio fischeri (strain MJ11)",yihI,"yihI,",NA,NA
+"c103440-g1 yjbD, Escherichia coli (strain K12)",yjbD,"yjbD,",NA,NA
+"c101406-g1 yjfI, Escherichia coli (strain K12)",yjfI,"yjfI,",NA,NA
+"c97537-g1 YOR263C, Saccharomyces cerevisiae (strain ATCC 204..",YOR263C,"YOR263C,",NA,NA
+"c41753-g1 yosX, Bacillus subtilis (strain 168)",yosX,"yosX,",NA,NA
+"c100391-g1 ywoF, Bacillus subtilis (strain 168)",ywoF,"ywoF,",NA,NA
+"c95391-g1 2-to-2 ZCCHC11,ZCCHC6 zinc finger CCHC-type containing 11",ZCCHC11/ZCCHC6,"ZCCHC11,ZCCHC6",NA,NA
+c96250-g1 1-to-1 ZCCHC4 zinc finger CCHC-type containing 4,ZCCHC4,ZCCHC4,NA,NA
+c78821-g1 3-to-1 ZCCHC7 zinc finger CCHC-type containing 7,ZCCHC7,ZCCHC7,NA,NA
+c85305-g1 hs-ZG16,hs-ZG16,ZG16,NA,NA
+"c97705-g1 hs-ZG16,ZG16B",hs-ZG16/ZG16B,"ZG16,ZG16B",NA,NA
+c96888-g1 1-to-1 ZNF106 zinc finger protein 106,ZNF106,ZNF106,NA,NA
+c101227-g3 (ZnF-C2HC) - emapper OG,ZnF-C2HC,ZnF-C2HC,NA,NA
+"c3892-g1 ZNFX1 (zinc finger, NFX1-type containing 1) - blastp",ZNFX1 (zinc finger,ZNFX1,NA,NA

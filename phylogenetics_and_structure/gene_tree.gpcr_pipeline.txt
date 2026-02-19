@@ -1,0 +1,41 @@
+# gene tree for GPCR
+# blast
+# Run BLAST using 11 sponge GPCRs as query on the merged proteome. For each query sequence, take the top 30 hits overall all. 
+
+# 1. blast all.21.fasta (combined 21 proteomes)
+$ sh run_blast.sh --tr1 01.sl_gpcr.fasta --t1 prot --n1 gpcr --tr2 ../proteome/all.21.fasta --t2 prot --n2 all_20
+
+# 2. for each query get top 30 hits	
+$ for h in $(cat 01.sl_gpcr.header);do awk -F '\t' -v _h=$h '$1==_h{print $0}' out.gpcr_to_all_21.txt|head -n 30; done > 10.tn.blast.gpcr_to_all_21.txt
+$ awk -F '\t' '{print $NF}' 10.tn.blast.gpcr_to_all_21.txt > 11.tn.blast.gpcr_to_all.header.txt
+
+# prost (install PROST first https://github.com/MesihK/prost)
+# Run PROST using 11 sponge GPCRs as query on the individual proteome. For each query sequence, take the top 5 hits of each spcies. Take the union of BLAST and PROST.
+
+# 1. prost individual proteome
+$ python prost.py makedb --no-cache 01.sl_gpcr.fasta.prdb 01.sl_gpcr.fasta.prdb
+$ awk -F '\t' '{printf "python prost.py search --thr=0.00001 --jobs 12 01.sl_gpcr.fasta.prdb ../proteome/%s.prdb prost.gpcr_to_%s.tsv\n", $2,$1}' species.stub |sh
+## output: prost.*.tsv
+
+# 2. for each query get top 5 hits per species
+$ awk -F '\t' '{printf "sh prost.top.sh prost.gpcr_to_%s.tsv\n", $1}' species.stub |sh
+## output: top.prost.*.tsv
+
+$ cat top.prost.*| awk -F '\t' '{print $2}' > 11.tn.prost.gpcr_to_all_individual.txt
+
+# merge blast prost results and remove redundancy
+$ cat 11.tn.* |sort -u > 20.top.nr.header.txt
+
+# get sequences
+$ python utils_pfammsa.py getbatchseq ../proteome/all.20.fasta 20.top.nr.header.txt 30.relaxed.nr.seq.fas
+$ cat 01.sl_gpcr.fasta 30.relaxed.nr.seq.fas > g.fas
+
+# generate MSA and tree
+$ mafft --maxiterate 1000 --localpair --thread 32 g.fas > g.msa
+$ iqtree2 -s g.msa -m MFP -bb 1000 -alrt 1000 -nt 32
+
+
+
+
+
+

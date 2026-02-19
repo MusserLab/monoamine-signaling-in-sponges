@@ -1,0 +1,14 @@
+name: monoamine-sponges
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - seaborn
+  - pyreadr
+  - pip:
+    - adjustText

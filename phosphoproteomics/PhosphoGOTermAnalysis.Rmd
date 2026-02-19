@@ -1,0 +1,340 @@
+---
+title: "Phosphoproteomics GO Term Enrichment Analysis"
+author: "Roy Zang"
+date: "2025-09-25"
+output: html_document
+---
+
+## Phosphoproteomics GO enrichment (Fig 4C)
+
+Gene Ontology enrichment analysis on phosphoproteomics hits/candidates using
+goseq (length-bias corrected). Enriched terms are visualized using rrvgo
+semantic similarity reduction (treemaps and scatterplots).
+
+### Input files
+
+- `phosphoproteomics/data/limma_results_annotated.rds` — Differential phosphoproteomics results (from core pipeline)
+- `data/gene_lengths.txt` — Gene lengths for goseq bias correction
+- `data/sl_go_merged_id.tsv` — Gene-to-GO term mapping (PROST-based annotations)
+- `phosphoproteomics/data/GO_enrichment_background_genes_gene_level.tsv` — Background gene universe (all detected genes)
+
+### Output files
+
+- `phospho_goseq_results_per_comparison.tsv` — Per-comparison GO enrichment results
+- `phospho_goseq_results_global.tsv` — Global (all hits combined) GO enrichment results
+- rrvgo treemap and scatterplot PNGs in `GO_enrichment/` output directory
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(here)
+```
+
+```{r load_data}
+library(dplyr)
+library(goseq)
+library(tidyr)
+
+# =============================================================================
+# 1. Load and prepare all input data
+# =============================================================================
+
+# --- A. Limma results (phosphoproteomics) ---
+limma_results <- readRDS(here("phosphoproteomics", "data",
+  "limma_results_annotated.rds"))
+
+# Filter to raw phospho, with phosphorylation position, and the 5 key comparisons
+desired_labels <- c(
+  "Tryptamine_3min vs DMSO_3min",
+  "Tryptamine_15min vs DMSO_15min",
+  "Tryptamine_30min vs DMSO_30min",
+  "(Tryptamine_15min vs DMSO_15min) against (Tryptamine_3min vs DMSO_3min)",
+  "(Tryptamine_30min vs DMSO_30min) against (Tryptamine_15min vs DMSO_15min)"
+)
+
+phospho_data <- limma_results %>%
+  filter(sample == "phospho") %>%
+  filter(phospho.position != "") %>%
+  filter(comparison.label %in% desired_labels) %>%
+  transmute(
+    short_gene_id = trinity_gene_id,       # hyphen format (e.g., c12345-g1), matches GO mapping
+    clean_gene_name = Zang_et_al_2026,     # clean gene name from final gene names
+    sequence.id,
+    phospho.position,
+    logFC,
+    hit_annotation,
+    pvalue,
+    log10_pvalue = -log10(pmax(pvalue, 1e-300)),
+    comparison.label
+  )
+
+cat("Loaded", nrow(phospho_data), "phospho rows across",
+    length(unique(phospho_data$comparison.label)), "comparisons\n")
+cat("Unique genes:", length(unique(phospho_data$short_gene_id)), "\n")
+
+# --- B. GO terms (Gene ID -> GO ID) ---
+go_map <- read.delim(here("data", "sl_go_merged_id.tsv"),
+                     header = FALSE, stringsAsFactors = FALSE)[, 1:2]
+colnames(go_map) <- c("gene_id", "go_id")
+
+# --- C. Gene lengths (for goseq bias correction) ---
+spongilla_genes <- read.delim(
+  here("data", "gene_lengths.txt"),
+  stringsAsFactors = FALSE
+)
+# Extract gene ID from rownames and convert underscore to hyphen format
+spongilla_genes$gene_names <- rownames(spongilla_genes)
+spongilla_genes$gene_names <- sub(" .*", "", spongilla_genes$gene_names)
+spongilla_genes$gene_names <- sub("_", "-", spongilla_genes$gene_names)
+gene_lengths <- spongilla_genes
+
+# --- D. Background universe (all detected genes) ---
+bg_data <- read.delim(
+  here("phosphoproteomics", "data",
+       "GO_enrichment_background_genes_gene_level.tsv"),
+  stringsAsFactors = FALSE
+)
+# Extract short gene ID in hyphen format
+bg_data$short_gene_id <- sub(" .*", "", bg_data$automated_name)
+
+# --- E. Define the universe: detected genes with GO annotations ---
+raw_universe <- unique(bg_data$short_gene_id)
+universe_ids <- intersect(raw_universe, go_map$gene_id)
+
+cat("=======================================================\n")
+cat("UNIVERSE SETUP\n")
+cat("Total Genes in Background File:    ", length(raw_universe), "\n")
+cat("Final Universe (Annotated Only):   ", length(universe_ids), "\n")
+cat("Dropped (Unannotated) Genes:       ", length(raw_universe) - length(universe_ids), "\n")
+cat("=======================================================\n\n")
+```
+
+```{r goseq_per_comparison}
+# =============================================================================
+# 2. Per-comparison GO enrichment (goseq)
+# =============================================================================
+
+run_goseq_for_comparison <- function(current_comparison_label, full_data,
+                                      universe_ids, gene_lengths, go_map) {
+
+  # Identify hits/candidates for this comparison
+  hits <- full_data %>%
+    filter(comparison.label == current_comparison_label) %>%
+    filter(hit_annotation %in% c("hit", "candidate")) %>%
+    pull(short_gene_id) %>%
+    unique()
+
+  valid_hits <- intersect(hits, universe_ids)
+
+  cat(paste("Processing:", current_comparison_label, "\n"))
+  cat(paste("  - Raw Hits (in file):       ", length(hits), "\n"))
+  cat(paste("  - Valid Hits (in Universe): ", length(valid_hits), "\n"))
+  cat(paste("  - Dropped Hits:             ", length(hits) - length(valid_hits), "\n"))
+
+  if (length(valid_hits) == 0) {
+    warning(paste("Skipping", current_comparison_label, "- No hits found in universe."))
+    return(NULL)
+  }
+
+  # Binary vector: 1 = hit, 0 = background
+  genes_vector <- as.integer(universe_ids %in% valid_hits)
+  names(genes_vector) <- universe_ids
+
+  # Match gene lengths (fill missing with median)
+  matched_lengths <- gene_lengths$length[match(names(genes_vector), gene_lengths$gene_names)]
+  if (any(is.na(matched_lengths))) {
+    matched_lengths[is.na(matched_lengths)] <- median(gene_lengths$length, na.rm = TRUE)
+  }
+  names(matched_lengths) <- names(genes_vector)
+
+  # Run goseq
+  pwf <- nullp(genes_vector, genome = "custom", id = "custom",
+               bias.data = matched_lengths, plot.fit = FALSE)
+  GO_results <- goseq(pwf, gene2cat = go_map, use_genes_without_cat = FALSE)
+
+  GO_results$padj <- p.adjust(GO_results$over_represented_pvalue, method = "BH")
+  GO_results$comparison_label <- current_comparison_label
+
+  return(GO_results)
+}
+
+unique_comparisons <- unique(phospho_data$comparison.label)
+
+all_results_list <- lapply(unique_comparisons, function(comp) {
+  tryCatch({
+    run_goseq_for_comparison(comp, phospho_data, universe_ids, gene_lengths, go_map)
+  }, error = function(e) {
+    message(paste("Error in", comp, ":", e$message))
+    return(NULL)
+  })
+})
+
+per_comparison_results <- bind_rows(all_results_list)
+
+# Save per-comparison results
+if (nrow(per_comparison_results) > 0) {
+  sig_per_comparison <- per_comparison_results %>%
+    filter(padj < 0.05) %>%
+    arrange(comparison_label, padj)
+
+  cat("\n=======================================================\n")
+  cat("PER-COMPARISON ANALYSIS COMPLETE\n")
+  cat("Total significant terms found:", nrow(sig_per_comparison), "\n")
+  cat("=======================================================\n")
+
+  output_dir <- here("outs", "phosphoproteomics", "GO_enrichment")
+  dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
+
+  write.table(sig_per_comparison,
+              file.path(output_dir, "phospho_goseq_results_per_comparison.tsv"),
+              sep = "\t", quote = FALSE, row.names = FALSE)
+}
+```
+
+```{r goseq_global}
+# =============================================================================
+# 3. Global GO enrichment (all hits combined across comparisons)
+# =============================================================================
+
+message("Aggregating hits across ALL comparisons...")
+
+# All unique hits regardless of comparison
+all_hits <- phospho_data %>%
+  filter(hit_annotation %in% c("hit", "candidate")) %>%
+  pull(short_gene_id) %>%
+  unique()
+
+valid_hits <- intersect(all_hits, universe_ids)
+
+cat("GLOBAL HIT STATISTICS:\n")
+cat(paste("  - Total Unique Hits (in file):   ", length(all_hits), "\n"))
+cat(paste("  - Valid Hits (in Universe):      ", length(valid_hits), "\n"))
+cat(paste("  - Dropped Hits (Not in BG):      ", length(all_hits) - length(valid_hits), "\n"))
+cat("-------------------------------------------------------\n")
+
+if (length(valid_hits) == 0) {
+  stop("No valid hits found in the universe. Cannot proceed.")
+}
+
+# Binary vector
+genes_vector <- as.integer(universe_ids %in% valid_hits)
+names(genes_vector) <- universe_ids
+
+# Match gene lengths
+matched_lengths <- gene_lengths$length[match(names(genes_vector), gene_lengths$gene_names)]
+if (any(is.na(matched_lengths))) {
+  matched_lengths[is.na(matched_lengths)] <- median(gene_lengths$length, na.rm = TRUE)
+}
+names(matched_lengths) <- names(genes_vector)
+
+# Run goseq
+pwf <- nullp(genes_vector, genome = "custom", id = "custom",
+             bias.data = matched_lengths, plot.fit = FALSE)
+GO_results <- goseq(pwf, gene2cat = go_map, use_genes_without_cat = FALSE)
+
+GO_results$padj <- p.adjust(GO_results$over_represented_pvalue, method = "BH")
+GO_results$comparison_label <- "Global_Combined_Comparisons"
+
+# Save global results
+if (nrow(GO_results) > 0) {
+  sig_global <- GO_results %>%
+    filter(padj < 0.05) %>%
+    arrange(padj)
+
+  cat("\n=======================================================\n")
+  cat("GLOBAL ANALYSIS COMPLETE\n")
+  cat("Total significant terms found:", nrow(sig_global), "\n")
+  cat("=======================================================\n")
+
+  output_dir <- here("outs", "phosphoproteomics", "GO_enrichment")
+  dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
+
+  write.table(sig_global,
+              file.path(output_dir, "phospho_goseq_results_global.tsv"),
+              sep = "\t", quote = FALSE, row.names = FALSE)
+}
+```
+
+```{r rrvgo_visualization}
+# =============================================================================
+# 4. rrvgo semantic similarity reduction and visualization
+# =============================================================================
+
+library(rrvgo)
+library(org.Hs.eg.db)
+library(GO.db)
+
+# Load results (using global results; switch to per_comparison for per-timepoint plots)
+results <- sig_global
+
+# Add ontology information (BP/MF/CC)
+all_go_ids <- unique(results$category)
+go_info <- select(GO.db, keys = all_go_ids, columns = c("ONTOLOGY"), keytype = "GOID")
+
+results_annotated <- results %>%
+  left_join(go_info, by = c("category" = "GOID")) %>%
+  filter(!is.na(ONTOLOGY))
+
+# --- Visualization function ---
+run_rrvgo_plots <- function(data, label, ontology_type, output_dir, threshold = 0.7) {
+
+  sub_df <- data %>%
+    filter(comparison_label == label) %>%
+    filter(ONTOLOGY == ontology_type) %>%
+    filter(padj < 0.05)
+
+  if (nrow(sub_df) < 3) {
+    message(paste("Skipping", label, "-", ontology_type,
+                  ": Not enough significant terms (need 3+)."))
+    return(NULL)
+  }
+
+  message(paste("Plotting:", label, "-", ontology_type, "(", nrow(sub_df), "terms)"))
+
+  go_vector <- sub_df$category
+  scores <- -log10(sub_df$padj)
+  names(scores) <- go_vector
+
+  simMatrix <- calculateSimMatrix(go_vector,
+                                  orgdb = "org.Hs.eg.db",
+                                  ont = ontology_type,
+                                  method = "Rel")
+
+  reducedTerms <- reduceSimMatrix(simMatrix, scores,
+                                  threshold = threshold,
+                                  orgdb = "org.Hs.eg.db")
+
+  safe_label <- gsub("[^A-Za-z0-9]", "_", label)
+
+  # Treemap
+  png(file.path(output_dir, paste0("rrvgo_treemap_", safe_label, "_", ontology_type, ".png")),
+      width = 2000, height = 1600, res = 600)
+  treemapPlot(reducedTerms)
+  dev.off()
+
+  # Scatterplot
+  p <- scatterPlot(simMatrix, reducedTerms)
+  png(file.path(output_dir, paste0("rrvgo_scatter_", safe_label, "_", ontology_type, ".png")),
+      width = 2000, height = 2000, res = 600)
+  print(p)
+  dev.off()
+}
+
+# --- Run for all comparison × ontology combinations ---
+output_dir <- here("outs", "phosphoproteomics", "GO_enrichment")
+dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
+
+comparisons <- unique(results_annotated$comparison_label)
+ontologies <- c("BP", "MF", "CC")
+
+for (comp in comparisons) {
+  for (ont in ontologies) {
+    tryCatch({
+      run_rrvgo_plots(results_annotated, comp, ont, output_dir)
+    }, error = function(e) {
+      message(paste("Error in", comp, ont, ":", e$message))
+    })
+  }
+}
+
+message("Visualization complete. Check output directory for PNG files.")
+```

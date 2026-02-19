@@ -1,0 +1,7 @@
+condition,treatment,time_min,condition_label
+DMSO_15min,DMSO,15,DMSO_15min
+DMSO_30min,DMSO,30,DMSO_30min
+DMSO_3min,DMSO,3,DMSO_3min
+Tryptamine_15min,Tryp,15,Tryp_15min
+Tryptamine_30min,Tryp,30,Tryp_30min
+Tryptamine_3min,Tryp,3,Tryp_3min

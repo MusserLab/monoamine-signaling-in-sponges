@@ -1,0 +1,1664 @@
+Automated.name	clean_annotation_name	clean_annotation_name_fixed	Plot_Module	Label_Name	module
+c100000-g1 1-to-1 MOSPD2 motile sperm domain containing 2	MOSPD2	MOSPD2	FALSE	FALSE	Phospholipid signaling
+c100000-g1 1-to-1 MOSPD2 motile sperm domain containing 2	MOSPD2	MOSPD2	FALSE	FALSE	Regulation of cytoskeleton at the membrane
+c100000-g1 1-to-1 MOSPD2 motile sperm domain containing 2	MOSPD2	MOSPD2	FALSE	FALSE	Vesicular trafficking
+c100000-g3 1-to-1 PARD3 par-3 family cell polarity regulator	PARD3	PARD3	TRUE	FALSE	Microtubule dynamics
+c100000-g3 1-to-1 PARD3 par-3 family cell polarity regulator	PARD3	PARD3	TRUE	FALSE	Regulation of adhesion complexes
+c100000-g3 1-to-1 PARD3 par-3 family cell polarity regulator	PARD3	PARD3	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c100008-g1 1-to-2 RPRD1B,RPRD1A regulation of nuclear pre-mRNA domain containing 1B	RPRD1B,RPRD1A	RPRD1B,RPRD1A	FALSE	FALSE	RNA processing
+c100015-g1 LDLRAP1 (low density lipoprotein receptor adaptor protein 1) - emapper OG	LDLRAP1	LDLRAP1	FALSE	FALSE	Metabolism
+c100015-g1 LDLRAP1 (low density lipoprotein receptor adaptor protein 1) - emapper OG	LDLRAP1	LDLRAP1	FALSE	FALSE	Phospholipid signaling
+c100024-g1 (Pyruvate phosphate dikinase, PEP/pyruvate binding domain) - emapper OG	Pyruvatephosphatedikinase,PEP/pyruvatebindingdomain	Pyruvatephosphatedikinase,PEP/pyruvatebindingdomain	FALSE	FALSE	Metabolism
+c99111-g1 (mannose receptor, C type 1) - emapper OG	NA	NA	FALSE	FALSE	Vesicular trafficking
+c100044-g1 5-to-3 EPHA4,EPHA3,EPHA6 EPH receptor A4	EPHA4,EPHA3,EPHA6	EPHA4,EPHA3,EPHA6	TRUE	FALSE	Regulation of adhesion complexes
+c95711-g2 (RNA recognition motif. (a.k.a. RRM, RBD, or RNP domain)) - emapper OG	NA	NA	FALSE	FALSE	RNA processing
+c104090-g1 (solute carrier family 30 (zinc transporter), member) - emapper OG	NA	NA	FALSE	FALSE	Plasma membrane transporter
+c100109-g1 1-to-1 RAPGEF1 Rap guanine nucleotide exchange factor 1	RAPGEF1	RAPGEF1	FALSE	FALSE	Regulation of adhesion complexes
+c100110-g1 1-to-1 KAZN kazrin, periplakin interacting protein	KAZN	KAZN	TRUE	TRUE	Regulation of adhesion complexes
+c100110-g1 1-to-1 KAZN kazrin, periplakin interacting protein	KAZN	KAZN	TRUE	TRUE	Regulation of cytoskeleton at the membrane
+c88998-g1 3-to-1 ABRA actin binding Rho activating protein	NA	NA	TRUE	FALSE	Actin dynamics
+c88998-g1 3-to-1 ABRA actin binding Rho activating protein	NA	NA	TRUE	FALSE	Differentiation (muscle cell related)
+c88998-g1 3-to-1 ABRA actin binding Rho activating protein	NA	NA	TRUE	FALSE	RhoA GTPase signaling
+c100126-g1 DCP1 (Dcp1-like decapping family) - emapper OG	DCP1	DCP1	FALSE	FALSE	RNA processing
+c95797-g1 ABRACL (ABRA C-terminal like) - emapper OG	NA	NA	FALSE	FALSE	Actin dynamics
+c95797-g1 ABRACL (ABRA C-terminal like) - emapper OG	NA	NA	FALSE	FALSE	Rho signaling
+c104454-g1 2-to-2 ADAP2,ADAP1 ArfGAP with dual PH domains 2	NA	NA	FALSE	FALSE	Vesicular trafficking
+c100137-g1 1-to-1 WAPL WAPL cohesin release factor	WAPL	WAPL	FALSE	FALSE	Microtubule dynamics
+c104581-g1 5-to-2 ADGRG6,ADGRG2 adhesion G protein-coupled receptor G6	NA	NA	FALSE	FALSE	GPCR signaling
+c104581-g1 5-to-2 ADGRG6,ADGRG2 adhesion G protein-coupled receptor G6	NA	NA	FALSE	FALSE	Regulation of adhesion complexes
+c100170-g2 IFT43, Bos taurus	IFT43,	IFT43	FALSE	FALSE	Regulation of ciliary function
+c100170-g2 IFT43, Bos taurus	IFT43,	IFT43	FALSE	FALSE	Vesicular trafficking
+c100179-g1 GBF1 (Golgi brefeldin A resistant guanine nucleotide exchange factor 1) - emapper OG	GBF1	GBF1	FALSE	FALSE	Vesicular trafficking
+c100253-g2 1-to-1 ADGRV1 adhesion G protein-coupled receptor V1	NA	NA	TRUE	FALSE	GPCR signaling
+c100253-g2 1-to-1 ADGRV1 adhesion G protein-coupled receptor V1	NA	NA	TRUE	FALSE	Regulation of adhesion complexes
+c100216-g1 1-to-1 KIAA1143 KIAA1143	KIAA1143	KIAA1143	FALSE	FALSE	Regulation of adhesion complexes
+c100219-g1 EHBP1L1 (EH domain binding protein 1 like 1) - blastp	EHBP1L1	EHBP1L1	FALSE	FALSE	Regulation of ciliary function
+c100219-g1 EHBP1L1 (EH domain binding protein 1 like 1) - blastp	EHBP1L1	EHBP1L1	FALSE	FALSE	Vesicular trafficking
+c100221-g1 1-to-1 POU1F1 POU class 1 homeobox 1	POU1F1	POU1F1	FALSE	FALSE	Differentiation (gland cell related)
+c100221-g1 1-to-1 POU1F1 POU class 1 homeobox 1	POU1F1	POU1F1	FALSE	FALSE	Metabolism
+c100223-g1 1-to-1 CKAP5 cytoskeleton associated protein 5	CKAP5	CKAP5	FALSE	FALSE	Actin dynamics
+c100223-g1 1-to-1 CKAP5 cytoskeleton associated protein 5	CKAP5	CKAP5	FALSE	FALSE	Microtubule dynamics
+c6839-g1 1-to-1 AIDA axin interactor, dorsalization associated	NA	NA	FALSE	FALSE	JNK/p38 MAPK signaling
+c99056-g1 2-to-2 ALS2,ALS2CL ALS2, alsin Rho guanine nucleotide exchange factor	NA	NA	FALSE	FALSE	Rac1 GTPase signaling
+c99056-g1 2-to-2 ALS2,ALS2CL ALS2, alsin Rho guanine nucleotide exchange factor	NA	NA	FALSE	FALSE	Vesicular trafficking
+c100251-g1 1-to-1 C10orf76 chromosome 10 open reading frame 76	C10orf76	C10orf76	FALSE	FALSE	Vesicular trafficking
+c98926-g1 ALS2CR12 (amyotrophic lateral sclerosis 2 (juvenile) chromosome region, candidate 12) - emapper OG	NA	NA	FALSE	FALSE	Regulation of ciliary function
+c100269-g2 1-to-1 PAN3 PAN3 poly(A) specific ribonuclease subunit	PAN3	PAN3	FALSE	FALSE	RNA processing
+c100290-g1 1-to-1 KIAA1109 KIAA1109	KIAA1109	KIAA1109	FALSE	FALSE	Regulation of adhesion complexes
+c100290-g1 1-to-1 KIAA1109 KIAA1109	KIAA1109	KIAA1109	FALSE	FALSE	Regulation of cytoskeleton at the membrane
+c100290-g1 1-to-1 KIAA1109 KIAA1109	KIAA1109	KIAA1109	FALSE	FALSE	Vesicular trafficking
+c100305-g1 GAB4 (GRB2 associated binding protein family member 4) - blastp	GAB4	GAB4	FALSE	FALSE	Regulation of cell cycle
+c100308-g2 SSB (Sjogren syndrome antigen B (autoantigen La)) - emapper OG	SSB	SSB	FALSE	FALSE	Regulation of cell cycle
+c100337-g1 DUOX1 (Dual oxidase) - emapper OG	DUOX1	DUOX1	TRUE	FALSE	NO signaling
+c100343-g1 1-to-1 SYAP1 synapse associated protein 1	SYAP1	SYAP1	TRUE	FALSE	MTORC2 signaling
+c100343-g1 1-to-1 SYAP1 synapse associated protein 1	SYAP1	SYAP1	TRUE	FALSE	Vesicular trafficking
+c100362-g1 BUR (GMP synthase) - emapper OG	BUR	BUR	FALSE	FALSE	Metabolism
+c100410-g1 1-to-1 PRCC papillary renal cell carcinoma (translocation-associated)	PRCC	PRCC	FALSE	FALSE	JNK/p38 MAPK signaling
+c100410-g1 1-to-1 PRCC papillary renal cell carcinoma (translocation-associated)	PRCC	PRCC	FALSE	FALSE	PI3K signaling
+c97310-g2 1-to-1 AMOT angiomotin	NA	NA	TRUE	FALSE	Actin dynamics
+c97310-g2 1-to-1 AMOT angiomotin	NA	NA	TRUE	FALSE	Differentiation (muscle cell related)
+c97310-g2 1-to-1 AMOT angiomotin	NA	NA	TRUE	FALSE	Regulation of adhesion complexes
+c100428-g3 2-to-4 EPB41L1,EPB41L2,EPB41L3,EPB41 erythrocyte membrane protein band 4.1 like 1	EPB41L1,EPB41L2,EPB41L3,EPB41	EPB41L1,EPB41L2,EPB41L3,EPB41	TRUE	FALSE	Regulation of adhesion complexes
+c100428-g3 2-to-4 EPB41L1,EPB41L2,EPB41L3,EPB41 erythrocyte membrane protein band 4.1 like 1	EPB41L1,EPB41L2,EPB41L3,EPB41	EPB41L1,EPB41L2,EPB41L3,EPB41	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c79162-g1 (Sugar (and other) transporter) - emapper OG	NA	NA	FALSE	FALSE	Plasma membrane transporter
+c101256-g1 1-to-1 ANKFN1 ankyrin repeat and fibronectin type III domain containing 1	NA	NA	FALSE	FALSE	Regulation of cytoskeleton at the membrane
+c103283-g5 4-to-1 ANKIB1 ankyrin repeat and IBR domain containing 1	NA	NA	FALSE	FALSE	Regulation of cytoskeleton at the membrane
+c100490-g1 (Inherit from euNOG: spectrin repeat containing, nuclear envelope) - emapper OG	spectrinrepeatcontaining,nuclearenvelope	spectrinrepeatcontaining,nuclearenvelope	TRUE	FALSE	Actin network assembly
+c87921-g1 1-to-1 ANKRD16 ankyrin repeat domain 16	NA	NA	FALSE	FALSE	Regulation of cytoskeleton at the membrane
+c103620-g1 1-to-1 ANKRD26 ankyrin repeat domain 26	NA	NA	FALSE	FALSE	Regulation of cytoskeleton at the membrane
+c103605-g1 (Ankyrin Repeat) - emapper OG	NA	NA	FALSE	FALSE	Regulation of cytoskeleton at the membrane
+c99994-g1 (ankyrin repeat domain 52) - emapper OG	NA	NA	FALSE	FALSE	Regulation of cytoskeleton at the membrane
+c100550-g2 hs-HNRNPA0,ALYREF	HNRNPA0,ALYREF	HNRNPA0,ALYREF	FALSE	FALSE	RNA processing
+c100550-g3 hs-NCBP2,ALYREF,HNRNPA0	NCBP2,ALYREF,HNRNPA0	NCBP2,ALYREF,HNRNPA0	FALSE	FALSE	RNA processing
+c100578-g1 1-to-1 DUSP10 dual specificity phosphatase 10	DUSP10	DUSP10	FALSE	FALSE	JNK/p38 MAPK signaling
+c101239-g1 (Inherit from KOG: Ankyrin Repeat Protein) - emapper OG	NA	NA	FALSE	FALSE	Regulation of cytoskeleton at the membrane
+c100588-g1 5-to-1 ARHGEF17 Rho guanine nucleotide exchange factor 17	ARHGEF17	ARHGEF17	FALSE	FALSE	RhoA GTPase signaling
+c100588-g1 5-to-1 ARHGEF17 Rho guanine nucleotide exchange factor 17	ARHGEF17	ARHGEF17	FALSE	FALSE	Rho signaling
+c100610-g3 (Inherit from opiNOG: alpha-glucosidase) - emapper OG	alpha-glucosidase	alpha-glucosidase	FALSE	FALSE	Metabolism
+c103287-g1 (Ankyrin Repeat Protein) - emapper OG	NA	NA	FALSE	FALSE	Regulation of cytoskeleton at the membrane
+c100640-g1 1-to-2 UPF3B,UPF3A UPF3B, regulator of nonsense mediated mRNA decay	UPF3B,UPF3A	UPF3B,UPF3A	FALSE	FALSE	RNA processing
+c100641-g4 RAB1A (member RAS oncogene family) - emapper OG	RAB1A	RAB1A	FALSE	FALSE	Vesicular trafficking
+c100652-g1 PIDD (Leucine-rich repeats and calponin homology (CH) domain containing) - emapper OG	PIDD	PIDD	FALSE	FALSE	Apoptosis
+c100652-g1 PIDD (Leucine-rich repeats and calponin homology (CH) domain containing) - emapper OG	PIDD	PIDD	FALSE	FALSE	Regulation of inflammation
+c100655-g1 1-to-2 TMEM131,TMEM131L transmembrane protein 131	TMEM131,TMEM131L	TMEM131,TMEM131L	TRUE	FALSE	Regulation of adhesion complexes
+c100679-g1 1-to-1 LAMA2 laminin subunit alpha 2	LAMA2	LAMA2	FALSE	FALSE	Regulation of adhesion complexes
+c100684-g1 1-to-2 PHKA1,PHKA2 phosphorylase kinase regulatory subunit alpha 1	PHKA1,PHKA2	PHKA1,PHKA2	FALSE	FALSE	Metabolism
+c100685-g1 LHX4 (LIM homeobox) - emapper OG	LHX4	LHX4	FALSE	FALSE	Differentiation (gland cell related)
+c100686-g1 1-to-3 TJP1,TJP2,TJP3 tight junction protein 1	TJP1,TJP2,TJP3	TJP1,TJP2,TJP3	TRUE	FALSE	Regulation of adhesion complexes
+c100686-g1 1-to-3 TJP1,TJP2,TJP3 tight junction protein 1	TJP1,TJP2,TJP3	TJP1,TJP2,TJP3	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c100686-g2 DLG5 (Inherit from NOG: discs, large homolog 5 (Drosophila)) - emapper OG	DLG5	DLG5	TRUE	TRUE	Post-synaptic scaffold
+c100686-g2 DLG5 (Inherit from NOG: discs, large homolog 5 (Drosophila)) - emapper OG	DLG5	DLG5	TRUE	TRUE	Regulation of adhesion complexes
+c104714-g1 1-to-1 AP3D1 adaptor related protein complex 3 delta 1 subunit	NA	NA	FALSE	FALSE	Vesicular trafficking
+c103786-g2 1-to-2 APC,APC2 APC, WNT signaling pathway regulator	NA	NA	TRUE	FALSE	Regulation of adhesion complexes
+c103786-g2 1-to-2 APC,APC2 APC, WNT signaling pathway regulator	NA	NA	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c100717-g3 1-to-2 FAM50B,FAM50A family with sequence similarity 50 member B	FAM50B,FAM50A	FAM50B,FAM50A	FALSE	FALSE	RNA processing
+c100722-g1 TCF4 (Transcription factor) - emapper OG	TCF4	TCF4	FALSE	FALSE	Differentiation (gland cell related)
+c103502-g1 1-to-1 ARHGAP4 Rho GTPase activating protein 4	NA	NA	FALSE	FALSE	Cdc42 GTPase signaling
+c103502-g1 1-to-1 ARHGAP4 Rho GTPase activating protein 4	NA	NA	FALSE	FALSE	Rac1 GTPase signaling
+c100745-g1 1-to-1 ELP2 elongator acetyltransferase complex subunit 2	ELP2	ELP2	FALSE	FALSE	RNA processing
+c104357-g2 1-to-1 ARHGAP45 Rho GTPase activating protein 45	NA	NA	FALSE	FALSE	RhoA GTPase signaling
+c103750-g2 ARHGAP5 (rho GTPase activating protein) - emapper OG	NA	NA	FALSE	FALSE	Rac1 GTPase signaling
+c103750-g2 ARHGAP5 (rho GTPase activating protein) - emapper OG	NA	NA	FALSE	FALSE	RhoA GTPase signaling
+c100831-g1 PLEK (pleckstrin) - blastp	PLEK	PLEK	TRUE	FALSE	Regulation of adhesion complexes
+c100831-g1 PLEK (pleckstrin) - blastp	PLEK	PLEK	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c100838-g1 DNAJB12 (DnaJ heat shock protein family (Hsp40) member B12) - blastp	DNAJB12	DNAJB12	FALSE	FALSE	Chaperone
+c102965-g1 1-to-5 ARHGEF18,AKAP13,ARHGEF2,ARHGEF28 Rho/Rac guanine nucleotide exchange factor 18	NA	NA	TRUE	FALSE	RhoA GTPase signaling
+c97024-g1 ARHGEF33 (Rho guanine nucleotide exchange factor (GEF) 33) - emapper OG	NA	NA	FALSE	FALSE	RhoA GTPase signaling
+c81224-g1 ARMC4 (Armadillo repeat containing 4) - emapper OG	NA	NA	FALSE	FALSE	Regulation of ciliary function
+c100895-g1 1-to-1 NUP133 nucleoporin 133	NUP133	NUP133	FALSE	FALSE	Regulation of cytoskeleton at the membrane
+c101259-g2 2-to-4 ATP6V0A1,TCIRG1,ATP6V0A4,ATP6V0A2 ATPase H+ transporting V0 subunit a1	NA	NA	FALSE	FALSE	Lysosomes
+c100904-g2 5-to-9 PLXNC1,PLXND1,PLXNB1,PLXNA4... plexin C1	PLXNC1,PLXND1,PLXNB1,PLXNA4...	PLXNC1,PLXND1,PLXNB1,PLXNA4...	TRUE	FALSE	Regulation of adhesion complexes
+c100904-g2 5-to-9 PLXNC1,PLXND1,PLXNB1,PLXNA4... plexin C1	PLXNC1,PLXND1,PLXNB1,PLXNA4...	PLXNC1,PLXND1,PLXNB1,PLXNA4...	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c100913-g1 1-to-2 ARID1A,ARID1B AT-rich interaction domain 1A	ARID1A,ARID1B	ARID1A,ARID1B	FALSE	FALSE	Stress-related transcription activity
+c104057-g1 5-to-1 AXL AXL receptor tyrosine kinase	NA	NA	FALSE	FALSE	Regulation of cytoskeleton at the membrane
+c100919-g2 1-to-2 RASA2,RASA3 RAS p21 protein activator 2	RASA2,RASA3	RASA2,RASA3	FALSE	FALSE	Ras GTPase signaling
+c100922-g3 hs-MEF2D	MEF2D	MEF2D	TRUE	TRUE	Differentiation (muscle cell related)
+c95390-g2 (BACK) - emapper OG	NA	NA	FALSE	FALSE	Apoptosis
+c100927-g1 1-to-3 DIAPH2,DIAPH1,DIAPH3 diaphanous related formin 2	DIAPH2,DIAPH1,DIAPH3	DIAPH2,DIAPH1,DIAPH3	TRUE	TRUE	Actin dynamics
+c100927-g1 1-to-3 DIAPH2,DIAPH1,DIAPH3 diaphanous related formin 2	DIAPH2,DIAPH1,DIAPH3	DIAPH2,DIAPH1,DIAPH3	TRUE	TRUE	Microtubule dynamics
+c100927-g1 1-to-3 DIAPH2,DIAPH1,DIAPH3 diaphanous related formin 2	DIAPH2,DIAPH1,DIAPH3	DIAPH2,DIAPH1,DIAPH3	TRUE	TRUE	Regulation of adhesion complexes
+c100931-g1 1-to-1 EXOSC10 exosome component 10	EXOSC10	EXOSC10	FALSE	FALSE	RNA processing
+c100945-g1 1-to-1 PIK3R4 phosphoinositide-3-kinase regulatory subunit 4	PIK3R4	PIK3R4	TRUE	TRUE	GPCR signaling
+c100945-g1 1-to-1 PIK3R4 phosphoinositide-3-kinase regulatory subunit 4	PIK3R4	PIK3R4	TRUE	TRUE	Phospholipid signaling
+c100945-g1 1-to-1 PIK3R4 phosphoinositide-3-kinase regulatory subunit 4	PIK3R4	PIK3R4	TRUE	TRUE	PI3K signaling
+c100945-g1 1-to-1 PIK3R4 phosphoinositide-3-kinase regulatory subunit 4	PIK3R4	PIK3R4	TRUE	TRUE	Rac1 GTPase signaling
+c100945-g1 1-to-1 PIK3R4 phosphoinositide-3-kinase regulatory subunit 4	PIK3R4	PIK3R4	TRUE	TRUE	Rho signaling
+c100954-g1 1-to-1 DTNBP1 dystrobrevin binding protein 1	DTNBP1	DTNBP1	TRUE	FALSE	Regulation of adhesion complexes
+c15492-g1 BLP1, Candida albicans (strain SC5314 / ATCC MYA-2..	NA	NA	FALSE	FALSE	Phospholipid signaling
+c100975-g1 (gelsolin) - emapper OG	gelsolin	gelsolin	TRUE	FALSE	Actin dynamics
+c100977-g1 1-to-2 CDK13,CDK12 cyclin dependent kinase 13	CDK13,CDK12	CDK13,CDK12	FALSE	FALSE	Regulation of cell cycle
+c100980-g1 1-to-1 BRD7 bromodomain containing 7	BRD7	BRD7	FALSE	FALSE	Stress-related transcription activity
+c100984-g1 1-to-1 SNRK SNF related kinase	SNRK	SNRK	FALSE	FALSE	Metabolism
+c100984-g1 1-to-1 SNRK SNF related kinase	SNRK	SNRK	FALSE	FALSE	Regulation of inflammation
+c101011-g1 1-to-1 SUPT5H SPT5 homolog, DSIF elongation factor subunit	SUPT5H	SUPT5H	FALSE	FALSE	RNA processing
+c101021-g1 RAPGEF2 (Rap guanine nucleotide exchange factor 2) - blastp	RAPGEF2	RAPGEF2	FALSE	FALSE	Regulation of adhesion complexes
+c100966-g1 1-to-1	NA	NA	FALSE	FALSE	RNA processing
+c101050-g1 1-to-3 SMAD9,SMAD1,SMAD5 SMAD family member 9	SMAD9,SMAD1,SMAD5	SMAD9,SMAD1,SMAD5	TRUE	TRUE	Differentiation (muscle cell related)
+c103299-g1 1-to-1	NA	NA	FALSE	FALSE	Regulation of cytoskeleton at the membrane
+c87499-g1 1-to-1 C12orf4 chromosome 12 open reading frame 4	NA	NA	FALSE	FALSE	Vesicular trafficking
+c101098-g1 1-to-1 BAG6 BCL2 associated athanogene 6	BAG6	BAG6	FALSE	FALSE	Apoptosis
+c101107-g1 1-to-2 MICU3,MICU2 mitochondrial calcium uptake family member 3	MICU3,MICU2	MICU3,MICU2	TRUE	FALSE	Regulation of calcium signaling
+c101111-g1 1-to-1 MAP2K7 mitogen-activated protein kinase kinase 7	MAP2K7	MAP2K7	FALSE	FALSE	JNK/p38 MAPK signaling
+c101119-g1 1-to-1 ZFPL1 zinc finger protein like 1	ZFPL1	ZFPL1	FALSE	FALSE	Vesicular trafficking
+c102833-g1 1-to-1 C16orf72 chromosome 16 open reading frame 72	NA	NA	FALSE	FALSE	Apoptosis
+c101130-g1 1-to-3 MAPK10,MAPK8,MAPK9 mitogen-activated protein kinase 10	MAPK10,MAPK8,MAPK9	MAPK10,MAPK8,MAPK9	FALSE	FALSE	JNK/p38 MAPK signaling
+c101153-g1 1-to-3 ACAP1,ACAP2,ACAP3 ArfGAP with coiled-coil, ankyrin repeat and PH domains 1	ACAP1,ACAP2,ACAP3	ACAP1,ACAP2,ACAP3	FALSE	FALSE	Vesicular trafficking
+c101170-g1 1-to-2 FRYL,FRY FRY like transcription coactivator	FRYL,FRY	FRYL,FRY	FALSE	FALSE	Microtubule dynamics
+c101172-g1 1-to-2 DYNC1LI2,DYNC1LI1 dynein cytoplasmic 1 light intermediate chain 2	DYNC1LI2,DYNC1LI1	DYNC1LI2,DYNC1LI1	FALSE	FALSE	Vesicular trafficking
+c101177-g1 1-to-3 CNKSR1,CNKSR2,CNKSR3 connector enhancer of kinase suppressor of Ras 1	CNKSR1,CNKSR2,CNKSR3	CNKSR1,CNKSR2,CNKSR3	FALSE	FALSE	Ras GTPase signaling
+c101194-g1 hs-INSYN2B,INSYN2A,C19orf44,TAB2,CCSER2,TSC22D4,C3orf..	INSYN2B,INSYN2A,C19orf44,TAB2,CCSER2,TSC22D4,C3orf..	INSYN2B,INSYN2A,C19orf44,TAB2,CCSER2,TSC22D4,C3orf..	FALSE	FALSE	Regulation of inflammation
+c101194-g1 hs-INSYN2B,INSYN2A,C19orf44,TAB2,CCSER2,TSC22D4,C3orf..	INSYN2B,INSYN2A,C19orf44,TAB2,CCSER2,TSC22D4,C3orf..	INSYN2B,INSYN2A,C19orf44,TAB2,CCSER2,TSC22D4,C3orf..	FALSE	FALSE	Vesicular trafficking
+c101207-g1 1-to-1 RICTOR RPTOR independent companion of MTOR complex 2	RICTOR	RICTOR	TRUE	TRUE	Lysosomes
+c101207-g1 1-to-1 RICTOR RPTOR independent companion of MTOR complex 2	RICTOR	RICTOR	TRUE	TRUE	MTORC2 signaling
+c101215-g1 1-to-2 ESPNL,ESPN espin like	ESPNL,ESPN	ESPNL,ESPN	TRUE	TRUE	Actin dynamics
+c101215-g1 1-to-2 ESPNL,ESPN espin like	ESPNL,ESPN	ESPNL,ESPN	TRUE	TRUE	Actomyosin contractility
+c101215-g1 1-to-2 ESPNL,ESPN espin like	ESPNL,ESPN	ESPNL,ESPN	TRUE	TRUE	Regulation of cytoskeleton at the membrane
+c101218-g1 1-to-1 PPIL4 peptidylprolyl isomerase like 4	PPIL4	PPIL4	FALSE	FALSE	Chaperone
+c101234-g1 1-to-1 PAXBP1 PAX3 and PAX7 binding protein 1	PAXBP1	PAXBP1	TRUE	FALSE	Differentiation (muscle cell related)
+c94396-g1 1-to-1 C20orf27 chromosome 20 open reading frame 27	NA	NA	FALSE	FALSE	Regulation of inflammation
+c94396-g1 1-to-1 C20orf27 chromosome 20 open reading frame 27	NA	NA	FALSE	FALSE	Stress-related transcription activity
+c101240-g2 1-to-4 ERBB3,ERBB2,EGFR,ERBB4 erb-b2 receptor tyrosine kinase 3	ERBB3,ERBB2,EGFR,ERBB4	ERBB3,ERBB2,EGFR,ERBB4	TRUE	FALSE	Regulation of adhesion complexes
+c101241-g1 1-to-2 DGKI,DGKZ diacylglycerol kinase iota	DGKI,DGKZ	DGKI,DGKZ	TRUE	FALSE	Phospholipid signaling
+c97174-g1 1-to-1 C2CD5 C2 calcium dependent domain containing 5	NA	NA	FALSE	FALSE	Regulation of calcium signaling
+c97174-g1 1-to-1 C2CD5 C2 calcium dependent domain containing 5	NA	NA	FALSE	FALSE	Vesicular trafficking
+c101246-g1 1-to-3 PITPNM3,PITPNM2,PITPNM1 PITPNM family member 3	PITPNM3,PITPNM2,PITPNM1	PITPNM3,PITPNM2,PITPNM1	TRUE	FALSE	Phospholipid signaling
+c101252-g1 1-to-1 CACHD1 cache domain containing 1	CACHD1	CACHD1	FALSE	FALSE	Regulation of calcium signaling
+c101253-g1 1-to-2 EVI5,EVI5L ecotropic viral integration site 5	EVI5,EVI5L	EVI5,EVI5L	FALSE	FALSE	Vesicular trafficking
+c101253-g2 1-to-2 ADARB1,ADARB2 adenosine deaminase, RNA specific B1	ADARB1,ADARB2	ADARB1,ADARB2	FALSE	FALSE	Metabolism
+c92025-g1 1-to-1 C4orf47 chromosome 4 open reading frame 47	NA	NA	FALSE	FALSE	Stress-related transcription activity
+c99236-g1 (Catenin (Cadherin-associated protein)) - emapper OG	NA	NA	FALSE	FALSE	Regulation of adhesion complexes
+c101265-g1 NUP153 (nucleoporin 153kDa) - emapper OG	NUP153	NUP153	FALSE	FALSE	RNA processing
+c101265-g1 NUP153 (nucleoporin 153kDa) - emapper OG	NUP153	NUP153	FALSE	FALSE	Vesicular trafficking
+c101266-g1 PLEKHA1 (pleckstrin homology domain containing, family A (phosphoinositide binding specific) member	PLEKHA1	PLEKHA1	TRUE	FALSE	Regulation of adhesion complexes
+c101266-g1 PLEKHA1 (pleckstrin homology domain containing, family A (phosphoinositide binding specific) member	PLEKHA1	PLEKHA1	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c102612-g2 SMTN (smoothelin-like 2) - emapper OG	NA	NA	FALSE	FALSE	Actomyosin contractility
+c102612-g2 SMTN (smoothelin-like 2) - emapper OG	NA	NA	FALSE	FALSE	Regulation of calcium signaling
+c101327-g2 FOXO3 (forkhead box) - emapper OG	FOXO3	FOXO3	TRUE	FALSE	Stress-related transcription activity
+c105055-g1 CAM (calmodulin) - emapper OG	NA	NA	FALSE	FALSE	Regulation of calcium signaling
+c101340-g1 1-to-2 RALGPS1,RALGPS2 Ral GEF with PH domain and SH3 binding motif 1	RALGPS1,RALGPS2	RALGPS1,RALGPS2	FALSE	FALSE	Vesicular trafficking
+c104280-g3 CAMK2G (calcium calmodulin-dependent protein kinase II) - emapper OG	NA	NA	FALSE	FALSE	Regulation of calcium signaling
+c101346-g2 1-to-1 DDX4 DEAD-box helicase 4	DDX4	DDX4	FALSE	FALSE	RNA processing
+c104065-g2 4-to-2 CASP10,CASP8 caspase 10	NA	NA	FALSE	FALSE	Apoptosis
+c101356-g1 1-to-4 HERC6,HERC5,HERC4,HERC3 HECT and RLD domain containing E3 ubiquitin protein ligase family me	HERC6,HERC5,HERC4,HERC3	HERC6,HERC5,HERC4,HERC3	FALSE	FALSE	Regulation of inflammation
+c101359-g1 CDC123 (cell division cycle 123) - blastp	CDC123	CDC123	FALSE	FALSE	Chaperone
+c101359-g1 CDC123 (cell division cycle 123) - blastp	CDC123	CDC123	FALSE	FALSE	Regulation of cell cycle
+c101369-g1 4-to-2 UNC13D,BAIAP3 unc-13 homolog D	UNC13D,BAIAP3	UNC13D,BAIAP3	TRUE	TRUE	Exocytosis
+c101369-g1 4-to-2 UNC13D,BAIAP3 unc-13 homolog D	UNC13D,BAIAP3	UNC13D,BAIAP3	TRUE	TRUE	Regulation of calcium signaling
+c101369-g1 4-to-2 UNC13D,BAIAP3 unc-13 homolog D	UNC13D,BAIAP3	UNC13D,BAIAP3	TRUE	TRUE	Vesicular trafficking
+c101375-g1 1-to-3 PDE1B,PDE1C,PDE1A phosphodiesterase 1B	PDE1B,PDE1C,PDE1A	PDE1B,PDE1C,PDE1A	TRUE	FALSE	Metabolism
+c101375-g1 1-to-3 PDE1B,PDE1C,PDE1A phosphodiesterase 1B	PDE1B,PDE1C,PDE1A	PDE1B,PDE1C,PDE1A	TRUE	FALSE	NO signaling
+c101375-g1 1-to-3 PDE1B,PDE1C,PDE1A phosphodiesterase 1B	PDE1B,PDE1C,PDE1A	PDE1B,PDE1C,PDE1A	TRUE	FALSE	Regulation of calcium signaling
+c101378-g2 1-to-3 IQGAP1,IQGAP2,IQGAP3 IQ motif containing GTPase activating protein 1	IQGAP1,IQGAP2,IQGAP3	IQGAP1,IQGAP2,IQGAP3	TRUE	FALSE	Actin dynamics
+c101378-g2 1-to-3 IQGAP1,IQGAP2,IQGAP3 IQ motif containing GTPase activating protein 1	IQGAP1,IQGAP2,IQGAP3	IQGAP1,IQGAP2,IQGAP3	TRUE	FALSE	Cdc42 GTPase signaling
+c101378-g2 1-to-3 IQGAP1,IQGAP2,IQGAP3 IQ motif containing GTPase activating protein 1	IQGAP1,IQGAP2,IQGAP3	IQGAP1,IQGAP2,IQGAP3	TRUE	FALSE	Rac1 GTPase signaling
+c101378-g2 1-to-3 IQGAP1,IQGAP2,IQGAP3 IQ motif containing GTPase activating protein 1	IQGAP1,IQGAP2,IQGAP3	IQGAP1,IQGAP2,IQGAP3	TRUE	FALSE	Rho signaling
+c101389-g1 1-to-2 SBF2,SBF1 SET binding factor 2	SBF2,SBF1	SBF2,SBF1	TRUE	FALSE	Phospholipid signaling
+c101389-g1 1-to-2 SBF2,SBF1 SET binding factor 2	SBF2,SBF1	SBF2,SBF1	TRUE	FALSE	Vesicular trafficking
+c101396-g1 2-to-3 TPPP2,TPPP,TPPP3 tubulin polymerization promoting protein family member 2	TPPP2,TPPP,TPPP3	TPPP2,TPPP,TPPP3	FALSE	FALSE	Microtubule dynamics
+c101531-g1 CASP2 (caspase 2) - blastp	NA	NA	FALSE	FALSE	Apoptosis
+c100898-g3 (cathepsin) - emapper OG	NA	NA	FALSE	FALSE	Lysosomes
+c101402-g1 1-to-1 CLINT1 clathrin interactor 1	CLINT1	CLINT1	FALSE	FALSE	Vesicular trafficking
+c101407-g1 EIF4H (eukaryotic translation initiation factor 4H) - emapper OG	EIF4H	EIF4H	FALSE	FALSE	RNA processing
+c112129-g1 1-to-1 CCDC138 coiled-coil domain containing 138	NA	NA	FALSE	FALSE	Regulation of ciliary function
+c101427-g2 AIM3, Lachancea thermotolerans (strain ATCC 56472 ..	AIM3,	AIM3	FALSE	FALSE	Metabolism
+c104223-g4 1-to-1 CCDC6 coiled-coil domain containing 6	NA	NA	FALSE	FALSE	Stress-related transcription activity
+c101451-g1 HERC4 (HECT and RLD domain containing E3 ubiquitin protein ligase 4) - blastp	HERC4	HERC4	FALSE	FALSE	Regulation of inflammation
+c110225-g1 1-to-1 CCDC81 coiled-coil domain containing 81	NA	NA	FALSE	FALSE	Regulation of ciliary function
+c105766-g1 1-to-1 CCDC87 coiled-coil domain containing 87	NA	NA	FALSE	FALSE	Lysosomes
+c104049-g1 1-to-1 CCDC91 coiled-coil domain containing 91	NA	NA	FALSE	FALSE	Vesicular trafficking
+c101485-g1 1-to-1 NCKIPSD NCK interacting protein with SH3 domain	NCKIPSD	NCKIPSD	TRUE	FALSE	Actin dynamics
+c101485-g1 1-to-1 NCKIPSD NCK interacting protein with SH3 domain	NCKIPSD	NCKIPSD	TRUE	FALSE	Actin network assembly
+c101485-g1 1-to-1 NCKIPSD NCK interacting protein with SH3 domain	NCKIPSD	NCKIPSD	TRUE	FALSE	Actomyosin contractility
+c101485-g1 1-to-1 NCKIPSD NCK interacting protein with SH3 domain	NCKIPSD	NCKIPSD	TRUE	FALSE	Vesicular trafficking
+c101493-g3 1-to-1 DNAH5 dynein axonemal heavy chain 5	DNAH5	DNAH5	FALSE	FALSE	Regulation of ciliary function
+c101497-g1 1-to-4 MAP3K10,MAP3K11,MAP3K21,MAP3K9 mitogen-activated protein kinase kinase kinase 10	MAP3K10,MAP3K11,MAP3K21,MAP3K9	MAP3K10,MAP3K11,MAP3K21,MAP3K9	FALSE	FALSE	JNK/p38 MAPK signaling
+c101517-g1 1-to-2 CCDC63,CCDC114 coiled-coil domain containing 63	CCDC63,CCDC114	CCDC63,CCDC114	FALSE	FALSE	Regulation of ciliary function
+c101521-g2 1-to-2 KIAA0319L,KIAA0319 KIAA0319 like	KIAA0319L,KIAA0319	KIAA0319L,KIAA0319	FALSE	FALSE	Regulation of adhesion complexes
+c101522-g1 1-to-1 PPWD1 peptidylprolyl isomerase domain and WD repeat containing 1	PPWD1	PPWD1	FALSE	FALSE	Chaperone
+c101977-g1 1-to-2 CCNA1,CCNA2 cyclin A1	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c101545-g1 OGG1 (8-oxoguanine DNA glycosylase) - emapper OG	OGG1	OGG1	TRUE	FALSE	NO signaling
+c103730-g3 1-to-3 CDC25B,CDC25A,CDC25C cell division cycle 25B	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c101563-g1 MFSD2A (Major facilitator superfamily domain containing) - emapper OG	MFSD2A	MFSD2A	FALSE	FALSE	Plasma membrane transporter
+c101567-g1 (Villin headpiece domain) - emapper OG	Villinheadpiecedomain	Villinheadpiecedomain	TRUE	TRUE	Actin dynamics
+c101567-g1 (Villin headpiece domain) - emapper OG	Villinheadpiecedomain	Villinheadpiecedomain	TRUE	TRUE	Actin network assembly
+c101567-g1 (Villin headpiece domain) - emapper OG	Villinheadpiecedomain	Villinheadpiecedomain	TRUE	TRUE	Regulation of calcium signaling
+c101569-g1 1-to-4 ABCB11,ABCB4,ABCB5,ABCB1 ATP binding cassette subfamily B member 11	ABCB11,ABCB4,ABCB5,ABCB1	ABCB11,ABCB4,ABCB5,ABCB1	FALSE	FALSE	Plasma membrane transporter
+c101581-g1 1-to-1 KIAA1468 KIAA1468	KIAA1468	KIAA1468	FALSE	FALSE	Vesicular trafficking
+c101590-g2 PCDH15 (protocadherin-related 15) - emapper OG	PCDH15	PCDH15	TRUE	TRUE	Regulation of adhesion complexes
+c91378-g1 1-to-2 CDCA7,CDCA7L cell division cycle associated 7	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c101956-g1 1-to-2 CDK14,CDK15 cyclin dependent kinase 14	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c101604-g1 dm-Blos3	BLOC1S3	BLOC1S3	FALSE	FALSE	Lysosomes
+c101604-g1 dm-Blos3	BLOC1S3	BLOC1S3	FALSE	FALSE	Vesicular trafficking
+c101618-g1 hs-CENPQ,DSN1,C20orf96,HAUS8,TEX12,GORAB	CENPQ,DSN1,C20orf96,HAUS8,TEX12,GORAB	CENPQ,DSN1,C20orf96,HAUS8,TEX12,GORAB	FALSE	FALSE	Microtubule dynamics
+c101618-g1 hs-CENPQ,DSN1,C20orf96,HAUS8,TEX12,GORAB	CENPQ,DSN1,C20orf96,HAUS8,TEX12,GORAB	CENPQ,DSN1,C20orf96,HAUS8,TEX12,GORAB	FALSE	FALSE	Regulation of cell cycle
+c101619-g1 1-to-1 DOK5 docking protein 5	DOK5	DOK5	FALSE	FALSE	JNK/p38 MAPK signaling
+c92139-g2 1-to-1 CDT1 chromatin licensing and DNA replication factor 1	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c101659-g1 (Inherit from euNOG: Phosphatase and actin regulator 2) - emapper OG	Phosphataseandactinregulator2	Phosphataseandactinregulator2	FALSE	FALSE	Actin dynamics
+c101659-g1 (Inherit from euNOG: Phosphatase and actin regulator 2) - emapper OG	Phosphataseandactinregulator2	Phosphataseandactinregulator2	FALSE	FALSE	Actomyosin contractility
+c101661-g1 1-to-1 PCNP PEST proteolytic signal containing nuclear protein	PCNP	PCNP	FALSE	FALSE	Apoptosis
+c101661-g1 1-to-1 PCNP PEST proteolytic signal containing nuclear protein	PCNP	PCNP	FALSE	FALSE	Regulation of cell cycle
+c101664-g5 1-to-1 TRRAP transformation/transcription domain associated protein	TRRAP	TRRAP	FALSE	FALSE	Regulation of cell cycle
+c101670-g1 1-to-3 PFKL,PFKM,PFKP phosphofructokinase, liver type	PFKL,PFKM,PFKP	PFKL,PFKM,PFKP	FALSE	FALSE	Metabolism
+c101676-g4 1-to-1 MARF1 meiosis regulator and mRNA stability factor 1	MARF1	MARF1	FALSE	FALSE	RNA processing
+c101677-g1 1-to-1 EPS8L2 EPS8 like 2	EPS8L2	EPS8L2	TRUE	TRUE	Regulation of adhesion complexes
+c101677-g1 1-to-1 EPS8L2 EPS8 like 2	EPS8L2	EPS8L2	TRUE	TRUE	Regulation of cytoskeleton at the membrane
+c101678-g2 1-to-1 ABHD6 abhydrolase domain containing 6	ABHD6	ABHD6	FALSE	FALSE	Metabolism
+c101678-g2 1-to-1 ABHD6 abhydrolase domain containing 6	ABHD6	ABHD6	FALSE	FALSE	Phospholipid signaling
+c101691-g1 1-to-2 FAM76A,FAM76B family with sequence similarity 76 member A	FAM76A,FAM76B	FAM76A,FAM76B	FALSE	FALSE	Regulation of inflammation
+c101709-g1 2-to-1 SLC8B1 solute carrier family 8 member B1	SLC8B1	SLC8B1	FALSE	FALSE	Plasma membrane transporter
+c101715-g1 1-to-3 ARHGAP24,ARHGAP25,ARHGAP22 Rho GTPase activating protein 24	ARHGAP24,ARHGAP25,ARHGAP22	ARHGAP24,ARHGAP25,ARHGAP22	TRUE	TRUE	Rac1 GTPase signaling
+c101715-g1 1-to-3 ARHGAP24,ARHGAP25,ARHGAP22 Rho GTPase activating protein 24	ARHGAP24,ARHGAP25,ARHGAP22	ARHGAP24,ARHGAP25,ARHGAP22	TRUE	TRUE	Rho signaling
+c101746-g1 1-to-1 DAPK1 death associated protein kinase 1	DAPK1	DAPK1	FALSE	FALSE	Apoptosis
+c101748-g1 1-to-4 SLC12A7,SLC12A6,SLC12A5,SLC12A4 solute carrier family 12 member 7	SLC12A7,SLC12A6,SLC12A5,SLC12A4	SLC12A7,SLC12A6,SLC12A5,SLC12A4	FALSE	FALSE	Plasma membrane transporter
+c101756-g1 1-to-1 GRAMD4 GRAM domain containing 4	GRAMD4	GRAMD4	FALSE	FALSE	Apoptosis
+c101765-g1 1-to-4 WNK4,WNK2,WNK1,WNK3 WNK lysine deficient protein kinase 4	WNK4,WNK2,WNK1,WNK3	WNK4,WNK2,WNK1,WNK3	FALSE	FALSE	Regulation of calcium signaling
+c101325-g4 CELSR1 (cadherin, EGF LAG seven-pass G-type receptor 1) - blastp	NA	NA	FALSE	FALSE	GPCR signaling
+c101325-g4 CELSR1 (cadherin, EGF LAG seven-pass G-type receptor 1) - blastp	NA	NA	FALSE	FALSE	Regulation of adhesion complexes
+c102691-g3 1-to-1 CEP120 centrosomal protein 120	NA	NA	FALSE	FALSE	Regulation of ciliary function
+c101804-g1 1-to-1 RPA1 replication protein A1	RPA1	RPA1	FALSE	FALSE	Regulation of cell cycle
+c101810-g1 ATF2 (Activating transcription factor) - emapper OG	ATF2	ATF2	TRUE	FALSE	JNK/p38 MAPK signaling
+c101810-g1 ATF2 (Activating transcription factor) - emapper OG	ATF2	ATF2	TRUE	FALSE	Stress-related transcription activity
+c101812-g1 LRRK2 (leucine-rich repeat kinase 2) - blastp	LRRK2	LRRK2	FALSE	FALSE	Lysosomes
+c101812-g1 LRRK2 (leucine-rich repeat kinase 2) - blastp	LRRK2	LRRK2	FALSE	FALSE	Vesicular trafficking
+c101831-g1 1-to-3 RASSF1,RASSF3,RASSF5 Ras association domain family member 1	RASSF1,RASSF3,RASSF5	RASSF1,RASSF3,RASSF5	FALSE	FALSE	Ras GTPase signaling
+c101832-g1 1-to-2 RHOT2,RHOT1 ras homolog family member T2	RHOT2,RHOT1	RHOT2,RHOT1	FALSE	FALSE	Metabolism
+c101832-g1 1-to-2 RHOT2,RHOT1 ras homolog family member T2	RHOT2,RHOT1	RHOT2,RHOT1	FALSE	FALSE	Regulation of calcium signaling
+c101836-g1 (Inherit from opiNOG: ArfGAP with coiled-coil, ankyrin repeat and PH domains) - emapper OG	ArfGAPwithcoiled-coil,ankyrinrepeatandPHdomains	ArfGAPwithcoiled-coil,ankyrinrepeatandPHdomains	FALSE	FALSE	Vesicular trafficking
+c96242-g1 1-to-1 CEP192 centrosomal protein 192	NA	NA	FALSE	FALSE	Regulation of ciliary function
+c86130-g1 1-to-1 CEP57 centrosomal protein 57	NA	NA	FALSE	FALSE	Regulation of ciliary function
+c101864-g1 2-to-1 MARS methionyl-tRNA synthetase	MARS	MARS	FALSE	FALSE	Regulation of inflammation
+c101892-g1 1-to-15 USP6NL,TBC1D28,TBC1D26,TBC1D3G... USP6 N-terminal like	USP6NL,TBC1D28,TBC1D26,TBC1D3G...	USP6NL,TBC1D28,TBC1D26,TBC1D3G...	FALSE	FALSE	Vesicular trafficking
+c104174-g1 1-to-2 CFAP100,CCDC38 cilia and flagella associated protein 100	NA	NA	FALSE	FALSE	Regulation of ciliary function
+c106278-g1 1-to-1 CFAP54 cilia and flagella associated protein 54	NA	NA	FALSE	FALSE	Regulation of ciliary function
+c47756-g1 1-to-1 CFAP61 cilia and flagella associated protein 61	NA	NA	FALSE	FALSE	Regulation of ciliary function
+c104657-g1 1-to-3 CHD5,CHD4,CHD3 chromodomain helicase DNA binding protein 5	NA	NA	FALSE	FALSE	Apoptosis
+c101919-g1 (guanylate cyclase 1, soluble) - emapper OG	guanylatecyclase1,soluble	guanylatecyclase1,soluble	TRUE	TRUE	NO signaling
+c101928-g1 1-to-2 CAMKK1,CAMKK2 calcium/calmodulin dependent protein kinase kinase 1	CAMKK1,CAMKK2	CAMKK1,CAMKK2	TRUE	FALSE	Regulation of calcium signaling
+c101928-g2 NKX6-3 (NK6 homeobox 3) - emapper OG	NKX6-3	NKX6-3	FALSE	FALSE	Differentiation (gland cell related)
+c101928-g2 NKX6-3 (NK6 homeobox 3) - emapper OG	NKX6-3	NKX6-3	FALSE	FALSE	NO signaling
+c101932-g1 PIK3R3 (Phosphoinositide-3-kinase, regulatory subunit) - emapper OG	PIK3R3	PIK3R3	TRUE	TRUE	GPCR signaling
+c101932-g1 PIK3R3 (Phosphoinositide-3-kinase, regulatory subunit) - emapper OG	PIK3R3	PIK3R3	TRUE	TRUE	Phospholipid signaling
+c101932-g1 PIK3R3 (Phosphoinositide-3-kinase, regulatory subunit) - emapper OG	PIK3R3	PIK3R3	TRUE	TRUE	PI3K signaling
+c101932-g1 PIK3R3 (Phosphoinositide-3-kinase, regulatory subunit) - emapper OG	PIK3R3	PIK3R3	TRUE	TRUE	Rac1 GTPase signaling
+c101932-g1 PIK3R3 (Phosphoinositide-3-kinase, regulatory subunit) - emapper OG	PIK3R3	PIK3R3	TRUE	TRUE	Rho signaling
+c102971-g2 4-to-2 CHN2,CHN1 chimerin 2	NA	NA	FALSE	FALSE	Rac1 GTPase signaling
+c101944-g1 2-to-2 PPIP5K1,PPIP5K2 diphosphoinositol pentakisphosphate kinase 1	PPIP5K1,PPIP5K2	PPIP5K1,PPIP5K2	FALSE	FALSE	Apoptosis
+c101944-g1 2-to-2 PPIP5K1,PPIP5K2 diphosphoinositol pentakisphosphate kinase 1	PPIP5K1,PPIP5K2	PPIP5K1,PPIP5K2	FALSE	FALSE	Vesicular trafficking
+c101945-g1 1-to-2 PRPSAP2,PRPSAP1 phosphoribosyl pyrophosphate synthetase associated protein 2	PRPSAP2,PRPSAP1	PRPSAP2,PRPSAP1	FALSE	FALSE	Metabolism
+c101975-g1 NEO1 (deleted in colorectal carcinoma) - emapper OG	NA	NA	FALSE	FALSE	Regulation of adhesion complexes
+c101975-g1 NEO1 (deleted in colorectal carcinoma) - emapper OG	NA	NA	FALSE	FALSE	Regulation of cytoskeleton at the membrane
+c102636-g2 (Cohesin domain) - emapper OG	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c101970-g1 1-to-7 CACNA1C,CACNA1D,CACNA1A,CACNA1S... calcium voltage-gated channel subunit alpha1 C	CACNA1C,CACNA1D,CACNA1A,CACNA1S...	CACNA1C,CACNA1D,CACNA1A,CACNA1S...	TRUE	TRUE	Regulation of calcium signaling
+c104644-g1 1-to-1 COPB1 coatomer protein complex subunit beta 1	NA	NA	FALSE	FALSE	Vesicular trafficking
+c104637-g1 1-to-2 COPG1,COPG2 coatomer protein complex subunit gamma 1	NA	NA	FALSE	FALSE	Vesicular trafficking
+c101984-g1 (EH) - emapper OG	EH	EH	FALSE	FALSE	Vesicular trafficking
+c102012-g1 PLEKHH2 (pleckstrin homology, MyTH4 and FERM domain containing H2) - blastp	PLEKHH2	PLEKHH2	TRUE	FALSE	Regulation of adhesion complexes
+c102012-g1 PLEKHH2 (pleckstrin homology, MyTH4 and FERM domain containing H2) - blastp	PLEKHH2	PLEKHH2	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c102020-g1 toc1, Schizosaccharomyces pombe (strain 972 / ATCC..	toc1,	toc1	FALSE	FALSE	Metabolism
+c102027-g2 2-to-4 DLG1,DLG3,DLG2,DLG4 discs large MAGUK scaffold protein 1	DLG1,DLG3,DLG2,DLG4	DLG1,DLG3,DLG2,DLG4	FALSE	FALSE	Post-synaptic scaffold
+c102027-g2 2-to-4 DLG1,DLG3,DLG2,DLG4 discs large MAGUK scaffold protein 1	DLG1,DLG3,DLG2,DLG4	DLG1,DLG3,DLG2,DLG4	FALSE	FALSE	Regulation of adhesion complexes
+c100033-g1 CPS1 (carbamoylphosphate synthase) - emapper OG	NA	NA	FALSE	FALSE	Metabolism
+c102040-g1 1-to-1 MAF1 MAF1 homolog, negative regulator of RNA polymerase III	MAF1	MAF1	TRUE	FALSE	MTORC2 signaling
+c102040-g1 1-to-1 MAF1 MAF1 homolog, negative regulator of RNA polymerase III	MAF1	MAF1	TRUE	FALSE	Stress-related transcription activity
+c102041-g1 3-to-2 RPH3AL,RPH3A rabphilin 3A like (without C2 domains)	RPH3AL,RPH3A	RPH3AL,RPH3A	TRUE	FALSE	Exocytosis
+c102041-g1 3-to-2 RPH3AL,RPH3A rabphilin 3A like (without C2 domains)	RPH3AL,RPH3A	RPH3AL,RPH3A	TRUE	FALSE	Regulation of adhesion complexes
+c102041-g1 3-to-2 RPH3AL,RPH3A rabphilin 3A like (without C2 domains)	RPH3AL,RPH3A	RPH3AL,RPH3A	TRUE	FALSE	Regulation of calcium signaling
+c102045-g3 1-to-3 CBFA2T2,CBFA2T3,RUNX1T1 CBFA2/RUNX1 translocation partner 2	CBFA2T2,CBFA2T3,RUNX1T1	CBFA2T2,CBFA2T3,RUNX1T1	FALSE	FALSE	Hematopoietic identity transcription activity
+c104157-g1 1-to-1 CRNKL1 crooked neck pre-mRNA splicing factor 1	NA	NA	FALSE	FALSE	RNA processing
+c102471-g2 2-to-2 CSK,MATK C-terminal Src kinase	NA	NA	FALSE	FALSE	Regulation of adhesion complexes
+c102062-g2 ZC3H6 (zinc finger CCCH-type containing) - emapper OG	ZC3H6	ZC3H6	FALSE	FALSE	Regulation of inflammation
+c102062-g2 ZC3H6 (zinc finger CCCH-type containing) - emapper OG	ZC3H6	ZC3H6	FALSE	FALSE	RNA processing
+c102069-g1 GIGYF1 (GRB10 interacting GYF protein 1) - emapper OG	GIGYF1	GIGYF1	FALSE	FALSE	RNA processing
+c101598-g1 1-to-3 CTNNA1,CTNNA2,CTNNA3 catenin alpha 1	NA	NA	TRUE	FALSE	Regulation of adhesion complexes
+c101598-g1 1-to-3 CTNNA1,CTNNA2,CTNNA3 catenin alpha 1	NA	NA	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c102083-g1 1-to-1 NF1 neurofibromin 1	NF1	NF1	TRUE	FALSE	MTORC2 signaling
+c102083-g1 1-to-1 NF1 neurofibromin 1	NF1	NF1	TRUE	FALSE	Ras GTPase signaling
+c102083-g1 1-to-1 NF1 neurofibromin 1	NF1	NF1	TRUE	FALSE	RhoA GTPase signaling
+c102083-g1 1-to-1 NF1 neurofibromin 1	NF1	NF1	TRUE	FALSE	Rho signaling
+c102090-g2 hs-CASP5,CASP2,CASP10,CASP1	CASP5,CASP2,CASP10,CASP1	CASP5,CASP2,CASP10,CASP1	FALSE	FALSE	Apoptosis
+c102095-g2 2-to-2 MAPK8IP3,SPAG9 mitogen-activated protein kinase 8 interacting protein 3	MAPK8IP3,SPAG9	MAPK8IP3,SPAG9	FALSE	FALSE	JNK/p38 MAPK signaling
+c102097-g1 1-to-1 CC2D1A coiled-coil and C2 domain containing 1A	CC2D1A	CC2D1A	FALSE	FALSE	Regulation of cell cycle
+c102097-g1 1-to-1 CC2D1A coiled-coil and C2 domain containing 1A	CC2D1A	CC2D1A	FALSE	FALSE	Regulation of inflammation
+c102098-g1 1-to-3 PACSIN2,PACSIN3,PACSIN1 protein kinase C and casein kinase substrate in neurons 2	PACSIN2,PACSIN3,PACSIN1	PACSIN2,PACSIN3,PACSIN1	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c102098-g1 1-to-3 PACSIN2,PACSIN3,PACSIN1 protein kinase C and casein kinase substrate in neurons 2	PACSIN2,PACSIN3,PACSIN1	PACSIN2,PACSIN3,PACSIN1	TRUE	FALSE	Vesicular trafficking
+c102099-g5 NLGN4X, Macaca mulatta	NLGN4X,	NLGN4X	FALSE	FALSE	Post-synaptic scaffold
+c102099-g5 NLGN4X, Macaca mulatta	NLGN4X,	NLGN4X	FALSE	FALSE	Regulation of adhesion complexes
+c102115-g1 (TAR DNA binding protein) - emapper OG	TARDNAbindingprotein	TARDNAbindingprotein	FALSE	FALSE	RNA processing
+c102116-g1 1-to-1 WDR24 WD repeat domain 24	WDR24	WDR24	FALSE	FALSE	MTORC1 signaling
+c102709-g2 CTR9 (Ctr9, Paf1 RNA polymerase II complex component, homolog (S. cerevisiae)) - emapper OG	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c102128-g2 1-to-1 DNAI1 dynein axonemal intermediate chain 1	DNAI1	DNAI1	FALSE	FALSE	Regulation of ciliary function
+c104875-g2 14-to-1 CYP46A1 cytochrome P450 family 46 subfamily A member 1	NA	NA	FALSE	FALSE	Metabolism
+c104875-g2 14-to-1 CYP46A1 cytochrome P450 family 46 subfamily A member 1	NA	NA	FALSE	FALSE	Phospholipid signaling
+c102135-g3 FYN (viral oncogene homolog) - emapper OG	FYN	FYN	TRUE	FALSE	Regulation of adhesion complexes
+c102135-g4 2-to-8 BLK,LCK,FYN,SRC... BLK proto-oncogene, Src family tyrosine kinase	BLK,LCK,FYN,SRC...	BLK,LCK,FYN,SRC...	TRUE	TRUE	Regulation of adhesion complexes
+c96483-g1 1-to-2 DBN1,DBNL drebrin 1	NA	NA	TRUE	FALSE	Actin dynamics
+c96483-g1 1-to-2 DBN1,DBNL drebrin 1	NA	NA	TRUE	FALSE	Actin network assembly
+c96483-g1 1-to-2 DBN1,DBNL drebrin 1	NA	NA	TRUE	FALSE	Microtubule dynamics
+c102146-g1 1-to-3 STK32B,STK32C,STK32A serine/threonine kinase 32B	STK32B,STK32C,STK32A	STK32B,STK32C,STK32A	FALSE	FALSE	Microtubule dynamics
+c104294-g3 DD3-3, Dictyostelium discoideum	NA	NA	FALSE	FALSE	Regulation of adhesion complexes
+c102161-g1 GGA1 (golgi-associated, gamma adaptin ear containing, ARF binding protein) - emapper OG	GGA1	GGA1	FALSE	FALSE	Vesicular trafficking
+c103091-g1 1-to-1 DDHD1 DDHD domain containing 1	NA	NA	FALSE	FALSE	Phospholipid signaling
+c102176-g1 1-to-1 BRD8 bromodomain containing 8	BRD8	BRD8	FALSE	FALSE	Stress-related transcription activity
+c102177-g1 1-to-4 ATP8B4,ATP8B3,ATP8B2 ATPase phospholipid transporting 8B4 (putative)	ATP8B4,ATP8B3,ATP8B2	ATP8B4,ATP8B3,ATP8B2	FALSE	FALSE	Lysosomal transporter
+c102189-g1 1-to-1 ARMT1 acidic residue methyltransferase 1	ARMT1	ARMT1	FALSE	FALSE	Metabolism
+c101398-g2 1-to-2 DENND5A,DENND5B DENN domain containing 5A	NA	NA	FALSE	FALSE	Vesicular trafficking
+c102197-g1 hs-PPP1R17	PPP1R17	PPP1R17	TRUE	FALSE	NO signaling
+c102200-g1 HNRNPUL1 (heterogeneous nuclear ribonucleoprotein U-like 1) - emapper OG	HNRNPUL1	HNRNPUL1	FALSE	FALSE	RNA processing
+c112553-g1 1-to-1 DIXDC1 DIX domain containing 1	NA	NA	TRUE	FALSE	Actin network assembly
+c112553-g1 1-to-1 DIXDC1 DIX domain containing 1	NA	NA	TRUE	FALSE	JNK/p38 MAPK signaling
+c112553-g1 1-to-1 DIXDC1 DIX domain containing 1	NA	NA	TRUE	FALSE	Rac1 GTPase signaling
+c100129-g1 1-to-3 DLC1,STARD13,STARD8 DLC1 Rho GTPase activating protein	NA	NA	FALSE	FALSE	Cdc42 GTPase signaling
+c100129-g1 1-to-3 DLC1,STARD13,STARD8 DLC1 Rho GTPase activating protein	NA	NA	FALSE	FALSE	RhoA GTPase signaling
+c104151-g2 1-to-1 DLGAP5 DLG associated protein 5	NA	NA	FALSE	FALSE	Microtubule dynamics
+c102219-g1 1-to-4 E2F3,E2F1,E2F2,E2F6 E2F transcription factor 3	E2F3,E2F1,E2F2,E2F6	E2F3,E2F1,E2F2,E2F6	FALSE	FALSE	Regulation of cell cycle
+c102220-g4 GFPT2 (glutamine-fructose-6-phosphate transaminase 2) - emapper OG	GFPT2	GFPT2	FALSE	FALSE	Metabolism
+c102229-g2 1-to-2 TOMM34,SPAG1 translocase of outer mitochondrial membrane 34	TOMM34,SPAG1	TOMM34,SPAG1	FALSE	FALSE	Metabolism
+c102229-g2 1-to-2 TOMM34,SPAG1 translocase of outer mitochondrial membrane 34	TOMM34,SPAG1	TOMM34,SPAG1	FALSE	FALSE	Regulation of ciliary function
+c102233-g2 3-to-2 PLXNA3,PLXNA1 plexin A3	PLXNA3,PLXNA1	PLXNA3,PLXNA1	TRUE	FALSE	Regulation of adhesion complexes
+c102233-g2 3-to-2 PLXNA3,PLXNA1 plexin A3	PLXNA3,PLXNA1	PLXNA3,PLXNA1	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c102234-g1 1-to-3 PPP6R3,PPP6R1,PPP6R2 protein phosphatase 6 regulatory subunit 3	PPP6R3,PPP6R1,PPP6R2	PPP6R3,PPP6R1,PPP6R2	FALSE	FALSE	Regulation of inflammation
+c102245-g2 1-to-2 ARPIN,C15orf38-AP3S2 actin related protein 2/3 complex inhibitor	ARPIN,C15orf38-AP3S2	ARPIN,C15orf38-AP3S2	TRUE	FALSE	Actin network assembly
+c102262-g1 1-to-2 MYO9A,MYO9B myosin IXA	MYO9A,MYO9B	MYO9A,MYO9B	TRUE	TRUE	Actomyosin contractility
+c102262-g1 1-to-2 MYO9A,MYO9B myosin IXA	MYO9A,MYO9B	MYO9A,MYO9B	TRUE	TRUE	RhoA GTPase signaling
+c102262-g1 1-to-2 MYO9A,MYO9B myosin IXA	MYO9A,MYO9B	MYO9A,MYO9B	TRUE	TRUE	Rho signaling
+c102295-g3 1-to-2 ARHGEF10,ARHGEF10L Rho guanine nucleotide exchange factor 10	ARHGEF10,ARHGEF10L	ARHGEF10,ARHGEF10L	TRUE	TRUE	GPCR signaling
+c102295-g3 1-to-2 ARHGEF10,ARHGEF10L Rho guanine nucleotide exchange factor 10	ARHGEF10,ARHGEF10L	ARHGEF10,ARHGEF10L	TRUE	TRUE	RhoA GTPase signaling
+c102295-g3 1-to-2 ARHGEF10,ARHGEF10L Rho guanine nucleotide exchange factor 10	ARHGEF10,ARHGEF10L	ARHGEF10,ARHGEF10L	TRUE	TRUE	Rho signaling
+c102308-g1 THIM (4-methyl-5-beta-hydroxyethylthiazole kinase) - emapper OG	THIM	THIM	FALSE	FALSE	Metabolism
+c102330-g1 KSR2 (kinase suppressor of Ras) - emapper OG	KSR2	KSR2	FALSE	FALSE	JNK/p38 MAPK signaling
+c102330-g1 KSR2 (kinase suppressor of Ras) - emapper OG	KSR2	KSR2	FALSE	FALSE	Ras GTPase signaling
+c26245-g1 1-to-3 DMD,UTRN,DRP2 dystrophin	NA	NA	TRUE	FALSE	Regulation of adhesion complexes
+c26245-g1 1-to-3 DMD,UTRN,DRP2 dystrophin	NA	NA	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c102346-g1 1-to-1 SMAP2 small ArfGAP2	SMAP2	SMAP2	FALSE	FALSE	Vesicular trafficking
+c102366-g1 PLEKHG1 (Pleckstrin homology domain containing, family G (With RhoGef domain) member 1) - emapper O	PLEKHG1	PLEKHG1	TRUE	FALSE	Cdc42 GTPase signaling
+c102366-g1 PLEKHG1 (Pleckstrin homology domain containing, family G (With RhoGef domain) member 1) - emapper O	PLEKHG1	PLEKHG1	TRUE	FALSE	Rac1 GTPase signaling
+c102366-g1 PLEKHG1 (Pleckstrin homology domain containing, family G (With RhoGef domain) member 1) - emapper O	PLEKHG1	PLEKHG1	TRUE	FALSE	Regulation of adhesion complexes
+c102366-g1 PLEKHG1 (Pleckstrin homology domain containing, family G (With RhoGef domain) member 1) - emapper O	PLEKHG1	PLEKHG1	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c102366-g1 PLEKHG1 (Pleckstrin homology domain containing, family G (With RhoGef domain) member 1) - emapper O	PLEKHG1	PLEKHG1	TRUE	FALSE	Rho signaling
+c102372-g1 1-to-4 ARVCF,CTNND2,PKP4,CTNND1 armadillo repeat gene deleted in velocardiofacial syndrome	ARVCF,CTNND2,PKP4,CTNND1	ARVCF,CTNND2,PKP4,CTNND1	TRUE	FALSE	Regulation of adhesion complexes
+c102372-g1 1-to-4 ARVCF,CTNND2,PKP4,CTNND1 armadillo repeat gene deleted in velocardiofacial syndrome	ARVCF,CTNND2,PKP4,CTNND1	ARVCF,CTNND2,PKP4,CTNND1	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c102377-g1 1-to-4 REEP4,REEP3,REEP2,REEP1 receptor accessory protein 4	REEP4,REEP3,REEP2,REEP1	REEP4,REEP3,REEP2,REEP1	FALSE	FALSE	Vesicular trafficking
+c102380-g4 1-to-1 AHSA1 activator of HSP90 ATPase activity 1	AHSA1	AHSA1	FALSE	FALSE	Chaperone
+c102382-g2 1-to-1 IVNS1ABP influenza virus NS1A binding protein	IVNS1ABP	IVNS1ABP	FALSE	FALSE	Actin dynamics
+c102382-g2 1-to-1 IVNS1ABP influenza virus NS1A binding protein	IVNS1ABP	IVNS1ABP	FALSE	FALSE	RNA processing
+c102386-g2 1-to-1 SYVN1 synoviolin 1	SYVN1	SYVN1	FALSE	FALSE	Chaperone
+c102390-g1 1-to-3 KALRN,ARHGEF25,TRIO kalirin RhoGEF kinase	KALRN,ARHGEF25,TRIO	KALRN,ARHGEF25,TRIO	TRUE	TRUE	Rac1 GTPase signaling
+c102390-g1 1-to-3 KALRN,ARHGEF25,TRIO kalirin RhoGEF kinase	KALRN,ARHGEF25,TRIO	KALRN,ARHGEF25,TRIO	TRUE	TRUE	RhoA GTPase signaling
+c102390-g1 1-to-3 KALRN,ARHGEF25,TRIO kalirin RhoGEF kinase	KALRN,ARHGEF25,TRIO	KALRN,ARHGEF25,TRIO	TRUE	TRUE	Rho signaling
+c102391-g1 1-to-1 GKAP1 G kinase anchoring protein 1	GKAP1	GKAP1	FALSE	FALSE	NO signaling
+c102391-g1 1-to-1 GKAP1 G kinase anchoring protein 1	GKAP1	GKAP1	FALSE	FALSE	Post-synaptic scaffold
+c106282-g1 dm-Egfrap	NA	NA	FALSE	FALSE	Ras GTPase signaling
+c106282-g1 dm-Egfrap	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c102410-g1 3-to-2 VWA5B1,VWA5B2 von Willebrand factor A domain containing 5B1	VWA5B1,VWA5B2	VWA5B1,VWA5B2	TRUE	FALSE	Regulation of adhesion complexes
+c102420-g1 TUB (tubby like protein 3) - emapper OG	TUB	TUB	FALSE	FALSE	Regulation of ciliary function
+c102425-g1 1-to-2 CBS,CBSL cystathionine-beta-synthase	CBS,CBSL	CBS,CBSL	FALSE	FALSE	Metabolism
+c39806-g1 1-to-1 DNAH10 dynein axonemal heavy chain 10	NA	NA	FALSE	FALSE	Regulation of ciliary function
+c102430-g1 1-to-2 SEC23IP,DDHD2 SEC23 interacting protein	SEC23IP,DDHD2	SEC23IP,DDHD2	FALSE	FALSE	Vesicular trafficking
+c102435-g1 1-to-3 DGKD,DGKH,DGKK diacylglycerol kinase delta	DGKD,DGKH,DGKK	DGKD,DGKH,DGKK	TRUE	FALSE	Phospholipid signaling
+c102436-g1 EFS (Embryonal Fyn-associated substrate) - emapper OG	EFS	EFS	FALSE	FALSE	Regulation of adhesion complexes
+c102436-g1 EFS (Embryonal Fyn-associated substrate) - emapper OG	EFS	EFS	FALSE	FALSE	Regulation of cytoskeleton at the membrane
+c102447-g2 1-to-1 MON2 MON2 homolog, regulator of endosome-to-Golgi trafficking	MON2	MON2	FALSE	FALSE	Vesicular trafficking
+c102466-g2 (aldo-keto reductase family 1, member) - emapper OG	aldo-ketoreductasefamily1,member	aldo-ketoreductasefamily1,member	FALSE	FALSE	Metabolism
+c102469-g1 1-to-2 ATG4D,ATG4C autophagy related 4D cysteine peptidase	ATG4D,ATG4C	ATG4D,ATG4C	FALSE	FALSE	Vesicular trafficking
+c5351-g1 1-to-1 DNAH2 dynein axonemal heavy chain 2	NA	NA	FALSE	FALSE	Regulation of ciliary function
+c102472-g1 1-to-1 ANKRD27 ankyrin repeat domain 27	ANKRD27	ANKRD27	TRUE	FALSE	Regulation of adhesion complexes
+c102472-g1 1-to-1 ANKRD27 ankyrin repeat domain 27	ANKRD27	ANKRD27	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c102479-g1 1-to-1 SDE2 SDE2 telomere maintenance homolog	SDE2	SDE2	FALSE	FALSE	RNA processing
+c102483-g1 1-to-1 RBM17 RNA binding motif protein 17	RBM17	RBM17	FALSE	FALSE	RNA processing
+c104943-g1 1-to-1 DNAJC13 DnaJ heat shock protein family (Hsp40) member C13	NA	NA	FALSE	FALSE	Vesicular trafficking
+c102500-g1 1-to-1 MAT2B methionine adenosyltransferase 2B	MAT2B	MAT2B	FALSE	FALSE	Regulation of cell cycle
+c102504-g1 1-to-1 HBS1L HBS1 like translational GTPase	HBS1L	HBS1L	FALSE	FALSE	RNA processing
+c102514-g3 LMP2, Epstein-Barr virus (strain B95-8)	LMP2,	LMP2	FALSE	FALSE	Regulation of adhesion complexes
+c102522-g1 NRCAM (Cell adhesion molecule) - emapper OG	NRCAM	NRCAM	FALSE	FALSE	Regulation of inflammation
+c102529-g2 1-to-1 GUCY1B3 guanylate cyclase 1 soluble subunit beta	GUCY1B3	GUCY1B3	TRUE	TRUE	NO signaling
+c100964-g1 DNMBP (dynamin binding protein) - emapper OG	NA	NA	TRUE	FALSE	Actin network assembly
+c100964-g1 DNMBP (dynamin binding protein) - emapper OG	NA	NA	TRUE	FALSE	Cdc42 GTPase signaling
+c100964-g1 DNMBP (dynamin binding protein) - emapper OG	NA	NA	TRUE	FALSE	Regulation of adhesion complexes
+c102542-g1 hs-CEP83,ODF2,RABEP2,CCDC77,CCDC102A,OPTN	CEP83,ODF2,RABEP2,CCDC77,CCDC102A,OPTN	CEP83,ODF2,RABEP2,CCDC77,CCDC102A,OPTN	FALSE	FALSE	Regulation of ciliary function
+c102542-g1 hs-CEP83,ODF2,RABEP2,CCDC77,CCDC102A,OPTN	CEP83,ODF2,RABEP2,CCDC77,CCDC102A,OPTN	CEP83,ODF2,RABEP2,CCDC77,CCDC102A,OPTN	FALSE	FALSE	Vesicular trafficking
+c102549-g2 IBTK (inhibitor of Bruton agammaglobulinemia tyrosine kinase) - emapper OG	IBTK	IBTK	FALSE	FALSE	Regulation of calcium signaling
+c102549-g2 IBTK (inhibitor of Bruton agammaglobulinemia tyrosine kinase) - emapper OG	IBTK	IBTK	FALSE	FALSE	Regulation of inflammation
+c102550-g1 PCM1 (Pericentriolar material 1) - emapper OG	PCM1	PCM1	FALSE	FALSE	Microtubule dynamics
+c102550-g1 PCM1 (Pericentriolar material 1) - emapper OG	PCM1	PCM1	FALSE	FALSE	Regulation of ciliary function
+c104495-g1 DOCK4 (dedicator of cyto-kinesis) - emapper OG	NA	NA	FALSE	FALSE	Rac1 GTPase signaling
+c104495-g1 DOCK4 (dedicator of cyto-kinesis) - emapper OG	NA	NA	FALSE	FALSE	Regulation of adhesion complexes
+c102554-g1 1-to-1 BICC1 BicC family RNA binding protein 1	BICC1	BICC1	FALSE	FALSE	RNA processing
+c102557-g1 PLA2G6 (phospholipase A2 group VI) - blastp	PLA2G6	PLA2G6	TRUE	FALSE	Metabolism
+c102557-g1 PLA2G6 (phospholipase A2 group VI) - blastp	PLA2G6	PLA2G6	TRUE	FALSE	Phospholipid signaling
+c102558-g1 1-to-1 TTC28 tetratricopeptide repeat domain 28	TTC28	TTC28	FALSE	FALSE	Microtubule dynamics
+c102558-g3 (Cation efflux family) - emapper OG	Cationeffluxfamily	Cationeffluxfamily	FALSE	FALSE	Plasma membrane transporter
+c102562-g2 MYO22 (MYSc) - emapper OG	MYO22	MYO22	TRUE	FALSE	Actomyosin contractility
+c102572-g2 1-to-1 SCP2 sterol carrier protein 2	SCP2	SCP2	TRUE	FALSE	Phospholipid signaling
+c102572-g2 1-to-1 SCP2 sterol carrier protein 2	SCP2	SCP2	TRUE	FALSE	Vesicular trafficking
+c102583-g2 1-to-2 LRBA,NBEA LPS responsive beige-like anchor protein	LRBA,NBEA	LRBA,NBEA	FALSE	FALSE	Regulation of inflammation
+c102583-g2 1-to-2 LRBA,NBEA LPS responsive beige-like anchor protein	LRBA,NBEA	LRBA,NBEA	FALSE	FALSE	Vesicular trafficking
+c103999-g1 1-to-1 DOK1 docking protein 1	NA	NA	FALSE	FALSE	Ras GTPase signaling
+c102592-g2 1-to-2 CCNL1,CCNL2 cyclin L1	CCNL1,CCNL2	CCNL1,CCNL2	FALSE	FALSE	Regulation of cell cycle
+c102596-g1 1-to-1 NEK8 NIMA related kinase 8	NEK8	NEK8	FALSE	FALSE	Regulation of cell cycle
+c102596-g1 1-to-1 NEK8 NIMA related kinase 8	NEK8	NEK8	FALSE	FALSE	Regulation of ciliary function
+c81641-g1 4-to-1 DOK1 docking protein 1	NA	NA	FALSE	FALSE	Ras GTPase signaling
+c102605-g1 hs-AP1AR	AP1AR	AP1AR	FALSE	FALSE	Vesicular trafficking
+c102607-g1 1-to-3 DOCK10,DOCK11,DOCK9 dedicator of cytokinesis 10	DOCK10,DOCK11,DOCK9	DOCK10,DOCK11,DOCK9	TRUE	FALSE	Cdc42 GTPase signaling
+c102607-g1 1-to-3 DOCK10,DOCK11,DOCK9 dedicator of cytokinesis 10	DOCK10,DOCK11,DOCK9	DOCK10,DOCK11,DOCK9	TRUE	FALSE	Rac1 GTPase signaling
+c102607-g1 1-to-3 DOCK10,DOCK11,DOCK9 dedicator of cytokinesis 10	DOCK10,DOCK11,DOCK9	DOCK10,DOCK11,DOCK9	TRUE	FALSE	Rho signaling
+c102610-g1 1-to-2 LMCD1,TES LIM and cysteine rich domains 1	LMCD1,TES	LMCD1,TES	TRUE	FALSE	Differentiation (muscle cell related)
+c102208-g1 2-to-1 DOK7 docking protein 7	NA	NA	TRUE	FALSE	Differentiation (muscle cell related)
+c102208-g1 2-to-1 DOK7 docking protein 7	NA	NA	TRUE	FALSE	Regulation of adhesion complexes
+c102618-g1 1-to-2 PDE8B,PDE8A phosphodiesterase 8B	PDE8B,PDE8A	PDE8B,PDE8A	FALSE	FALSE	Regulation of adhesion complexes
+c102618-g1 1-to-2 PDE8B,PDE8A phosphodiesterase 8B	PDE8B,PDE8A	PDE8B,PDE8A	FALSE	FALSE	Regulation of calcium signaling
+c102618-g2 R3HDM1 (R3H domain containing 1) - blastp	R3HDM1	R3HDM1	FALSE	FALSE	RNA processing
+c102620-g1 1-to-1 NEMF nuclear export mediator factor	NEMF	NEMF	FALSE	FALSE	RNA processing
+c102624-g1 1-to-3 IGF2BP3,IGF2BP1,IGF2BP2 insulin like growth factor 2 mRNA binding protein 3	IGF2BP3,IGF2BP1,IGF2BP2	IGF2BP3,IGF2BP1,IGF2BP2	FALSE	FALSE	RNA processing
+c102630-g3 1-to-1 LZTFL1 leucine zipper transcription factor like 1	LZTFL1	LZTFL1	FALSE	FALSE	Regulation of ciliary function
+c102630-g3 1-to-1 LZTFL1 leucine zipper transcription factor like 1	LZTFL1	LZTFL1	FALSE	FALSE	Vesicular trafficking
+c80303-g1 E4, Human papillomavirus 31	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c102646-g1 1-to-2 MACROD2,MACROD1 MACRO domain containing 2	MACROD2,MACROD1	MACROD2,MACROD1	FALSE	FALSE	Metabolism
+c102647-g2 1-to-1 AQR aquarius intron-binding spliceosomal factor	AQR	AQR	FALSE	FALSE	RNA processing
+c102650-g1 1-to-1 WDR33 WD repeat domain 33	WDR33	WDR33	FALSE	FALSE	RNA processing
+c102660-g1 1-to-3 OSBPL7,OSBPL3,OSBPL6 oxysterol binding protein like 7	OSBPL7,OSBPL3,OSBPL6	OSBPL7,OSBPL3,OSBPL6	TRUE	FALSE	Phospholipid signaling
+c102660-g1 1-to-3 OSBPL7,OSBPL3,OSBPL6 oxysterol binding protein like 7	OSBPL7,OSBPL3,OSBPL6	OSBPL7,OSBPL3,OSBPL6	TRUE	FALSE	Vesicular trafficking
+c102664-g2 1-to-3 MCF2L2,MCF2,MCF2L MCF.2 cell line derived transforming sequence-like 2	MCF2L2,MCF2,MCF2L	MCF2L2,MCF2,MCF2L	FALSE	FALSE	Cdc42 GTPase signaling
+c102664-g2 1-to-3 MCF2L2,MCF2,MCF2L MCF.2 cell line derived transforming sequence-like 2	MCF2L2,MCF2,MCF2L	MCF2L2,MCF2,MCF2L	FALSE	FALSE	RhoA GTPase signaling
+c102664-g2 1-to-3 MCF2L2,MCF2,MCF2L MCF.2 cell line derived transforming sequence-like 2	MCF2L2,MCF2,MCF2L	MCF2L2,MCF2,MCF2L	FALSE	FALSE	Rho signaling
+c102673-g1 1-to-3 ANK1,ANK3,ANK2 ankyrin 1	ANK1,ANK3,ANK2	ANK1,ANK3,ANK2	TRUE	FALSE	Regulation of adhesion complexes
+c102673-g1 1-to-3 ANK1,ANK3,ANK2 ankyrin 1	ANK1,ANK3,ANK2	ANK1,ANK3,ANK2	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c95929-g1 ecl2, Schizosaccharomyces pombe (strain 972 / ATCC..	NA	NA	FALSE	FALSE	MTORC1 signaling
+c101596-g1 1-to-1 EEF2K eukaryotic elongation factor 2 kinase	NA	NA	FALSE	FALSE	RNA processing
+c102687-g1 1-to-3 DOCK7,DOCK6,DOCK8 dedicator of cytokinesis 7	DOCK7,DOCK6,DOCK8	DOCK7,DOCK6,DOCK8	TRUE	FALSE	Cdc42 GTPase signaling
+c102687-g1 1-to-3 DOCK7,DOCK6,DOCK8 dedicator of cytokinesis 7	DOCK7,DOCK6,DOCK8	DOCK7,DOCK6,DOCK8	TRUE	FALSE	Rac1 GTPase signaling
+c102687-g1 1-to-3 DOCK7,DOCK6,DOCK8 dedicator of cytokinesis 7	DOCK7,DOCK6,DOCK8	DOCK7,DOCK6,DOCK8	TRUE	FALSE	Rho signaling
+c97320-g1 2-to-1 EFHB EF-hand domain family member B	NA	NA	TRUE	FALSE	Regulation of calcium signaling
+c102697-g2 1-to-1 PIK3R5 phosphoinositide-3-kinase regulatory subunit 5	PIK3R5	PIK3R5	TRUE	TRUE	GPCR signaling
+c102697-g2 1-to-1 PIK3R5 phosphoinositide-3-kinase regulatory subunit 5	PIK3R5	PIK3R5	TRUE	TRUE	Phospholipid signaling
+c102697-g2 1-to-1 PIK3R5 phosphoinositide-3-kinase regulatory subunit 5	PIK3R5	PIK3R5	TRUE	TRUE	PI3K signaling
+c102697-g2 1-to-1 PIK3R5 phosphoinositide-3-kinase regulatory subunit 5	PIK3R5	PIK3R5	TRUE	TRUE	Rac1 GTPase signaling
+c102697-g2 1-to-1 PIK3R5 phosphoinositide-3-kinase regulatory subunit 5	PIK3R5	PIK3R5	TRUE	TRUE	Rho signaling
+c102701-g2 hs-EVL,VASP,NUMB,WASL	EVL,VASP,NUMB,WASL	EVL,VASP,NUMB,WASL	TRUE	FALSE	Actin network assembly
+c102702-g1 1-to-4 MAST1,MAST3,MAST2,MAST4 microtubule associated serine/threonine kinase 1	MAST1,MAST3,MAST2,MAST4	MAST1,MAST3,MAST2,MAST4	FALSE	FALSE	Microtubule dynamics
+c102702-g1 1-to-4 MAST1,MAST3,MAST2,MAST4 microtubule associated serine/threonine kinase 1	MAST1,MAST3,MAST2,MAST4	MAST1,MAST3,MAST2,MAST4	FALSE	FALSE	NO signaling
+c100098-g1 EHBP1 (EH domain binding protein) - emapper OG	NA	NA	TRUE	FALSE	Actin network assembly
+c100098-g1 EHBP1 (EH domain binding protein) - emapper OG	NA	NA	TRUE	FALSE	Phospholipid signaling
+c100098-g1 EHBP1 (EH domain binding protein) - emapper OG	NA	NA	TRUE	FALSE	Vesicular trafficking
+c102712-g1 VPS33B (Vacuolar protein sorting 33 homolog) - emapper OG	VPS33B	VPS33B	FALSE	FALSE	Lysosomes
+c102712-g1 VPS33B (Vacuolar protein sorting 33 homolog) - emapper OG	VPS33B	VPS33B	FALSE	FALSE	Regulation of inflammation
+c102712-g1 VPS33B (Vacuolar protein sorting 33 homolog) - emapper OG	VPS33B	VPS33B	FALSE	FALSE	Vesicular trafficking
+c102714-g3 1-to-1 PIK3CG phosphatidylinositol-4,5-bisphosphate 3-kinase catalytic subunit gamma	PIK3CG	PIK3CG	FALSE	FALSE	GPCR signaling
+c102714-g3 1-to-1 PIK3CG phosphatidylinositol-4,5-bisphosphate 3-kinase catalytic subunit gamma	PIK3CG	PIK3CG	FALSE	FALSE	Phospholipid signaling
+c102714-g3 1-to-1 PIK3CG phosphatidylinositol-4,5-bisphosphate 3-kinase catalytic subunit gamma	PIK3CG	PIK3CG	FALSE	FALSE	PI3K signaling
+c102714-g3 1-to-1 PIK3CG phosphatidylinositol-4,5-bisphosphate 3-kinase catalytic subunit gamma	PIK3CG	PIK3CG	FALSE	FALSE	Rac1 GTPase signaling
+c102714-g3 1-to-1 PIK3CG phosphatidylinositol-4,5-bisphosphate 3-kinase catalytic subunit gamma	PIK3CG	PIK3CG	FALSE	FALSE	Rho signaling
+c102719-g1 SHANK2 (SH3 and multiple ankyrin repeat domains) - emapper OG	SHANK2	SHANK2	TRUE	TRUE	Post-synaptic scaffold
+c102719-g1 SHANK2 (SH3 and multiple ankyrin repeat domains) - emapper OG	SHANK2	SHANK2	TRUE	TRUE	Regulation of calcium signaling
+c104532-g2 1-to-1 EIF2AK3 eukaryotic translation initiation factor 2 alpha kinase 3	NA	NA	FALSE	FALSE	Stress-related transcription activity
+c102722-g1 1-to-1 SRP72 signal recognition particle 72	SRP72	SRP72	FALSE	FALSE	Exocytosis
+c102722-g1 1-to-1 SRP72 signal recognition particle 72	SRP72	SRP72	FALSE	FALSE	Vesicular trafficking
+c102723-g1 1-to-2 RASGRF2,RASGRF1 Ras protein specific guanine nucleotide releasing factor 2	RASGRF2,RASGRF1	RASGRF2,RASGRF1	FALSE	FALSE	Ras GTPase signaling
+c99299-g1 EIF3J (Component of the eukaryotic translation initiation factor 3 (eIF-3) complex, which is involve	NA	NA	FALSE	FALSE	RNA processing
+c102729-g1 3-to-4 ATP13A2,ATP13A4,ATP13A5,ATP13A3 ATPase 13A2	ATP13A2,ATP13A4,ATP13A5,ATP13A3	ATP13A2,ATP13A4,ATP13A5,ATP13A3	FALSE	FALSE	Lysosomal transporter
+c102736-g8 1-to-1 DYNC1H1 dynein cytoplasmic 1 heavy chain 1	DYNC1H1	DYNC1H1	FALSE	FALSE	Vesicular trafficking
+c97618-g1 1-to-3 EIF4EBP3,EIF4EBP1,EIF4EBP2 eukaryotic translation initiation factor 4E binding protein 3	NA	NA	FALSE	FALSE	RNA processing
+c102769-g1 6-to-2 UNC13D,BAIAP3 unc-13 homolog D	UNC13D,BAIAP3	UNC13D,BAIAP3	TRUE	TRUE	Exocytosis
+c102769-g1 6-to-2 UNC13D,BAIAP3 unc-13 homolog D	UNC13D,BAIAP3	UNC13D,BAIAP3	TRUE	TRUE	Regulation of calcium signaling
+c102769-g1 6-to-2 UNC13D,BAIAP3 unc-13 homolog D	UNC13D,BAIAP3	UNC13D,BAIAP3	TRUE	TRUE	Vesicular trafficking
+c102784-g1 1-to-1 ARHGAP39 Rho GTPase activating protein 39	ARHGAP39	ARHGAP39	TRUE	TRUE	Rac1 GTPase signaling
+c102784-g1 1-to-1 ARHGAP39 Rho GTPase activating protein 39	ARHGAP39	ARHGAP39	TRUE	TRUE	Rho signaling
+c102786-g1 (forkhead box) - emapper OG	forkheadbox	forkheadbox	TRUE	FALSE	Stress-related transcription activity
+c97830-g2 1-to-1 ELOB elongin B	NA	NA	FALSE	FALSE	Stress-related transcription activity
+c102787-g1 1-to-1 DDX42 DEAD-box helicase 42	DDX42	DDX42	FALSE	FALSE	RNA processing
+c102796-g1 2-to-2 WASL,WAS Wiskott-Aldrich syndrome like	WASL,WAS	WASL,WAS	TRUE	TRUE	Actin network assembly
+c43264-g1 EPB41L3 (erythrocyte membrane protein band 4.1-like 3) - blastp	NA	NA	FALSE	FALSE	Regulation of cytoskeleton at the membrane
+c102810-g1 1-to-2 PSEN1,PSEN2 presenilin 1	PSEN1,PSEN2	PSEN1,PSEN2	TRUE	FALSE	Regulation of calcium signaling
+c102823-g1 (Catenin (Cadherin-associated protein)) - emapper OG	CateninCadherin-associatedprotein	CateninCadherin-associatedprotein	TRUE	TRUE	Regulation of adhesion complexes
+c103804-g1 EPHB1 (EPH receptor B1) - blastp	NA	NA	FALSE	FALSE	Regulation of adhesion complexes
+c96325-g1 1-to-1 ERF ETS2 repressor factor	NA	NA	FALSE	FALSE	Regulation of inflammation
+c102837-g1 1-to-1 RIPOR1 RHO family interacting cell polarization regulator 1	RIPOR1	RIPOR1	TRUE	FALSE	RhoA GTPase signaling
+c102837-g1 1-to-1 RIPOR1 RHO family interacting cell polarization regulator 1	RIPOR1	RIPOR1	TRUE	FALSE	Rho signaling
+c102839-g1 ACAP2 (ArfGAP with coiled-coil, ankyrin repeat and PH domains 2) - emapper OG	ACAP2	ACAP2	FALSE	FALSE	Vesicular trafficking
+c102851-g1 1-to-2 NBEAL1,NBEAL2 neurobeachin like 1	NBEAL1,NBEAL2	NBEAL1,NBEAL2	FALSE	FALSE	Vesicular trafficking
+c102856-g1 1-to-2 CDS1,CDS2 CDP-diacylglycerol synthase 1	CDS1,CDS2	CDS1,CDS2	FALSE	FALSE	Metabolism
+c102856-g1 1-to-2 CDS1,CDS2 CDP-diacylglycerol synthase 1	CDS1,CDS2	CDS1,CDS2	FALSE	FALSE	Phospholipid signaling
+c102873-g3 GRASP (GRP1 (general receptor for phosphoinositides 1)-associated scaffold protein) - blastp	GRASP	GRASP	TRUE	FALSE	Phospholipid signaling
+c102873-g3 GRASP (GRP1 (general receptor for phosphoinositides 1)-associated scaffold protein) - blastp	GRASP	GRASP	TRUE	FALSE	Vesicular trafficking
+c102874-g3 FRS3 (fibroblast growth factor receptor substrate) - emapper OG	FRS3	FRS3	FALSE	FALSE	JNK/p38 MAPK signaling
+c102887-g1 MAPKAPK2 (mitogen-activated protein kinase-activated protein kinase) - emapper OG	MAPKAPK2	MAPKAPK2	FALSE	FALSE	JNK/p38 MAPK signaling
+c102895-g1 OTUD7B (OTU deubiquitinase 7B) - blastp	OTUD7B	OTUD7B	FALSE	FALSE	Regulation of inflammation
+c102726-g1 (eukaryotic translation initiation factor) - emapper OG	NA	NA	FALSE	FALSE	RNA processing
+c102917-g1 1-to-2 DTNB,DTNA dystrobrevin beta	DTNB,DTNA	DTNB,DTNA	TRUE	FALSE	Regulation of adhesion complexes
+c102921-g1 GRB14 (Growth factor receptor-bound protein) - emapper OG	GRB14	GRB14	FALSE	FALSE	Regulation of adhesion complexes
+c102930-g2 1-to-1 QRICH2 glutamine rich 2	QRICH2	QRICH2	FALSE	FALSE	Regulation of ciliary function
+c102933-g1 1-to-2 HERPUD2,HERPUD1 HERPUD family member 2	HERPUD2,HERPUD1	HERPUD2,HERPUD1	FALSE	FALSE	Chaperone
+c98884-g1 FAM13B (Family with sequence similarity 13, member) - emapper OG	NA	NA	FALSE	FALSE	Rho signaling
+c102946-g1 1-to-1 INPP5F inositol polyphosphate-5-phosphatase F	INPP5F	INPP5F	TRUE	FALSE	Phospholipid signaling
+c102946-g1 1-to-1 INPP5F inositol polyphosphate-5-phosphatase F	INPP5F	INPP5F	TRUE	FALSE	PI3K signaling
+c102959-g1 pgl, Yersinia pestis (strain Pestoides F)	pgl,	pgl	FALSE	FALSE	Metabolism
+c102959-g2 PKM (Pyruvate kinase) - emapper OG	PKM	PKM	FALSE	FALSE	Metabolism
+c102962-g1 FCHSD1 (FCH and double SH3 domains) - emapper OG	FCHSD1	FCHSD1	FALSE	FALSE	Actin dynamics
+c102962-g1 FCHSD1 (FCH and double SH3 domains) - emapper OG	FCHSD1	FCHSD1	FALSE	FALSE	Regulation of cytoskeleton at the membrane
+c98479-g1 1-to-1 FAM213B family with sequence similarity 213 member B	NA	NA	TRUE	FALSE	Metabolism
+c98479-g1 1-to-1 FAM213B family with sequence similarity 213 member B	NA	NA	TRUE	FALSE	NO signaling
+c98479-g1 1-to-1 FAM213B family with sequence similarity 213 member B	NA	NA	TRUE	FALSE	Phospholipid signaling
+c4162-g1 1-to-1 FAT1 FAT atypical cadherin 1	NA	NA	TRUE	FALSE	Regulation of adhesion complexes
+c4162-g1 1-to-1 FAT1 FAT atypical cadherin 1	NA	NA	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c104153-g1 2-to-2 FER,FES FER tyrosine kinase	NA	NA	TRUE	FALSE	Regulation of adhesion complexes
+c104153-g1 2-to-2 FER,FES FER tyrosine kinase	NA	NA	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c102996-g1 1-to-2 TBC1D22A,TBC1D22B TBC1 domain family member 22A	TBC1D22A,TBC1D22B	TBC1D22A,TBC1D22B	FALSE	FALSE	Vesicular trafficking
+c103002-g1 (VWA) - emapper OG	VWA	VWA	FALSE	FALSE	Regulation of adhesion complexes
+c103014-g1 (gelsolin) - emapper OG	gelsolin	gelsolin	TRUE	TRUE	Actin dynamics
+c103016-g4 1-to-1 ANKFY1 ankyrin repeat and FYVE domain containing 1	ANKFY1	ANKFY1	TRUE	FALSE	Regulation of adhesion complexes
+c103016-g4 1-to-1 ANKFY1 ankyrin repeat and FYVE domain containing 1	ANKFY1	ANKFY1	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c103379-g1 FG05182.1 (Epidermal growth factor receptor pathway substrate) - emapper OG	NA	NA	FALSE	FALSE	Metabolism
+c103027-g1 FMNL1 (formin like 1) - blastp	FMNL1	FMNL1	TRUE	TRUE	Actin dynamics
+c103029-g3 (FYVE, RhoGEF and PH domain containing 6) - emapper OG	FYVE,RhoGEFandPHdomaincontaining6	FYVE,RhoGEFandPHdomaincontaining6	FALSE	FALSE	Phospholipid signaling
+c103029-g3 (FYVE, RhoGEF and PH domain containing 6) - emapper OG	FYVE,RhoGEFandPHdomaincontaining6	FYVE,RhoGEFandPHdomaincontaining6	FALSE	FALSE	Vesicular trafficking
+c102426-g1 hs-IL23R,LIFR,IFNGR1,KIRREL1,EPOR,IL6ST,ROBO2,VSIG1,C..	NA	NA	FALSE	FALSE	Regulation of inflammation
+c103047-g1 1-to-1 VPS13C vacuolar protein sorting 13 homolog C	VPS13C	VPS13C	TRUE	FALSE	Lysosomes
+c103047-g1 1-to-1 VPS13C vacuolar protein sorting 13 homolog C	VPS13C	VPS13C	TRUE	FALSE	Phospholipid signaling
+c103047-g1 1-to-1 VPS13C vacuolar protein sorting 13 homolog C	VPS13C	VPS13C	TRUE	FALSE	Vesicular trafficking
+c103052-g1 1-to-2 TBC1D17,TBC1D15 TBC1 domain family member 17	TBC1D17,TBC1D15	TBC1D17,TBC1D15	FALSE	FALSE	Vesicular trafficking
+c103057-g1 1-to-2 CORO7,CORO7-PAM16 coronin 7	CORO7,CORO7-PAM16	CORO7,CORO7-PAM16	TRUE	FALSE	Actin dynamics
+c103057-g1 1-to-2 CORO7,CORO7-PAM16 coronin 7	CORO7,CORO7-PAM16	CORO7,CORO7-PAM16	TRUE	FALSE	Actin network assembly
+c103057-g1 1-to-2 CORO7,CORO7-PAM16 coronin 7	CORO7,CORO7-PAM16	CORO7,CORO7-PAM16	TRUE	FALSE	Vesicular trafficking
+c97206-g1 1-to-1 FLCN folliculin	NA	NA	FALSE	FALSE	MTORC1 signaling
+c97206-g1 1-to-1 FLCN folliculin	NA	NA	FALSE	FALSE	Vesicular trafficking
+c103073-g3 1-to-2 DNAJA1,DNAJA4 DnaJ heat shock protein family (Hsp40) member A1	DNAJA1,DNAJA4	DNAJA1,DNAJA4	FALSE	FALSE	Chaperone
+c103085-g1 1-to-1 NDUFS1 NADH:ubiquinone oxidoreductase core subunit S1	NDUFS1	NDUFS1	FALSE	FALSE	Metabolism
+c103345-g3 FLNB (IG-FLMN) - emapper OG	NA	NA	TRUE	FALSE	Actin network assembly
+c103345-g3 FLNB (IG-FLMN) - emapper OG	NA	NA	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c103093-g1 1-to-2 PICALM,SNAP91 phosphatidylinositol binding clathrin assembly protein	PICALM,SNAP91	PICALM,SNAP91	FALSE	FALSE	Vesicular trafficking
+c103102-g1 1-to-3 PIP5K1B,PIP5K1A,PIP5K1C phosphatidylinositol-4-phosphate 5-kinase type 1 beta	PIP5K1B,PIP5K1A,PIP5K1C	PIP5K1B,PIP5K1A,PIP5K1C	TRUE	TRUE	Phospholipid signaling
+c103102-g1 1-to-3 PIP5K1B,PIP5K1A,PIP5K1C phosphatidylinositol-4-phosphate 5-kinase type 1 beta	PIP5K1B,PIP5K1A,PIP5K1C	PIP5K1B,PIP5K1A,PIP5K1C	TRUE	TRUE	Regulation of cytoskeleton at the membrane
+c104180-g1 5-to-8 FLT3,PDGFRA,PDGFRB,FLT4... fms related tyrosine kinase 3	NA	NA	FALSE	FALSE	Regulation of inflammation
+c98609-g1 1-to-1 FOXJ3 forkhead box J3	NA	NA	FALSE	FALSE	Differentiation (muscle cell related)
+c98609-g1 1-to-1 FOXJ3 forkhead box J3	NA	NA	FALSE	FALSE	Differentiation (reproductive cell related)
+c103160-g3 1-to-1 SLU7 SLU7 homolog, splicing factor	SLU7	SLU7	FALSE	FALSE	RNA processing
+c102786-g2 1-to-1 FOXP1 forkhead box P1	NA	NA	FALSE	FALSE	Differentiation (gland cell related)
+c102786-g2 1-to-1 FOXP1 forkhead box P1	NA	NA	FALSE	FALSE	Stress-related transcription activity
+c103175-g2 1-to-1 PDZD7 PDZ domain containing 7	PDZD7	PDZD7	TRUE	FALSE	Regulation of ciliary function
+c103175-g2 1-to-1 PDZD7 PDZ domain containing 7	PDZD7	PDZD7	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c103177-g1 1-to-2 RASSF4,RASSF2 Ras association domain family member 4	RASSF4,RASSF2	RASSF4,RASSF2	FALSE	FALSE	Ras GTPase signaling
+c103180-g2 1-to-1 CNOT3 CCR4-NOT transcription complex subunit 3	CNOT3	CNOT3	FALSE	FALSE	RNA processing
+c103188-g1 1-to-1 U2SURP U2 snRNP associated SURP domain containing	U2SURP	U2SURP	FALSE	FALSE	RNA processing
+c103189-g1 VPS18 (vacuolar protein sorting 18 homolog (S. cerevisiae)) - emapper OG	VPS18	VPS18	FALSE	FALSE	Vesicular trafficking
+c103195-g1 1-to-2 PDE1C,PDE1A phosphodiesterase 1C	PDE1C,PDE1A	PDE1C,PDE1A	TRUE	FALSE	NO signaling
+c103195-g1 1-to-2 PDE1C,PDE1A phosphodiesterase 1C	PDE1C,PDE1A	PDE1C,PDE1A	TRUE	FALSE	Regulation of calcium signaling
+c98969-g3 1-to-1 GAPVD1 GTPase activating protein and VPS9 domains 1	NA	NA	FALSE	FALSE	Vesicular trafficking
+c103212-g3 3-to-4 DLG1,DLG3,DLG2,DLG4 discs large MAGUK scaffold protein 1	DLG1,DLG3,DLG2,DLG4	DLG1,DLG3,DLG2,DLG4	TRUE	TRUE	Post-synaptic scaffold
+c103212-g3 3-to-4 DLG1,DLG3,DLG2,DLG4 discs large MAGUK scaffold protein 1	DLG1,DLG3,DLG2,DLG4	DLG1,DLG3,DLG2,DLG4	TRUE	TRUE	Regulation of adhesion complexes
+c103214-g1 1-to-1 OPLAH 5-oxoprolinase (ATP-hydrolysing)	OPLAH	OPLAH	FALSE	FALSE	Metabolism
+c97076-g1 GPSM2 (G-protein signaling modulator) - emapper OG	NA	NA	TRUE	FALSE	GPCR signaling
+c97076-g1 GPSM2 (G-protein signaling modulator) - emapper OG	NA	NA	TRUE	FALSE	Phospholipid signaling
+c103218-g1 FAM21D (Family with sequence similarity 21, member) - emapper OG	FAM21D	FAM21D	FALSE	FALSE	Actin network assembly
+c103218-g1 FAM21D (Family with sequence similarity 21, member) - emapper OG	FAM21D	FAM21D	FALSE	FALSE	Vesicular trafficking
+c103218-g5 1-to-2 WASHC2A,WASHC2C WASH complex subunit 2A	WASHC2A,WASHC2C	WASHC2A,WASHC2C	TRUE	FALSE	Actin network assembly
+c103219-g2 1-to-2 PTPN4,PTPN3 protein tyrosine phosphatase, non-receptor type 4	PTPN4,PTPN3	PTPN4,PTPN3	FALSE	FALSE	JNK/p38 MAPK signaling
+c103222-g2 1-to-2 PTK2,PTK2B protein tyrosine kinase 2	PTK2,PTK2B	PTK2,PTK2B	TRUE	FALSE	Regulation of adhesion complexes
+c103222-g2 1-to-2 PTK2,PTK2B protein tyrosine kinase 2	PTK2,PTK2B	PTK2,PTK2B	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c103251-g1 1-to-4 SRGAP1,ARHGAP4,SRGAP3,SRGAP2 SLIT-ROBO Rho GTPase activating protein 1	SRGAP1,ARHGAP4,SRGAP3,SRGAP2	SRGAP1,ARHGAP4,SRGAP3,SRGAP2	TRUE	TRUE	Actin dynamics
+c103251-g1 1-to-4 SRGAP1,ARHGAP4,SRGAP3,SRGAP2 SLIT-ROBO Rho GTPase activating protein 1	SRGAP1,ARHGAP4,SRGAP3,SRGAP2	SRGAP1,ARHGAP4,SRGAP3,SRGAP2	TRUE	TRUE	Cdc42 GTPase signaling
+c103251-g1 1-to-4 SRGAP1,ARHGAP4,SRGAP3,SRGAP2 SLIT-ROBO Rho GTPase activating protein 1	SRGAP1,ARHGAP4,SRGAP3,SRGAP2	SRGAP1,ARHGAP4,SRGAP3,SRGAP2	TRUE	TRUE	Rac1 GTPase signaling
+c103251-g1 1-to-4 SRGAP1,ARHGAP4,SRGAP3,SRGAP2 SLIT-ROBO Rho GTPase activating protein 1	SRGAP1,ARHGAP4,SRGAP3,SRGAP2	SRGAP1,ARHGAP4,SRGAP3,SRGAP2	TRUE	TRUE	Rho signaling
+c103266-g1 3-to-4 ARHGAP26,ARHGAP42,ARHGAP10,OPHN1 Rho GTPase activating protein 26	ARHGAP26,ARHGAP42,ARHGAP10,OPHN1	ARHGAP26,ARHGAP42,ARHGAP10,OPHN1	TRUE	FALSE	Cdc42 GTPase signaling
+c103266-g1 3-to-4 ARHGAP26,ARHGAP42,ARHGAP10,OPHN1 Rho GTPase activating protein 26	ARHGAP26,ARHGAP42,ARHGAP10,OPHN1	ARHGAP26,ARHGAP42,ARHGAP10,OPHN1	TRUE	FALSE	RhoA GTPase signaling
+c103266-g1 3-to-4 ARHGAP26,ARHGAP42,ARHGAP10,OPHN1 Rho GTPase activating protein 26	ARHGAP26,ARHGAP42,ARHGAP10,OPHN1	ARHGAP26,ARHGAP42,ARHGAP10,OPHN1	TRUE	FALSE	Rho signaling
+c103267-g1 1-to-1 RIOK3 RIO kinase 3	RIOK3	RIOK3	FALSE	FALSE	Regulation of inflammation
+c103267-g4 1-to-1 RIOK3 RIO kinase 3	RIOK3	RIOK3	FALSE	FALSE	Regulation of inflammation
+c103269-g1 PPP1R9A (protein phosphatase 1 regulatory subunit 9A) - blastp	PPP1R9A	PPP1R9A	TRUE	FALSE	Actin dynamics
+c103276-g1 1-to-1 MADD MAP kinase activating death domain	MADD	MADD	FALSE	FALSE	Apoptosis
+c103276-g1 1-to-1 MADD MAP kinase activating death domain	MADD	MADD	FALSE	FALSE	Vesicular trafficking
+c103277-g2 ZNF608 (Zinc finger protein) - emapper OG	ZNF608	ZNF608	TRUE	FALSE	Differentiation (muscle cell related)
+c103216-g1 GRB2 (growth factor receptor bound protein 2) - blastp	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c104732-g3 1-to-1 GRIPAP1 GRIP1 associated protein 1	NA	NA	FALSE	FALSE	JNK/p38 MAPK signaling
+c104732-g3 1-to-1 GRIPAP1 GRIP1 associated protein 1	NA	NA	FALSE	FALSE	Vesicular trafficking
+c102484-g1 GYG2 (Glycogenin) - emapper OG	NA	NA	FALSE	FALSE	Metabolism
+c103288-g1 1-to-3 AMPD2,AMPD3,AMPD1 adenosine monophosphate deaminase 2	AMPD2,AMPD3,AMPD1	AMPD2,AMPD3,AMPD1	FALSE	FALSE	Metabolism
+c103298-g1 1-to-3 ITPKA,ITPKC,ITPKB inositol-trisphosphate 3-kinase A	ITPKA,ITPKC,ITPKB	ITPKA,ITPKC,ITPKB	TRUE	FALSE	Regulation of adhesion complexes
+c103312-g1 1-to-2 PREX2,PREX1 phosphatidylinositol-3,4,5-trisphosphate dependent Rac exchange factor 2	PREX2,PREX1	PREX2,PREX1	TRUE	FALSE	GPCR signaling
+c103312-g1 1-to-2 PREX2,PREX1 phosphatidylinositol-3,4,5-trisphosphate dependent Rac exchange factor 2	PREX2,PREX1	PREX2,PREX1	TRUE	FALSE	PI3K signaling
+c103312-g1 1-to-2 PREX2,PREX1 phosphatidylinositol-3,4,5-trisphosphate dependent Rac exchange factor 2	PREX2,PREX1	PREX2,PREX1	TRUE	FALSE	Rac1 GTPase signaling
+c103312-g1 1-to-2 PREX2,PREX1 phosphatidylinositol-3,4,5-trisphosphate dependent Rac exchange factor 2	PREX2,PREX1	PREX2,PREX1	TRUE	FALSE	Rho signaling
+c103330-g1 (FERM adjacent (FA)) - emapper OG	FERMadjacentFA	FERMadjacentFA	FALSE	FALSE	Regulation of cytoskeleton at the membrane
+c103338-g2 (Inherit from KOG: Ankyrin Repeat Protein) - emapper OG	AnkyrinRepeatProtein	AnkyrinRepeatProtein	TRUE	FALSE	Regulation of adhesion complexes
+c103338-g2 (Inherit from KOG: Ankyrin Repeat Protein) - emapper OG	AnkyrinRepeatProtein	AnkyrinRepeatProtein	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c104880-g1 1-to-1 HECTD1 HECT domain E3 ubiquitin protein ligase 1	NA	NA	FALSE	FALSE	Regulation of adhesion complexes
+c104880-g1 1-to-1 HECTD1 HECT domain E3 ubiquitin protein ligase 1	NA	NA	FALSE	FALSE	Regulation of inflammation
+c103349-g1 2-to-3 MTMR2,MTMR1,MTM1 myotubularin related protein 2	MTMR2,MTMR1,MTM1	MTMR2,MTMR1,MTM1	FALSE	FALSE	Phospholipid signaling
+c103796-g1 6-to-1 HELZ2 helicase with zinc finger 2	NA	NA	FALSE	FALSE	RNA processing
+c105066-g1 HEY1 (Hairy enhancer-of-split related with YRPW motif) - emapper OG	NA	NA	FALSE	FALSE	Differentiation (muscle cell related)
+c103356-g1 SYTL5 (synaptotagmin-like 5) - emapper OG	SYTL5	SYTL5	FALSE	FALSE	Vesicular trafficking
+c103361-g1 1-to-2 ARHGEF6,ARHGEF7 Rac/Cdc42 guanine nucleotide exchange factor 6	ARHGEF6,ARHGEF7	ARHGEF6,ARHGEF7	FALSE	FALSE	Cdc42 GTPase signaling
+c103361-g1 1-to-2 ARHGEF6,ARHGEF7 Rac/Cdc42 guanine nucleotide exchange factor 6	ARHGEF6,ARHGEF7	ARHGEF6,ARHGEF7	FALSE	FALSE	Rac1 GTPase signaling
+c103361-g1 1-to-2 ARHGEF6,ARHGEF7 Rac/Cdc42 guanine nucleotide exchange factor 6	ARHGEF6,ARHGEF7	ARHGEF6,ARHGEF7	FALSE	FALSE	Rho signaling
+c103210-g1 HMR-1 (Cadherins are calcium dependent cell adhesion proteins (By similarity)) - emapper OG	NA	NA	TRUE	FALSE	Actomyosin contractility
+c103210-g1 HMR-1 (Cadherins are calcium dependent cell adhesion proteins (By similarity)) - emapper OG	NA	NA	TRUE	FALSE	Regulation of adhesion complexes
+c103210-g1 HMR-1 (Cadherins are calcium dependent cell adhesion proteins (By similarity)) - emapper OG	NA	NA	TRUE	FALSE	Regulation of calcium signaling
+c103210-g1 HMR-1 (Cadherins are calcium dependent cell adhesion proteins (By similarity)) - emapper OG	NA	NA	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c103368-g1 HSP90B1 (heat shock protein 90kDa beta (Grp94), member 1) - emapper OG	HSP90B1	HSP90B1	FALSE	FALSE	Chaperone
+c103370-g2 1-to-1 MAP3K7 mitogen-activated protein kinase kinase kinase 7	MAP3K7	MAP3K7	FALSE	FALSE	JNK/p38 MAPK signaling
+c89143-g1 1-to-1 HPS5 HPS5, biogenesis of lysosomal organelles complex 2 subunit 2	NA	NA	FALSE	FALSE	Lysosomes
+c103378-g1 1-to-2 KIF13A,KIF13B kinesin family member 13A	KIF13A,KIF13B	KIF13A,KIF13B	FALSE	FALSE	Microtubule dynamics
+c103378-g1 1-to-2 KIF13A,KIF13B kinesin family member 13A	KIF13A,KIF13B	KIF13A,KIF13B	FALSE	FALSE	Vesicular trafficking
+c102892-g1 hs-BFSP1,CCDC62,LUZP2,GOLGA8R,GOLGA8Q,GOLGA8N,GOLGA8O..	NA	NA	FALSE	FALSE	Vesicular trafficking
+c103382-g1 1-to-2 ATXN2,ATXN2L ataxin 2	ATXN2,ATXN2L	ATXN2,ATXN2L	FALSE	FALSE	RNA processing
+c103389-g3 1-to-6 ARHGEF5,NGEF,ARHGEF19,ARHGEF26... Rho guanine nucleotide exchange factor 5	ARHGEF5,NGEF,ARHGEF19,ARHGEF26...	ARHGEF5,NGEF,ARHGEF19,ARHGEF26...	TRUE	FALSE	GPCR signaling
+c103389-g3 1-to-6 ARHGEF5,NGEF,ARHGEF19,ARHGEF26... Rho guanine nucleotide exchange factor 5	ARHGEF5,NGEF,ARHGEF19,ARHGEF26...	ARHGEF5,NGEF,ARHGEF19,ARHGEF26...	TRUE	FALSE	RhoA GTPase signaling
+c103389-g3 1-to-6 ARHGEF5,NGEF,ARHGEF19,ARHGEF26... Rho guanine nucleotide exchange factor 5	ARHGEF5,NGEF,ARHGEF19,ARHGEF26...	ARHGEF5,NGEF,ARHGEF19,ARHGEF26...	TRUE	FALSE	Rho signaling
+c103405-g2 CCNB2 (Cyclin B2) - emapper OG	CCNB2	CCNB2	FALSE	FALSE	Regulation of cell cycle
+c103408-g1 1-to-1 PDCD6IP programmed cell death 6 interacting protein	PDCD6IP	PDCD6IP	FALSE	FALSE	Apoptosis
+c103413-g1 TPR (translocated promoter region, nuclear basket protein) - blastp	TPR	TPR	FALSE	FALSE	RNA processing
+c103417-g2 SOWAHC (sosondowah ankyrin repeat domain family member C) - emapper OG	SOWAHC	SOWAHC	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c103421-g1 2-to-4 PLCB2,PLCB1,PLCB4,PLCB3 phospholipase C beta 2	PLCB2,PLCB1,PLCB4,PLCB3	PLCB2,PLCB1,PLCB4,PLCB3	TRUE	TRUE	GPCR signaling
+c103421-g1 2-to-4 PLCB2,PLCB1,PLCB4,PLCB3 phospholipase C beta 2	PLCB2,PLCB1,PLCB4,PLCB3	PLCB2,PLCB1,PLCB4,PLCB3	TRUE	TRUE	Phospholipid signaling
+c103424-g3 SVIL (supervillin) - blastp	SVIL	SVIL	TRUE	TRUE	Actin network assembly
+c103424-g3 SVIL (supervillin) - blastp	SVIL	SVIL	TRUE	TRUE	Regulation of cytoskeleton at the membrane
+c96121-g3 hs-C1orf185,TRAT1,FAM163B,FAM163A,RHEX,C16orf54,TEX38..	NA	NA	FALSE	FALSE	Regulation of adhesion complexes
+c103440-g3 1-to-1 RBM14 RNA binding motif protein 14	RBM14	RBM14	FALSE	FALSE	RNA processing
+c103447-g3 1-to-3 ANKRD13A,ANKRD13B,ANKRD13D ankyrin repeat domain 13A	ANKRD13A,ANKRD13B,ANKRD13D	ANKRD13A,ANKRD13B,ANKRD13D	TRUE	TRUE	Regulation of adhesion complexes
+c103447-g3 1-to-3 ANKRD13A,ANKRD13B,ANKRD13D ankyrin repeat domain 13A	ANKRD13A,ANKRD13B,ANKRD13D	ANKRD13A,ANKRD13B,ANKRD13D	TRUE	TRUE	Regulation of cytoskeleton at the membrane
+c103457-g1 1-to-3 NOS3,NOS2,NOS1 nitric oxide synthase 3	NOS3,NOS2,NOS1	NOS3,NOS2,NOS1	TRUE	TRUE	NO signaling
+c97793-g1 hs-C4orf50,CCDC92,NBPF5P	NA	NA	FALSE	FALSE	Regulation of inflammation
+c101474-g3 hs-C4orf50,BEGAIN,GOLGA8DP,GOLGA8F	NA	NA	FALSE	FALSE	Post-synaptic scaffold
+c101474-g3 hs-C4orf50,BEGAIN,GOLGA8DP,GOLGA8F	NA	NA	FALSE	FALSE	Regulation of adhesion complexes
+c103478-g1 hs-SAMD13	SAMD13	SAMD13	FALSE	FALSE	RNA processing
+c103478-g2 1-to-3 MAP3K15,MAP3K5,MAP3K6 mitogen-activated protein kinase kinase kinase 15	MAP3K15,MAP3K5,MAP3K6	MAP3K15,MAP3K5,MAP3K6	FALSE	FALSE	JNK/p38 MAPK signaling
+c103484-g1 1-to-1 SPDL1 spindle apparatus coiled-coil protein 1	SPDL1	SPDL1	FALSE	FALSE	Microtubule dynamics
+c103889-g1 hs-CCDC157,CALCOCO2,CARD9,SASS6	NA	NA	FALSE	FALSE	Vesicular trafficking
+c103516-g2 1-to-1 STXBP4 syntaxin binding protein 4	STXBP4	STXBP4	TRUE	TRUE	Exocytosis
+c103516-g2 1-to-1 STXBP4 syntaxin binding protein 4	STXBP4	STXBP4	TRUE	TRUE	Regulation of cytoskeleton at the membrane
+c103516-g2 1-to-1 STXBP4 syntaxin binding protein 4	STXBP4	STXBP4	TRUE	TRUE	Vesicular trafficking
+c103528-g2 TP53I13 (Tumor protein p53 inducible protein 13) - emapper OG	TP53I13	TP53I13	FALSE	FALSE	Regulation of cell cycle
+c103545-g3 1-to-1 WHRN whirlin	WHRN	WHRN	TRUE	TRUE	Actin network assembly
+c103545-g3 1-to-1 WHRN whirlin	WHRN	WHRN	TRUE	TRUE	Regulation of ciliary function
+c103545-g3 1-to-1 WHRN whirlin	WHRN	WHRN	TRUE	TRUE	Regulation of cytoskeleton at the membrane
+c101546-g1 hs-CIMAP1A,CIMAP1B,CIMAP1D,CIMAP1C,STPG4,STPG1,CIMAP3	NA	NA	FALSE	FALSE	Regulation of ciliary function
+c103570-g1 1-to-3 PPP3CB,PPP3CA,PPP3CC protein phosphatase 3 catalytic subunit beta	PPP3CB,PPP3CA,PPP3CC	PPP3CB,PPP3CA,PPP3CC	TRUE	FALSE	Regulation of calcium signaling
+c103572-g1 1-to-4 CAMK2G,CAMK2D,CAMK2B,CAMK2A calcium/calmodulin dependent protein kinase II gamma	CAMK2G,CAMK2D,CAMK2B,CAMK2A	CAMK2G,CAMK2D,CAMK2B,CAMK2A	TRUE	FALSE	Regulation of calcium signaling
+c103582-g3 (FH2) - emapper OG	FH2	FH2	FALSE	TRUE	Actin dynamics
+c101346-g1 hs-CIPC,CXorf49	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c103593-g5 1-to-1 GDAP2 ganglioside induced differentiation associated protein 2	GDAP2	GDAP2	FALSE	FALSE	Vesicular trafficking
+c103599-g1 1-to-4 ARHGAP15,ARHGAP12,ARHGAP9,ARHGAP27 Rho GTPase activating protein 15	ARHGAP15,ARHGAP12,ARHGAP9,ARHGAP27	ARHGAP15,ARHGAP12,ARHGAP9,ARHGAP27	TRUE	TRUE	Cdc42 GTPase signaling
+c103599-g1 1-to-4 ARHGAP15,ARHGAP12,ARHGAP9,ARHGAP27 Rho GTPase activating protein 15	ARHGAP15,ARHGAP12,ARHGAP9,ARHGAP27	ARHGAP15,ARHGAP12,ARHGAP9,ARHGAP27	TRUE	TRUE	Rac1 GTPase signaling
+c103599-g1 1-to-4 ARHGAP15,ARHGAP12,ARHGAP9,ARHGAP27 Rho GTPase activating protein 15	ARHGAP15,ARHGAP12,ARHGAP9,ARHGAP27	ARHGAP15,ARHGAP12,ARHGAP9,ARHGAP27	TRUE	TRUE	Rho signaling
+c95467-g1 hs-CRADD	NA	NA	TRUE	FALSE	Apoptosis
+c95467-g1 hs-CRADD	NA	NA	TRUE	FALSE	Regulation of adhesion complexes
+c95467-g1 hs-CRADD	NA	NA	TRUE	FALSE	Regulation of inflammation
+c103609-g2 1-to-10 MYH1/2/3/4/6/7/8/13/15 myosin heavy chain 1	MYH1/2/3/4/6/7/8/13/15	MYH1/2/3/4/6/7/8/13/15	TRUE	TRUE	Actomyosin contractility
+c103611-g2 1-to-3 PTPRF,PTPRD protein tyrosine phosphatase, receptor type F	PTPRF,PTPRD	PTPRF,PTPRD	TRUE	TRUE	Regulation of adhesion complexes
+c103611-g2 1-to-3 PTPRF,PTPRD protein tyrosine phosphatase, receptor type F	PTPRF,PTPRD	PTPRF,PTPRD	TRUE	TRUE	Regulation of cytoskeleton at the membrane
+c102684-g2 hs-CRTAM,TMEM25,CD8A,NECTIN3,TREML2,MADCAM1,NECTIN4,V..	NA	NA	FALSE	FALSE	Regulation of adhesion complexes
+c103622-g1 1-to-1 DSTYK dual serine/threonine and tyrosine protein kinase	DSTYK	DSTYK	FALSE	FALSE	Apoptosis
+c103623-g1 1-to-4 RGS9,RGS7,RGS11,RGS6 regulator of G protein signaling 9	RGS9,RGS7,RGS11,RGS6	RGS9,RGS7,RGS11,RGS6	TRUE	TRUE	GPCR signaling
+c100082-g1 hs-DOK1,DOK2,DOK6,PLEKHN1,DOK7,DOK3	NA	NA	FALSE	FALSE	Ras GTPase signaling
+c103631-g1 1-to-1 FARSA phenylalanyl-tRNA synthetase alpha subunit	FARSA	FARSA	FALSE	FALSE	RNA processing
+c103634-g1 (Inherit from euNOG: Calcium-binding EF hand family protein) - emapper OG	Calcium-bindingEFhandfamilyprotein	Calcium-bindingEFhandfamilyprotein	FALSE	FALSE	Regulation of calcium signaling
+c103636-g1 2-to-2 PTPRZ1,PTPRG protein tyrosine phosphatase, receptor type Z1	PTPRZ1,PTPRG	PTPRZ1,PTPRG	TRUE	FALSE	Regulation of adhesion complexes
+c103637-g1 1-to-3 NOMO1,NOMO3,NOMO2 NODAL modulator 1	NOMO1,NOMO3,NOMO2	NOMO1,NOMO3,NOMO2	FALSE	FALSE	Actomyosin contractility
+c103637-g1 1-to-3 NOMO1,NOMO3,NOMO2 NODAL modulator 1	NOMO1,NOMO3,NOMO2	NOMO1,NOMO3,NOMO2	FALSE	FALSE	Differentiation (muscle cell related)
+c103637-g1 1-to-3 NOMO1,NOMO3,NOMO2 NODAL modulator 1	NOMO1,NOMO3,NOMO2	NOMO1,NOMO3,NOMO2	FALSE	FALSE	Vesicular trafficking
+c103665-g1 ACIN1 (Apoptotic chromatin condensation inducer 1) - emapper OG	ACIN1	ACIN1	FALSE	FALSE	Apoptosis
+c103666-g1 1-to-3 NONO,PSPC1,SFPQ non-POU domain containing octamer binding	NONO,PSPC1,SFPQ	NONO,PSPC1,SFPQ	FALSE	FALSE	RNA processing
+c102966-g1 hs-DOK2,DOK6,DOK1,DOK4,DOK3,STAP2,PLEKHN1	NA	NA	FALSE	FALSE	Ras GTPase signaling
+c91926-g1 hs-FAM43A	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c104786-g1 hs-FILIP1L,CEP152,SPDL1	NA	NA	FALSE	FALSE	Actin network assembly
+c103693-g1 G3BP2 (GTPase activating protein (SH3 domain) binding protein) - emapper OG	G3BP2	G3BP2	FALSE	FALSE	RNA processing
+c103696-g1 1-to-1 SH3BP5 SH3 domain binding protein 5	SH3BP5	SH3BP5	FALSE	FALSE	JNK/p38 MAPK signaling
+c103696-g1 1-to-1 SH3BP5 SH3 domain binding protein 5	SH3BP5	SH3BP5	FALSE	FALSE	Vesicular trafficking
+c103699-g1 1-to-4 MEX3B,MEX3D,MEX3C,MEX3A mex-3 RNA binding family member B	MEX3B,MEX3D,MEX3C,MEX3A	MEX3B,MEX3D,MEX3C,MEX3A	FALSE	FALSE	RNA processing
+c103703-g1 (Filamin/ABP280 repeat) - emapper OG	Filamin/ABP280repeat	Filamin/ABP280repeat	TRUE	FALSE	Actin dynamics
+c103703-g1 (Filamin/ABP280 repeat) - emapper OG	Filamin/ABP280repeat	Filamin/ABP280repeat	TRUE	FALSE	Actomyosin contractility
+c99786-g1 hs-GAREM1	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c103708-g1 1-to-3 DIP2C,DIP2B,DIP2A disco interacting protein 2 homolog C	DIP2C,DIP2B,DIP2A	DIP2C,DIP2B,DIP2A	FALSE	FALSE	Metabolism
+c103710-g1 SIK3 (Map microtubule affinity-regulating kinase) - emapper OG	SIK3	SIK3	TRUE	TRUE	Metabolism
+c103710-g1 SIK3 (Map microtubule affinity-regulating kinase) - emapper OG	SIK3	SIK3	TRUE	TRUE	MTORC1 signaling
+c103710-g1 SIK3 (Map microtubule affinity-regulating kinase) - emapper OG	SIK3	SIK3	TRUE	TRUE	MTORC2 signaling
+c103711-g1 ETS2 (v-ets erythroblastosis virus E26 oncogene homolog 2 (avian)) - emapper OG	ETS2	ETS2	FALSE	FALSE	Regulation of cell cycle
+c103714-g2 APBB2 (amyloid beta (A4) precursor protein-binding, family B, member) - emapper OG	APBB2	APBB2	FALSE	FALSE	Vesicular trafficking
+c103718-g2 3-to-2 TLN1,TLN2 talin 1	TLN1,TLN2	TLN1,TLN2	TRUE	FALSE	Actomyosin contractility
+c103718-g2 3-to-2 TLN1,TLN2 talin 1	TLN1,TLN2	TLN1,TLN2	TRUE	FALSE	Regulation of adhesion complexes
+c103718-g2 3-to-2 TLN1,TLN2 talin 1	TLN1,TLN2	TLN1,TLN2	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c103718-g3 1-to-2 RAB3IL1,RAB3IP RAB3A interacting protein like 1	RAB3IL1,RAB3IP	RAB3IL1,RAB3IP	FALSE	FALSE	Vesicular trafficking
+c103722-g1 1-to-2 SSH1,SSH2 slingshot protein phosphatase 1	SSH1,SSH2	SSH1,SSH2	TRUE	FALSE	Actin dynamics
+c103722-g1 1-to-2 SSH1,SSH2 slingshot protein phosphatase 1	SSH1,SSH2	SSH1,SSH2	TRUE	FALSE	GPCR signaling
+c103722-g1 1-to-2 SSH1,SSH2 slingshot protein phosphatase 1	SSH1,SSH2	SSH1,SSH2	TRUE	FALSE	RhoA GTPase signaling
+c103722-g1 1-to-2 SSH1,SSH2 slingshot protein phosphatase 1	SSH1,SSH2	SSH1,SSH2	TRUE	FALSE	Rho signaling
+c103724-g1 1-to-1 STK40 serine/threonine kinase 40	STK40	STK40	TRUE	FALSE	Differentiation (muscle cell related)
+c79858-g1 hs-GNG12,GNG8,GNG3,GNG4,GNG7,GNG10,GNG2,GNG5,GNG5B,GN..	NA	NA	TRUE	FALSE	GPCR signaling
+c28122-g1 hs-GOPC	NA	NA	FALSE	FALSE	Vesicular trafficking
+c103733-g1 1-to-2 BCR,ABR BCR, RhoGEF and GTPase activating protein	BCR,ABR	BCR,ABR	TRUE	FALSE	Cdc42 GTPase signaling
+c103733-g1 1-to-2 BCR,ABR BCR, RhoGEF and GTPase activating protein	BCR,ABR	BCR,ABR	TRUE	FALSE	Rac1 GTPase signaling
+c103733-g1 1-to-2 BCR,ABR BCR, RhoGEF and GTPase activating protein	BCR,ABR	BCR,ABR	TRUE	FALSE	RhoA GTPase signaling
+c103733-g1 1-to-2 BCR,ABR BCR, RhoGEF and GTPase activating protein	BCR,ABR	BCR,ABR	TRUE	FALSE	Rho signaling
+c103744-g1 2-to-1 MELK maternal embryonic leucine zipper kinase	MELK	MELK	FALSE	FALSE	Apoptosis
+c103744-g1 2-to-1 MELK maternal embryonic leucine zipper kinase	MELK	MELK	FALSE	FALSE	Regulation of cell cycle
+c102617-g2 hs-GYPC,SERTM1,SERTM2,KCNE2,SMAGP,CRB3,RPRM,TMEM154,K..	NA	NA	TRUE	FALSE	Regulation of calcium signaling
+c102617-g2 hs-GYPC,SERTM1,SERTM2,KCNE2,SMAGP,CRB3,RPRM,TMEM154,K..	NA	NA	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c95904-g2 hs-HOATZ,STMND1,GMNN	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c95904-g2 hs-HOATZ,STMND1,GMNN	NA	NA	FALSE	FALSE	Regulation of ciliary function
+c103759-g1 1-to-1 EXOC7 exocyst complex component 7	EXOC7	EXOC7	TRUE	FALSE	Exocytosis
+c103759-g1 1-to-1 EXOC7 exocyst complex component 7	EXOC7	EXOC7	TRUE	FALSE	Vesicular trafficking
+c103760-g1 1-to-1 RABEP1 rabaptin, RAB GTPase binding effector protein 1	RABEP1	RABEP1	FALSE	FALSE	Vesicular trafficking
+c103775-g1 ANKS1A (ankyrin repeat and sterile alpha motif domain containing 1A) - blastp	ANKS1A	ANKS1A	TRUE	TRUE	Regulation of adhesion complexes
+c103775-g1 ANKS1A (ankyrin repeat and sterile alpha motif domain containing 1A) - blastp	ANKS1A	ANKS1A	TRUE	TRUE	Regulation of cytoskeleton at the membrane
+c103779-g1 MICAL3 (Microtubule associated monoxygenase, calponin and LIM domain containing) - emapper OG	MICAL3	MICAL3	FALSE	FALSE	Actin dynamics
+c103779-g1 MICAL3 (Microtubule associated monoxygenase, calponin and LIM domain containing) - emapper OG	MICAL3	MICAL3	FALSE	FALSE	Regulation of ciliary function
+c103779-g1 MICAL3 (Microtubule associated monoxygenase, calponin and LIM domain containing) - emapper OG	MICAL3	MICAL3	FALSE	FALSE	Vesicular trafficking
+c102553-g4 hs-IL18R1,IL18RAP,IL1RAP,IL1RL1,IL1RL2,IL1R1	NA	NA	TRUE	FALSE	Regulation of inflammation
+c103781-g2 1-to-1 EIF4B eukaryotic translation initiation factor 4B	EIF4B	EIF4B	FALSE	FALSE	RNA processing
+c103785-g3 hs-NUMB,DCP1B,DCP1A,WASL,DAB2,ENAH,GAB2	NUMB,DCP1B,DCP1A,WASL,DAB2,ENAH,GAB2	NUMB,DCP1B,DCP1A,WASL,DAB2,ENAH,GAB2	FALSE	FALSE	Actin network assembly
+c102738-g1 hs-RFPL3,RFPL1,TRIM16L,RFPL2,FBXO45,RNF39,RFPL4B,RFPL..	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c103795-g1 1-to-1 RBCK1 RANBP2-type and C3HC4-type zinc finger containing 1	RBCK1	RBCK1	FALSE	FALSE	Regulation of inflammation
+c99416-g1 hs-RND1,RAB23,RND2,RAB24,RND3,RAB20,RASD2,RAB22A,RAB3..	NA	NA	FALSE	FALSE	Regulation of cytoskeleton at the membrane
+c99416-g1 hs-RND1,RAB23,RND2,RAB24,RND3,RAB20,RASD2,RAB22A,RAB3..	NA	NA	FALSE	FALSE	RhoA GTPase signaling
+c99416-g1 hs-RND1,RAB23,RND2,RAB24,RND3,RAB20,RASD2,RAB22A,RAB3..	NA	NA	FALSE	FALSE	Vesicular trafficking
+c111007-g1 hs-RNF125,RNF114,RNF166	NA	NA	FALSE	FALSE	Regulation of inflammation
+c107554-g1 hs-RPS27L,RPS27,RPL37AP8,RPL37A	NA	NA	FALSE	FALSE	Stress-related transcription activity
+c103807-g1 (Gamma-aminobutyric acid (GABA) B receptor) - emapper OG	Gamma-aminobutyricacidGABA	Gamma-aminobutyricacidGABA	TRUE	TRUE	GPCR signaling
+c103815-g1 ABCF2 (ATP-binding cassette, sub-family F (GCN20), member 2) - emapper OG	ABCF2	ABCF2	FALSE	FALSE	RNA processing
+c103829-g1 1-to-2 SMURF2,SMURF1 SMAD specific E3 ubiquitin protein ligase 2	SMURF2,SMURF1	SMURF2,SMURF1	TRUE	FALSE	RhoA GTPase signaling
+c103829-g1 1-to-2 SMURF2,SMURF1 SMAD specific E3 ubiquitin protein ligase 2	SMURF2,SMURF1	SMURF2,SMURF1	TRUE	FALSE	Rho signaling
+c95399-g1 hs-SCIMP,LST1,GAPT,C1orf185,SMIM36,FAM163B,RHEX,FAM24..	NA	NA	FALSE	FALSE	Regulation of adhesion complexes
+c99666-g1 hs-SCML1	NA	NA	FALSE	FALSE	Differentiation (muscle cell related)
+c100926-g1 hs-SH2D6,SOCS1	NA	NA	FALSE	FALSE	Regulation of inflammation
+c103845-g2 ANO7 (Anoctamin) - emapper OG	ANO7	ANO7	FALSE	FALSE	Metabolism
+c103846-g2 1-to-1 HCFC1 host cell factor C1	HCFC1	HCFC1	FALSE	FALSE	Regulation of cell cycle
+c95880-g1 hs-SH2D7,HSH2D	NA	NA	FALSE	FALSE	Regulation of inflammation
+c103854-g2 1-to-2 OCRL,INPP5B OCRL, inositol polyphosphate-5-phosphatase	OCRL,INPP5B	OCRL,INPP5B	TRUE	FALSE	Phospholipid signaling
+c103854-g2 1-to-2 OCRL,INPP5B OCRL, inositol polyphosphate-5-phosphatase	OCRL,INPP5B	OCRL,INPP5B	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c103854-g2 1-to-2 OCRL,INPP5B OCRL, inositol polyphosphate-5-phosphatase	OCRL,INPP5B	OCRL,INPP5B	TRUE	FALSE	Vesicular trafficking
+c103865-g1 8-to-6 ALOX12,ALOXE3,ALOX12B,ALOX5... arachidonate 12-lipoxygenase, 12S type	ALOX12,ALOXE3,ALOX12B,ALOX5...	ALOX12,ALOXE3,ALOX12B,ALOX5...	FALSE	FALSE	Metabolism
+c103865-g1 8-to-6 ALOX12,ALOXE3,ALOX12B,ALOX5... arachidonate 12-lipoxygenase, 12S type	ALOX12,ALOXE3,ALOX12B,ALOX5...	ALOX12,ALOXE3,ALOX12B,ALOX5...	FALSE	FALSE	Phospholipid signaling
+c103867-g1 1-to-1 NUP188 nucleoporin 188	NUP188	NUP188	FALSE	FALSE	Vesicular trafficking
+c103872-g1 1-to-1 SACM1L SAC1 like phosphatidylinositide phosphatase	SACM1L	SACM1L	TRUE	FALSE	Phospholipid signaling
+c103872-g1 1-to-1 SACM1L SAC1 like phosphatidylinositide phosphatase	SACM1L	SACM1L	TRUE	FALSE	Vesicular trafficking
+c103876-g1 1-to-2 SGSM2,SGSM1 small G protein signaling modulator 2	SGSM2,SGSM1	SGSM2,SGSM1	FALSE	FALSE	Regulation of adhesion complexes
+c103876-g1 1-to-2 SGSM2,SGSM1 small G protein signaling modulator 2	SGSM2,SGSM1	SGSM2,SGSM1	FALSE	FALSE	Vesicular trafficking
+c96126-g2 hs-SRSF3,SRSF7,SRSF2,SRSF10,SRSF12,SRSF6	NA	NA	FALSE	FALSE	RNA processing
+c102142-g1 hs-STAP2,DOK2,DOK1,GAB3	NA	NA	FALSE	FALSE	Ras GTPase signaling
+c103890-g1 ACTB (Actins are highly conserved proteins that are involved in various types of cell motility and	ACTB	ACTB	TRUE	FALSE	Actin dynamics
+c103890-g1 ACTB (Actins are highly conserved proteins that are involved in various types of cell motility and	ACTB	ACTB	TRUE	FALSE	Actin network assembly
+c103890-g1 ACTB (Actins are highly conserved proteins that are involved in various types of cell motility and	ACTB	ACTB	TRUE	FALSE	Actomyosin contractility
+c103894-g1 HMCN1 (G2F domain) - emapper OG	HMCN1	HMCN1	FALSE	FALSE	Regulation of adhesion complexes
+c103897-g2 8-to-3 FLNC,FLNA,FLNB filamin C	FLNC,FLNA,FLNB	FLNC,FLNA,FLNB	TRUE	FALSE	Actin dynamics
+c103897-g2 8-to-3 FLNC,FLNA,FLNB filamin C	FLNC,FLNA,FLNB	FLNC,FLNA,FLNB	TRUE	FALSE	Actomyosin contractility
+c103899-g2 2-to-1 IARS isoleucyl-tRNA synthetase	IARS	IARS	FALSE	FALSE	RNA processing
+c103906-g1 1-to-1 BAZ1A bromodomain adjacent to zinc finger domain 1A	BAZ1A	BAZ1A	FALSE	FALSE	Regulation of cell cycle
+c103909-g2 SF3B1 (splicing factor 3b, subunit 1, 155kDa) - emapper OG	SF3B1	SF3B1	FALSE	FALSE	RNA processing
+c103909-g3 DDX3X (DEAD (Asp-Glu-Ala-Asp) box polypeptide) - emapper OG	DDX3X	DDX3X	FALSE	FALSE	RNA processing
+c103919-g1 1-to-4 PSD,PSD4,PSD2,PSD3 pleckstrin and Sec7 domain containing	PSD,PSD4,PSD2,PSD3	PSD,PSD4,PSD2,PSD3	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c103919-g1 1-to-4 PSD,PSD4,PSD2,PSD3 pleckstrin and Sec7 domain containing	PSD,PSD4,PSD2,PSD3	PSD,PSD4,PSD2,PSD3	TRUE	FALSE	Vesicular trafficking
+c103924-g2 1-to-2 FGD5,FGD6 FYVE, RhoGEF and PH domain containing 5	FGD5,FGD6	FGD5,FGD6	FALSE	FALSE	Apoptosis
+c103924-g2 1-to-2 FGD5,FGD6 FYVE, RhoGEF and PH domain containing 5	FGD5,FGD6	FGD5,FGD6	FALSE	FALSE	Cdc42 GTPase signaling
+c103924-g2 1-to-2 FGD5,FGD6 FYVE, RhoGEF and PH domain containing 5	FGD5,FGD6	FGD5,FGD6	FALSE	FALSE	Rho signaling
+c103927-g1 HSC70-4 (heat shock) - emapper OG	HSC70-4	HSC70-4	FALSE	FALSE	Chaperone
+c103933-g1 1-to-3 CBL,CBLB,CBLC Cbl proto-oncogene	CBL,CBLB,CBLC	CBL,CBLB,CBLC	FALSE	FALSE	Regulation of adhesion complexes
+c103946-g1 1-to-2 OGFR,OGFRL1 opioid growth factor receptor	OGFR,OGFRL1	OGFR,OGFRL1	FALSE	FALSE	Regulation of cell cycle
+c103951-g1 1-to-1 VPS37B VPS37B, ESCRT-I subunit	VPS37B	VPS37B	FALSE	FALSE	Lysosomes
+c103951-g1 1-to-1 VPS37B VPS37B, ESCRT-I subunit	VPS37B	VPS37B	FALSE	FALSE	Vesicular trafficking
+c103960-g2 1-to-1 PLAA phospholipase A2 activating protein	PLAA	PLAA	FALSE	FALSE	Regulation of inflammation
+c103960-g2 1-to-1 PLAA phospholipase A2 activating protein	PLAA	PLAA	FALSE	FALSE	Vesicular trafficking
+c103964-g1 LSM14A (LSM14A, SCD6 homolog A (S. cerevisiae)) - emapper OG	LSM14A	LSM14A	FALSE	FALSE	RNA processing
+c103975-g1 2-to-1 COX15 COX15, cytochrome c oxidase assembly homolog	COX15	COX15	FALSE	FALSE	Metabolism
+c103988-g2 1-to-3 CNPY2,CNPY1,AC073896.1 canopy FGF signaling regulator 2	CNPY2,CNPY1,AC073896.1	CNPY2,CNPY1,AC073896.1	FALSE	FALSE	Stress-related transcription activity
+c101213-g2 hs-TIPARP,PARP2,PARP6,PARP3,PARP15	NA	NA	FALSE	FALSE	Stress-related transcription activity
+c103994-g3 GIGYF1 (GRB10 interacting GYF protein 2) - emapper OG	GIGYF1	GIGYF1	FALSE	FALSE	RNA processing
+c103996-g1 1-to-2 EFR3A,EFR3B EFR3 homolog A	EFR3A,EFR3B	EFR3A,EFR3B	TRUE	FALSE	GPCR signaling
+c103996-g1 1-to-2 EFR3A,EFR3B EFR3 homolog A	EFR3A,EFR3B	EFR3A,EFR3B	TRUE	FALSE	Phospholipid signaling
+c104002-g1 1-to-2 DPP9,DPP8 dipeptidyl peptidase 9	DPP9,DPP8	DPP9,DPP8	FALSE	FALSE	Metabolism
+c104007-g1 1-to-2 ARAP2,ARAP1 ArfGAP with RhoGAP domain, ankyrin repeat and PH domain 2	ARAP2,ARAP1	ARAP2,ARAP1	FALSE	FALSE	Vesicular trafficking
+c104016-g1 1-to-2 NCOA7,OXR1 nuclear receptor coactivator 7	NCOA7,OXR1	NCOA7,OXR1	TRUE	FALSE	NO signaling
+c104019-g2 2-to-1 COL4A3BP collagen type IV alpha 3 binding protein	COL4A3BP	COL4A3BP	FALSE	FALSE	Regulation of adhesion complexes
+c104027-g2 1-to-4 DENND2A,DENND2D,DENND2C,ST5 DENN domain containing 2A	DENND2A,DENND2D,DENND2C,ST5	DENND2A,DENND2D,DENND2C,ST5	FALSE	FALSE	Rac1 GTPase signaling
+c104027-g2 1-to-4 DENND2A,DENND2D,DENND2C,ST5 DENN domain containing 2A	DENND2A,DENND2D,DENND2C,ST5	DENND2A,DENND2D,DENND2C,ST5	FALSE	FALSE	RhoA GTPase signaling
+c104027-g2 1-to-4 DENND2A,DENND2D,DENND2C,ST5 DENN domain containing 2A	DENND2A,DENND2D,DENND2C,ST5	DENND2A,DENND2D,DENND2C,ST5	FALSE	FALSE	Vesicular trafficking
+c104027-g2 1-to-4 DENND2A,DENND2D,DENND2C,ST5 DENN domain containing 2A	DENND2A,DENND2D,DENND2C,ST5	DENND2A,DENND2D,DENND2C,ST5	FALSE	FALSE	Rho signaling
+c102590-g2 hs-TRARG1,TMEM91,IFITM3,IFITM2,SYNDIG1L,SYNDIG1,PMIS2..	NA	NA	FALSE	FALSE	Vesicular trafficking
+c102617-g1 hs-VSIG4,CRLF2,IL6R,CEACAM4,FCGR2A,CD300A,MPZL1,SLAMF..	NA	NA	FALSE	FALSE	Regulation of inflammation
+c104050-g1 1-to-3 ANKRD17,ANKHD1,ANKHD1-EIF4EBP3 ankyrin repeat domain 17	ANKRD17,ANKHD1,ANKHD1-EIF4EBP3	ANKRD17,ANKHD1,ANKHD1-EIF4EBP3	TRUE	FALSE	Regulation of adhesion complexes
+c104050-g1 1-to-3 ANKRD17,ANKHD1,ANKHD1-EIF4EBP3 ankyrin repeat domain 17	ANKRD17,ANKHD1,ANKHD1-EIF4EBP3	ANKRD17,ANKHD1,ANKHD1-EIF4EBP3	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c104052-g1 ARSB (oculocutaneous albinism II) - emapper OG	ARSB	ARSB	FALSE	FALSE	Metabolism
+c104052-g1 ARSB (oculocutaneous albinism II) - emapper OG	ARSB	ARSB	FALSE	FALSE	Phospholipid signaling
+c101244-g1 HTL (Fibroblast growth factor receptor) - emapper OG	NA	NA	FALSE	FALSE	Differentiation (muscle cell related)
+c104061-g2 1-to-1 DHX16 DEAH-box helicase 16	DHX16	DHX16	FALSE	FALSE	RNA processing
+c79251-g1 HYDIN (HYDIN, axonemal central pair apparatus protein) - emapper OG	NA	NA	FALSE	FALSE	Differentiation (muscle cell related)
+c79251-g1 HYDIN (HYDIN, axonemal central pair apparatus protein) - emapper OG	NA	NA	FALSE	FALSE	Regulation of ciliary function
+c103674-g3 1-to-7 MXRA5,CNTN3,CNTN2,PXDNL... matrix remodeling associated 5	NA	NA	FALSE	FALSE	Regulation of adhesion complexes
+c104071-g2 1-to-2 MYO1G,MYO1D myosin IG	MYO1G,MYO1D	MYO1G,MYO1D	TRUE	FALSE	Actomyosin contractility
+c104071-g2 1-to-2 MYO1G,MYO1D myosin IG	MYO1G,MYO1D	MYO1G,MYO1D	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c104087-g1 CTNNAL1 (catenin (cadherin-associated protein), alpha-like 1) - emapper OG	CTNNAL1	CTNNAL1	TRUE	FALSE	Regulation of adhesion complexes
+c103109-g1 2-to-1 IGSF9 immunoglobulin superfamily member 9	NA	NA	FALSE	FALSE	Regulation of adhesion complexes
+c104103-g1 (BTB/POZ domain) - emapper OG	BTB/POZdomain	BTB/POZdomain	FALSE	FALSE	Regulation of cytoskeleton at the membrane
+c104107-g3 1-to-3 HSPA4L,HSPA4,HSPH1 heat shock protein family A (Hsp70) member 4 like	HSPA4L,HSPA4,HSPH1	HSPA4L,HSPA4,HSPH1	FALSE	FALSE	Chaperone
+c104108-g1 1-to-1 MYCBP2 MYC binding protein 2, E3 ubiquitin protein ligase	MYCBP2	MYCBP2	TRUE	FALSE	JNK/p38 MAPK signaling
+c104108-g1 1-to-1 MYCBP2 MYC binding protein 2, E3 ubiquitin protein ligase	MYCBP2	MYCBP2	TRUE	FALSE	MTORC2 signaling
+c104114-g1 M, Measles virus (strain Yamagata-1)	M,	M	FALSE	FALSE	Regulation of adhesion complexes
+c102046-g2 IL16 (Interleukin 16) - emapper OG	NA	NA	FALSE	FALSE	Regulation of inflammation
+c104138-g2 1-to-2 EIF4G3,EIF4G1 eukaryotic translation initiation factor 4 gamma 3	EIF4G3,EIF4G1	EIF4G3,EIF4G1	FALSE	FALSE	RNA processing
+c104144-g1 1-to-2 ROCK2,ROCK1 Rho associated coiled-coil containing protein kinase 2	ROCK2,ROCK1	ROCK2,ROCK1	TRUE	TRUE	Actomyosin contractility
+c104144-g1 1-to-2 ROCK2,ROCK1 Rho associated coiled-coil containing protein kinase 2	ROCK2,ROCK1	ROCK2,ROCK1	TRUE	TRUE	GPCR signaling
+c104144-g1 1-to-2 ROCK2,ROCK1 Rho associated coiled-coil containing protein kinase 2	ROCK2,ROCK1	ROCK2,ROCK1	TRUE	TRUE	RhoA GTPase signaling
+c104144-g1 1-to-2 ROCK2,ROCK1 Rho associated coiled-coil containing protein kinase 2	ROCK2,ROCK1	ROCK2,ROCK1	TRUE	TRUE	Rho signaling
+c104145-g1 1-to-3 PDLIM7,LDB3,PDLIM5 PDZ and LIM domain 7	PDLIM7,LDB3,PDLIM5	PDLIM7,LDB3,PDLIM5	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c104145-g1 1-to-3 PDLIM7,LDB3,PDLIM5 PDZ and LIM domain 7	PDLIM7,LDB3,PDLIM5	PDLIM7,LDB3,PDLIM5	TRUE	FALSE	Regulation of inflammation
+c104149-g1 4-to-1 TRAF2 TNF receptor associated factor 2	TRAF2	TRAF2	FALSE	FALSE	JNK/p38 MAPK signaling
+c104149-g1 4-to-1 TRAF2 TNF receptor associated factor 2	TRAF2	TRAF2	FALSE	FALSE	Regulation of inflammation
+c102681-g1 (Immunoglobulin I-set domain) - emapper OG	NA	NA	FALSE	FALSE	Regulation of adhesion complexes
+c104152-g2 TNS3 (Tensin 3) - emapper OG	TNS3	TNS3	FALSE	FALSE	Regulation of adhesion complexes
+c104152-g2 TNS3 (Tensin 3) - emapper OG	TNS3	TNS3	FALSE	FALSE	Regulation of cytoskeleton at the membrane
+c91405-g1 2-to-1 INF2 inverted formin, FH2 and WH2 domain containing	NA	NA	FALSE	FALSE	Actin dynamics
+c91405-g1 2-to-1 INF2 inverted formin, FH2 and WH2 domain containing	NA	NA	FALSE	FALSE	Vesicular trafficking
+c104155-g3 1-to-1 PTEN phosphatase and tensin homolog	PTEN	PTEN	TRUE	TRUE	Phospholipid signaling
+c104155-g3 1-to-1 PTEN phosphatase and tensin homolog	PTEN	PTEN	TRUE	TRUE	PI3K signaling
+c100113-g1 1-to-1 INIP INTS3 and NABP interacting protein	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c104166-g1 1-to-1 RABGEF1 RAB guanine nucleotide exchange factor 1	RABGEF1	RABGEF1	FALSE	FALSE	Vesicular trafficking
+c103359-g2 (Inner centromere) - emapper OG	NA	NA	FALSE	FALSE	Regulation of ciliary function
+c101894-g1 (Inherit from euNOG: Inter-alpha-trypsin inhibitor heavy chain) - emapper OG	NA	NA	FALSE	FALSE	Regulation of adhesion complexes
+c104421-g2 (Inherit from euNOG: Inter-alpha-trypsin inhibitor heavy chain) - emapper OG	NA	NA	FALSE	FALSE	Regulation of adhesion complexes
+c99719-g1 1-to-1 INTU inturned planar cell polarity protein	NA	NA	FALSE	FALSE	Regulation of ciliary function
+c104187-g2 ARHGEF12 (RHo Guanine nucleotide exchange Factor) - emapper OG	ARHGEF12	ARHGEF12	TRUE	TRUE	GPCR signaling
+c104187-g2 ARHGEF12 (RHo Guanine nucleotide exchange Factor) - emapper OG	ARHGEF12	ARHGEF12	TRUE	TRUE	RhoA GTPase signaling
+c104187-g2 ARHGEF12 (RHo Guanine nucleotide exchange Factor) - emapper OG	ARHGEF12	ARHGEF12	TRUE	TRUE	Rho signaling
+c104195-g2 1-to-2 ANK1,ANK2 ankyrin 1	ANK1,ANK2	ANK1,ANK2	TRUE	TRUE	Regulation of adhesion complexes
+c104195-g2 1-to-2 ANK1,ANK2 ankyrin 1	ANK1,ANK2	ANK1,ANK2	TRUE	TRUE	Regulation of cytoskeleton at the membrane
+c104198-g1 1-to-2 ARFGAP3,ARFGAP2 ADP ribosylation factor GTPase activating protein 3	ARFGAP3,ARFGAP2	ARFGAP3,ARFGAP2	FALSE	FALSE	Vesicular trafficking
+c104203-g1 CCDC50 (coiled-coil domain containing 50) - blastp	CCDC50	CCDC50	FALSE	FALSE	Regulation of inflammation
+c104203-g1 CCDC50 (coiled-coil domain containing 50) - blastp	CCDC50	CCDC50	FALSE	FALSE	Vesicular trafficking
+c104204-g1 1-to-1 VIPAS39 VPS33B interacting protein, apical-basolateral polarity regulator, spe-39 homolog	VIPAS39	VIPAS39	FALSE	FALSE	Lysosomes
+c104204-g1 1-to-1 VIPAS39 VPS33B interacting protein, apical-basolateral polarity regulator, spe-39 homolog	VIPAS39	VIPAS39	FALSE	FALSE	Vesicular trafficking
+c95656-g1 (Inherit from opiNOG: involved in rRNA processing (By similarity)) - emapper OG	NA	NA	FALSE	FALSE	RNA processing
+c104215-g1 1-to-2 HIP1R,HIP1 huntingtin interacting protein 1 related	HIP1R,HIP1	HIP1R,HIP1	FALSE	FALSE	Vesicular trafficking
+c104222-g1 1-to-3 STRN,STRN3,STRN4 striatin	STRN,STRN3,STRN4	STRN,STRN3,STRN4	TRUE	FALSE	Regulation of adhesion complexes
+c101940-g3 5-to-1 IQSEC2 IQ motif and Sec7 domain 2	NA	NA	FALSE	FALSE	Vesicular trafficking
+c104364-g1 5-to-3 IQSEC2,IQSEC3,IQSEC1 IQ motif and Sec7 domain 2	NA	NA	FALSE	FALSE	Vesicular trafficking
+c104237-g3 SWAP70 (SWAP switching B-cell complex 70kDa subunit) - emapper OG	SWAP70	SWAP70	TRUE	FALSE	Actin dynamics
+c104237-g3 SWAP70 (SWAP switching B-cell complex 70kDa subunit) - emapper OG	SWAP70	SWAP70	TRUE	FALSE	Actin network assembly
+c104237-g3 SWAP70 (SWAP switching B-cell complex 70kDa subunit) - emapper OG	SWAP70	SWAP70	TRUE	FALSE	Rac1 GTPase signaling
+c104237-g3 SWAP70 (SWAP switching B-cell complex 70kDa subunit) - emapper OG	SWAP70	SWAP70	TRUE	FALSE	RhoA GTPase signaling
+c104237-g3 SWAP70 (SWAP switching B-cell complex 70kDa subunit) - emapper OG	SWAP70	SWAP70	TRUE	FALSE	Rho signaling
+c104242-g1 SAMD4B (sterile alpha motif domain containing) - emapper OG	SAMD4B	SAMD4B	FALSE	FALSE	RNA processing
+c103564-g1 (PTB domain (IRS-1 type)) - emapper OG	NA	NA	FALSE	FALSE	Metabolism
+c104245-g1 MLT-7 (Peroxidasin homolog) - emapper OG	MLT-7	MLT-7	TRUE	FALSE	NO signaling
+c104245-g1 MLT-7 (Peroxidasin homolog) - emapper OG	MLT-7	MLT-7	TRUE	FALSE	Regulation of adhesion complexes
+c104247-g1 BZRAP1 (RIMS binding protein) - emapper OG	BZRAP1	BZRAP1	TRUE	FALSE	Exocytosis
+c104247-g1 BZRAP1 (RIMS binding protein) - emapper OG	BZRAP1	BZRAP1	TRUE	FALSE	Synaptic vesicle
+c104247-g1 BZRAP1 (RIMS binding protein) - emapper OG	BZRAP1	BZRAP1	TRUE	FALSE	Vesicular trafficking
+c104253-g1 1-to-1 UNK unkempt family zinc finger	UNK	UNK	FALSE	FALSE	Microtubule dynamics
+c104253-g1 1-to-1 UNK unkempt family zinc finger	UNK	UNK	FALSE	FALSE	RNA processing
+c103615-g1 1-to-3 ITGA3,ITGA6,ITGA7 integrin subunit alpha 3	NA	NA	TRUE	FALSE	Regulation of adhesion complexes
+c103615-g1 1-to-3 ITGA3,ITGA6,ITGA7 integrin subunit alpha 3	NA	NA	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c104262-g1 ((ABC) transporter) - emapper OG	ABC	ABC	FALSE	FALSE	Plasma membrane transporter
+c100061-g1 1-to-4 JPH3,JPH1,JPH2,JPH4 junctophilin 3	NA	NA	TRUE	FALSE	Actomyosin contractility
+c100061-g1 1-to-4 JPH3,JPH1,JPH2,JPH4 junctophilin 3	NA	NA	TRUE	FALSE	Regulation of adhesion complexes
+c100061-g1 1-to-4 JPH3,JPH1,JPH2,JPH4 junctophilin 3	NA	NA	TRUE	FALSE	Regulation of calcium signaling
+c100411-g1 KANK1 (KN motif and ankyrin repeat domains 1) - blastp	NA	NA	TRUE	FALSE	Regulation of adhesion complexes
+c100411-g1 KANK1 (KN motif and ankyrin repeat domains 1) - blastp	NA	NA	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c100411-g1 KANK1 (KN motif and ankyrin repeat domains 1) - blastp	NA	NA	TRUE	FALSE	RhoA GTPase signaling
+c104280-g4 1-to-1 BRSK2 BR serine/threonine kinase 2	BRSK2	BRSK2	FALSE	FALSE	Metabolism
+c104280-g4 1-to-1 BRSK2 BR serine/threonine kinase 2	BRSK2	BRSK2	FALSE	FALSE	Regulation of cell cycle
+c104281-g1 1-to-1 HID1 HID1 domain containing	HID1	HID1	FALSE	FALSE	Vesicular trafficking
+c104283-g2 1-to-2 USP32,USP6 ubiquitin specific peptidase 32	USP32,USP6	USP32,USP6	FALSE	FALSE	Regulation of inflammation
+c104291-g4 CRN8, Phytophthora infestans	CRN8,	CRN8	FALSE	FALSE	Apoptosis
+c102131-g1 1-to-1 KAT5 lysine acetyltransferase 5	NA	NA	FALSE	FALSE	Apoptosis
+c95660-g1 1-to-2 KCNIP4,KCNIP2 potassium voltage-gated channel interacting protein 4	NA	NA	FALSE	FALSE	Regulation of calcium signaling
+c104302-g1 2-to-2 ARHGAP5,ARHGAP35 Rho GTPase activating protein 5	ARHGAP5,ARHGAP35	ARHGAP5,ARHGAP35	TRUE	TRUE	RhoA GTPase signaling
+c104302-g1 2-to-2 ARHGAP5,ARHGAP35 Rho GTPase activating protein 5	ARHGAP5,ARHGAP35	ARHGAP5,ARHGAP35	TRUE	TRUE	Rho signaling
+c104309-g1 TRAF4 (TNF receptor associated factor 4) - blastp	TRAF4	TRAF4	FALSE	FALSE	JNK/p38 MAPK signaling
+c104309-g1 TRAF4 (TNF receptor associated factor 4) - blastp	TRAF4	TRAF4	FALSE	FALSE	Regulation of inflammation
+c104312-g1 1-to-4 LRCH4,LRCH2,LRCH3,LRCH1 leucine rich repeats and calponin homology domain containing 4	LRCH4,LRCH2,LRCH3,LRCH1	LRCH4,LRCH2,LRCH3,LRCH1	FALSE	FALSE	Cdc42 GTPase signaling
+c104312-g1 1-to-4 LRCH4,LRCH2,LRCH3,LRCH1 leucine rich repeats and calponin homology domain containing 4	LRCH4,LRCH2,LRCH3,LRCH1	LRCH4,LRCH2,LRCH3,LRCH1	FALSE	FALSE	Rho signaling
+c104327-g1 1-to-1 WDR11 WD repeat domain 11	WDR11	WDR11	FALSE	FALSE	Regulation of cell cycle
+c100471-g1 1-to-1 KIAA0355 KIAA0355	NA	NA	TRUE	FALSE	Rac1 GTPase signaling
+c100471-g1 1-to-1 KIAA0355 KIAA0355	NA	NA	TRUE	FALSE	Regulation of ciliary function
+c100471-g1 1-to-1 KIAA0355 KIAA0355	NA	NA	TRUE	FALSE	RhoA GTPase signaling
+c106661-g1 KIF14 (kinesin family member 14) - emapper OG	NA	NA	FALSE	FALSE	Vesicular trafficking
+c104344-g1 3-to-1 ITGB1 integrin subunit beta 1	ITGB1	ITGB1	TRUE	TRUE	Regulation of adhesion complexes
+c104354-g1 1-to-3 SORBS3,SORBS2,SORBS1 sorbin and SH3 domain containing 3	SORBS3,SORBS2,SORBS1	SORBS3,SORBS2,SORBS1	TRUE	FALSE	Actin dynamics
+c104354-g1 1-to-3 SORBS3,SORBS2,SORBS1 sorbin and SH3 domain containing 3	SORBS3,SORBS2,SORBS1	SORBS3,SORBS2,SORBS1	TRUE	FALSE	Regulation of adhesion complexes
+c104354-g1 1-to-3 SORBS3,SORBS2,SORBS1 sorbin and SH3 domain containing 3	SORBS3,SORBS2,SORBS1	SORBS3,SORBS2,SORBS1	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c104358-g1 Tbkbp1, Rattus norvegicus	Tbkbp1,	Tbkbp1	FALSE	FALSE	Regulation of inflammation
+c104369-g2 1-to-1 MPP5 membrane palmitoylated protein 5	MPP5	MPP5	FALSE	FALSE	Regulation of adhesion complexes
+c104372-g1 CLIP1 (CAP-GLY domain containing linker protein) - emapper OG	CLIP1	CLIP1	FALSE	FALSE	Microtubule dynamics
+c104372-g1 CLIP1 (CAP-GLY domain containing linker protein) - emapper OG	CLIP1	CLIP1	FALSE	FALSE	Vesicular trafficking
+c104373-g1 ACLY (ATP citrate lyase) - emapper OG	ACLY	ACLY	FALSE	FALSE	Metabolism
+c104374-g1 3-to-2 TLN1,TLN2 talin 1	TLN1,TLN2	TLN1,TLN2	TRUE	FALSE	Actomyosin contractility
+c104374-g1 3-to-2 TLN1,TLN2 talin 1	TLN1,TLN2	TLN1,TLN2	TRUE	FALSE	Regulation of adhesion complexes
+c104374-g1 3-to-2 TLN1,TLN2 talin 1	TLN1,TLN2	TLN1,TLN2	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c104374-g2 1-to-1 WDR7 WD repeat domain 7	WDR7	WDR7	FALSE	FALSE	Regulation of cell cycle
+c104379-g2 dm-FAM21	WASHC2A/C	WASHC2A/C	TRUE	FALSE	Actin network assembly
+c104382-g1 GIT2 (G protein-coupled receptor kinase interacting ArfGAP) - emapper OG	GIT2	GIT2	TRUE	TRUE	Cdc42 GTPase signaling
+c104382-g1 GIT2 (G protein-coupled receptor kinase interacting ArfGAP) - emapper OG	GIT2	GIT2	TRUE	TRUE	GPCR signaling
+c104382-g1 GIT2 (G protein-coupled receptor kinase interacting ArfGAP) - emapper OG	GIT2	GIT2	TRUE	TRUE	Rac1 GTPase signaling
+c104382-g1 GIT2 (G protein-coupled receptor kinase interacting ArfGAP) - emapper OG	GIT2	GIT2	TRUE	TRUE	RhoA GTPase signaling
+c104382-g1 GIT2 (G protein-coupled receptor kinase interacting ArfGAP) - emapper OG	GIT2	GIT2	TRUE	TRUE	Rho signaling
+c104382-g2 GIT2 (G protein-coupled receptor kinase interacting ArfGAP) - emapper OG	GIT2	GIT2	TRUE	TRUE	Cdc42 GTPase signaling
+c104382-g2 GIT2 (G protein-coupled receptor kinase interacting ArfGAP) - emapper OG	GIT2	GIT2	TRUE	TRUE	GPCR signaling
+c104382-g2 GIT2 (G protein-coupled receptor kinase interacting ArfGAP) - emapper OG	GIT2	GIT2	TRUE	TRUE	Rac1 GTPase signaling
+c104382-g2 GIT2 (G protein-coupled receptor kinase interacting ArfGAP) - emapper OG	GIT2	GIT2	TRUE	TRUE	RhoA GTPase signaling
+c104382-g2 GIT2 (G protein-coupled receptor kinase interacting ArfGAP) - emapper OG	GIT2	GIT2	TRUE	TRUE	Rho signaling
+c104383-g1 1-to-2 ABL1,ABL2 ABL proto-oncogene 1, non-receptor tyrosine kinase	ABL1,ABL2	ABL1,ABL2	FALSE	FALSE	Regulation of adhesion complexes
+c104388-g1 1-to-4 SIPA1L3,SIPA1L2,SIPA1,SIPA1L1 signal induced proliferation associated 1 like 3	SIPA1L3,SIPA1L2,SIPA1,SIPA1L1	SIPA1L3,SIPA1L2,SIPA1,SIPA1L1	FALSE	FALSE	Regulation of adhesion complexes
+c104392-g1 SUPT16H (suppressor of Ty 16 homolog (S. cerevisiae)) - emapper OG	SUPT16H	SUPT16H	FALSE	FALSE	Chaperone
+c104398-g1 1-to-1 CSDE1 cold shock domain containing E1	CSDE1	CSDE1	FALSE	FALSE	RNA processing
+c104400-g1 1-to-1 NUP210L nucleoporin 210 like	NUP210L	NUP210L	FALSE	FALSE	Microtubule dynamics
+c104413-g2 1-to-1 SCML2 sex comb on midleg like 2 (Drosophila)	SCML2	SCML2	FALSE	FALSE	Differentiation (reproductive cell related)
+c104418-g1 1-to-3 KDM5B,KDM5C,KDM5A lysine demethylase 5B	KDM5B,KDM5C,KDM5A	KDM5B,KDM5C,KDM5A	FALSE	FALSE	Regulation of inflammation
+c104421-g1 (Inherit from euNOG: Inter-alpha-trypsin inhibitor heavy chain) - emapper OG	Inter-alpha-trypsininhibitorheavychain	Inter-alpha-trypsininhibitorheavychain	FALSE	FALSE	Regulation of adhesion complexes
+c111633-g1 1-to-2 LASP1,NEBL LIM and SH3 protein 1	NA	NA	TRUE	FALSE	Regulation of adhesion complexes
+c111633-g1 1-to-2 LASP1,NEBL LIM and SH3 protein 1	NA	NA	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c104422-g1 1-to-1 RAPH1 Ras association (RalGDS/AF-6) and pleckstrin homology domains 1	RAPH1	RAPH1	TRUE	FALSE	Actin network assembly
+c104422-g1 1-to-1 RAPH1 Ras association (RalGDS/AF-6) and pleckstrin homology domains 1	RAPH1	RAPH1	TRUE	FALSE	Regulation of adhesion complexes
+c104424-g3 1-to-2 PRKCQ,PRKCD protein kinase C theta	PRKCQ,PRKCD	PRKCQ,PRKCD	FALSE	FALSE	Apoptosis
+c104424-g3 1-to-2 PRKCQ,PRKCD protein kinase C theta	PRKCQ,PRKCD	PRKCQ,PRKCD	FALSE	FALSE	Regulation of inflammation
+c104427-g1 1-to-1 DGKQ diacylglycerol kinase theta	DGKQ	DGKQ	TRUE	FALSE	Phospholipid signaling
+c104430-g1 1-to-2 MYO7A,MYO7B myosin VIIA	MYO7A,MYO7B	MYO7A,MYO7B	TRUE	FALSE	Actomyosin contractility
+c104430-g1 1-to-2 MYO7A,MYO7B myosin VIIA	MYO7A,MYO7B	MYO7A,MYO7B	TRUE	FALSE	Regulation of ciliary function
+c104430-g1 1-to-2 MYO7A,MYO7B myosin VIIA	MYO7A,MYO7B	MYO7A,MYO7B	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c104450-g2 3-to-2 HECW2,HECW1 HECT, C2 and WW domain containing E3 ubiquitin protein ligase 2	HECW2,HECW1	HECW2,HECW1	FALSE	FALSE	Regulation of adhesion complexes
+c104451-g2 1-to-5 SYTL2,SYTL4,SYTL5,SYTL1... synaptotagmin like 2	SYTL2,SYTL4,SYTL5,SYTL1...	SYTL2,SYTL4,SYTL5,SYTL1...	TRUE	FALSE	Exocytosis
+c104451-g2 1-to-5 SYTL2,SYTL4,SYTL5,SYTL1... synaptotagmin like 2	SYTL2,SYTL4,SYTL5,SYTL1...	SYTL2,SYTL4,SYTL5,SYTL1...	TRUE	FALSE	Vesicular trafficking
+c98522-g1 1-to-2 LATS2,LATS1 large tumor suppressor kinase 2	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c104456-g1 1-to-1 PSMD1 proteasome 26S subunit, non-ATPase 1	PSMD1	PSMD1	FALSE	FALSE	Chaperone
+c104457-g1 1-to-2 PPP1R16A,PPP1R16B protein phosphatase 1 regulatory subunit 16A	PPP1R16A,PPP1R16B	PPP1R16A,PPP1R16B	TRUE	TRUE	Actomyosin contractility
+c104457-g1 1-to-2 PPP1R16A,PPP1R16B protein phosphatase 1 regulatory subunit 16A	PPP1R16A,PPP1R16B	PPP1R16A,PPP1R16B	TRUE	TRUE	GPCR signaling
+c104457-g1 1-to-2 PPP1R16A,PPP1R16B protein phosphatase 1 regulatory subunit 16A	PPP1R16A,PPP1R16B	PPP1R16A,PPP1R16B	TRUE	TRUE	RhoA GTPase signaling
+c104457-g1 1-to-2 PPP1R16A,PPP1R16B protein phosphatase 1 regulatory subunit 16A	PPP1R16A,PPP1R16B	PPP1R16A,PPP1R16B	TRUE	TRUE	Rho signaling
+c104460-g1 1-to-2 NFKB1,NFKB2 nuclear factor kappa B subunit 1	NFKB1,NFKB2	NFKB1,NFKB2	FALSE	FALSE	Regulation of inflammation
+c104475-g1 ETS1 (V-ets erythroblastosis virus E26 oncogene homolog) - emapper OG	ETS1	ETS1	FALSE	FALSE	Regulation of cell cycle
+c104478-g3 1-to-2 RGS12,RGS14 regulator of G protein signaling 12	RGS12,RGS14	RGS12,RGS14	TRUE	TRUE	GPCR signaling
+c104528-g1 (NADPH Oxidase) - emapper OG	NADPHOxidase	NADPHOxidase	TRUE	TRUE	Metabolism
+c104528-g1 (NADPH Oxidase) - emapper OG	NADPHOxidase	NADPHOxidase	TRUE	TRUE	NO signaling
+c104535-g1 2-to-1 TNR tenascin R	TNR	TNR	FALSE	FALSE	Differentiation (gland cell related)
+c104535-g1 2-to-1 TNR tenascin R	TNR	TNR	FALSE	FALSE	Regulation of adhesion complexes
+c104538-g1 1-to-1 UPF2 UPF2, regulator of nonsense mediated mRNA decay	UPF2	UPF2	FALSE	FALSE	RNA processing
+c104546-g1 1-to-4 MARK4,MARK2,MARK3,MARK1 microtubule affinity regulating kinase 4	MARK4,MARK2,MARK3,MARK1	MARK4,MARK2,MARK3,MARK1	FALSE	FALSE	Microtubule dynamics
+c104551-g2 1-to-1 TRIP12 thyroid hormone receptor interactor 12	TRIP12	TRIP12	FALSE	FALSE	Regulation of cell cycle
+c104553-g2 1-to-2 MYO18B,MYO18A myosin XVIIIB	MYO18B,MYO18A	MYO18B,MYO18A	TRUE	FALSE	Actomyosin contractility
+c104554-g3 1-to-2 ACACB,ACACA acetyl-CoA carboxylase beta	ACACB,ACACA	ACACB,ACACA	FALSE	FALSE	Metabolism
+c104554-g3 1-to-2 ACACB,ACACA acetyl-CoA carboxylase beta	ACACB,ACACA	ACACB,ACACA	FALSE	FALSE	Phospholipid signaling
+c104560-g1 1-to-1 ZBED6 zinc finger BED-type containing 6	ZBED6	ZBED6	TRUE	FALSE	Differentiation (muscle cell related)
+c104560-g1 1-to-1 ZBED6 zinc finger BED-type containing 6	ZBED6	ZBED6	TRUE	FALSE	Regulation of adhesion complexes
+c104569-g3 1-to-1 EIF3A eukaryotic translation initiation factor 3 subunit A	EIF3A	EIF3A	FALSE	FALSE	RNA processing
+c104571-g1 2-to-2 LLGL1,LLGL2 LLGL1, scribble cell polarity complex component	LLGL1,LLGL2	LLGL1,LLGL2	FALSE	FALSE	Regulation of adhesion complexes
+c104572-g1 1-to-1 STT3B STT3B, catalytic subunit of the oligosaccharyltransferase complex	STT3B	STT3B	FALSE	FALSE	Chaperone
+c104572-g1 1-to-1 STT3B STT3B, catalytic subunit of the oligosaccharyltransferase complex	STT3B	STT3B	FALSE	FALSE	Vesicular trafficking
+c104578-g1 1-to-2 OSBP,OSBP2 oxysterol binding protein	OSBP,OSBP2	OSBP,OSBP2	TRUE	FALSE	Phospholipid signaling
+c104578-g1 1-to-2 OSBP,OSBP2 oxysterol binding protein	OSBP,OSBP2	OSBP,OSBP2	TRUE	FALSE	Vesicular trafficking
+c104582-g1 1-to-1 AP4E1 adaptor related protein complex 4 epsilon 1 subunit	AP4E1	AP4E1	FALSE	FALSE	Vesicular trafficking
+c104585-g1 1-to-2 PPP2R5C,PPP2R5D protein phosphatase 2 regulatory subunit B'gamma	PPP2R5C,PPP2R5D	PPP2R5C,PPP2R5D	TRUE	FALSE	JNK/p38 MAPK signaling
+c104585-g1 1-to-2 PPP2R5C,PPP2R5D protein phosphatase 2 regulatory subunit B'gamma	PPP2R5C,PPP2R5D	PPP2R5C,PPP2R5D	TRUE	FALSE	MTORC2 signaling
+c104588-g1 1-to-1 XRN1 5'-3' exoribonuclease 1	XRN1	XRN1	FALSE	FALSE	RNA processing
+c96580-g1 lia1, Emericella nidulans (strain FGSC A4 / ATCC 3..	NA	NA	FALSE	FALSE	Metabolism
+c102807-g1 1-to-2 LIMK1,LIMK2 LIM domain kinase 1	NA	NA	TRUE	FALSE	Actin dynamics
+c102807-g1 1-to-2 LIMK1,LIMK2 LIM domain kinase 1	NA	NA	TRUE	FALSE	Actomyosin contractility
+c102807-g1 1-to-2 LIMK1,LIMK2 LIM domain kinase 1	NA	NA	TRUE	FALSE	RhoA GTPase signaling
+c104602-g2 2-to-2 FER,FES FER tyrosine kinase	FER,FES	FER,FES	FALSE	FALSE	Regulation of adhesion complexes
+c104604-g1 1-to-2 STK10,SLK serine/threonine kinase 10	STK10,SLK	STK10,SLK	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c104614-g2 3-to-2 ATG16L2,ATG16L1 autophagy related 16 like 2	ATG16L2,ATG16L1	ATG16L2,ATG16L1	FALSE	FALSE	Vesicular trafficking
+c104619-g4 HDLBP (high density lipoprotein binding protein) - emapper OG	HDLBP	HDLBP	FALSE	FALSE	Metabolism
+c104619-g4 HDLBP (high density lipoprotein binding protein) - emapper OG	HDLBP	HDLBP	FALSE	FALSE	Phospholipid signaling
+c104619-g4 HDLBP (high density lipoprotein binding protein) - emapper OG	HDLBP	HDLBP	FALSE	FALSE	RNA processing
+c104625-g2 1-to-3 SGIP1,FCHO2,FCHO1 SH3 domain GRB2 like endophilin interacting protein 1	SGIP1,FCHO2,FCHO1	SGIP1,FCHO2,FCHO1	FALSE	FALSE	Vesicular trafficking
+c96801-g1 1-to-1 LIN52 lin-52 DREAM MuvB core complex component	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c104630-g1 (Gamma-aminobutyric acid (GABA) B receptor) - emapper OG	Gamma-aminobutyricacidGABA	Gamma-aminobutyricacidGABA	TRUE	TRUE	GPCR signaling
+c97937-g1 LOC1, Meyerozyma guilliermondii (strain ATCC 6260 ..	NA	NA	FALSE	FALSE	RNA processing
+c104633-g3 2-to-2 MAPK14,MAPK11 mitogen-activated protein kinase 14	MAPK14,MAPK11	MAPK14,MAPK11	FALSE	FALSE	JNK/p38 MAPK signaling
+c104635-g1 3-to-2 DTX3L,DTX3 deltex E3 ubiquitin ligase 3L	DTX3L,DTX3	DTX3L,DTX3	FALSE	FALSE	Regulation of inflammation
+c107447-g1 1-to-1 LRGUK leucine rich repeats and guanylate kinase domain containing	NA	NA	FALSE	FALSE	Regulation of ciliary function
+c104645-g1 1-to-3 TCERG1,ARHGAP5,ARHGAP35 transcription elongation regulator 1	TCERG1,ARHGAP5,ARHGAP35	TCERG1,ARHGAP5,ARHGAP35	TRUE	FALSE	RhoA GTPase signaling
+c104645-g1 1-to-3 TCERG1,ARHGAP5,ARHGAP35 transcription elongation regulator 1	TCERG1,ARHGAP5,ARHGAP35	TCERG1,ARHGAP5,ARHGAP35	TRUE	FALSE	Rho signaling
+c104653-g1 1-to-1 EPRS glutamyl-prolyl-tRNA synthetase	EPRS	EPRS	FALSE	FALSE	Regulation of inflammation
+c102002-g1 1-to-1 LSM12 LSM12 homolog	NA	NA	TRUE	FALSE	Regulation of calcium signaling
+c94687-g1 Lurap1, Rattus norvegicus	NA	NA	TRUE	FALSE	Actomyosin contractility
+c94687-g1 Lurap1, Rattus norvegicus	NA	NA	TRUE	FALSE	Cdc42 GTPase signaling
+c94687-g1 Lurap1, Rattus norvegicus	NA	NA	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c104665-g3 CDHR3 (Cadherins are calcium dependent cell adhesion proteins (By similarity)) - emapper OG	CDHR3	CDHR3	TRUE	TRUE	Regulation of adhesion complexes
+c104668-g1 2-to-1 SDK2 sidekick cell adhesion molecule 2	SDK2	SDK2	TRUE	FALSE	Regulation of adhesion complexes
+c2944-g1 LYSMD3 (peptidoglycan-binding, domain containing 3) - emapper OG	NA	NA	FALSE	FALSE	Regulation of inflammation
+c104674-g1 1-to-1 DCTN1 dynactin subunit 1	DCTN1	DCTN1	FALSE	FALSE	Vesicular trafficking
+c100840-g1 1-to-1 MAEL maelstrom spermatogenic transposon silencer	NA	NA	FALSE	FALSE	RNA processing
+c104697-g1 1-to-2 SCRIB,LRRC1 scribbled planar cell polarity protein	SCRIB,LRRC1	SCRIB,LRRC1	TRUE	FALSE	Regulation of adhesion complexes
+c104698-g3 1-to-2 NFKB1,NFKB2 nuclear factor kappa B subunit 1	NFKB1,NFKB2	NFKB1,NFKB2	FALSE	FALSE	Regulation of inflammation
+c104702-g1 1-to-3 ASAP2,ASAP3,ASAP1 ArfGAP with SH3 domain, ankyrin repeat and PH domain 2	ASAP2,ASAP3,ASAP1	ASAP2,ASAP3,ASAP1	FALSE	FALSE	Regulation of adhesion complexes
+c104702-g1 1-to-3 ASAP2,ASAP3,ASAP1 ArfGAP with SH3 domain, ankyrin repeat and PH domain 2	ASAP2,ASAP3,ASAP1	ASAP2,ASAP3,ASAP1	FALSE	FALSE	Vesicular trafficking
+c104704-g1 1-to-1 DDX49 DEAD-box helicase 49	DDX49	DDX49	FALSE	FALSE	RNA processing
+c104706-g1 1-to-1 TRIO trio Rho guanine nucleotide exchange factor	TRIO	TRIO	TRUE	TRUE	GPCR signaling
+c104706-g1 1-to-1 TRIO trio Rho guanine nucleotide exchange factor	TRIO	TRIO	TRUE	TRUE	Rac1 GTPase signaling
+c104706-g1 1-to-1 TRIO trio Rho guanine nucleotide exchange factor	TRIO	TRIO	TRUE	TRUE	RhoA GTPase signaling
+c104706-g1 1-to-1 TRIO trio Rho guanine nucleotide exchange factor	TRIO	TRIO	TRUE	TRUE	Rho signaling
+c98716-g1 1-to-1 MAP2K4 mitogen-activated protein kinase kinase 4	NA	NA	FALSE	FALSE	JNK/p38 MAPK signaling
+c104716-g1 hs-GTSE1	GTSE1	GTSE1	FALSE	FALSE	Regulation of cell cycle
+c104722-g3 2-to-6 SLC4A5,SLC4A7,SLC4A10,SLC4A4... solute carrier family 4 member 5	SLC4A5,SLC4A7,SLC4A10,SLC4A4...	SLC4A5,SLC4A7,SLC4A10,SLC4A4...	FALSE	FALSE	Plasma membrane transporter
+c104728-g1 1-to-1 MAP2K5 mitogen-activated protein kinase kinase 5	NA	NA	FALSE	FALSE	Apoptosis
+c104728-g1 1-to-1 MAP2K5 mitogen-activated protein kinase kinase 5	NA	NA	FALSE	FALSE	Differentiation (muscle cell related)
+c104726-g3 1-to-4 MYH9/10/11/14 myosin heavy chain 1	MYH9/10/11/14	MYH9/10/11/14	TRUE	TRUE	Actomyosin contractility
+c104726-g3 1-to-4 MYH9/10/11/14 myosin heavy chain 1	MYH9/10/11/14	MYH9/10/11/14	TRUE	TRUE	GPCR signaling
+c104726-g3 1-to-4 MYH9/10/11/14 myosin heavy chain 1	MYH9/10/11/14	MYH9/10/11/14	TRUE	TRUE	RhoA GTPase signaling
+c104726-g3 1-to-4 MYH9/10/11/14 myosin heavy chain 1	MYH9/10/11/14	MYH9/10/11/14	TRUE	TRUE	Rho signaling
+c95789-g1 1-to-1 MAP3K19 mitogen-activated protein kinase kinase kinase 19	NA	NA	FALSE	FALSE	JNK/p38 MAPK signaling
+c103372-g2 2-to-2 MAPK1,MAPK3 mitogen-activated protein kinase 1	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c104740-g1 1-to-2 CADPS,CADPS2 calcium dependent secretion activator	CADPS,CADPS2	CADPS,CADPS2	TRUE	FALSE	Regulation of calcium signaling
+c103669-g2 mdt-15, Caenorhabditis elegans	NA	NA	FALSE	FALSE	Metabolism
+c103669-g2 mdt-15, Caenorhabditis elegans	NA	NA	FALSE	FALSE	Phospholipid signaling
+c104757-g1 2-to-2 VPS13C,VPS13A vacuolar protein sorting 13 homolog C	VPS13C,VPS13A	VPS13C,VPS13A	TRUE	FALSE	Lysosomes
+c104757-g1 2-to-2 VPS13C,VPS13A vacuolar protein sorting 13 homolog C	VPS13C,VPS13A	VPS13C,VPS13A	TRUE	FALSE	Phospholipid signaling
+c104757-g1 2-to-2 VPS13C,VPS13A vacuolar protein sorting 13 homolog C	VPS13C,VPS13A	VPS13C,VPS13A	TRUE	FALSE	Vesicular trafficking
+c104768-g1 1-to-3 PKN3,PKN1,PKN2 protein kinase N3	PKN3,PKN1,PKN2	PKN3,PKN1,PKN2	TRUE	TRUE	GPCR signaling
+c104768-g1 1-to-3 PKN3,PKN1,PKN2 protein kinase N3	PKN3,PKN1,PKN2	PKN3,PKN1,PKN2	TRUE	TRUE	Rac1 GTPase signaling
+c104768-g1 1-to-3 PKN3,PKN1,PKN2 protein kinase N3	PKN3,PKN1,PKN2	PKN3,PKN1,PKN2	TRUE	TRUE	Regulation of adhesion complexes
+c104768-g1 1-to-3 PKN3,PKN1,PKN2 protein kinase N3	PKN3,PKN1,PKN2	PKN3,PKN1,PKN2	TRUE	TRUE	RhoA GTPase signaling
+c104768-g1 1-to-3 PKN3,PKN1,PKN2 protein kinase N3	PKN3,PKN1,PKN2	PKN3,PKN1,PKN2	TRUE	TRUE	Rho signaling
+c104778-g1 1-to-2 MAGI3,MAGI2 membrane associated guanylate kinase, WW and PDZ domain containing 3	MAGI3,MAGI2	MAGI3,MAGI2	TRUE	FALSE	PI3K signaling
+c104778-g1 1-to-2 MAGI3,MAGI2 membrane associated guanylate kinase, WW and PDZ domain containing 3	MAGI3,MAGI2	MAGI3,MAGI2	TRUE	FALSE	Regulation of adhesion complexes
+c104780-g1 TLN1 (K06271 talin) - emapper OG	TLN1	TLN1	TRUE	TRUE	Actomyosin contractility
+c104780-g1 TLN1 (K06271 talin) - emapper OG	TLN1	TLN1	TRUE	TRUE	Regulation of adhesion complexes
+c104780-g1 TLN1 (K06271 talin) - emapper OG	TLN1	TLN1	TRUE	TRUE	Regulation of cytoskeleton at the membrane
+c100153-g1 MESDC1 (Mesoderm development candidate 1) - emapper OG	NA	NA	FALSE	FALSE	Actin network assembly
+c104797-g2 1-to-2 NT5DC4,NT5C2 5'-nucleotidase domain containing 4	NT5DC4,NT5C2	NT5DC4,NT5C2	FALSE	FALSE	Metabolism
+c104798-g1 1-to-3 DOCK2,DOCK5,DOCK1 dedicator of cytokinesis 2	DOCK2,DOCK5,DOCK1	DOCK2,DOCK5,DOCK1	TRUE	TRUE	Cdc42 GTPase signaling
+c104798-g1 1-to-3 DOCK2,DOCK5,DOCK1 dedicator of cytokinesis 2	DOCK2,DOCK5,DOCK1	DOCK2,DOCK5,DOCK1	TRUE	TRUE	Rac1 GTPase signaling
+c104798-g1 1-to-3 DOCK2,DOCK5,DOCK1 dedicator of cytokinesis 2	DOCK2,DOCK5,DOCK1	DOCK2,DOCK5,DOCK1	TRUE	TRUE	Rho signaling
+c104805-g3 1-to-3 FERMT1,FERMT3,FERMT2 fermitin family member 1	FERMT1,FERMT3,FERMT2	FERMT1,FERMT3,FERMT2	FALSE	FALSE	Regulation of adhesion complexes
+c104805-g3 1-to-3 FERMT1,FERMT3,FERMT2 fermitin family member 1	FERMT1,FERMT3,FERMT2	FERMT1,FERMT3,FERMT2	FALSE	FALSE	Regulation of cytoskeleton at the membrane
+c104806-g1 FLNA (Filamin A, alpha) - emapper OG	FLNA	FLNA	TRUE	TRUE	Actin dynamics
+c104806-g1 FLNA (Filamin A, alpha) - emapper OG	FLNA	FLNA	TRUE	TRUE	Actomyosin contractility
+c101860-g1 1-to-1 MIB1 mindbomb E3 ubiquitin protein ligase 1	NA	NA	FALSE	FALSE	Differentiation (muscle cell related)
+c101860-g1 1-to-1 MIB1 mindbomb E3 ubiquitin protein ligase 1	NA	NA	FALSE	FALSE	Vesicular trafficking
+c104817-g1 4-to-2 PLXNA1,PLXNB2 plexin A1	PLXNA1,PLXNB2	PLXNA1,PLXNB2	TRUE	FALSE	Regulation of adhesion complexes
+c104817-g1 4-to-2 PLXNA1,PLXNB2 plexin A1	PLXNA1,PLXNB2	PLXNA1,PLXNB2	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c104824-g1 1-to-1 PSMD2 proteasome 26S subunit, non-ATPase 2	PSMD2	PSMD2	FALSE	FALSE	Chaperone
+c104827-g1 1-to-1 HUWE1 HECT, UBA and WWE domain containing 1, E3 ubiquitin protein ligase	HUWE1	HUWE1	FALSE	FALSE	Apoptosis
+c104827-g1 1-to-1 HUWE1 HECT, UBA and WWE domain containing 1, E3 ubiquitin protein ligase	HUWE1	HUWE1	FALSE	FALSE	Regulation of inflammation
+c104212-g1 (mitogen-activated protein kinase kinase kinase) - emapper OG	NA	NA	FALSE	FALSE	Regulation of inflammation
+c104852-g3 1-to-1 DNAJC6 DnaJ heat shock protein family (Hsp40) member C6	DNAJC6	DNAJC6	FALSE	FALSE	Chaperone
+c104868-g1 GSP (bifunctional glutathionylspermidine amidase glutathionylspermidine synthetase) - emapper OG	GSP	GSP	FALSE	FALSE	Metabolism
+c104872-g1 1-to-1 SPTBN5 spectrin beta, non-erythrocytic 5	SPTBN5	SPTBN5	FALSE	FALSE	Actin network assembly
+c97143-g2 1-to-1 MLH1 mutL homolog 1	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c104879-g1 1-to-1 MTOR mechanistic target of rapamycin	MTOR	MTOR	TRUE	TRUE	MTORC1 signaling
+c104879-g1 1-to-1 MTOR mechanistic target of rapamycin	MTOR	MTOR	TRUE	TRUE	MTORC2 signaling
+c99331-g1 1-to-1 MOCOS molybdenum cofactor sulfurase	NA	NA	FALSE	FALSE	Metabolism
+c104888-g2 (plexin b1) - emapper OG	plexinb1	plexinb1	TRUE	TRUE	Regulation of adhesion complexes
+c104888-g2 (plexin b1) - emapper OG	plexinb1	plexinb1	TRUE	TRUE	Regulation of cytoskeleton at the membrane
+c104892-g1 1-to-1 TEP1 telomerase associated protein 1	TEP1	TEP1	FALSE	FALSE	Regulation of inflammation
+c104907-g1 1-to-1 SNRNP200 small nuclear ribonucleoprotein U5 subunit 200	SNRNP200	SNRNP200	FALSE	FALSE	RNA processing
+c104912-g1 (Inherit from KOG: Meprin A) - emapper OG	MeprinA	MeprinA	FALSE	FALSE	Regulation of adhesion complexes
+c104926-g1 3-to-2 VWA5B1,VWA5B2 von Willebrand factor A domain containing 5B1	VWA5B1,VWA5B2	VWA5B1,VWA5B2	TRUE	FALSE	Regulation of adhesion complexes
+c104939-g1 1-to-1 USP24 ubiquitin specific peptidase 24	USP24	USP24	FALSE	FALSE	Apoptosis
+c104939-g1 1-to-1 USP24 ubiquitin specific peptidase 24	USP24	USP24	FALSE	FALSE	Regulation of cell cycle
+c104955-g1 1-to-3 ITPR1,ITPR3,ITPR2 inositol 1,4,5-trisphosphate receptor type 1	ITPR1,ITPR3,ITPR2	ITPR1,ITPR3,ITPR2	TRUE	TRUE	Phospholipid signaling
+c104955-g1 1-to-3 ITPR1,ITPR3,ITPR2 inositol 1,4,5-trisphosphate receptor type 1	ITPR1,ITPR3,ITPR2	ITPR1,ITPR3,ITPR2	TRUE	TRUE	Regulation of calcium signaling
+c104958-g1 1-to-1 SLF1 SMC5-SMC6 complex localization factor 1	SLF1	SLF1	FALSE	FALSE	Regulation of cell cycle
+c105010-g1 MOS (v-mos Moloney murine sarcoma viral oncogene homolog) - blastp	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c100486-g1 MSA1, Saccharomyces cerevisiae (strain ATCC 204508..	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c105071-g1 RPLP0 (Ribosomal protein, large, P0) - emapper OG	RPLP0	RPLP0	FALSE	FALSE	RNA processing
+c105345-g1 1-to-1 SNX29 sorting nexin 29	SNX29	SNX29	TRUE	TRUE	Exocytosis
+c105345-g1 1-to-1 SNX29 sorting nexin 29	SNX29	SNX29	TRUE	TRUE	Vesicular trafficking
+c105383-g1 (Inherit from euNOG: Cofilin/tropomyosin-type actin-binding protein) - emapper OG	Cofilin/tropomyosin-typeactin-bindingprotein	Cofilin/tropomyosin-typeactin-bindingprotein	TRUE	TRUE	Actin dynamics
+c105492-g1 1-to-3 PARD6A,PARD6G,PARD6B par-6 family cell polarity regulator alpha	PARD6A,PARD6G,PARD6B	PARD6A,PARD6G,PARD6B	TRUE	FALSE	Cdc42 GTPase signaling
+c105492-g1 1-to-3 PARD6A,PARD6G,PARD6B par-6 family cell polarity regulator alpha	PARD6A,PARD6G,PARD6B	PARD6A,PARD6G,PARD6B	TRUE	FALSE	Rac1 GTPase signaling
+c105492-g1 1-to-3 PARD6A,PARD6G,PARD6B par-6 family cell polarity regulator alpha	PARD6A,PARD6G,PARD6B	PARD6A,PARD6G,PARD6B	TRUE	FALSE	Regulation of adhesion complexes
+c105492-g1 1-to-3 PARD6A,PARD6G,PARD6B par-6 family cell polarity regulator alpha	PARD6A,PARD6G,PARD6B	PARD6A,PARD6G,PARD6B	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c105492-g1 1-to-3 PARD6A,PARD6G,PARD6B par-6 family cell polarity regulator alpha	PARD6A,PARD6G,PARD6B	PARD6A,PARD6G,PARD6B	TRUE	FALSE	Rho signaling
+c93195-g1 1-to-1 MSH6 mutS homolog 6	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c104232-g1 1-to-3 MTA2,MTA1,MTA3 metastasis associated 1 family member 2	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c100830-g1 1-to-1 MTHFR methylenetetrahydrofolate reductase	NA	NA	FALSE	FALSE	Metabolism
+c103848-g1 2-to-1 MUSK muscle associated receptor tyrosine kinase	NA	NA	TRUE	FALSE	Actomyosin contractility
+c103848-g1 2-to-1 MUSK muscle associated receptor tyrosine kinase	NA	NA	TRUE	FALSE	Differentiation (muscle cell related)
+c103848-g1 2-to-1 MUSK muscle associated receptor tyrosine kinase	NA	NA	TRUE	FALSE	Post-synaptic scaffold
+c103848-g1 2-to-1 MUSK muscle associated receptor tyrosine kinase	NA	NA	TRUE	FALSE	Regulation of adhesion complexes
+c100226-g1 MYCN (v-myc myelocytomatosis viral related oncogene, neuroblastoma derived (avian)) - emapper OG	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c91412-g1 1-to-2 MYO3A,MYO3B myosin IIIA	NA	NA	FALSE	FALSE	Regulation of ciliary function
+c108134-g1 1-to-2 PPP1R16A,PPP1R16B protein phosphatase 1 regulatory subunit 16A	PPP1R16A,PPP1R16B	PPP1R16A,PPP1R16B	TRUE	TRUE	Actomyosin contractility
+c108134-g1 1-to-2 PPP1R16A,PPP1R16B protein phosphatase 1 regulatory subunit 16A	PPP1R16A,PPP1R16B	PPP1R16A,PPP1R16B	TRUE	TRUE	GPCR signaling
+c108134-g1 1-to-2 PPP1R16A,PPP1R16B protein phosphatase 1 regulatory subunit 16A	PPP1R16A,PPP1R16B	PPP1R16A,PPP1R16B	TRUE	TRUE	RhoA GTPase signaling
+c108134-g1 1-to-2 PPP1R16A,PPP1R16B protein phosphatase 1 regulatory subunit 16A	PPP1R16A,PPP1R16B	PPP1R16A,PPP1R16B	TRUE	TRUE	Rho signaling
+c108332-g1 1-to-1 VPS13D vacuolar protein sorting 13 homolog D	VPS13D	VPS13D	TRUE	FALSE	Phospholipid signaling
+c108332-g1 1-to-1 VPS13D vacuolar protein sorting 13 homolog D	VPS13D	VPS13D	TRUE	FALSE	Vesicular trafficking
+c110092-g1 3-to-4 HMGB2,HMGB1,HMGB3,HMGB4 high mobility group box 2	HMGB2,HMGB1,HMGB3,HMGB4	HMGB2,HMGB1,HMGB3,HMGB4	FALSE	FALSE	Chaperone
+c110092-g1 3-to-4 HMGB2,HMGB1,HMGB3,HMGB4 high mobility group box 2	HMGB2,HMGB1,HMGB3,HMGB4	HMGB2,HMGB1,HMGB3,HMGB4	FALSE	FALSE	Regulation of inflammation
+c110149-g1 1-to-3 KIF5B,KIF5C,KIF5A kinesin family member 5B	KIF5B,KIF5C,KIF5A	KIF5B,KIF5C,KIF5A	FALSE	FALSE	Microtubule dynamics
+c110149-g1 1-to-3 KIF5B,KIF5C,KIF5A kinesin family member 5B	KIF5B,KIF5C,KIF5A	KIF5B,KIF5C,KIF5A	FALSE	FALSE	Vesicular trafficking
+c104650-g2 2-to-3 MYOF,DYSF myoferlin	NA	NA	TRUE	FALSE	Differentiation (muscle cell related)
+c104650-g2 2-to-3 MYOF,DYSF myoferlin	NA	NA	TRUE	FALSE	Phospholipid signaling
+c104650-g2 2-to-3 MYOF,DYSF myoferlin	NA	NA	TRUE	FALSE	Vesicular trafficking
+c110956-g1 RDX (Neurofibromin 2 (Merlin)) - emapper OG	RDX	RDX	TRUE	TRUE	Regulation of adhesion complexes
+c110956-g1 RDX (Neurofibromin 2 (Merlin)) - emapper OG	RDX	RDX	TRUE	TRUE	Regulation of cytoskeleton at the membrane
+c102126-g1 NANOS1 (nanos homolog 1 (Drosophila)) - emapper OG	NA	NA	FALSE	FALSE	Differentiation (reproductive cell related)
+c111555-g1 hs-SH2D6,SOCS1	SH2D6,SOCS1	SH2D6,SOCS1	FALSE	FALSE	Regulation of inflammation
+c83720-g1 NCF4 (Neutrophil cytosolic factor 4, 40kDa) - emapper OG	NA	NA	TRUE	FALSE	NO signaling
+c104131-g2 2-to-2 NEDD4L,NEDD4 neural precursor cell expressed, developmentally down-regulated 4-like, E3 ubiq	NA	NA	FALSE	FALSE	Regulation of calcium signaling
+c104184-g1 1-to-3 NEK5,NEK1,NEK3 NIMA related kinase 5	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c104017-g3 1-to-2 NEK7,NEK6 NIMA related kinase 7	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c88297-g1 1-to-1 NELFA negative elongation factor complex member A	NA	NA	FALSE	FALSE	RNA processing
+c103991-g1 (neuron navigator) - emapper OG	NA	NA	TRUE	FALSE	Actin network assembly
+c103991-g1 (neuron navigator) - emapper OG	NA	NA	TRUE	FALSE	Microtubule dynamics
+c103991-g1 (neuron navigator) - emapper OG	NA	NA	TRUE	FALSE	Rac1 GTPase signaling
+c103991-g1 (neuron navigator) - emapper OG	NA	NA	TRUE	FALSE	RhoA GTPase signaling
+c2276-g1 RPL18A (60S ribosomal protein L18a) - emapper OG	RPL18A	RPL18A	FALSE	FALSE	RNA processing
+c102239-g1 1-to-1 NFRKB nuclear factor related to kappaB binding protein	NA	NA	TRUE	FALSE	Regulation of inflammation
+c102239-g1 1-to-1 NFRKB nuclear factor related to kappaB binding protein	NA	NA	TRUE	FALSE	Stress-related transcription activity
+c2711-g1 RPL18 (60S ribosomal protein L18) - emapper OG	RPL18	RPL18	FALSE	FALSE	RNA processing
+c104670-g4 1-to-1 NOS1AP nitric oxide synthase 1 adaptor protein	NA	NA	TRUE	FALSE	NO signaling
+c104590-g2 NOTCH2 (neurogenic locus notch homolog protein) - emapper OG	NA	NA	FALSE	FALSE	Regulation of adhesion complexes
+c104682-g1 1-to-1 NSF N-ethylmaleimide sensitive factor, vesicle fusing ATPase	NA	NA	FALSE	FALSE	Vesicular trafficking
+c100540-g1 1-to-1 ODF2 outer dense fiber of sperm tails 2	NA	NA	FALSE	FALSE	Regulation of ciliary function
+c97214-g1 P, Rabies virus (strain Pasteur vaccins / PV)	NA	NA	FALSE	FALSE	Vesicular trafficking
+c103994-g2 1-to-1 PARP3 poly(ADP-ribose) polymerase family member 3	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c53310-g1 1-to-11 PCDHB2,PCDHB5,PCDH12,PCDHB12... protocadherin beta 2	NA	NA	TRUE	FALSE	Regulation of adhesion complexes
+c53310-g1 1-to-11 PCDHB2,PCDHB5,PCDH12,PCDHB12... protocadherin beta 2	NA	NA	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c104803-g1 PCSK5 (proprotein convertase subtilisin/kexin type 5) - blastp	NA	NA	TRUE	FALSE	Exocytosis
+c104803-g1 PCSK5 (proprotein convertase subtilisin/kexin type 5) - blastp	NA	NA	TRUE	FALSE	Vesicular trafficking
+c102545-g1 1-to-3 PELI2,PELI3,PELI1 pellino E3 ubiquitin protein ligase family member 2	NA	NA	FALSE	FALSE	JNK/p38 MAPK signaling
+c102545-g1 1-to-3 PELI2,PELI3,PELI1 pellino E3 ubiquitin protein ligase family member 2	NA	NA	FALSE	FALSE	Regulation of inflammation
+c52446-g1 1-to-1 MAP3K20 mitogen-activated protein kinase kinase kinase 20	MAP3K20	MAP3K20	FALSE	FALSE	JNK/p38 MAPK signaling
+c98374-g1 (peptidoglycan catabolic process) - emapper OG	NA	NA	FALSE	FALSE	Regulation of adhesion complexes
+c102529-g5 PEX1 (Peroxisome biogenesis factor 1, N-terminal) - emapper OG	NA	NA	FALSE	FALSE	NO signaling
+c99432-g1 (PH) - emapper OG	NA	NA	FALSE	FALSE	Regulation of cytoskeleton at the membrane
+c104558-g2 (PH domain) - emapper OG	NA	NA	FALSE	FALSE	Regulation of cytoskeleton at the membrane
+c92759-g1 1-to-2 PHLPP1,PHLPP2 PH domain and leucine rich repeat protein phosphatase 1	NA	NA	FALSE	FALSE	Differentiation (muscle cell related)
+c63803-g1 EEF1D (Eukaryotic translation elongation factor 1 delta (Guanine nucleotide exchange protein)) - ema	EEF1D	EEF1D	FALSE	FALSE	RNA processing
+c103840-g1 1-to-3 PIK3C2A,PIK3C2B,PIK3C2G phosphatidylinositol-4-phosphate 3-kinase catalytic subunit type 2 a	NA	NA	TRUE	FALSE	Phospholipid signaling
+c104815-g1 PINK1 (PTEN induced putative kinase 1) - blastp	NA	NA	FALSE	FALSE	NO signaling
+c6850-g1 1-to-1 UFL1 UFM1 specific ligase 1	UFL1	UFL1	FALSE	FALSE	Regulation of inflammation
+c74224-g2 1-to-1 PASK PAS domain containing serine/threonine kinase	PASK	PASK	FALSE	FALSE	Differentiation (muscle cell related)
+c74224-g2 1-to-1 PASK PAS domain containing serine/threonine kinase	PASK	PASK	FALSE	FALSE	Metabolism
+c74224-g2 1-to-1 PASK PAS domain containing serine/threonine kinase	PASK	PASK	FALSE	FALSE	Phospholipid signaling
+c101462-g1 1-to-1 PKHD1 PKHD1, fibrocystin/polyductin	NA	NA	FALSE	FALSE	Regulation of adhesion complexes
+c101462-g1 1-to-1 PKHD1 PKHD1, fibrocystin/polyductin	NA	NA	FALSE	FALSE	Regulation of ciliary function
+c102868-g2 PLA2G6 (phospholipase A2 group VI) - blastp	NA	NA	TRUE	FALSE	Phospholipid signaling
+c104750-g1 4-to-1 PLA2G6 phospholipase A2 group VI	NA	NA	FALSE	FALSE	Phospholipid signaling
+c79296-g1 1-to-4 CORO1A,CORO6,CORO1B,CORO1C coronin 1A	CORO1A,CORO6,CORO1B,CORO1C	CORO1A,CORO6,CORO1B,CORO1C	TRUE	TRUE	Actin dynamics
+c79296-g1 1-to-4 CORO1A,CORO6,CORO1B,CORO1C coronin 1A	CORO1A,CORO6,CORO1B,CORO1C	CORO1A,CORO6,CORO1B,CORO1C	TRUE	TRUE	Actin network assembly
+c93327-g1 1-to-2 PLEKHG6,PLEKHG5 pleckstrin homology and RhoGEF domain containing G6	NA	NA	FALSE	FALSE	Regulation of cytoskeleton at the membrane
+c80239-g1 1-to-1 TBCE tubulin folding cofactor E	TBCE	TBCE	FALSE	FALSE	Microtubule dynamics
+c53306-g1 PLEKHH1 (pleckstrin homology, MyTH4 and FERM domain containing H1) - blastp	NA	NA	FALSE	FALSE	Regulation of cytoskeleton at the membrane
+c80807-g1 HPS4 (Hermansky-Pudlak Syndrome 4) - emapper OG	HPS4	HPS4	FALSE	FALSE	Lysosomes
+c80807-g1 HPS4 (Hermansky-Pudlak Syndrome 4) - emapper OG	HPS4	HPS4	FALSE	FALSE	Vesicular trafficking
+c101348-g1 pmp12, Chlamydia pneumoniae	NA	NA	FALSE	FALSE	Regulation of adhesion complexes
+c81272-g1 hs-N4BP3,C3orf49,GKAP1	N4BP3,C3orf49,GKAP1	N4BP3,C3orf49,GKAP1	FALSE	FALSE	Regulation of inflammation
+c97114-g1 pob1, Schizosaccharomyces pombe (strain 972 / ATCC..	NA	NA	FALSE	FALSE	Cdc42 GTPase signaling
+c81748-g1 POG1, Vanderwaltozyma polyspora (strain ATCC 22028..	POG1,	POG1	FALSE	FALSE	Regulation of cell cycle
+c82132-g1 1-to-1 PRIM2 primase (DNA) subunit 2	PRIM2	PRIM2	FALSE	FALSE	Regulation of cell cycle
+c82928-g1 1-to-1 DIS3 DIS3 homolog, exosome endoribonuclease and 3'-5' exoribonuclease	DIS3	DIS3	FALSE	FALSE	RNA processing
+c83238-g1 1-to-2 CHUK,IKBKB conserved helix-loop-helix ubiquitous kinase	CHUK,IKBKB	CHUK,IKBKB	FALSE	FALSE	Regulation of inflammation
+c97997-g1 1-to-1 PPP1R2 protein phosphatase 1 regulatory inhibitor subunit 2	NA	NA	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c50918-g1 1-to-1 PPP4R4 protein phosphatase 4 regulatory subunit 4	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c99115-g1 1-to-2 PRKAA1,PRKAA2 protein kinase AMP-activated catalytic subunit alpha 1	NA	NA	FALSE	FALSE	Metabolism
+c99115-g1 1-to-2 PRKAA1,PRKAA2 protein kinase AMP-activated catalytic subunit alpha 1	NA	NA	FALSE	FALSE	NO signaling
+c102902-g1 1-to-3 PRKCG,PRKCB,PRKCA protein kinase C gamma	NA	NA	FALSE	FALSE	Differentiation (gland cell related)
+c102902-g1 1-to-3 PRKCG,PRKCB,PRKCA protein kinase C gamma	NA	NA	FALSE	FALSE	Regulation of calcium signaling
+c85861-g1 1-to-2 MSI1,MSI2 musashi RNA binding protein 1	MSI1,MSI2	MSI1,MSI2	FALSE	FALSE	Differentiation of spicule cells
+c85861-g1 1-to-2 MSI1,MSI2 musashi RNA binding protein 1	MSI1,MSI2	MSI1,MSI2	FALSE	FALSE	RNA processing
+c103726-g1 1-to-3 PRKD1,PRKD3,PRKD2 protein kinase D1	NA	NA	FALSE	FALSE	JNK/p38 MAPK signaling
+c103726-g1 1-to-3 PRKD1,PRKD3,PRKD2 protein kinase D1	NA	NA	FALSE	FALSE	Phospholipid signaling
+c91489-g1 1-to-1 PRR11 proline rich 11	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c102046-g1 PTPN13 (protein tyrosine phosphatase, non-receptor type 13 (APO-1 CD95 (Fas)-associated phosphatase	NA	NA	FALSE	FALSE	Apoptosis
+c94893-g3 PTPN13 (protein tyrosine phosphatase, non-receptor type 13 (APO-1/CD95 (Fas)-associated phosphatase)	NA	NA	FALSE	FALSE	Apoptosis
+c88045-g1 1-to-1 PCCB propionyl-CoA carboxylase beta subunit	PCCB	PCCB	FALSE	FALSE	Metabolism
+c88045-g1 1-to-1 PCCB propionyl-CoA carboxylase beta subunit	PCCB	PCCB	FALSE	FALSE	Phospholipid signaling
+c88072-g1 1-to-2 FAM109B,FAM109A family with sequence similarity 109 member B	FAM109B,FAM109A	FAM109B,FAM109A	FALSE	FALSE	Vesicular trafficking
+c103280-g1 1-to-2 PTPN14,PTPN21 protein tyrosine phosphatase, non-receptor type 14	NA	NA	FALSE	FALSE	Regulation of adhesion complexes
+c88176-g1 1-to-1 SNAP29 synaptosome associated protein 29	SNAP29	SNAP29	TRUE	TRUE	Exocytosis
+c88176-g1 1-to-1 SNAP29 synaptosome associated protein 29	SNAP29	SNAP29	TRUE	TRUE	Vesicular trafficking
+c104843-g1 PtprK/M/T/U family ortholog	NA	NA	FALSE	FALSE	Regulation of adhesion complexes
+c88339-g1 1-to-1 PIK3CG phosphatidylinositol-4,5-bisphosphate 3-kinase catalytic subunit gamma	PIK3CG	PIK3CG	TRUE	TRUE	GPCR signaling
+c88339-g1 1-to-1 PIK3CG phosphatidylinositol-4,5-bisphosphate 3-kinase catalytic subunit gamma	PIK3CG	PIK3CG	TRUE	TRUE	Phospholipid signaling
+c88339-g1 1-to-1 PIK3CG phosphatidylinositol-4,5-bisphosphate 3-kinase catalytic subunit gamma	PIK3CG	PIK3CG	TRUE	TRUE	PI3K signaling
+c88339-g1 1-to-1 PIK3CG phosphatidylinositol-4,5-bisphosphate 3-kinase catalytic subunit gamma	PIK3CG	PIK3CG	TRUE	TRUE	Rac1 GTPase signaling
+c88339-g1 1-to-1 PIK3CG phosphatidylinositol-4,5-bisphosphate 3-kinase catalytic subunit gamma	PIK3CG	PIK3CG	TRUE	TRUE	Rho signaling
+c89095-g2 1-to-1 CHAF1A chromatin assembly factor 1 subunit A	CHAF1A	CHAF1A	FALSE	FALSE	Regulation of cell cycle
+c89142-g1 1-to-1 NADK NAD kinase	NADK	NADK	TRUE	FALSE	Metabolism
+c89142-g1 1-to-1 NADK NAD kinase	NADK	NADK	TRUE	FALSE	NO signaling
+c103174-g1 1-to-2 RAB11FIP3,RAB11FIP4 RAB11 family interacting protein 3	NA	NA	FALSE	FALSE	Vesicular trafficking
+c86189-g1 RADIL (Ras association and DIL domains) - blastp	NA	NA	FALSE	FALSE	Ras GTPase signaling
+c102941-g2 1-to-1 RALBP1 ralA binding protein 1	NA	NA	FALSE	FALSE	Cdc42 GTPase signaling
+c102941-g2 1-to-1 RALBP1 ralA binding protein 1	NA	NA	FALSE	FALSE	Rac1 GTPase signaling
+c90333-g1 1-to-2 RNF103-CHMP3 RNF103-CHMP3 readthrough	RNF103-CHMP3	RNF103-CHMP3	FALSE	FALSE	Lysosomes
+c90333-g1 1-to-2 RNF103-CHMP3 RNF103-CHMP3 readthrough	RNF103-CHMP3	RNF103-CHMP3	FALSE	FALSE	Vesicular trafficking
+c90745-g2 (Inherit from opiNOG: glycine-rich RNA binding protein) - emapper OG	glycine-richRNAbindingprotein	glycine-richRNAbindingprotein	FALSE	FALSE	RNA processing
+c95279-g1 RALGPS2 (Ral GEF with PH domain and SH3 binding motif) - emapper OG	NA	NA	FALSE	FALSE	Regulation of cytoskeleton at the membrane
+c91370-g1 ATP6V1H (ATPase, H transporting, lysosomal 50 57kDa, V1 subunit H) - emapper OG	ATP6V1H	ATP6V1H	FALSE	FALSE	Lysosomal transporter
+c102213-g1 2-to-4 RAPGEFL1,RAPGEF5,RAPGEF4,RAPGEF3 Rap guanine nucleotide exchange factor like 1	NA	NA	FALSE	FALSE	Regulation of adhesion complexes
+c91395-g1 1-to-2 CLASP1,CLASP2 cytoplasmic linker associated protein 1	CLASP1,CLASP2	CLASP1,CLASP2	FALSE	FALSE	Microtubule dynamics
+c101097-g1 RASGEF1B (RasGEF domain family member 1B) - blastp	NA	NA	FALSE	FALSE	Regulation of inflammation
+c99229-g1 1-to-1 RBM45 RNA binding motif protein 45	NA	NA	FALSE	FALSE	Differentiation (gland cell related)
+c91434-g1 SRR (serine racemase) - emapper OG	SRR	SRR	FALSE	FALSE	Metabolism
+c91449-g1 EEF2 (Eukaryotic translation elongation factor 2) - emapper OG	EEF2	EEF2	FALSE	FALSE	RNA processing
+c104337-g1 1-to-1 RFWD2 ring finger and WD repeat domain 2	NA	NA	FALSE	FALSE	Metabolism
+c91485-g1 (Inherit from KOG: Pleckstrin homology domain containing, family H (With MyTH4 domain) member) - ema	Pleckstrinhomologydomaincontaining,familyHWithMyTH4domain	Pleckstrinhomologydomaincontaining,familyHWithMyTH4domain	TRUE	FALSE	Regulation of adhesion complexes
+c91485-g1 (Inherit from KOG: Pleckstrin homology domain containing, family H (With MyTH4 domain) member) - ema	Pleckstrinhomologydomaincontaining,familyHWithMyTH4domain	Pleckstrinhomologydomaincontaining,familyHWithMyTH4domain	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c100915-g1 RGS4 (regulator of G-protein signaling 4) - emapper OG	NA	NA	FALSE	FALSE	GPCR signaling
+c91679-g1 RPL21 (ribosomal protein L21) - emapper OG	RPL21	RPL21	FALSE	FALSE	RNA processing
+c91856-g2 2-to-3 IQSEC2,IQSEC3,IQSEC1 IQ motif and Sec7 domain 2	IQSEC2,IQSEC3,IQSEC1	IQSEC2,IQSEC3,IQSEC1	FALSE	FALSE	Vesicular trafficking
+c101434-g1 1-to-5 RHCG,RHCE,RHD,RHAG... Rh family C glycoprotein	NA	NA	FALSE	FALSE	Metabolism
+c91960-g1 1-to-1 CCDC115 coiled-coil domain containing 115	CCDC115	CCDC115	FALSE	FALSE	Vesicular trafficking
+c101336-g2 (Inherit from KOG: rho guanine nucleotide exchange factor) - emapper OG	NA	NA	FALSE	FALSE	Rho signaling
+c99144-g2 RIMBP2 (RIMS binding protein 2) - blastp	NA	NA	FALSE	FALSE	Exocytosis
+c99144-g2 RIMBP2 (RIMS binding protein 2) - blastp	NA	NA	FALSE	FALSE	Regulation of calcium signaling
+c99144-g2 RIMBP2 (RIMS binding protein 2) - blastp	NA	NA	FALSE	FALSE	Vesicular trafficking
+c92415-g1 hs-SEC61B	SEC61B	SEC61B	FALSE	FALSE	Vesicular trafficking
+c92647-g1 1-to-1 CCT5 chaperonin containing TCP1 subunit 5	CCT5	CCT5	FALSE	FALSE	Actin dynamics
+c92647-g1 1-to-1 CCT5 chaperonin containing TCP1 subunit 5	CCT5	CCT5	FALSE	FALSE	Chaperone
+c92647-g1 1-to-1 CCT5 chaperonin containing TCP1 subunit 5	CCT5	CCT5	FALSE	FALSE	Microtubule dynamics
+c92709-g1 1-to-1 RAB18 RAB18, member RAS oncogene family	RAB18	RAB18	FALSE	FALSE	Vesicular trafficking
+c92727-g1 (7 transmembrane receptor (rhodopsin family)) - emapper OG	7transmembranereceptorrhodopsinfamily	7transmembranereceptorrhodopsinfamily	TRUE	TRUE	GPCR signaling
+c104270-g1 RNF10 (Ring finger protein 10) - emapper OG	NA	NA	FALSE	FALSE	Regulation of inflammation
+c104270-g1 RNF10 (Ring finger protein 10) - emapper OG	NA	NA	FALSE	FALSE	Vesicular trafficking
+c104629-g1 RNF14 (ring finger protein 14) - blastp	NA	NA	FALSE	FALSE	Regulation of inflammation
+c104629-g1 RNF14 (ring finger protein 14) - blastp	NA	NA	FALSE	FALSE	Vesicular trafficking
+c102686-g1 1-to-1 RNF31 ring finger protein 31	NA	NA	FALSE	FALSE	Regulation of inflammation
+c102686-g1 1-to-1 RNF31 ring finger protein 31	NA	NA	FALSE	FALSE	Vesicular trafficking
+c103496-g1 1-to-1 RNF41 ring finger protein 41	NA	NA	FALSE	FALSE	Regulation of inflammation
+c103496-g1 1-to-1 RNF41 ring finger protein 41	NA	NA	FALSE	FALSE	Vesicular trafficking
+c93637-g1 1-to-3 ELMSAN1,ZNF541,TRERF1 ELM2 and Myb/SANT domain containing 1	ELMSAN1,ZNF541,TRERF1	ELMSAN1,ZNF541,TRERF1	FALSE	FALSE	Regulation of cell cycle
+c103029-g2 1-to-2 RPGRIP1L,RPGRIP1 RPGRIP1 like	NA	NA	FALSE	FALSE	Regulation of ciliary function
+c101413-g1 1-to-4 RPS6KA6,RPS6KA3,RPS6KA2,RPS6KA1 ribosomal protein S6 kinase A6	NA	NA	FALSE	FALSE	RNA processing
+c94114-g1 1-to-1 TRAPPC9 trafficking protein particle complex 9	TRAPPC9	TRAPPC9	FALSE	FALSE	Regulation of inflammation
+c94114-g1 1-to-1 TRAPPC9 trafficking protein particle complex 9	TRAPPC9	TRAPPC9	FALSE	FALSE	Vesicular trafficking
+c94205-g1 1-to-8 AGAP1,AGAP5,AGAP3,AGAP9... ArfGAP with GTPase domain, ankyrin repeat and PH domain 1	AGAP1,AGAP5,AGAP3,AGAP9...	AGAP1,AGAP5,AGAP3,AGAP9...	FALSE	FALSE	Vesicular trafficking
+c102407-g1 1-to-1 RSRC2 arginine and serine rich coiled-coil 2	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c94604-g1 1-to-3 ABI3,ABI2,ABI1 ABI family member 3	ABI3,ABI2,ABI1	ABI3,ABI2,ABI1	TRUE	FALSE	Actin network assembly
+c94604-g1 1-to-3 ABI3,ABI2,ABI1 ABI family member 3	ABI3,ABI2,ABI1	ABI3,ABI2,ABI1	TRUE	FALSE	Cdc42 GTPase signaling
+c94604-g1 1-to-3 ABI3,ABI2,ABI1 ABI family member 3	ABI3,ABI2,ABI1	ABI3,ABI2,ABI1	TRUE	FALSE	Rac1 GTPase signaling
+c94604-g1 1-to-3 ABI3,ABI2,ABI1 ABI family member 3	ABI3,ABI2,ABI1	ABI3,ABI2,ABI1	TRUE	FALSE	Rho signaling
+c102173-g1 1-to-1 RTF1 RTF1 homolog, Paf1/RNA polymerase II complex component	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c94614-g1 hs-ITGB1BP1,PID1	ITGB1BP1,PID1	ITGB1BP1,PID1	TRUE	FALSE	Regulation of adhesion complexes
+c103625-g2 1-to-1 RUNDC1 RUN domain containing 1	NA	NA	FALSE	FALSE	Lysosomes
+c103625-g2 1-to-1 RUNDC1 RUN domain containing 1	NA	NA	FALSE	FALSE	Vesicular trafficking
+c100709-g1 1-to-2 SAXO2,SAXO1 stabilizer of axonemal microtubules 2	NA	NA	FALSE	FALSE	Microtubule dynamics
+c100709-g1 1-to-2 SAXO2,SAXO1 stabilizer of axonemal microtubules 2	NA	NA	FALSE	FALSE	Regulation of ciliary function
+c102914-g1 1-to-1 SCAP SREBF chaperone	NA	NA	FALSE	FALSE	Phospholipid signaling
+c104659-g1 2-to-5 SEC14L3,SEC14L4,SEC14L6,AC004832.3... SEC14 like lipid binding 3	NA	NA	FALSE	FALSE	Vesicular trafficking
+c94792-g1 hs-MSRB2,MSRB3	MSRB2,MSRB3	MSRB2,MSRB3	FALSE	FALSE	NO signaling
+c94867-g1 ARCN1 (Archain 1) - emapper OG	ARCN1	ARCN1	FALSE	FALSE	Vesicular trafficking
+c104633-g1 1-to-2 SEC31B,SEC31A SEC31 homolog B, COPII coat complex component	NA	NA	FALSE	FALSE	Vesicular trafficking
+c94974-g1 hs-CDC42EP1	CDC42EP1	CDC42EP1	TRUE	TRUE	Cdc42 GTPase signaling
+c94974-g1 hs-CDC42EP1	CDC42EP1	CDC42EP1	TRUE	TRUE	Regulation of cytoskeleton at the membrane
+c94974-g1 hs-CDC42EP1	CDC42EP1	CDC42EP1	TRUE	TRUE	Rho signaling
+c103046-g2 1-to-1 SEC62 SEC62 homolog, preprotein translocation factor	NA	NA	FALSE	FALSE	Vesicular trafficking
+c95151-g1 RNF17 (RING finger protein 17) - emapper OG	RNF17	RNF17	FALSE	FALSE	RNA processing
+c95204-g1 1-to-1 DEPTOR DEP domain containing MTOR interacting protein	DEPTOR	DEPTOR	TRUE	TRUE	Lysosomes
+c95204-g1 1-to-1 DEPTOR DEP domain containing MTOR interacting protein	DEPTOR	DEPTOR	TRUE	TRUE	MTORC2 signaling
+c95234-g1 2-to-2 SLC27A1,SLC27A4 solute carrier family 27 member 1	SLC27A1,SLC27A4	SLC27A1,SLC27A4	FALSE	FALSE	Plasma membrane transporter
+c95282-g1 1-to-3 LPIN2,LPIN3,LPIN1 lipin 2	LPIN2,LPIN3,LPIN1	LPIN2,LPIN3,LPIN1	FALSE	FALSE	Phospholipid signaling
+c95308-g1 1-to-3 CDK2,CDK3,CDK3 cyclin dependent kinase 2	CDK2,CDK3,CDK3	CDK2,CDK3,CDK3	FALSE	FALSE	Regulation of cell cycle
+c104030-g2 1-to-1 SF3B2 splicing factor 3b subunit 2	NA	NA	FALSE	FALSE	RNA processing
+c95437-g1 1-to-3 FMNL2,FMNL1,FMNL3 formin like 2	FMNL2,FMNL1,FMNL3	FMNL2,FMNL1,FMNL3	TRUE	FALSE	Actin dynamics
+c99214-g1 3-to-2 SLC25A2,SLC25A15 solute carrier family 25 member 2	NA	NA	FALSE	FALSE	Plasma membrane transporter
+c101847-g1 5-to-9 SLC26A4,SLC26A2,SLC26A5,SLC26A7... solute carrier family 26 member 4	NA	NA	FALSE	FALSE	Plasma membrane transporter
+c95660-g3 1-to-1 TRAPPC12 trafficking protein particle complex 12	TRAPPC12	TRAPPC12	FALSE	FALSE	Vesicular trafficking
+c95662-g1 AIMP1 (complex-interacting multifunctional protein) - emapper OG	AIMP1	AIMP1	FALSE	FALSE	RNA processing
+c100878-g3 SLC26A5 (solute carrier family 26) - emapper OG	NA	NA	FALSE	FALSE	Plasma membrane transporter
+c98223-g1 3-to-1 SLC39A14 solute carrier family 39 member 14	NA	NA	FALSE	FALSE	Plasma membrane transporter
+c95770-g1 1-to-1 DAP death associated protein	DAP	DAP	FALSE	FALSE	Apoptosis
+c79241-g1 SLC47A1 (Solute carrier family 47 member) - emapper OG	NA	NA	FALSE	FALSE	Plasma membrane transporter
+c99167-g1 1-to-1 SMARCB1 SWI/SNF related, matrix associated, actin dependent regulator of chromatin, subfamily	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c95824-g1 2-to-2 ASMT,ASMTL acetylserotonin O-methyltransferase	ASMT,ASMTL	ASMT,ASMTL	FALSE	FALSE	Metabolism
+c104956-g1 1-to-1 SMG1 SMG1, nonsense mediated mRNA decay associated PI3K related kinase	NA	NA	FALSE	FALSE	RNA processing
+c95900-g2 TICRR (TOPBP1-interacting checkpoint and replication regulator) - blastp	TICRR	TICRR	FALSE	FALSE	Regulation of cell cycle
+c101038-g2 1-to-1 SMG5 SMG5, nonsense mediated mRNA decay factor	NA	NA	FALSE	FALSE	RNA processing
+c103284-g4 4-to-2 SOAT2,SOAT1 sterol O-acyltransferase 2	NA	NA	FALSE	FALSE	Phospholipid signaling
+c95961-g1 1-to-3 ARHGAP18,ARHGAP40,ARHGAP28 Rho GTPase activating protein 18	ARHGAP18,ARHGAP40,ARHGAP28	ARHGAP18,ARHGAP40,ARHGAP28	TRUE	TRUE	RhoA GTPase signaling
+c95961-g1 1-to-3 ARHGAP18,ARHGAP40,ARHGAP28 Rho GTPase activating protein 18	ARHGAP18,ARHGAP40,ARHGAP28	ARHGAP18,ARHGAP40,ARHGAP28	TRUE	TRUE	Rho signaling
+c96027-g1 SH2D4B (SH2 domain containing 4B) - blastp	SH2D4B	SH2D4B	FALSE	FALSE	Regulation of inflammation
+c96056-g1 (glutamine synthetase) - emapper OG	glutaminesynthetase	glutaminesynthetase	FALSE	FALSE	Metabolism
+c104244-g4 SOS2 (Son of sevenless homolog) - emapper OG	NA	NA	FALSE	FALSE	Ras GTPase signaling
+c94607-g1 SPAC8C9.04, Schizosaccharomyces pombe (strain 972 ..	NA	NA	FALSE	FALSE	NO signaling
+c89399-g2 SPECC1L (Sperm antigen with calponin homology and coiled-coil domains) - emapper OG	NA	NA	TRUE	FALSE	Actomyosin contractility
+c89399-g2 SPECC1L (Sperm antigen with calponin homology and coiled-coil domains) - emapper OG	NA	NA	TRUE	FALSE	Regulation of adhesion complexes
+c89399-g2 SPECC1L (Sperm antigen with calponin homology and coiled-coil domains) - emapper OG	NA	NA	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c96196-g3 MPDZ (Multiple PDZ domain protein) - emapper OG	MPDZ	MPDZ	FALSE	FALSE	Regulation of adhesion complexes
+c91461-g1 1-to-2 SPIRE2,SPIRE1 spire type actin nucleation factor 2	NA	NA	TRUE	FALSE	Actin dynamics
+c91461-g1 1-to-2 SPIRE2,SPIRE1 spire type actin nucleation factor 2	NA	NA	TRUE	FALSE	Vesicular trafficking
+c96307-g1 1-to-2 STK17B,STK17A serine/threonine kinase 17b	STK17B,STK17A	STK17B,STK17A	FALSE	FALSE	Apoptosis
+c96316-g1 FLNB (Filamin A, alpha) - emapper OG	FLNB	FLNB	TRUE	FALSE	Actin dynamics
+c96316-g1 FLNB (Filamin A, alpha) - emapper OG	FLNB	FLNB	TRUE	FALSE	Actomyosin contractility
+c97367-g1 1-to-2 SRPK1,SRPK2 SRSF protein kinase 1	NA	NA	FALSE	FALSE	RNA processing
+c102205-g1 1-to-1 SRPRA SRP receptor alpha subunit	NA	NA	FALSE	FALSE	Exocytosis
+c96490-g1 SPAG1 (Sperm associated antigen 1) - emapper OG	SPAG1	SPAG1	FALSE	FALSE	Regulation of ciliary function
+c101893-g1 1-to-1 SRRM2 serine/arginine repetitive matrix 2	NA	NA	FALSE	FALSE	RNA processing
+c99508-g1 7-to-1 STARD9 StAR related lipid transfer domain containing 9	NA	NA	FALSE	FALSE	Microtubule dynamics
+c96584-g1 1-to-3 KIF2B,KIF2C,KIF2A kinesin family member 2B	KIF2B,KIF2C,KIF2A	KIF2B,KIF2C,KIF2A	FALSE	FALSE	Microtubule dynamics
+c96584-g1 1-to-3 KIF2B,KIF2C,KIF2A kinesin family member 2B	KIF2B,KIF2C,KIF2A	KIF2B,KIF2C,KIF2A	FALSE	FALSE	Vesicular trafficking
+c96636-g1 1-to-1 LRRK2 leucine rich repeat kinase 2	LRRK2	LRRK2	FALSE	FALSE	Lysosomes
+c96636-g1 1-to-1 LRRK2 leucine rich repeat kinase 2	LRRK2	LRRK2	FALSE	FALSE	Vesicular trafficking
+c97737-g1 1-to-3 STK25,STK24,STK26 serine/threonine kinase 25	NA	NA	FALSE	FALSE	NO signaling
+c97737-g1 1-to-3 STK25,STK24,STK26 serine/threonine kinase 25	NA	NA	FALSE	FALSE	Regulation of inflammation
+c96684-g1 (intersectin 2) - emapper OG	intersectin2	intersectin2	TRUE	FALSE	Cdc42 GTPase signaling
+c96684-g1 (intersectin 2) - emapper OG	intersectin2	intersectin2	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c96684-g1 (intersectin 2) - emapper OG	intersectin2	intersectin2	TRUE	FALSE	Vesicular trafficking
+c96684-g1 (intersectin 2) - emapper OG	intersectin2	intersectin2	TRUE	FALSE	Rho signaling
+c96711-g1 1-to-2 MLXIP,MLXIPL MLX interacting protein	MLXIP,MLXIPL	MLXIP,MLXIPL	FALSE	FALSE	Metabolism
+c96711-g1 1-to-2 MLXIP,MLXIPL MLX interacting protein	MLXIP,MLXIPL	MLXIP,MLXIPL	FALSE	FALSE	Phospholipid signaling
+c96723-g1 ARSB (oculocutaneous albinism II) - emapper OG	ARSB	ARSB	FALSE	FALSE	Metabolism
+c96723-g1 ARSB (oculocutaneous albinism II) - emapper OG	ARSB	ARSB	FALSE	FALSE	Phospholipid signaling
+c102331-g1 1-to-2 STK4,STK3 serine/threonine kinase 4	NA	NA	FALSE	FALSE	Apoptosis
+c96783-g1 SH3PXD2B (SH3 and PX domains) - emapper OG	SH3PXD2B	SH3PXD2B	TRUE	FALSE	Phospholipid signaling
+c96783-g1 SH3PXD2B (SH3 and PX domains) - emapper OG	SH3PXD2B	SH3PXD2B	TRUE	FALSE	Regulation of adhesion complexes
+c96783-g1 SH3PXD2B (SH3 and PX domains) - emapper OG	SH3PXD2B	SH3PXD2B	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c96796-g1 1-to-1 SPART spartin	SPART	SPART	TRUE	FALSE	Phospholipid signaling
+c96796-g1 1-to-1 SPART spartin	SPART	SPART	TRUE	FALSE	Vesicular trafficking
+c100635-g2 stmn2-a, Xenopus laevis	NA	NA	FALSE	FALSE	Microtubule dynamics
+c96834-g1 1-to-2 AJUBA,WTIP ajuba LIM protein	AJUBA,WTIP	AJUBA,WTIP	FALSE	FALSE	Rac1 GTPase signaling
+c96834-g1 1-to-2 AJUBA,WTIP ajuba LIM protein	AJUBA,WTIP	AJUBA,WTIP	FALSE	FALSE	Regulation of adhesion complexes
+c96834-g1 1-to-2 AJUBA,WTIP ajuba LIM protein	AJUBA,WTIP	AJUBA,WTIP	FALSE	FALSE	Rho signaling
+c96865-g1 1-to-2 RRAGB,RRAGA Ras related GTP binding B	RRAGB,RRAGA	RRAGB,RRAGA	FALSE	FALSE	Lysosomes
+c96865-g1 1-to-2 RRAGB,RRAGA Ras related GTP binding B	RRAGB,RRAGA	RRAGB,RRAGA	FALSE	FALSE	MTORC1 signaling
+c103881-g1 1-to-2 STRIP2,STRIP1 striatin interacting protein 2	NA	NA	TRUE	FALSE	Regulation of adhesion complexes
+c103881-g1 1-to-2 STRIP2,STRIP1 striatin interacting protein 2	NA	NA	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c96925-g1 (Inherit from opiNOG: glycine-rich RNA binding protein) - emapper OG	glycine-richRNAbindingprotein	glycine-richRNAbindingprotein	FALSE	FALSE	RNA processing
+c99180-g1 1-to-1 STX8 syntaxin 8	NA	NA	FALSE	FALSE	Exocytosis
+c99180-g1 1-to-1 STX8 syntaxin 8	NA	NA	FALSE	FALSE	Vesicular trafficking
+c103426-g1 (Inherit from NOG: bZIP Maf transcription factor) - emapper OG	NA	NA	FALSE	FALSE	Exocytosis
+c103426-g1 (Inherit from NOG: bZIP Maf transcription factor) - emapper OG	NA	NA	FALSE	FALSE	Regulation of calcium signaling
+c97027-g1 1-to-2 SENP2,SENP1 SUMO1/sentrin/SMT3 specific peptidase 2	SENP2,SENP1	SENP2,SENP1	TRUE	FALSE	Differentiation (muscle cell related)
+c97038-g1 1-to-2 GRPEL1,GRPEL2 GrpE like 1, mitochondrial	GRPEL1,GRPEL2	GRPEL1,GRPEL2	FALSE	FALSE	Chaperone
+c97043-g1 1-to-4 CLK4,CLK2,CLK3,CLK1 CDC like kinase 4	CLK4,CLK2,CLK3,CLK1	CLK4,CLK2,CLK3,CLK1	FALSE	FALSE	RNA processing
+c101791-g1 SUGP1 (SURP and G-patch domain containing 1) - blastp	NA	NA	FALSE	FALSE	RNA processing
+c97086-g1 CERK (ceramide kinase) - emapper OG	CERK	CERK	FALSE	FALSE	Metabolism
+c97086-g1 CERK (ceramide kinase) - emapper OG	CERK	CERK	FALSE	FALSE	Phospholipid signaling
+c97095-g1 1-to-3 RASEF,CRACR2A,RAB44 RAS and EF-hand domain containing	RASEF,CRACR2A,RAB44	RASEF,CRACR2A,RAB44	FALSE	FALSE	JNK/p38 MAPK signaling
+c97095-g1 1-to-3 RASEF,CRACR2A,RAB44 RAS and EF-hand domain containing	RASEF,CRACR2A,RAB44	RASEF,CRACR2A,RAB44	FALSE	FALSE	Vesicular trafficking
+c89303-g1 2-to-2 SWAP70,DEF6 SWAP switching B-cell complex subunit 70	NA	NA	FALSE	FALSE	Actin dynamics
+c89303-g1 2-to-2 SWAP70,DEF6 SWAP switching B-cell complex subunit 70	NA	NA	FALSE	FALSE	Rho signaling
+c97124-g1 3-to-2 HCLS1,CTTN hematopoietic cell-specific Lyn substrate 1	HCLS1,CTTN	HCLS1,CTTN	FALSE	FALSE	Actin network assembly
+c97124-g3 CORTACTIN (Hematopoietic cell-specific lyn substrate 1) - emapper OG	CORTACTIN	CORTACTIN	TRUE	FALSE	Actin network assembly
+c97124-g4 CORTACTIN (Hematopoietic cell-specific lyn substrate 1) - emapper OG	CORTACTIN	CORTACTIN	TRUE	TRUE	Actin network assembly
+c97125-g1 1-to-1 BFAR bifunctional apoptosis regulator	BFAR	BFAR	FALSE	FALSE	Apoptosis
+c101179-g1 1-to-1 SYT17 synaptotagmin 17	NA	NA	FALSE	FALSE	Exocytosis
+c101179-g1 1-to-1 SYT17 synaptotagmin 17	NA	NA	FALSE	FALSE	Vesicular trafficking
+c104323-g1 1-to-2 SYNJ2,SYNJ1 synaptojanin 2	NA	NA	FALSE	FALSE	Phospholipid signaling
+c104323-g1 1-to-2 SYNJ2,SYNJ1 synaptojanin 2	NA	NA	FALSE	FALSE	Vesicular trafficking
+c103016-g6 1-to-2 SYNJ2BP,SYNJ2BP-COX16 synaptojanin 2 binding protein	NA	NA	FALSE	FALSE	Phospholipid signaling
+c103016-g6 1-to-2 SYNJ2BP,SYNJ2BP-COX16 synaptojanin 2 binding protein	NA	NA	FALSE	FALSE	Vesicular trafficking
+c97186-g1 1-to-1 MVP major vault protein	MVP	MVP	FALSE	FALSE	JNK/p38 MAPK signaling
+c97186-g1 1-to-1 MVP major vault protein	MVP	MVP	FALSE	FALSE	Regulation of inflammation
+c100532-g1 1-to-1 SZT2 SZT2, KICSTOR complex subunit	NA	NA	FALSE	FALSE	MTORC1 signaling
+c104066-g1 1-to-3 TAOK1,TAOK2,TAOK3 TAO kinase 1	NA	NA	FALSE	FALSE	JNK/p38 MAPK signaling
+c97324-g1 4-to-2 PARP15,PARP14 poly(ADP-ribose) polymerase family member 15	PARP15,PARP14	PARP15,PARP14	FALSE	FALSE	Regulation of inflammation
+c97337-g3 2-to-4 TPD52L2,TPD52,TPD52L1 tumor protein D52 like 2	TPD52L2,TPD52,TPD52L1	TPD52L2,TPD52,TPD52L1	FALSE	FALSE	Apoptosis
+c97337-g3 2-to-4 TPD52L2,TPD52,TPD52L1 tumor protein D52 like 2	TPD52L2,TPD52,TPD52L1	TPD52L2,TPD52,TPD52L1	FALSE	FALSE	Vesicular trafficking
+c97357-g1 1-to-1 TRAK2 trafficking kinesin protein 2	TRAK2	TRAK2	FALSE	FALSE	Microtubule dynamics
+c97357-g1 1-to-1 TRAK2 trafficking kinesin protein 2	TRAK2	TRAK2	FALSE	FALSE	Vesicular trafficking
+c113116-g1 1-to-1 TBC1D31 TBC1 domain family member 31	NA	NA	FALSE	FALSE	Regulation of ciliary function
+c97419-g1 ARCN1 (Archain 1) - emapper OG	ARCN1	ARCN1	FALSE	FALSE	Vesicular trafficking
+c97446-g1 2-to-2 DOK1,DOK3 docking protein 1	DOK1,DOK3	DOK1,DOK3	FALSE	FALSE	JNK/p38 MAPK signaling
+c97504-g1 1-to-1 SEPT7 septin 7	SEPT7	SEPT7	TRUE	TRUE	Actin dynamics
+c97504-g1 1-to-1 SEPT7 septin 7	SEPT7	SEPT7	TRUE	TRUE	Microtubule dynamics
+c97504-g1 1-to-1 SEPT7 septin 7	SEPT7	SEPT7	TRUE	TRUE	Regulation of adhesion complexes
+c94628-g1 1-to-1 TCTEX1D1 Tctex1 domain containing 1	NA	NA	FALSE	FALSE	Differentiation (muscle cell related)
+c103586-g1 1-to-1 TDRD7 tudor domain containing 7	NA	NA	FALSE	FALSE	RNA processing
+c97672-g1 CCDC105 (coiled-coil domain containing 105) - emapper OG	CCDC105	CCDC105	FALSE	FALSE	Regulation of ciliary function
+c97682-g1 1-to-1 PPP4R1 protein phosphatase 4 regulatory subunit 1	PPP4R1	PPP4R1	FALSE	FALSE	Regulation of inflammation
+c103619-g1 1-to-2 TESK2,TESK1 testis-specific kinase 2	NA	NA	TRUE	FALSE	Actin dynamics
+c103619-g1 1-to-2 TESK2,TESK1 testis-specific kinase 2	NA	NA	TRUE	FALSE	Actomyosin contractility
+c103619-g1 1-to-2 TESK2,TESK1 testis-specific kinase 2	NA	NA	TRUE	FALSE	Regulation of adhesion complexes
+c97752-g2 INO80E (INO80 complex subunit E) - emapper OG	INO80E	INO80E	FALSE	FALSE	Regulation of cell cycle
+c100092-g2 1-to-1 TEX2 testis expressed 2	NA	NA	FALSE	FALSE	Lysosomes
+c100092-g2 1-to-1 TEX2 testis expressed 2	NA	NA	FALSE	FALSE	Phospholipid signaling
+c97826-g1 1-to-4 TCEA2,TCEA3,TCEA1,TCEANC transcription elongation factor A2	TCEA2,TCEA3,TCEA1,TCEANC	TCEA2,TCEA3,TCEA1,TCEANC	FALSE	FALSE	Chaperone
+c97895-g1 1-to-1 EIF2B4 eukaryotic translation initiation factor 2B subunit delta	EIF2B4	EIF2B4	FALSE	FALSE	RNA processing
+c97909-g1 1-to-1 UBFD1 ubiquitin family domain containing 1	UBFD1	UBFD1	FALSE	FALSE	Regulation of inflammation
+c98878-g1 (thymine-DNA glycosylase) - emapper OG	NA	NA	FALSE	FALSE	Metabolism
+c97953-g1 (Actin) - emapper OG	Actin	Actin	TRUE	FALSE	Actin dynamics
+c97953-g1 (Actin) - emapper OG	Actin	Actin	TRUE	FALSE	Actin network assembly
+c97953-g1 (Actin) - emapper OG	Actin	Actin	TRUE	FALSE	Actomyosin contractility
+c97977-g1 1-to-3 TACC1,TACC3,TACC2 transforming acidic coiled-coil containing protein 1	TACC1,TACC3,TACC2	TACC1,TACC3,TACC2	FALSE	FALSE	Microtubule dynamics
+c39133-g1 1-to-2 TIAM1,TIAM2 T-cell lymphoma invasion and metastasis 1	NA	NA	FALSE	FALSE	Actin network assembly
+c39133-g1 1-to-2 TIAM1,TIAM2 T-cell lymphoma invasion and metastasis 1	NA	NA	FALSE	FALSE	Rac1 GTPase signaling
+c103122-g3 4-to-2 TLN1,TLN2 talin 1	NA	NA	TRUE	FALSE	Regulation of adhesion complexes
+c103122-g3 4-to-2 TLN1,TLN2 talin 1	NA	NA	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c98058-g1 INPP4B (Inositol polyphosphate-4-phosphatase, type) - emapper OG	INPP4B	INPP4B	TRUE	FALSE	Phospholipid signaling
+c98058-g1 INPP4B (Inositol polyphosphate-4-phosphatase, type) - emapper OG	INPP4B	INPP4B	TRUE	FALSE	PI3K signaling
+c98068-g1 1-to-1 PPP1R9A protein phosphatase 1 regulatory subunit 9A	PPP1R9A	PPP1R9A	TRUE	FALSE	Actin dynamics
+c97671-g1 1-to-1 TMEM115 transmembrane protein 115	NA	NA	FALSE	FALSE	Vesicular trafficking
+c98122-g1 1-to-1 PTPN23 protein tyrosine phosphatase, non-receptor type 23	PTPN23	PTPN23	FALSE	FALSE	Regulation of ciliary function
+c98122-g1 1-to-1 PTPN23 protein tyrosine phosphatase, non-receptor type 23	PTPN23	PTPN23	FALSE	FALSE	Regulation of cytoskeleton at the membrane
+c98122-g1 1-to-1 PTPN23 protein tyrosine phosphatase, non-receptor type 23	PTPN23	PTPN23	FALSE	FALSE	Vesicular trafficking
+c98221-g1 hs-ANKRD33	ANKRD33	ANKRD33	TRUE	FALSE	Regulation of adhesion complexes
+c98221-g1 hs-ANKRD33	ANKRD33	ANKRD33	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c101966-g1 1-to-1 TMEM144 transmembrane protein 144	NA	NA	FALSE	FALSE	Metabolism
+c98266-g1 1-to-1 MAPKAP1 mitogen-activated protein kinase associated protein 1	MAPKAP1	MAPKAP1	TRUE	FALSE	MTORC2 signaling
+c98334-g1 XRN2 (5'-3' exoribonuclease 2) - emapper OG	XRN2	XRN2	FALSE	FALSE	RNA processing
+c91075-g1 (Inherit from KOG: TNF receptor-associated factor) - emapper OG	NA	NA	FALSE	FALSE	Regulation of inflammation
+c95404-g1 2-to-3 TPPP2,TPPP,TPPP3 tubulin polymerization promoting protein family member 2	NA	NA	FALSE	FALSE	Microtubule dynamics
+c98476-g1 IDM2, Arabidopsis thaliana	IDM2,	IDM2	FALSE	FALSE	Chaperone
+c100538-g1 1-to-1 TRAF3IP1 TRAF3 interacting protein 1	NA	NA	FALSE	FALSE	Regulation of ciliary function
+c100538-g1 1-to-1 TRAF3IP1 TRAF3 interacting protein 1	NA	NA	FALSE	FALSE	Vesicular trafficking
+c98481-g1 1-to-1 KANSL3 KAT8 regulatory NSL complex subunit 3	KANSL3	KANSL3	FALSE	FALSE	Regulation of ciliary function
+c98514-g1 PLEKHG1 (pleckstrin homology domain containing, family G (with RhoGef domain) member) - emapper OG	PLEKHG1	PLEKHG1	TRUE	TRUE	Cdc42 GTPase signaling
+c98514-g1 PLEKHG1 (pleckstrin homology domain containing, family G (with RhoGef domain) member) - emapper OG	PLEKHG1	PLEKHG1	TRUE	TRUE	Rac1 GTPase signaling
+c98514-g1 PLEKHG1 (pleckstrin homology domain containing, family G (with RhoGef domain) member) - emapper OG	PLEKHG1	PLEKHG1	TRUE	TRUE	Regulation of adhesion complexes
+c98514-g1 PLEKHG1 (pleckstrin homology domain containing, family G (with RhoGef domain) member) - emapper OG	PLEKHG1	PLEKHG1	TRUE	TRUE	Regulation of cytoskeleton at the membrane
+c98514-g1 PLEKHG1 (pleckstrin homology domain containing, family G (with RhoGef domain) member) - emapper OG	PLEKHG1	PLEKHG1	TRUE	TRUE	Rho signaling
+c84043-g1 TRIM2 (Inherit from KOG: listerin E3 ubiquitin protein ligase 1) - emapper OG	NA	NA	FALSE	FALSE	Differentiation (gland cell related)
+c84043-g1 TRIM2 (Inherit from KOG: listerin E3 ubiquitin protein ligase 1) - emapper OG	NA	NA	FALSE	FALSE	Metabolism
+c88097-g1 TRIM2 (Inherit from KOG: listerin E3 ubiquitin protein ligase 1) - emapper OG	NA	NA	FALSE	FALSE	Differentiation (gland cell related)
+c88097-g1 TRIM2 (Inherit from KOG: listerin E3 ubiquitin protein ligase 1) - emapper OG	NA	NA	FALSE	FALSE	Metabolism
+c102827-g1 2-to-1 TRIM37 tripartite motif containing 37	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c98573-g1 hs-CCDC92,AZI2,CCDC62,BFSP1,LUZP2,NDEL1	CCDC92,AZI2,CCDC62,BFSP1,LUZP2,NDEL1	CCDC92,AZI2,CCDC62,BFSP1,LUZP2,NDEL1	FALSE	FALSE	Regulation of inflammation
+c98575-g1 1-to-1 CCDC94 coiled-coil domain containing 94	CCDC94	CCDC94	FALSE	FALSE	RNA processing
+c104591-g1 TRIM71 (tripartite motif containing 71, E3 ubiquitin protein ligase) - blastp	NA	NA	FALSE	FALSE	RNA processing
+c98632-g1 1-to-4 DAB2IP,RASAL3,RASAL2,SYNGAP1 DAB2 interacting protein	DAB2IP,RASAL3,RASAL2,SYNGAP1	DAB2IP,RASAL3,RASAL2,SYNGAP1	FALSE	FALSE	Ras GTPase signaling
+c98634-g2 1-to-1 COG4 component of oligomeric golgi complex 4	COG4	COG4	FALSE	FALSE	Vesicular trafficking
+c104184-g2 1-to-1 TRIO trio Rho guanine nucleotide exchange factor	NA	NA	TRUE	FALSE	Actomyosin contractility
+c104184-g2 1-to-1 TRIO trio Rho guanine nucleotide exchange factor	NA	NA	TRUE	FALSE	Rac1 GTPase signaling
+c104184-g2 1-to-1 TRIO trio Rho guanine nucleotide exchange factor	NA	NA	TRUE	FALSE	RhoA GTPase signaling
+c98733-g1 ANKS3 (Ankyrin repeat and sterile alpha motif domain containing 3) - emapper OG	ANKS3	ANKS3	TRUE	FALSE	Regulation of adhesion complexes
+c98733-g1 ANKS3 (Ankyrin repeat and sterile alpha motif domain containing 3) - emapper OG	ANKS3	ANKS3	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c98750-g1 3-to-1 SQSTM1 sequestosome 1	SQSTM1	SQSTM1	FALSE	FALSE	Regulation of inflammation
+c98756-g1 1-to-1 FERMT1 fermitin family member 1	FERMT1	FERMT1	FALSE	FALSE	Regulation of adhesion complexes
+c98756-g1 1-to-1 FERMT1 fermitin family member 1	FERMT1	FERMT1	FALSE	FALSE	Regulation of cytoskeleton at the membrane
+c98790-g1 1-to-1 LYSMD1 LysM domain containing 1	LYSMD1	LYSMD1	FALSE	FALSE	Lysosomes
+c98790-g1 1-to-1 LYSMD1 LysM domain containing 1	LYSMD1	LYSMD1	FALSE	FALSE	Regulation of inflammation
+c98800-g1 RGS14 (Regulator of G-protein signaling) - emapper OG	RGS14	RGS14	TRUE	TRUE	GPCR signaling
+c98830-g1 1-to-2 TMEM87B,TMEM87A transmembrane protein 87B	TMEM87B,TMEM87A	TMEM87B,TMEM87A	TRUE	FALSE	Regulation of adhesion complexes
+c98830-g1 1-to-2 TMEM87B,TMEM87A transmembrane protein 87B	TMEM87B,TMEM87A	TMEM87B,TMEM87A	TRUE	FALSE	Vesicular trafficking
+c96119-g1 1-to-1 TRIP11 thyroid hormone receptor interactor 11	NA	NA	FALSE	FALSE	Vesicular trafficking
+c103205-g1 1-to-1 TRMT10A tRNA methyltransferase 10A	NA	NA	FALSE	FALSE	RNA processing
+c101126-g1 1-to-1 TSNAX translin associated factor X	NA	NA	FALSE	FALSE	RNA processing
+c98921-g1 1-to-2 RPS6KB1,RPS6KB2 ribosomal protein S6 kinase B1	RPS6KB1,RPS6KB2	RPS6KB1,RPS6KB2	FALSE	FALSE	MTORC1 signaling
+c98921-g1 1-to-2 RPS6KB1,RPS6KB2 ribosomal protein S6 kinase B1	RPS6KB1,RPS6KB2	RPS6KB1,RPS6KB2	FALSE	FALSE	RNA processing
+c64006-g1 TTC18 (Tetratricopeptide repeat domain 18) - emapper OG	NA	NA	FALSE	FALSE	Regulation of ciliary function
+c5680-g1 (Tudor domain) - emapper OG	NA	NA	FALSE	FALSE	RNA processing
+c99028-g1 CLIP2 (CAP-GLY domain containing linker protein) - emapper OG	CLIP2	CLIP2	FALSE	FALSE	Microtubule dynamics
+c99028-g1 CLIP2 (CAP-GLY domain containing linker protein) - emapper OG	CLIP2	CLIP2	FALSE	FALSE	Vesicular trafficking
+c99029-g1 1-to-3 DGKD,DGKH,DGKK diacylglycerol kinase delta	DGKD,DGKH,DGKK	DGKD,DGKH,DGKK	TRUE	FALSE	Phospholipid signaling
+c103783-g1 1-to-5 TXK,BMX,TEC,ITK... TXK tyrosine kinase	NA	NA	FALSE	FALSE	Regulation of inflammation
+c99064-g1 1-to-3 MEF2D,MEF2C,MEF2A myocyte enhancer factor 2D	MEF2D,MEF2C,MEF2A	MEF2D,MEF2C,MEF2A	TRUE	FALSE	Differentiation (muscle cell related)
+c99083-g1 1-to-2 AP1B1,AP2B1 adaptor related protein complex 1 beta 1 subunit	AP1B1,AP2B1	AP1B1,AP2B1	FALSE	FALSE	Vesicular trafficking
+c99143-g1 1-to-1 NDC80 NDC80, kinetochore complex component	NDC80	NDC80	FALSE	FALSE	Microtubule dynamics
+c101899-g1 (Inherit from KOG: Ubiquitin protein ligase E3 component n-recognin 5) - emapper OG	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c99163-g1 1-to-4 ELAVL4,ELAVL3,ELAVL2,ELAVL1 ELAV like RNA binding protein 4	ELAVL4,ELAVL3,ELAVL2,ELAVL1	ELAVL4,ELAVL3,ELAVL2,ELAVL1	FALSE	FALSE	Regulation of cell cycle
+c99163-g1 1-to-4 ELAVL4,ELAVL3,ELAVL2,ELAVL1 ELAV like RNA binding protein 4	ELAVL4,ELAVL3,ELAVL2,ELAVL1	ELAVL4,ELAVL3,ELAVL2,ELAVL1	FALSE	FALSE	RNA processing
+c96541-g1 2-to-2 UBN1,UBN2 ubinuclein 1	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c99173-g1 1-to-2 RBM12,RBM12B RNA binding motif protein 12	RBM12,RBM12B	RBM12,RBM12B	FALSE	FALSE	RNA processing
+c100401-g1 1-to-1 UBXN7 UBX domain protein 7	NA	NA	FALSE	FALSE	Stress-related transcription activity
+c99182-g1 dm-Nelf-E	NELFE	NELFE	FALSE	FALSE	Regulation of cell cycle
+c103510-g2 1-to-1 ULK2 unc-51 like autophagy activating kinase 2	NA	NA	FALSE	FALSE	Lysosomes
+c103510-g2 1-to-1 ULK2 unc-51 like autophagy activating kinase 2	NA	NA	FALSE	FALSE	Metabolism
+c96679-g1 1-to-1 USE1 unconventional SNARE in the ER 1	NA	NA	FALSE	FALSE	Vesicular trafficking
+c98529-g1 1-to-1 USH1C USH1 protein network component harmonin	NA	NA	TRUE	FALSE	Actin network assembly
+c98529-g1 1-to-1 USH1C USH1 protein network component harmonin	NA	NA	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c99272-g1 1-to-2 MYO1E,MYO1F myosin IE	MYO1E,MYO1F	MYO1E,MYO1F	TRUE	FALSE	Actomyosin contractility
+c99272-g1 1-to-2 MYO1E,MYO1F myosin IE	MYO1E,MYO1F	MYO1E,MYO1F	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c99275-g1 1-to-1 EXOC5 exocyst complex component 5	EXOC5	EXOC5	TRUE	TRUE	Exocytosis
+c99275-g1 1-to-1 EXOC5 exocyst complex component 5	EXOC5	EXOC5	TRUE	TRUE	Vesicular trafficking
+c101784-g2 1-to-1 USH2A usherin	NA	NA	TRUE	FALSE	Regulation of adhesion complexes
+c99317-g1 2-to-1 MUSK muscle associated receptor tyrosine kinase	MUSK	MUSK	TRUE	FALSE	Regulation of adhesion complexes
+c99323-g2 1-to-1 STK33 serine/threonine kinase 33	STK33	STK33	FALSE	FALSE	Regulation of ciliary function
+c41298-g1 USP4 (ubiquitin specific peptidase 4 (proto-oncogene)) - blastp	NA	NA	FALSE	FALSE	Regulation of inflammation
+c99362-g1 2-to-1 DOHH deoxyhypusine hydroxylase	DOHH	DOHH	FALSE	FALSE	Metabolism
+c99387-g1 hs-MTSS2,MTSS1,AMPH,PALMD,BAIAP2L2	MTSS2,MTSS1,AMPH,PALMD,BAIAP2L2	MTSS2,MTSS1,AMPH,PALMD,BAIAP2L2	TRUE	FALSE	GPCR signaling
+c99387-g1 hs-MTSS2,MTSS1,AMPH,PALMD,BAIAP2L2	MTSS2,MTSS1,AMPH,PALMD,BAIAP2L2	MTSS2,MTSS1,AMPH,PALMD,BAIAP2L2	TRUE	FALSE	Phospholipid signaling
+c99387-g1 hs-MTSS2,MTSS1,AMPH,PALMD,BAIAP2L2	MTSS2,MTSS1,AMPH,PALMD,BAIAP2L2	MTSS2,MTSS1,AMPH,PALMD,BAIAP2L2	TRUE	FALSE	Rac1 GTPase signaling
+c99387-g1 hs-MTSS2,MTSS1,AMPH,PALMD,BAIAP2L2	MTSS2,MTSS1,AMPH,PALMD,BAIAP2L2	MTSS2,MTSS1,AMPH,PALMD,BAIAP2L2	TRUE	FALSE	RhoA GTPase signaling
+c99387-g1 hs-MTSS2,MTSS1,AMPH,PALMD,BAIAP2L2	MTSS2,MTSS1,AMPH,PALMD,BAIAP2L2	MTSS2,MTSS1,AMPH,PALMD,BAIAP2L2	TRUE	FALSE	Rho signaling
+c93848-g1 1-to-1 USP4 ubiquitin specific peptidase 4	NA	NA	FALSE	FALSE	Regulation of inflammation
+c103354-g1 1-to-1 VCL vinculin	NA	NA	TRUE	FALSE	Regulation of adhesion complexes
+c103354-g1 1-to-1 VCL vinculin	NA	NA	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c95487-g1 2-to-3 WASF3,WASF1,WASF2 WAS protein family member 3	NA	NA	TRUE	FALSE	Actin network assembly
+c99454-g1 PLEK (Pleckstrin) - emapper OG	PLEK	PLEK	TRUE	FALSE	Regulation of adhesion complexes
+c99454-g1 PLEK (Pleckstrin) - emapper OG	PLEK	PLEK	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c99456-g1 LRRC10 (Leucine rich repeat containing 10) - emapper OG	LRRC10	LRRC10	FALSE	FALSE	Regulation of calcium signaling
+c99467-g1 1-to-1 KAT8 lysine acetyltransferase 8	KAT8	KAT8	FALSE	FALSE	Regulation of cell cycle
+c99481-g1 1-to-1 DYRK4 dual specificity tyrosine phosphorylation regulated kinase 4	DYRK4	DYRK4	FALSE	FALSE	Regulation of cell cycle
+c87696-g2 1-to-1 WDR78 WD repeat domain 78	NA	NA	FALSE	FALSE	Regulation of ciliary function
+c99516-g1 1-to-1 SOCS6 suppressor of cytokine signaling 6	SOCS6	SOCS6	FALSE	FALSE	Regulation of adhesion complexes
+c99577-g1 1-to-1 NOP56 NOP56 ribonucleoprotein	NOP56	NOP56	FALSE	FALSE	RNA processing
+c99605-g1 1-to-2 STK38,STK38L serine/threonine kinase 38	STK38,STK38L	STK38,STK38L	FALSE	FALSE	Apoptosis
+c99605-g1 1-to-2 STK38,STK38L serine/threonine kinase 38	STK38,STK38L	STK38,STK38L	FALSE	FALSE	Regulation of cell cycle
+c103684-g2 1-to-1 WDSUB1 WD repeat, sterile alpha motif and U-box domain containing 1	NA	NA	FALSE	FALSE	Regulation of cytoskeleton at the membrane
+c98514-g2 YLR257W, Saccharomyces cerevisiae (strain ATCC 204..	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c99731-g1 hs-NECAP1,NECAP2,SH2D2A	NECAP1,NECAP2,SH2D2A	NECAP1,NECAP2,SH2D2A	FALSE	FALSE	Vesicular trafficking
+c99736-g1 1-to-2 GPSM2,GPSM1 G protein signaling modulator 2	GPSM2,GPSM1	GPSM2,GPSM1	FALSE	FALSE	GPCR signaling
+c99748-g1 1-to-2 CHN2,CHN1 chimerin 2	CHN2,CHN1	CHN2,CHN1	FALSE	FALSE	Rac1 GTPase signaling
+c99748-g1 1-to-2 CHN2,CHN1 chimerin 2	CHN2,CHN1	CHN2,CHN1	FALSE	FALSE	Rho signaling
+c99765-g1 TNRC6C (Trinucleotide repeat containing 6C) - emapper OG	TNRC6C	TNRC6C	FALSE	FALSE	RNA processing
+c99770-g1 1-to-1 MYD88 myeloid differentiation primary response 88	MYD88	MYD88	FALSE	FALSE	Regulation of inflammation
+c102192-g1 1-to-1 ZC3H15 zinc finger CCCH-type containing 15	NA	NA	FALSE	FALSE	Regulation of calcium signaling
+c102192-g1 1-to-1 ZC3H15 zinc finger CCCH-type containing 15	NA	NA	FALSE	FALSE	RNA processing
+c99791-g1 MKI67 (antigen identified by monoclonal antibody Ki-67) - emapper OG	MKI67	MKI67	FALSE	FALSE	Regulation of cell cycle
+c99792-g2 ANXA7 (annexin A11) - emapper OG	ANXA7	ANXA7	FALSE	FALSE	Vesicular trafficking
+c99811-g1 HNRPLL (heterogeneous nuclear ribonucleoprotein) - emapper OG	HNRPLL	HNRPLL	FALSE	FALSE	RNA processing
+c99815-g1 1-to-1 TRIP11 thyroid hormone receptor interactor 11	TRIP11	TRIP11	FALSE	FALSE	Vesicular trafficking
+c99842-g1 1-to-1 CDC27 cell division cycle 27	CDC27	CDC27	FALSE	FALSE	Regulation of cell cycle
+c99852-g1 (PP2Cc) - emapper OG	PP2Cc	PP2Cc	FALSE	FALSE	Apoptosis
+c99852-g1 (PP2Cc) - emapper OG	PP2Cc	PP2Cc	FALSE	FALSE	JNK/p38 MAPK signaling
+c99862-g1 LIMA1 (LIM domain and actin binding 1) - emapper OG	LIMA1	LIMA1	TRUE	TRUE	Actin dynamics
+c99862-g1 LIMA1 (LIM domain and actin binding 1) - emapper OG	LIMA1	LIMA1	TRUE	TRUE	RhoA GTPase signaling
+c99862-g1 LIMA1 (LIM domain and actin binding 1) - emapper OG	LIMA1	LIMA1	TRUE	TRUE	Rho signaling
+c99864-g1 1-to-2 ARHGEF3,NET1 Rho guanine nucleotide exchange factor 3	ARHGEF3,NET1	ARHGEF3,NET1	FALSE	FALSE	RhoA GTPase signaling
+c99864-g1 1-to-2 ARHGEF3,NET1 Rho guanine nucleotide exchange factor 3	ARHGEF3,NET1	ARHGEF3,NET1	FALSE	FALSE	Rho signaling
+c99875-g1 CAMK1G (calcium calmodulin-dependent protein kinase) - emapper OG	CAMK1G	CAMK1G	TRUE	TRUE	Regulation of calcium signaling
+c99887-g1 hs-PAIP1	PAIP1	PAIP1	FALSE	FALSE	RNA processing
+c99975-g1 PRKAB1 (Protein kinase, AMP-activated, beta) - emapper OG	PRKAB1	PRKAB1	FALSE	FALSE	Metabolism
+c99975-g1 PRKAB1 (Protein kinase, AMP-activated, beta) - emapper OG	PRKAB1	PRKAB1	FALSE	FALSE	Phospholipid signaling
+c99989-g1 1-to-1 C1orf52 chromosome 1 open reading frame 52	C1orf52	C1orf52	FALSE	FALSE	RNA processing
+c103352-g1 (ZnF-C2H2) - emapper OG	NA	NA	FALSE	FALSE	Regulation of cell cycle
+c100067-g1 MAPKBP1 (mitogen-activated protein kinase binding protein 1) - blastp	MAPKBP1	MAPKBP1	FALSE	FALSE	JNK/p38 MAPK signaling
+c100316-g1 1-to-1 OSBPL9 oxysterol binding protein like 9	OSBPL9	OSBPL9	TRUE	FALSE	Phospholipid signaling
+c100316-g1 1-to-1 OSBPL9 oxysterol binding protein like 9	OSBPL9	OSBPL9	TRUE	FALSE	Vesicular trafficking
+c100371-g1 1-to-2 PHKG1,PHKG2 phosphorylase kinase catalytic subunit gamma 1	PHKG1,PHKG2	PHKG1,PHKG2	FALSE	FALSE	Metabolism
+c100389-g1 1-to-1 RABL6 RAB, member RAS oncogene family like 6	RABL6	RABL6	FALSE	FALSE	Vesicular trafficking
+c100510-g1 1-to-1 GTF2F1 general transcription factor IIF subunit 1	GTF2F1	GTF2F1	FALSE	FALSE	RNA processing
+c100724-g3 1-to-2 DDI1,DDI2 DNA damage inducible 1 homolog 1	DDI1,DDI2	DDI1,DDI2	FALSE	FALSE	Regulation of cell cycle
+c100724-g3 1-to-2 DDI1,DDI2 DNA damage inducible 1 homolog 1	DDI1,DDI2	DDI1,DDI2	FALSE	FALSE	Stress-related transcription activity
+c100782-g1 1-to-1 CNOT2 CCR4-NOT transcription complex subunit 2	CNOT2	CNOT2	FALSE	FALSE	RNA processing
+c100846-g1 (deformed epidermal autoregulatory factor 1) - emapper OG	deformedepidermalautoregulatoryfactor1	deformedepidermalautoregulatoryfactor1	FALSE	FALSE	Regulation of cell cycle
+c100953-g1 1-to-1 HMBOX1 homeobox containing 1	HMBOX1	HMBOX1	FALSE	FALSE	Regulation of inflammation
+c100962-g1 Zranb2, Rattus norvegicus	Zranb2,	Zranb2	FALSE	FALSE	RNA processing
+c101037-g2 2-to-2 PAOX,SMOX polyamine oxidase	PAOX,SMOX	PAOX,SMOX	TRUE	FALSE	NO signaling
+c101277-g3 hs-SRSF10,SRSF2,SRSF12,SREK1,SRSF7,SRSF8,SRSF11,SRSF4..	SRSF10,SRSF2,SRSF12,SREK1,SRSF7,SRSF8,SRSF11,SRSF4..	SRSF10,SRSF2,SRSF12,SREK1,SRSF7,SRSF8,SRSF11,SRSF4..	FALSE	FALSE	RNA processing
+c101347-g1 1-to-1 SNX8 sorting nexin 8	SNX8	SNX8	TRUE	TRUE	Exocytosis
+c101347-g1 1-to-1 SNX8 sorting nexin 8	SNX8	SNX8	TRUE	TRUE	Vesicular trafficking
+c101464-g1 1-to-1 POC1A POC1 centriolar protein A	POC1A	POC1A	FALSE	FALSE	Microtubule dynamics
+c101464-g1 1-to-1 POC1A POC1 centriolar protein A	POC1A	POC1A	FALSE	FALSE	Regulation of ciliary function
+c101507-g2 HSP90AA1 (Molecular chaperone that promotes the maturation, structural maintenance and proper regul	HSP90AA1	HSP90AA1	FALSE	FALSE	Chaperone
+c101628-g1 1-to-1 PARP2 poly(ADP-ribose) polymerase 2	PARP2	PARP2	FALSE	FALSE	Regulation of inflammation
+c101767-g1 1-to-1 CUL5 cullin 5	CUL5	CUL5	FALSE	FALSE	Regulation of inflammation
+c101767-g1 1-to-1 CUL5 cullin 5	CUL5	CUL5	FALSE	FALSE	Vesicular trafficking
+c101871-g1 1-to-1 SDCCAG3 serologically defined colon cancer antigen 3	SDCCAG3	SDCCAG3	FALSE	FALSE	Regulation of ciliary function
+c101871-g1 1-to-1 SDCCAG3 serologically defined colon cancer antigen 3	SDCCAG3	SDCCAG3	FALSE	FALSE	Vesicular trafficking
+c101912-g1 3-to-5 SCAMP2,SCAMP3,SCAMP4,SCAMP5... secretory carrier membrane protein 2	SCAMP2,SCAMP3,SCAMP4,SCAMP5...	SCAMP2,SCAMP3,SCAMP4,SCAMP5...	TRUE	TRUE	Exocytosis
+c101912-g1 3-to-5 SCAMP2,SCAMP3,SCAMP4,SCAMP5... secretory carrier membrane protein 2	SCAMP2,SCAMP3,SCAMP4,SCAMP5...	SCAMP2,SCAMP3,SCAMP4,SCAMP5...	TRUE	TRUE	Vesicular trafficking
+c102193-g1 1-to-1 AAGAB alpha and gamma adaptin binding protein	AAGAB	AAGAB	FALSE	FALSE	Vesicular trafficking
+c102220-g1 1-to-1 ASPSCR1 ASPSCR1, UBX domain containing tether for SLC2A4	ASPSCR1	ASPSCR1	FALSE	FALSE	Vesicular trafficking
+c102220-g3 1-to-1 AKAP17A A-kinase anchoring protein 17A	AKAP17A	AKAP17A	FALSE	FALSE	RNA processing
+c102296-g1 1-to-1 WDR91 WD repeat domain 91	WDR91	WDR91	FALSE	FALSE	PI3K signaling
+c102296-g1 1-to-1 WDR91 WD repeat domain 91	WDR91	WDR91	FALSE	FALSE	Vesicular trafficking
+c102422-g1 1-to-1 POLA1 DNA polymerase alpha 1, catalytic subunit	POLA1	POLA1	FALSE	FALSE	Regulation of cell cycle
+c102700-g1 hs-SGO1	SGO1	SGO1	FALSE	FALSE	Regulation of cell cycle
+c102767-g1 1-to-2 FGFR1OP2,SIKE1 FGFR1 oncogene partner 2	FGFR1OP2,SIKE1	FGFR1OP2,SIKE1	FALSE	FALSE	Regulation of cytoskeleton at the membrane
+c102793-g1 Hnrnpab, Mus musculus	Hnrnpab,	Hnrnpab	FALSE	FALSE	RNA processing
+c102820-g1 1-to-1 CFAP45 cilia and flagella associated protein 45	CFAP45	CFAP45	FALSE	FALSE	Regulation of ciliary function
+c103008-g2 1-to-2 ACSBG1,ACSBG2 acyl-CoA synthetase bubblegum family member 1	ACSBG1,ACSBG2	ACSBG1,ACSBG2	FALSE	FALSE	Metabolism
+c103008-g2 1-to-2 ACSBG1,ACSBG2 acyl-CoA synthetase bubblegum family member 1	ACSBG1,ACSBG2	ACSBG1,ACSBG2	FALSE	FALSE	Phospholipid signaling
+c103065-g1 3-to-4 DLG1,DLG3,DLG2,DLG4 discs large MAGUK scaffold protein 1	DLG1,DLG3,DLG2,DLG4	DLG1,DLG3,DLG2,DLG4	FALSE	FALSE	Post-synaptic scaffold
+c103065-g1 3-to-4 DLG1,DLG3,DLG2,DLG4 discs large MAGUK scaffold protein 1	DLG1,DLG3,DLG2,DLG4	DLG1,DLG3,DLG2,DLG4	FALSE	FALSE	Regulation of adhesion complexes
+c103082-g1 1-to-1 TLN2 talin 2	TLN2	TLN2	TRUE	TRUE	Actomyosin contractility
+c103082-g1 1-to-1 TLN2 talin 2	TLN2	TLN2	TRUE	TRUE	Regulation of adhesion complexes
+c103082-g1 1-to-1 TLN2 talin 2	TLN2	TLN2	TRUE	TRUE	Regulation of cytoskeleton at the membrane
+c103162-g3 1-to-1 ANKS6 ankyrin repeat and sterile alpha motif domain containing 6	ANKS6	ANKS6	TRUE	FALSE	Regulation of adhesion complexes
+c103162-g3 1-to-1 ANKS6 ankyrin repeat and sterile alpha motif domain containing 6	ANKS6	ANKS6	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c103294-g5 6-to-9 PLXNC1,PLXND1,PLXNB1,PLXNA4... plexin C1	PLXNC1,PLXND1,PLXNB1,PLXNA4...	PLXNC1,PLXND1,PLXNB1,PLXNA4...	TRUE	FALSE	Regulation of adhesion complexes
+c103294-g5 6-to-9 PLXNC1,PLXND1,PLXNB1,PLXNA4... plexin C1	PLXNC1,PLXND1,PLXNB1,PLXNA4...	PLXNC1,PLXND1,PLXNB1,PLXNA4...	TRUE	FALSE	Regulation of cytoskeleton at the membrane
+c103328-g1 1-to-2 PCYT1A,PCYT1B phosphate cytidylyltransferase 1, choline, alpha	PCYT1A,PCYT1B	PCYT1A,PCYT1B	TRUE	FALSE	Metabolism
+c103328-g1 1-to-2 PCYT1A,PCYT1B phosphate cytidylyltransferase 1, choline, alpha	PCYT1A,PCYT1B	PCYT1A,PCYT1B	TRUE	FALSE	Phospholipid signaling
+c103335-g1 MKL1 (megakaryoblastic leukemia (translocation) 1) - emapper OG	MKL1	MKL1	TRUE	TRUE	Actin dynamics
+c103335-g1 MKL1 (megakaryoblastic leukemia (translocation) 1) - emapper OG	MKL1	MKL1	TRUE	TRUE	Differentiation (muscle cell related)
+c103338-g1 (RasGEF) - emapper OG	RasGEF	RasGEF	FALSE	FALSE	Ras GTPase signaling
+c103373-g1 1-to-1 IWS1 IWS1, SUPT6H interacting protein	IWS1	IWS1	FALSE	FALSE	RNA processing
+c103414-g2 (Unc51-like kinase) - emapper OG	Unc51-likekinase	Unc51-likekinase	TRUE	FALSE	MTORC2 signaling
+c103414-g2 (Unc51-like kinase) - emapper OG	Unc51-likekinase	Unc51-likekinase	TRUE	FALSE	Vesicular trafficking
+c103428-g1 1-to-1 CANT1 calcium activated nucleotidase 1	CANT1	CANT1	FALSE	FALSE	Regulation of adhesion complexes
+c103428-g1 1-to-1 CANT1 calcium activated nucleotidase 1	CANT1	CANT1	FALSE	FALSE	Regulation of calcium signaling
+c103506-g2 1-to-2 PATL1,PATL2 PAT1 homolog 1, processing body mRNA decay factor	PATL1,PATL2	PATL1,PATL2	FALSE	FALSE	RNA processing
+c103527-g1 hs-PAG1	PAG1	PAG1	TRUE	FALSE	Regulation of adhesion complexes
+c103527-g1 hs-PAG1	PAG1	PAG1	TRUE	FALSE	Regulation of inflammation
+c103624-g1 LKR (alpha-aminoadipic semialdehyde synthase) - emapper OG	LKR	LKR	FALSE	FALSE	Metabolism
+c103667-g1 1-to-2 AC245033.1,CPEB1 cytoplasmic polyadenylation element binding protein 1	AC245033.1,CPEB1	AC245033.1,CPEB1	FALSE	FALSE	RNA processing
+c103824-g1 1-to-3 PPP2R5B,PPP2R5A,PPP2R5E protein phosphatase 2 regulatory subunit B'beta	PPP2R5B,PPP2R5A,PPP2R5E	PPP2R5B,PPP2R5A,PPP2R5E	FALSE	FALSE	PI3K signaling
+c103850-g1 1-to-1 PES1 pescadillo ribosomal biogenesis factor 1	PES1	PES1	FALSE	FALSE	Regulation of cell cycle
+c103960-g1 1-to-3 FNBP1L,TRIP10,FNBP1 formin binding protein 1 like	FNBP1L,TRIP10,FNBP1	FNBP1L,TRIP10,FNBP1	TRUE	TRUE	Actin dynamics
+c103984-g1 (Inherit from opiNOG: Fatty acid desaturase) - emapper OG	Fattyaciddesaturase	Fattyaciddesaturase	FALSE	FALSE	Metabolism
+c103984-g1 (Inherit from opiNOG: Fatty acid desaturase) - emapper OG	Fattyaciddesaturase	Fattyaciddesaturase	FALSE	FALSE	Phospholipid signaling
+c104013-g1 7-to-2 HELZ,HELZ2 helicase with zinc finger	HELZ,HELZ2	HELZ,HELZ2	FALSE	FALSE	Regulation of inflammation
+c104013-g1 7-to-2 HELZ,HELZ2 helicase with zinc finger	HELZ,HELZ2	HELZ,HELZ2	FALSE	FALSE	RNA processing
+c104194-g1 1-to-1 CCDC57 coiled-coil domain containing 57	CCDC57	CCDC57	FALSE	FALSE	Regulation of cell cycle
+c104194-g1 1-to-1 CCDC57 coiled-coil domain containing 57	CCDC57	CCDC57	FALSE	FALSE	Regulation of ciliary function
+c104226-g1 1-to-1 EP400 E1A binding protein p400	EP400	EP400	FALSE	FALSE	Regulation of cell cycle
+c104249-g1 (Kin of IRRE like) - emapper OG	KinofIRRElike	KinofIRRElike	FALSE	FALSE	Regulation of adhesion complexes
+c104269-g4 1-to-3 TUBA3E,TUBA3D,TUBA3C tubulin alpha 3e	TUBA3E,TUBA3D,TUBA3C	TUBA3E,TUBA3D,TUBA3C	FALSE	FALSE	Microtubule dynamics
+c104277-g1 1-to-1 EPC1 enhancer of polycomb homolog 1	EPC1	EPC1	TRUE	FALSE	Differentiation (muscle cell related)
+c104300-g1 hs-SLTM,SAFB,SAFB2	SLTM,SAFB,SAFB2	SLTM,SAFB,SAFB2	FALSE	FALSE	RNA processing
+c104361-g1 1-to-1 SUMF1 sulfatase modifying factor 1	SUMF1	SUMF1	FALSE	FALSE	Metabolism
+c104361-g1 1-to-1 SUMF1 sulfatase modifying factor 1	SUMF1	SUMF1	FALSE	FALSE	Phospholipid signaling
+c104414-g1 CUL3 (Cullin 3) - emapper OG	CUL3	CUL3	FALSE	FALSE	RhoA GTPase signaling
+c104414-g1 CUL3 (Cullin 3) - emapper OG	CUL3	CUL3	FALSE	FALSE	Vesicular trafficking
+c104414-g1 CUL3 (Cullin 3) - emapper OG	CUL3	CUL3	FALSE	FALSE	Rho signaling
+c104452-g1 1-to-1 SRRM1 serine and arginine repetitive matrix 1	SRRM1	SRRM1	FALSE	FALSE	RNA processing
+c104462-g1 2-to-1 OCA2 OCA2 melanosomal transmembrane protein	OCA2	OCA2	FALSE	FALSE	Metabolism
+c104524-g1 1-to-2 ARFGEF1,ARFGEF2 ADP ribosylation factor guanine nucleotide exchange factor 1	ARFGEF1,ARFGEF2	ARFGEF1,ARFGEF2	FALSE	FALSE	Vesicular trafficking
+c104539-g1 SF1 (splicing factor 1) - blastp	SF1	SF1	FALSE	FALSE	Differentiation (gland cell related)
+c104573-g1 FNBP4 (Formin binding protein 4) - emapper OG	FNBP4	FNBP4	TRUE	FALSE	Actin dynamics
+c104790-g1 2-to-1 PRKN parkin RBR E3 ubiquitin protein ligase	PRKN	PRKN	TRUE	FALSE	NO signaling
+c104849-g1 1-to-1 APAF1 apoptotic peptidase activating factor 1	APAF1	APAF1	FALSE	FALSE	Apoptosis
+c104974-g1 8-to-1 COL7A1 collagen type VII alpha 1 chain	COL7A1	COL7A1	FALSE	FALSE	Regulation of adhesion complexes
+c105153-g1 TPM1 (Tropomyosin) - emapper OG	TPM1	TPM1	TRUE	TRUE	Actomyosin contractility
+c110616-g1 FBL (Fibrillarin) - emapper OG	FBL	FBL	FALSE	FALSE	RNA processing
+c111169-g1 CSK (c-src tyrosine kinase) - blastp	CSK	CSK	TRUE	FALSE	Regulation of adhesion complexes
+c35304-g1 ARMC4 (Armadillo repeat containing 4) - emapper OG	ARMC4	ARMC4	FALSE	FALSE	Regulation of ciliary function
+c75745-g1 LBH, Gallus gallus	LBH,	LBH	TRUE	FALSE	Differentiation (muscle cell related)
+c7773-g1 RPS10 (Ribosomal protein S10) - emapper OG	RPS10	RPS10	FALSE	FALSE	RNA processing
+c86077-g2 YBX1 (Y box binding protein 1) - emapper OG	YBX1	YBX1	FALSE	FALSE	Regulation of cell cycle
+c86077-g2 YBX1 (Y box binding protein 1) - emapper OG	YBX1	YBX1	FALSE	FALSE	RNA processing
+c87965-g1 1-to-1 PHF12 PHD finger protein 12	PHF12	PHF12	FALSE	FALSE	Phospholipid signaling
+c88217-g1 1-to-1 ZNF830 zinc finger protein 830	ZNF830	ZNF830	FALSE	FALSE	Regulation of cell cycle
+c88217-g1 1-to-1 ZNF830 zinc finger protein 830	ZNF830	ZNF830	FALSE	FALSE	RNA processing
+c90614-g1 1-to-1 RBM19 RNA binding motif protein 19	RBM19	RBM19	FALSE	FALSE	RNA processing
+c91929-g1 1-to-1 NOP58 NOP58 ribonucleoprotein	NOP58	NOP58	FALSE	FALSE	RNA processing
+c93025-g1 1-to-1 VPS29 VPS29, retromer complex component	VPS29	VPS29	FALSE	FALSE	Vesicular trafficking
+c93266-g1 CAP1 (adenylyl cyclase-associated protein) - emapper OG	CAP1	CAP1	FALSE	TRUE	Actin dynamics
+c93266-g1 CAP1 (adenylyl cyclase-associated protein) - emapper OG	CAP1	CAP1	FALSE	TRUE	Regulation of adhesion complexes
+c93266-g1 CAP1 (adenylyl cyclase-associated protein) - emapper OG	CAP1	CAP1	FALSE	TRUE	Regulation of cAMP signaling
+c93406-g1 CCDC60 (coiled-coil domain containing 60) - emapper OG	CCDC60	CCDC60	FALSE	FALSE	Regulation of adhesion complexes
+c93406-g1 CCDC60 (coiled-coil domain containing 60) - emapper OG	CCDC60	CCDC60	FALSE	FALSE	Regulation of ciliary function
+c93585-g1 PDCD4 (programmed cell death 4 (Neoplastic transformation inhibitor)) - emapper OG	PDCD4	PDCD4	FALSE	FALSE	Apoptosis
+c94399-g1 1-to-1 RACGAP1 Rac GTPase activating protein 1	RACGAP1	RACGAP1	TRUE	FALSE	Rac1 GTPase signaling
+c94399-g1 1-to-1 RACGAP1 Rac GTPase activating protein 1	RACGAP1	RACGAP1	TRUE	FALSE	Rho signaling
+c94790-g1 1-to-1 INO80C INO80 complex subunit C	INO80C	INO80C	FALSE	FALSE	Regulation of cell cycle
+c96540-g1 1-to-2 RALGAPA2,RALGAPA1 Ral GTPase activating protein catalytic alpha subunit 2	RALGAPA2,RALGAPA1	RALGAPA2,RALGAPA1	FALSE	FALSE	Vesicular trafficking
+c96599-g1 1-to-1 POLR3E RNA polymerase III subunit E	POLR3E	POLR3E	FALSE	FALSE	Regulation of inflammation
+c97291-g1 1-to-1 RNF7 ring finger protein 7	RNF7	RNF7	FALSE	FALSE	Apoptosis
+c97291-g1 1-to-1 RNF7 ring finger protein 7	RNF7	RNF7	FALSE	FALSE	Regulation of cell cycle
+c97489-g1 1-to-3 WASHC1 WASH complex subunit 1	WASHC1	WASHC1	TRUE	TRUE	Actin network assembly
+c97579-g1 1-to-2 STX6,STX10 syntaxin 6	STX6,STX10	STX6,STX10	FALSE	FALSE	Vesicular trafficking
+c98077-g1 SPNS3 (Spinster homolog) - emapper OG	SPNS3	SPNS3	FALSE	FALSE	Apoptosis
+c98077-g1 SPNS3 (Spinster homolog) - emapper OG	SPNS3	SPNS3	FALSE	FALSE	Phospholipid signaling
+c98077-g1 SPNS3 (Spinster homolog) - emapper OG	SPNS3	SPNS3	FALSE	FALSE	Vesicular trafficking
+c98763-g2 (vesicle-associated membrane protein) - emapper OG	vesicle-associatedmembraneprotein	vesicle-associatedmembraneprotein	FALSE	FALSE	Vesicular trafficking
+c99139-g1 1-to-1 PDZD8 PDZ domain containing 8	PDZD8	PDZD8	TRUE	FALSE	Microtubule dynamics
+c99139-g1 1-to-1 PDZD8 PDZ domain containing 8	PDZD8	PDZD8	TRUE	FALSE	Phospholipid signaling
+c99139-g1 1-to-1 PDZD8 PDZ domain containing 8	PDZD8	PDZD8	TRUE	FALSE	Regulation of calcium signaling
+c99139-g1 1-to-1 PDZD8 PDZ domain containing 8	PDZD8	PDZD8	TRUE	FALSE	Vesicular trafficking
+c99548-g1 hs-SRSF2,SRSF7,SRSF10,SRSF3,SRSF12,SREK1,SRSF6,SNRNP7..	SRSF2,SRSF7,SRSF10,SRSF3,SRSF12,SREK1,SRSF6,SNRNP7..	SRSF2,SRSF7,SRSF10,SRSF3,SRSF12,SREK1,SRSF6,SNRNP7..	FALSE	FALSE	RNA processing
+c99755-g2 ADRM1 (adhesion regulating molecule 1) - emapper OG	ADRM1	ADRM1	FALSE	FALSE	Regulation of adhesion complexes
+c99892-g1 SPTBN2 (spectrin, beta, non-erythrocytic 2) - emapper OG	SPTBN2	SPTBN2	TRUE	TRUE	Actin network assembly

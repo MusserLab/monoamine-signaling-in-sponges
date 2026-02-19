@@ -1,0 +1,1068 @@
+---
+title: "tyramine_kymograph_analysis_final"
+author: "Jacob Musser"
+date: "`r doc_date()`"
+output:
+    BiocStyle::html_document:
+        toc: true
+        toc_float: true
+        highlight: tango
+        code_folding: show
+    BiocStyle::pdf_document:
+        toc: true
+        highlight: tango
+---
+
+# 1. Setup
+
+## Rmarkdown knitr Settings
+```{r setup, include = FALSE}
+library(knitr)
+options(digits = 3, width = 80)
+opts_chunk$set(echo = TRUE,tidy = FALSE,include = TRUE,
+               dev = 'png', comment = '  ',
+               dpi = 300, cache.lazy = FALSE, warning = FALSE)
+```
+
+## Load Libraries
+```{r load libraries, message = F, warning = F}
+library(tidyverse)
+library(here)
+library(zoo)
+library(ggsci)
+library(scales)
+library(patchwork)
+
+
+theme_set(theme_bw())
+
+```
+
+## Set User Parameters
+```{r user parameters}
+
+### User-adjustable parameters ###
+
+# data/rep1_dmso.csv DMSO       1
+metadata_file <- here("microscopy", "data", "kymo_metadata.tsv")
+
+# 2) Frame interval (units: minutes, or whatever you use consistently)
+frame_interval <- 1  # e.g. 5 minutes per frame
+
+# 3) Exclude pre-lid bright frames: original frames 1–11
+start_frame <- 12L   # first usable post-treatment frame index in raw kymograph
+
+# 4) Movement smoothing parameters
+smooth_space   <- TRUE   # smooth over positions (x)
+space_window   <- 3      # odd integer (e.g., 3, 5)
+
+smooth_time    <- FALSE  # optional: smooth over time (t)
+time_window    <- 3      # odd integer (e.g., 3, 5)
+
+# 5) Extended analysis parameters
+lag_slow       <- 60     # "slow" lag in frames for slow movement metric
+n_bins_entropy <- 20     # bins for entropy of |ΔI_z|
+
+# 6) Per-replicate plots?
+make_per_replicate_plots <- FALSE
+
+# 7) High frequency analysis (fourier transform)
+high_freq_period_cut <- 16
+
+### Output directory for plots ###
+
+base_name  <- "tyramine_kymograph_analysis"
+date_stamp <- format(Sys.Date(), "%Y%m%d")
+output_dir <- here("microscopy", "outs", paste0(date_stamp, "_", base_name))
+
+if (!dir.exists(output_dir)) {
+  dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
+}
+
+# Helper to save plots into the output directory
+save_plot <- function(p, filename, width = 7, height = 5, dpi = 300) {
+  ggsave(
+    filename = file.path(output_dir, filename),
+    plot     = p,
+    width    = width,
+    height   = height,
+    dpi      = dpi
+  )
+}
+```
+
+## Functions
+```{r functions}
+
+### Load kymograph (rows = timepoints, cols = positions) ###
+
+load_kymograph <- function(path) {
+mat <- readr::read_csv(path, col_names = FALSE, show_col_types = FALSE)
+as.matrix(mat)
+}
+
+### Z-normalize each frame across positions ###
+
+z_normalize_frames <- function(I) {
+mu  <- rowMeans(I, na.rm = TRUE)
+sdv <- apply(I, 1, sd, na.rm = TRUE)
+if (sum(sdv == 0)>0 | sum(is.na(sdv))>0) {
+  print("SDV is 0 or NA")
+}
+sdv[sdv == 0 | is.na(sdv)] <- 1  # avoid division by zero
+(I - mu) / sdv
+}
+
+# Spatial and temporal smoothing
+
+smooth_over_space <- function(M, k = 3) {
+  if (!isTRUE(k %% 2 == 1)) stop("space_window k should be an odd integer.")
+  if (k <= 1) return(M)
+  apply(M, 1, function(row) {
+    zoo::rollmean(row, k = k, fill = "extend", align = "center")
+  }) |> t()
+  }
+
+smooth_over_time <- function(M, k = 3) {
+  if (!isTRUE(k %% 2 == 1)) stop("time_window k should be an odd integer.")
+  if (k <= 1) return(M)
+  apply(M, 2, function(col) {
+    zoo::rollmean(col, k = k, fill = NA, align = "center")
+  }) |> as.matrix()
+  }
+
+### Movement metrics from z-normalized intensities ###
+
+# I_z: [time x position]
+
+compute_movement_metrics <- function(I_z,
+noise_diff_n = 10,
+smooth_space = TRUE,
+space_window = 3,
+smooth_time  = FALSE,
+time_window  = 3) {
+n_time <- nrow(I_z)
+n_pos  <- ncol(I_z)
+if (n_time < 2) stop("Need at least two timepoints.")
+
+# ΔI_z between consecutive timepoints (t+1 - t)
+
+dI <- I_z[2:n_time, , drop = FALSE] - I_z[1:(n_time - 1), , drop = FALSE]
+
+# Absolute change per pixel
+
+M_abs_raw <- abs(dI)
+
+# Estimate noise from first noise_diff_n Δ-frames
+
+n_diff <- nrow(M_abs_raw)
+noise_indices <- seq_len(min(noise_diff_n, n_diff))
+mu_noise <- mean(M_abs_raw[noise_indices, , drop = FALSE], na.rm = TRUE)
+sd_noise <- stats::sd(as.vector(M_abs_raw[noise_indices, , drop = FALSE]), na.rm = TRUE)
+
+# Optional smoothing
+
+M_abs <- M_abs_raw
+if (smooth_space) {
+M_abs <- smooth_over_space(M_abs, k = space_window)
+}
+if (smooth_time) {
+M_abs <- smooth_over_time(M_abs, k = time_window)
+}
+
+# Global movement per Δ-frame: mean across positions
+
+Global_M_abs <- rowMeans(M_abs, na.rm = TRUE)
+
+# Correlation distance between consecutive frames
+
+d_corr <- rep(NA_real_, n_time - 1)
+for (t in seq_len(n_time - 1)) {
+v1 <- I_z[t, ]
+v2 <- I_z[t + 1, ]
+if (all(is.na(v1)) || all(is.na(v2))) {
+d_corr[t] <- NA_real_
+} else {
+r <- suppressWarnings(stats::cor(v1, v2, use = "pairwise.complete.obs"))
+d_corr[t] <- 1 - r
+}
+}
+
+list(
+dI_z         = dI,
+M_abs_raw    = M_abs_raw,
+M_abs        = M_abs,
+Global_M_abs = Global_M_abs,
+d_corr       = d_corr,
+mu_noise     = mu_noise,
+sd_noise     = sd_noise
+)
+}
+
+### Global intensity (raw) from truncated I ###
+
+compute_global_intensity <- function(I) {
+tibble(
+time_index      = seq_len(nrow(I)),
+global_mean_I   = rowMeans(I, na.rm = TRUE),
+global_median_I = apply(I, 1, median, na.rm = TRUE)
+)
+}
+
+# Matrix -> tidy tibble for kymographs
+
+matrix_to_tidy <- function(M, time_vec = NULL) {
+n_time <- nrow(M)
+if (is.null(time_vec)) {
+time_vec <- seq_len(n_time)
+}
+
+as_tibble(M) |>
+mutate(
+time_index = seq_len(n_time),
+time       = time_vec
+) |>
+pivot_longer(
+cols      = -c(time_index, time),
+names_to  = "position_index",
+values_to = "value"
+) |>
+mutate(
+position_index = readr::parse_number(position_index)
+)
+}
+```
+
+## Function for analysis of each replicate:
+```{r per replicate analysis function}
+
+analyze_replicate_extended <- function(file, treatment, replicate,
+                                       start_frame,
+                                       frame_interval,
+                                       smooth_space,
+                                       space_window,
+                                       smooth_time,
+                                       time_window,
+                                       lag_slow,
+                                       n_bins_entropy,
+                                       high_freq_period_cut,
+                                       make_plots,
+                                       output_dir) {
+
+  # Label for filenames
+  rep_label <- paste0(treatment, "_rep", replicate)
+
+  # ------------------------------------------------------------------
+  # 1. Load raw and truncate at start_frame
+  # ------------------------------------------------------------------
+  I_full <- load_kymograph(file)
+  I <- I_full[start_frame:nrow(I_full), , drop = FALSE]
+
+  n_time <- nrow(I)
+  n_pos  <- ncol(I)
+  time_vec <- (seq_len(n_time) - 1) * frame_interval
+
+  # ------------------------------------------------------------------
+  # 2. Z-normalize each frame across positions
+  # ------------------------------------------------------------------
+  I_z <- z_normalize_frames(I)
+
+  # ------------------------------------------------------------------
+  # 3. Basic movement metrics
+  # ------------------------------------------------------------------
+  mv <- compute_movement_metrics(
+    I_z,
+    noise_diff_n = 20,
+    smooth_space = smooth_space,
+    space_window = space_window,
+    smooth_time  = smooth_time,
+    time_window  = time_window
+  )
+
+  # ΔI_z for extended metrics (raw, unsmoothed)
+  dI_z    <- mv$dI_z    # (T-1) x n_pos
+  time_diff <- time_vec[-1]
+
+  # ------------------------------------------------------------------
+  # 4. Per-replicate plots (if requested)
+  # ------------------------------------------------------------------
+  if (make_plots) {
+    # 4a. Global intensity trends
+    global_int <- compute_global_intensity(I) |>
+      mutate(time = (time_index - 1) * frame_interval)
+
+    p_global_int <- ggplot(global_int, aes(x = time, y = global_mean_I)) +
+      geom_line() +
+      labs(
+        x = "Time (relative to first post-treatment frame)",
+        y = "Global mean intensity (raw, truncated)",
+        title = paste("Global intensity trend:", rep_label)
+      )
+
+    save_plot(p_global_int, paste0(rep_label, "_global_intensity.png"))
+
+    # 4b. Baseline intensity profile along the line (first up-to-10 truncated frames)
+    baseline_frames_post <- 1:min(10, n_time)
+    baseline_mean <- colMeans(I[baseline_frames_post, , drop = FALSE], na.rm = TRUE)
+
+    baseline_profile <- tibble(
+      position_index    = seq_along(baseline_mean),
+      baseline_mean_int = baseline_mean
+    )
+
+    p_baseline_profile <- ggplot(baseline_profile,
+                                 aes(x = position_index, y = baseline_mean_int)) +
+      geom_line(alpha = 0.8) +
+      labs(
+        x = "Position along line (pixel index)",
+        y = "Baseline mean intensity (early post-treatment)",
+        title = paste("Baseline intensity profile:", rep_label)
+      )
+
+    save_plot(p_baseline_profile, paste0(rep_label, "_baseline_profile.png"))
+
+    # 4c. Raw intensity kymograph
+    kymo_raw <- matrix_to_tidy(I, time_vec = time_vec)
+
+    p_kymo_raw <- ggplot(kymo_raw,
+                         aes(x = position_index, y = time, fill = value)) +
+      geom_raster() +
+      scale_fill_viridis_c(option = "magma") +
+      labs(
+        x = "Position (pixel index)",
+        y = "Time (relative to first post-treatment frame)",
+        fill = "Intensity",
+        title = paste("Raw intensity kymograph:", rep_label)
+      )
+
+    save_plot(p_kymo_raw, paste0(rep_label, "_kymo_raw.png"), width = 7, height = 6)
+
+    # 4d. Z-normalized kymograph
+    kymo_z <- matrix_to_tidy(I_z, time_vec = time_vec)
+
+    p_kymo_z <- ggplot(kymo_z,
+                       aes(x = position_index, y = time, fill = value)) +
+      geom_raster() +
+      scale_fill_distiller(
+        type      = "div",
+        palette   = "RdBu",
+        direction = -1,
+        name      = "z-intensity"
+      ) +
+      labs(
+        x = "Position (pixel index)",
+        y = "Time (relative to first post-treatment frame)",
+        title = paste("Z-normalized kymograph:", rep_label)
+      )
+
+    save_plot(p_kymo_z, paste0(rep_label, "_kymo_z.png"), width = 7, height = 6)
+
+    # 4e. Movement kymograph (|ΔI_z|)
+    kymo_move <- matrix_to_tidy(mv$M_abs, time_vec = time_diff)
+
+    # Choose upper limit to reduce influence of rare extremes
+    upper_mov <- quantile(kymo_move$value, 0.99, na.rm = TRUE)
+
+    p_kymo_move <- ggplot(kymo_move,
+                          aes(x = position_index, y = time, fill = value)) +
+      geom_raster() +
+      scale_fill_viridis_c(
+        option = "inferno",
+        trans  = "sqrt",
+        limits = c(0, upper_mov),
+        oob    = scales::squish,
+        name   = "|ΔI_z|"
+      ) +
+      labs(
+        x = "Position (pixel index)",
+        y = "Time (relative to first post-treatment frame)",
+        title = paste("Movement kymograph (|Δ z-intensity|):", rep_label)
+      )
+
+    save_plot(p_kymo_move, paste0(rep_label, "_kymo_move.png"), width = 7, height = 6)
+
+    # 4f. Global movement vs time
+    ts_rep <- tibble(
+      time     = time_diff,
+      movement = mv$Global_M_abs
+    )
+
+    p_movement <- ggplot(ts_rep, aes(x = time, y = movement)) +
+      geom_line() +
+      labs(
+        x = "Time (relative to first post-treatment frame)",
+        y = "Mean |ΔI_z|",
+        title = paste("Global fast movement:", rep_label)
+      )
+
+    save_plot(p_movement, paste0(rep_label, "_movement_curve.png"))
+
+    # 4g. Correlation distance vs time
+    ts_corr <- tibble(
+      time      = time_diff,
+      d_corr    = mv$d_corr
+    )
+
+    p_corr <- ggplot(ts_corr, aes(x = time, y = d_corr)) +
+      geom_line() +
+      labs(
+        x = "Time",
+        y = "1 - correlation (z-normalized frames)",
+        title = paste("Correlation distance:", rep_label)
+      )
+
+    save_plot(p_corr, paste0(rep_label, "_corr_distance_curve.png"))
+  }
+
+  # ------------------------------------------------------------------
+  # 5. Extended metrics
+  # ------------------------------------------------------------------
+  # 5a. Fast vs slow movement
+  fast_mov <- mean(abs(dI_z), na.rm = TRUE)
+
+  if (n_time > lag_slow) {
+    dI_slow <- I_z[(lag_slow + 1):n_time, , drop = FALSE] -
+      I_z[1:(n_time - lag_slow), , drop = FALSE]
+    slow_mov <- mean(abs(dI_slow), na.rm = TRUE)
+  } else {
+    slow_mov <- NA_real_
+  }
+
+  # 5b. Temporal power spectrum: HF fraction + spectral centroid + spectral entropy
+  I_z_centered <- sweep(I_z, 2, colMeans(I_z, na.rm = TRUE), FUN = "-")
+  spec_sum <- rep(0, n_time)
+  for (x in seq_len(n_pos)) {
+    tsx <- I_z_centered[, x]
+    if (all(is.na(tsx))) next
+    tsx[is.na(tsx)] <- 0
+    spec_x <- Mod(fft(tsx))^2
+    spec_sum <- spec_sum + spec_x
+  }
+
+  # Frequencies in units of 1 / (frame_interval time unit), e.g. cycles per minute
+  freq <- (0:(n_time - 1)) / (n_time * frame_interval)
+
+  # Use positive frequencies only (skip DC at index 1)
+  pos_idx <- 2:floor(n_time / 2)
+  total_power <- sum(spec_sum[pos_idx])
+
+  # ---- High-frequency fraction using high_freq_period_cut ----
+  # High frequency = period < high_freq_period_cut (same units as frame_interval)
+  f_cut <- 1 / high_freq_period_cut           # cycles per time unit (e.g. per minute)
+  hf_idx <- pos_idx[freq[pos_idx] >= f_cut]
+
+  if (length(hf_idx) > 0 && total_power > 0) {
+    hf_power    <- sum(spec_sum[hf_idx])
+    hf_fraction <- hf_power / total_power
+  } else {
+    hf_fraction <- NA_real_
+  }
+
+  # ---- Spectral centroid (temporal) ----
+  if (total_power > 0) {
+    freqs_pos   <- freq[pos_idx]
+    powers_pos  <- spec_sum[pos_idx]
+    spectral_centroid_freq <- sum(freqs_pos * powers_pos) / total_power  # cycles per time unit
+    if (spectral_centroid_freq > 0) {
+      spectral_centroid_period <- 1 / spectral_centroid_freq            # same time unit as frame_interval
+    } else {
+      spectral_centroid_period <- NA_real_
+    }
+  } else {
+    spectral_centroid_freq   <- NA_real_
+    spectral_centroid_period <- NA_real_
+  }
+
+  # ---- Spectral entropy (temporal) ----
+  if (total_power > 0) {
+    p_spec <- spec_sum[pos_idx] / total_power
+    p_spec <- p_spec[p_spec > 0]
+    spectral_entropy <- -sum(p_spec * log2(p_spec))
+  } else {
+    spectral_entropy <- NA_real_
+  }
+
+  # 5c. Centroid drift along the line (raw intensity)
+  pos_vec <- seq_len(n_pos)
+  centroid <- numeric(n_time)
+  for (t in seq_len(n_time)) {
+    rowI <- I[t, ]
+    if (all(is.na(rowI))) {
+      centroid[t] <- NA_real_
+    } else {
+      w <- pmax(rowI, 0)
+      if (sum(w, na.rm = TRUE) == 0) {
+        centroid[t] <- NA_real_
+      } else {
+        centroid[t] <- sum(w * pos_vec, na.rm = TRUE) / sum(w, na.rm = TRUE)
+      }
+    }
+  }
+  centroid_range <- max(centroid, na.rm = TRUE) - min(centroid, na.rm = TRUE)
+  centroid_sd    <- sd(centroid, na.rm = TRUE)
+
+  # 5d. PCA on ΔI_z (global vs local modes)
+  max_pos_for_pca <- 500
+  if (n_pos > max_pos_for_pca) {
+    step <- ceiling(n_pos / max_pos_for_pca)
+    idx_pca <- seq(1, n_pos, by = step)
+    dI_for_pca <- dI_z[, idx_pca, drop = FALSE]
+  } else {
+    dI_for_pca <- dI_z
+  }
+
+  keep_rows <- !apply(is.na(dI_for_pca), 1, all)
+  dI_for_pca <- dI_for_pca[keep_rows, , drop = FALSE]
+  dI_for_pca <- scale(dI_for_pca, center = TRUE, scale = FALSE)
+
+  if (nrow(dI_for_pca) > 2 && ncol(dI_for_pca) > 1) {
+    pca <- prcomp(dI_for_pca, center = FALSE, scale. = FALSE)
+    s2  <- pca$sdev^2
+    pc1_fraction  <- s2[1] / sum(s2)
+    pc12_fraction <- sum(s2[1:min(2, length(s2))]) / sum(s2)
+  } else {
+    pc1_fraction  <- NA_real_
+    pc12_fraction <- NA_real_
+  }
+
+  # 5e. Movement entropy over positions (|ΔI_z|)
+  abs_dI <- abs(dI_z)
+
+  if (all(is.na(abs_dI))) {
+    mean_entropy <- NA_real_
+  } else {
+    vmax <- quantile(abs_dI, 0.99, na.rm = TRUE)
+    if (!is.finite(vmax) || vmax <= 0) {
+      mean_entropy <- NA_real_
+    } else {
+      breaks <- seq(0, vmax, length.out = n_bins_entropy + 1)
+      entropy_t <- rep(NA_real_, nrow(abs_dI))
+
+      for (t in seq_len(nrow(abs_dI))) {
+        v <- abs_dI[t, ]
+        v <- v[!is.na(v)]
+        if (length(v) < 10) next
+
+        # Clamp values into [0, vmax] so all x fall inside breaks
+        v <- pmin(pmax(v, 0), vmax)
+
+        h <- hist(v, breaks = breaks, plot = FALSE)
+        p <- h$counts / sum(h$counts)
+        p <- p[p > 0]
+        entropy_t[t] <- -sum(p * log2(p))
+      }
+      mean_entropy <- mean(entropy_t, na.rm = TRUE)
+    }
+  }
+
+  # 5f. Spatial coherence (lag-1 correlation along the line)
+  spatial_corr_t <- rep(NA_real_, n_time)
+  for (t in seq_len(n_time)) {
+    if (n_pos < 2) next
+    v1 <- I_z[t, 1:(n_pos - 1)]
+    v2 <- I_z[t, 2:n_pos]
+    if (all(is.na(v1)) || all(is.na(v2))) next
+    spatial_corr_t[t] <- suppressWarnings(
+      cor(v1, v2, use = "pairwise.complete.obs")
+    )
+  }
+  mean_spatial_corr <- mean(spatial_corr_t, na.rm = TRUE)
+
+  # ------------------------------------------------------------------
+  # 6. Assemble outputs
+  # ------------------------------------------------------------------
+  summary <- tibble(
+    file                     = file,
+    treatment                = treatment,
+    replicate                = replicate,
+    total_movement           = sum(mv$Global_M_abs, na.rm = TRUE),
+    mean_corr_dist           = mean(mv$d_corr, na.rm = TRUE),
+    fast_movement            = fast_mov,
+    slow_movement            = slow_mov,
+    hf_fraction              = hf_fraction,
+    spectral_centroid_freq   = spectral_centroid_freq,
+    spectral_centroid_period = spectral_centroid_period,
+    spectral_entropy         = spectral_entropy,
+    centroid_range           = centroid_range,
+    centroid_sd              = centroid_sd,
+    pc1_fraction             = pc1_fraction,
+    pc12_fraction            = pc12_fraction,
+    mean_entropy             = mean_entropy,
+    mean_spatial_corr        = mean_spatial_corr
+  )
+
+  ts <- tibble(
+    file      = file,
+    treatment = treatment,
+    replicate = replicate,
+    time      = time_diff,
+    movement  = mv$Global_M_abs,
+    corr_dist = mv$d_corr
+  )
+
+  centroid_ts <- tibble(
+    file      = file,
+    treatment = treatment,
+    replicate = replicate,
+    time      = time_vec,
+    centroid  = centroid
+  )
+
+  entropy_ts <- tibble(
+    file      = file,
+    treatment = treatment,
+    replicate = replicate,
+    time      = time_diff,
+    entropy   = if (exists("entropy_t")) entropy_t else NA_real_
+  )
+
+  spatial_corr_ts <- tibble(
+    file          = file,
+    treatment     = treatment,
+    replicate     = replicate,
+    time          = time_vec,
+    spatial_corr  = spatial_corr_t
+  )
+
+  list(
+    summary          = summary,
+    ts               = ts,
+    centroid_ts      = centroid_ts,
+    entropy_ts       = entropy_ts,
+    spatial_corr_ts  = spatial_corr_ts
+  )
+}
+
+analyze_wrapper <- function(file, treatment, replicate) {
+  analyze_replicate_extended(
+    file              = file,
+    treatment         = treatment,
+    replicate         = replicate,
+    start_frame       = start_frame,
+    frame_interval    = frame_interval,
+    smooth_space      = smooth_space,
+    space_window      = space_window,
+    smooth_time       = smooth_time,
+    time_window       = time_window,
+    lag_slow          = lag_slow,
+    n_bins_entropy    = n_bins_entropy,
+    high_freq_period_cut = high_freq_period_cut,
+    make_plots        = make_per_replicate_plots,
+    output_dir        = output_dir
+  )
+}
+
+
+```
+
+# 2. Read metadata and perform analysis on all files
+```{r read metadata and perform analysis}
+metadata <- readr::read_tsv(metadata_file, show_col_types = FALSE)
+metadata$file <- here(metadata$file)
+
+all_extended <- purrr::pmap(
+  list(metadata$file, metadata$treatment, metadata$replicate),
+  analyze_wrapper
+)
+
+summary_all       <- purrr::map_dfr(all_extended, "summary")
+ts_all            <- purrr::map_dfr(all_extended, "ts")
+centroid_all      <- purrr::map_dfr(all_extended, "centroid_ts")
+entropy_all       <- purrr::map_dfr(all_extended, "entropy_ts")
+spatial_corr_all  <- purrr::map_dfr(all_extended, "spatial_corr_ts")
+
+summary_all
+write.csv(ts_all, file.path(output_dir, "ts_all.csv"))
+```
+
+
+# 3. Summary plots and comparisons across replicates
+
+## GGplot Theme
+
+```{r theme}
+custom_theme <- theme(
+  text = element_text(family = "sans", size = 16),     # base font family + size
+  plot.title = element_text(size = 18, face = "bold"),  # match axes.titlesize
+  axis.title = element_text(size = 16),                 # axes.labelsize
+  axis.text = element_text(size = 12),                  # xtick/ytick.labelsize
+  legend.title = element_blank(),                       # No title of legend
+  legend.text = element_text(size = 10),                # legend.fontsize
+  legend.key.size = unit(0.8, "lines"),                 # closer to matplotlib default
+  legend.background = element_rect(fill = "white", color = "gray80", linewidth = 0.3),
+  panel.grid = element_blank()
+)
+```
+
+
+
+## Fast vs. slow movement across replicates
+```{r summary plots and comparisons}
+
+summary_all$treatment[summary_all$treatment == "tyramine"] <- "Tyramine"
+  
+
+p_fast_slow <- ggplot(summary_all,
+       aes(x = slow_movement, y = fast_movement,
+           color = treatment, label = replicate)) +
+  geom_point(size = 3) +
+  geom_text(vjust = -0.7, size = 3, show.legend = FALSE) +
+  scale_color_manual(values = c("red", "blue")) +
+  labs(
+    x = bquote("Slow movement (" * bar(abs(Delta * I[z])) *
+             " " * .(lag_slow) * " min intervals)"),
+    y = bquote("Fast movement ( " * bar(abs(Delta * I[z])) * " 1 min intervals)") #,
+    #title = "Fast vs slow movement per replicate"
+  ) +
+  custom_theme
+
+p_fast_slow
+save_plot(p_fast_slow, "fast_vs_slow_movement_replicates.png")
+
+```
+
+## Boxplots for key scalar metrics
+```{r scalar metric boxplots}
+plot_metric_box <- function(df, metric, ylab, filename) {
+  p <- ggplot(df, aes(x = treatment, y = .data[[metric]], fill = treatment)) +
+    geom_boxplot(alpha = 0.7, outlier.shape = NA) +
+    geom_jitter(width = 0.1, size = 2, alpha = 0.8) +
+    scale_fill_aaas() +
+    labs(x = NULL, y = ylab, title = ylab)
+  print(p)
+  save_plot(p, filename)
+  }
+
+```
+
+## Writing Plots
+```{r writing plots}
+plot_metric_box(summary_all, "total_movement",
+"Total movement (sum mean |ΔI_z|)", "box_total_movement.png")
+
+plot_metric_box(summary_all, "fast_movement",
+"Fast movement (1 min. intervals)", "box_fast_movement.png")
+
+plot_metric_box(summary_all, "slow_movement",
+paste0("Slow movement (", as.character(lag_slow), " min. intervals)"), "box_slow_movement.png")
+
+plot_metric_box(summary_all, "hf_fraction",
+"High-frequency power fraction", "box_hf_fraction.png")
+
+plot_metric_box(summary_all, "centroid_range",
+"Centroid range (global drift)", "box_centroid_range.png")
+
+plot_metric_box(summary_all, "pc1_fraction",
+"PC1 variance fraction (ΔI_z)", "box_pc1_fraction.png")
+
+plot_metric_box(summary_all, "mean_entropy",
+"Mean movement entropy", "box_mean_entropy.png")
+
+plot_metric_box(summary_all, "mean_spatial_corr",
+"Mean spatial correlation (1 min. intervals)", "box_mean_spatial_corr.png")
+
+plot_metric_box(summary_all, "spectral_centroid_freq",
+                "Spectral centroid (cycles per minute)", "box_spectral_centroid_freq.png")
+
+plot_metric_box(summary_all, "spectral_entropy",
+                "Spectral entropy (temporal)", "box_spectral_entropy.png")
+
+
+```
+
+## Movement and correlation distance curves across replicates:
+```{r movement distance curves across reps clipped y axis}
+p_all_movement <- ggplot(ts_all,
+                         aes(x = time, y = movement,
+                             color = treatment,
+                             group = interaction(treatment, replicate))) +
+  geom_line(alpha = 0.25) +
+  stat_summary(aes(group = treatment), fun = mean,
+               geom = "line", size = 1.2) +
+  scale_color_aaas() +
+  coord_cartesian(ylim = c(0, .7)) +
+  labs(
+    x = "Time (relative to first post-treatment frame)",
+    y = "Mean |ΔI_z| (lag 1)",
+    title = "Global fast movement across replicates"
+    )
+
+p_all_movement
+save_plot(p_all_movement, "all_replicates_movement_curves_clipped.png")
+
+```
+
+```{r}
+# Full-scale and zoomed movement panels across all replicates
+
+# Robust zoom limit: show typical range, let full panel show the rare big contraction
+movement_ylim_zoom <- quantile(ts_all$movement, 0.99, na.rm = TRUE)
+
+# Panel A: full-scale movement (includes strong contraction)
+p_mov_full <- ggplot(ts_all,
+                     aes(x = time,
+                         y = movement,
+                         color = treatment,
+                         group = interaction(treatment, replicate))) +
+  geom_line(alpha = 0.25) +
+  stat_summary(aes(group = treatment),
+               fun = mean,
+               geom = "line",
+               size = 1.2) +
+  scale_color_aaas() +
+  labs(
+    x = "Time (relative to first post-treatment frame)",
+    y = "Mean |ΔI_z| (lag 1)",
+    title = "Global fast movement across replicates (full scale)"
+  )
+
+# Panel B: zoomed movement (common dynamics, excluding extreme peak from view)
+p_mov_zoom <- ggplot(ts_all,
+                     aes(x = time,
+                         y = movement,
+                         color = treatment,
+                         group = interaction(treatment, replicate))) +
+  geom_line(alpha = 0.25) +
+  stat_summary(aes(group = treatment),
+               fun = mean,
+               geom = "line",
+               size = 1.2) +
+  scale_color_aaas() +
+  coord_cartesian(ylim = c(0, movement_ylim_zoom)) +
+  labs(
+    x = "Time (relative to first post-treatment frame)",
+    y = "Mean |ΔI_z| (lag 1)",
+    title = paste0(
+      "Global fast movement across replicates (zoomed to 99th percentile: ",
+      signif(movement_ylim_zoom, 3), ")"
+    )
+  )
+
+# Combine as panel A (full) and B (zoom) side-by-side
+p_mov_combined <- p_mov_full + p_mov_zoom + plot_annotation(tag_levels = "A")
+
+p_mov_combined
+save_plot(p_mov_combined, "movement_full_and_zoom.png", width = 12, height = 5)
+```
+
+
+
+```{r movement correlation curves across reps ylim clipped}
+p_corr_all <- ggplot(ts_all,
+                     aes(x = time, y = corr_dist,
+                         color = treatment,
+                         group = interaction(treatment, replicate))) +
+  geom_line(alpha = 0.25) +
+  stat_summary(aes(group = treatment), fun = mean,
+               geom = "line", size = 1.2) +
+  scale_color_manual(values = c("red", "blue")) +
+  labs(
+    x = "Time (min)",
+    y = bquote(1 - rho ~ "(" ~ I[ Z ~ t ] * " ," ~ I[ Z ~ t+1 ] ~ ")" )#S,
+    #title = "Frame-to-frame pattern change across replicates"
+    )+
+  custom_theme +
+  theme(legend.position = c(0.9, 0.9)) + 
+  scale_x_continuous(limits = c(-1, 721), expand = c(0, 0)) +
+  scale_y_continuous(limits = c(0, 0.4), expand = c(0, 0))
+
+
+
+p_corr_all
+save_plot(p_corr_all, "all_replicates_corr_distance_curves_clipped.png")
+
+
+
+```
+
+```{r movement correlation curves across reps ylim clipped}
+p_corr_all <- ggplot(ts_all,
+                     aes(x = time, y = corr_dist,
+                         color = treatment, fill = treatment,
+                         group = treatment)) +
+  #geom_line(alpha = 0.25) +
+  # shaded ribbon: mean ± SE
+  stat_summary(fun.data = mean_se, geom = "ribbon", alpha = 0.3, color = NA) +
+  stat_summary(fun = mean, geom = "line", size = 0.75) +
+  scale_color_manual(values = c("red", "blue"), labels = c ("DMSO", "Tyramine")) +
+  scale_fill_manual(values = c("red", "blue"), labels = c ("DMSO", "Tyramine")) +
+  labs(
+    x = "Time (min)",
+    y = bquote(1 - rho ~ "(" ~ I[ Z ~ t ] * " ," ~ I[ Z ~ t+1 ] ~ ")" )#S,
+    #title = "Frame-to-frame pattern change across replicates"
+    )+
+  custom_theme +
+  theme(legend.position = c(0.9, 0.9)) + 
+  scale_x_continuous(limits = c(-1, 721), expand = c(0, 0)) +
+  scale_y_continuous(limits = c(0, 0.15), expand = c(0, 0))
+
+p_corr_all
+save_plot(p_corr_all, "251130_all_replicates_corr_distance_curves_clipped.png")
+
+```
+
+```{r movement correlation curves across reps ylim full and zoomed}
+# Full-scale and zoomed correlation distance panels across all replicates
+
+corr_ylim_zoom <- quantile(ts_all$corr_dist, 0.99, na.rm = TRUE)
+
+# Panel A: full-scale correlation distance (includes any rare big jumps)
+p_corr_full <- ggplot(ts_all,
+                      aes(x = time,
+                          y = corr_dist,
+                          color = treatment,
+                          group = interaction(treatment, replicate))) +
+  geom_line(alpha = 0.25) +
+  stat_summary(aes(group = treatment),
+               fun = mean,
+               geom = "line",
+               size = 1.2) +
+  scale_color_aaas() +
+  labs(
+    x = "Time",
+    y = "1 - correlation (z-normalized frames)",
+    title = "Frame-to-frame pattern change across replicates (full scale)"
+  )
+
+# Panel B: zoomed correlation distance
+p_corr_zoom <- ggplot(ts_all,
+                      aes(x = time,
+                          y = corr_dist,
+                          color = treatment,
+                          group = interaction(treatment, replicate))) +
+  geom_line(alpha = 0.25) +
+  stat_summary(aes(group = treatment),
+               fun = mean,
+               geom = "line",
+               size = 1.2) +
+  scale_color_aaas() +
+  coord_cartesian(ylim = c(0, corr_ylim_zoom)) +
+  labs(
+    x = "Time",
+    y = "1 - correlation (z-normalized frames)",
+    title = paste0(
+      "Frame-to-frame pattern change (zoomed to 99th percentile: ",
+      signif(corr_ylim_zoom, 3), ")"
+    )
+  )
+
+# Combine as panel A (full) and B (zoom)
+p_corr_combined <- p_corr_full + p_corr_zoom + plot_annotation(tag_levels = "A")
+
+p_corr_combined
+save_plot(p_corr_combined, "corr_full_and_zoom.png", width = 12, height = 5)
+```
+
+
+## Centroid drift and entropy across replicates:
+```{r plot centroid drift across reps}
+p_centroid <- ggplot(centroid_all,
+                     aes(x = time, y = centroid,
+                         color = treatment,
+                         group = interaction(treatment, replicate))) +
+  geom_line(alpha = 0.3) +
+  scale_color_aaas() +
+  labs(
+    x = "Time",
+    y = "Intensity-weighted centroid (position index)",
+    title = "Global drift of tissue along the line"
+    )
+
+p_centroid
+save_plot(p_centroid, "centroid_drift_all_replicates.png")
+
+```
+
+```{r plot entropy across reps}
+p_entropy <- ggplot(entropy_all,
+                    aes(x = time, y = entropy,
+                        color = treatment,
+                        group = interaction(treatment, replicate))) +
+  geom_line(alpha = 0.3) +
+  scale_color_aaas() +
+  labs(
+    x = "Time",
+    y = "Entropy of |ΔI_z| distribution",
+    title = "Temporal evolution of movement entropy"
+    )
+
+p_entropy
+save_plot(p_entropy, "entropy_all_replicates.png")
+
+```
+
+Statistical tests:
+```{r stat tests}
+# Metrics to test with Wilcoxon rank-sum (Mann–Whitney) tests
+metrics_to_test <- c(
+  "total_movement",
+  "fast_movement",
+  "slow_movement",
+  "hf_fraction",
+  "spectral_centroid_freq",
+  "spectral_centroid_period",
+  "spectral_entropy",
+  "centroid_range",
+  "pc1_fraction",
+  "mean_entropy",
+  "mean_spatial_corr"
+)
+
+wilcox_results <- purrr::map_dfr(metrics_to_test, function(var) {
+  # Drop rows with NA for this metric
+  df <- summary_all %>%
+    select(treatment, !!sym(var)) %>%
+    rename(value = !!sym(var)) %>%
+    filter(!is.na(value))
+
+  # If fewer than 2 treatments or too few observations, skip
+  if (n_distinct(df$treatment) < 2 || nrow(df) < 3) {
+    return(tibble(
+      metric      = var,
+      W_statistic = NA_real_,
+      p_value     = NA_real_,
+      n_tyramine  = NA_integer_,
+      median_tyramine = NA_real_,
+      n_DMSO      = NA_integer_,
+      median_DMSO = NA_real_
+    ))
+  }
+
+  # Run Wilcoxon rank-sum test
+  wt <- wilcox.test(value ~ treatment, data = df, exact = FALSE)
+
+  # Per-group sample sizes and medians
+  group_stats <- df %>%
+    group_by(treatment) %>%
+    summarise(
+      n      = n(),
+      median = median(value),
+      .groups = "drop"
+    )
+
+  n_tyr  <- group_stats$n[group_stats$treatment == "Tyramine"]
+  med_tyr <- group_stats$median[group_stats$treatment == "Tyramine"]
+
+  n_dmso  <- group_stats$n[group_stats$treatment %in% c("DMSO", "dmso")]
+  med_dmso <- group_stats$median[group_stats$treatment %in% c("DMSO", "dmso")]
+
+  tibble(
+    metric          = var,
+    W_statistic     = unname(wt$statistic),
+    p_value         = wt$p.value,
+    n_tyramine      = ifelse(length(n_tyr) == 0, NA_integer_, n_tyr),
+    median_tyramine = ifelse(length(med_tyr) == 0, NA_real_, med_tyr),
+    n_DMSO          = ifelse(length(n_dmso) == 0, NA_integer_, n_dmso),
+    median_DMSO     = ifelse(length(med_dmso) == 0, NA_real_, med_dmso)
+  )
+})
+
+wilcox_results
+
+# Write to file in the output directory
+wilcox_outfile <- file.path(output_dir, "wilcoxon_tests_summary.tsv")
+readr::write_tsv(wilcox_results, wilcox_outfile)
+
+message("Wilcoxon test summary written to: ", wilcox_outfile)
+```
+

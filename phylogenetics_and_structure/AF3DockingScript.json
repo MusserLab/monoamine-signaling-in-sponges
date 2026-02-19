@@ -1,0 +1,31 @@
+{
+  //Give name for generating output.
+  "name": "Npy1r_tyramine_docking",
+  "modelSeeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "sequences": [
+    {
+      "protein": {
+        "id": "A",
+        // The sequence of GPCRs.
+        "sequence": "MAHFVRRHSMDNITTNYSCNDSEMMLPALAVIFTPFVFIQLLVGLVSNLLLLTLLIKARSVQNNINVYLYSMVVNNLISLVPILLLLVTTVTKRWSFGETMCTINQAIVYMVRVPFILLHVFISRERYKAVLYFFKWQPYTRWTHLQMAIMWVIALSSGGIAVLQGNQIIGKREDIISCYIPDTLVDTTPYLFAGLIVQLVVSLIFNTSSMLFCVFHYGYIFRKLRIIKSLRHQDSTNINLCTDAPIDWSAEVTILKSMASIFSVSLISIVATTVYYTSVVAVAMIRHSNFANESMPLVFLPLLCVNFLPCISPVVLLAVNKKFRTRMKDIFHWRLKPDTAHSPVPCIHNKGANPQNRLSKCCSQGPLPETTSSLTVHAVLPQDTRQNGETE"
+      }
+    },
+    {
+      "ligand": {
+        "id": "B",
+        // The identity of monoamines, AEF - Tyramine, PHE - phenethylamine, TSS - Tryptamine
+        "ccdCodes": [
+          "AEF"
+        ]
+      }
+    }
+  ],
+  "dialect": "alphafold3",
+  "version": 2
+}

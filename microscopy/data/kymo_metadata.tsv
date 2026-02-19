@@ -1,0 +1,14 @@
+file	treatment	replicate
+microscopy/data/Tyr_R1_kym.csv	tyramine	1
+microscopy/data/Tyr_R2_kym.csv	tyramine	2
+microscopy/data/Tyr_R3_kym.csv	tyramine	3
+microscopy/data/Tyr_R4_kym.csv	tyramine	4
+microscopy/data/Tyr_R5_kym.csv	tyramine	5
+microscopy/data/Tyr_R6_kym.csv	tyramine	6
+microscopy/data/Tyr_R7_kym.csv	tyramine	7
+microscopy/data/DMSO_R1_kym.csv	DMSO	1
+microscopy/data/DMSO_R2_kym.csv	DMSO	2
+microscopy/data/DMSO_R3_kym.csv	DMSO	3
+microscopy/data/DMSO_R4_kym.csv	DMSO	4
+microscopy/data/DMSO_R6_kym.csv	DMSO	6
+microscopy/data/DMSO_R7_kym.csv	DMSO	7

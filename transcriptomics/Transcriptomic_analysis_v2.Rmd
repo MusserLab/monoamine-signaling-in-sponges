@@ -1,0 +1,324 @@
+---
+title: "Transcriptomic analysis"
+author: "Roy Zang"
+date: "2025-10-11"
+output: html_document
+---
+
+## Transcriptomics DESeq2 pipeline (Fig 4F-G, Methods)
+
+Differential expression analysis of tryptamine-treated vs DMSO-treated
+*Spongilla lacustris* across three timepoints (1h, 4h, 24h recovery), using
+DESeq2 with an interaction model.
+
+### Input files
+
+- `transcriptomics/data/mapped_transcript_counts.txt` — featureCounts output (read counts per gene per sample)
+- `data/spongilla_gene_names_final.tsv` — Final gene name annotations (Zang et al. 2026)
+
+### Output files
+
+- `outs/transcriptomics/Master_Differential_Expression_Results_Interaction_V2.csv/tsv` — Full differential expression results
+- `outs/transcriptomics/Unique_Significant_Hits_Candidates_Interaction_V2.csv` — Unique significant genes
+- `outs/transcriptomics/MA_Plots_Analysis_interaction_v2.pdf` — MA plots for all comparisons
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(here)
+```
+
+## Load count matrix from featureCounts output
+
+```{r input, echo=FALSE}
+library(dplyr)
+library(stringr)
+
+# Read featureCounts output
+count_mat <- read.delim(
+  here("transcriptomics", "data", "mapped_transcript_counts.txt"),
+  comment.char = "#"
+)
+
+# Calculate median gene length for transcripts
+count_mat <- count_mat %>%
+  rowwise() %>%
+  mutate(
+    lengths_list = list(str_split(End, ";")[[1]]),
+    lengths_numeric = list(as.numeric(lengths_list)),
+    median_length = median(lengths_numeric, na.rm = TRUE)
+  ) %>%
+  ungroup()
+```
+
+```{r addGeneNames}
+# Add gene annotations from the final gene names file
+gene_names <- read.delim(
+  here("data", "spongilla_gene_names_final.tsv"),
+  stringsAsFactors = FALSE,
+  quote = "",
+  comment.char = ""
+)
+
+# The count matrix Geneid is in hyphen format (e.g., c12345-g1)
+# Trinity_geneID in gene_names is also hyphen format
+# Multiple Trinity_geneIDs can map to the same merged gene (fragments),
+# so deduplicate by Trinity_geneID before joining
+gene_names_dedup <- gene_names %>%
+  distinct(Trinity_geneID, .keep_all = TRUE)
+
+# Join gene names to count matrix
+result <- count_mat %>%
+  left_join(gene_names_dedup[, c("Trinity_geneID", "seurat_name", "Zang_et_al_2026")],
+            by = c("Geneid" = "Trinity_geneID")) %>%
+  # Use seurat_name (full automated name) if available, otherwise keep Geneid
+  mutate(Final_Name = coalesce(seurat_name, Geneid))
+```
+
+## Use median_length for TPM calculation
+
+```{r calculatingTPM, echo=FALSE}
+# Extract count matrix: sample count columns only (exclude featureCounts metadata and added cols)
+featurecounts_meta_cols <- c("Geneid", "Chr", "Start", "End", "Strand", "Length")
+added_cols <- c("lengths_list", "lengths_numeric", "median_length",
+                "seurat_name", "Zang_et_al_2026", "Final_Name")
+sample_cols <- setdiff(names(result), c(featurecounts_meta_cols, added_cols))
+
+count_mat_extract <- result[, sample_cols]
+rownames(count_mat_extract) <- result$Final_Name
+
+# Lengths in kb
+length_kb <- result$median_length / 1000
+names(length_kb) <- result$Geneid
+
+# TPM function
+tpm <- function(counts, lengths_kb) {
+  rpk <- counts / lengths_kb
+  tpm <- t(t(rpk) / colSums(rpk) * 1e6)
+  return(tpm)
+}
+
+tpm_matrix <- tpm(count_mat_extract, length_kb)
+head(tpm_matrix)
+```
+
+```{r define_metaData, echo=FALSE}
+# Sample names (from featureCounts BAM file columns)
+samples <- c(
+  "star_trans_clean_out.10_R2D_T1_W_Aligned.sortedByCoord.out.bam",
+  "star_trans_clean_out.11_R2D_T4_W_Aligned.sortedByCoord.out.bam",
+  "star_trans_clean_out.12_R2D_T4_W24_Aligned.sortedByCoord.out.bam",
+  "star_trans_clean_out.13_R3T_T1_W_Aligned.sortedByCoord.out.bam",
+  "star_trans_clean_out.14_R3T_T4_W_Aligned.sortedByCoord.out.bam",
+  "star_trans_clean_out.15_R3T_T4_W24_Aligned.sortedByCoord.out.bam",
+  "star_trans_clean_out.16_R3D_T1_W_Aligned.sortedByCoord.out.bam",
+  "star_trans_clean_out.17_R3D_T4_W_Aligned.sortedByCoord.out.bam",
+  "star_trans_clean_out.18_R3D_T4_W24_Aligned.sortedByCoord.out.bam",
+  "star_trans_clean_out.1_R1T_T1_W_Aligned.sortedByCoord.out.bam",
+  "star_trans_clean_out.2_R1T_T4_W_Aligned.sortedByCoord.out.bam",
+  "star_trans_clean_out.3_R1T_T4_W24_Aligned.sortedByCoord.out.bam",
+  "star_trans_clean_out.4_R1D_T1_W_Aligned.sortedByCoord.out.bam",
+  "star_trans_clean_out.5_R1D_T4_W_Aligned.sortedByCoord.out.bam",
+  "star_trans_clean_out.6_R1D_T4_W24_Aligned.sortedByCoord.out.bam",
+  "star_trans_clean_out.7_R2T_T1_W_Aligned.sortedByCoord.out.bam",
+  "star_trans_clean_out.8_R2T_T4_W_Aligned.sortedByCoord.out.bam",
+  "star_trans_clean_out.9_R2T_T4_W24_Aligned.sortedByCoord.out.bam"
+)
+
+# Create metadata dataframe
+meta <- data.frame(Sample = samples, stringsAsFactors = FALSE)
+
+meta <- meta %>%
+  mutate(
+    Replicate = str_extract(Sample, "R\\d") |> str_remove("R") |> as.integer(),
+    Treatment = str_extract(Sample, "_R\\d([DT])") |> str_remove("_R\\d"),
+    Treatment = ifelse(Treatment == "D", "DMSO", "Tryptamine"),
+    TreatmentHour = str_extract(Sample, "_T\\d+") |> str_remove("_T") |> as.integer(),
+    WashHour = str_extract(Sample, "_W\\d+") |> str_remove("_W") |> as.integer()
+  )
+
+meta$WashHour[is.na(meta$WashHour)] <- 0
+meta
+
+sample_info <- data.frame(
+  row.names = samples,
+  Treatment = factor(c(
+    rep("DMSO", 3), rep("Tryptamine", 3),
+    rep("DMSO", 3), rep("Tryptamine", 3),
+    rep("DMSO", 3), rep("Tryptamine", 3)
+  )),
+  Timepoint = factor(c(
+    "T1", "T4", "TR", "T1", "T4", "TR",
+    "T1", "T4", "TR", "T1", "T4", "TR",
+    "T1", "T4", "TR", "T1", "T4", "TR"
+  ))
+)
+
+# Combined group factor for contrasts
+sample_info$Group <- factor(paste0(sample_info$Treatment, "_", sample_info$Timepoint))
+print(levels(sample_info$Group))
+```
+
+```{r setup_differential_expression}
+library(DESeq2)
+
+# DESeqDataSet with interaction model
+dds <- DESeqDataSetFromMatrix(
+  countData = count_mat_extract,
+  colData = sample_info,
+  design = ~ Timepoint + Treatment + Timepoint:Treatment
+)
+
+dds <- DESeq(dds)
+resultsNames(dds)
+```
+
+```{r getting_results_for_groups}
+# 1. Tryptamine vs DMSO at 1h (main treatment effect)
+res_1h <- results(dds, name = "Treatment_Tryptamine_vs_DMSO", alpha = 0.05)
+
+# 2. Tryptamine vs DMSO at 4h (main + interaction)
+res_4h <- results(dds,
+  contrast = list(c("Treatment_Tryptamine_vs_DMSO", "TimepointT4.TreatmentTryptamine")),
+  alpha = 0.05)
+
+# 3. Tryptamine vs DMSO at Recovery (main + TR interaction)
+res_Rec <- results(dds,
+  contrast = list(c("Treatment_Tryptamine_vs_DMSO", "TimepointTR.TreatmentTryptamine")),
+  alpha = 0.05)
+
+# 4. Difference-in-difference: 1h -> 4h
+# How is the drug effect different at T4 compared to T1?
+res_Time_4vs1 <- results(dds, name = "TimepointT4.TreatmentTryptamine", alpha = 0.05)
+
+# 5. Difference-in-difference: 4h -> Recovery
+# (Drug Effect at TR) - (Drug Effect at T4)
+res_Time_Recvs4 <- results(dds,
+  contrast = list(
+    c("TimepointTR.TreatmentTryptamine"),
+    c("TimepointT4.TreatmentTryptamine")
+  ),
+  alpha = 0.05)
+
+summary(res_1h)
+summary(res_4h)
+summary(res_Rec)
+summary(res_Time_4vs1)
+summary(res_Time_Recvs4)
+```
+
+```{r ma_plots}
+# MA plots for all comparisons
+output_dir <- here("outs", "transcriptomics")
+dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
+
+pdf(file.path(output_dir, "MA_Plots_Analysis_interaction_v2.pdf"), width = 8, height = 6)
+
+plotMA(res_1h, ylim = c(-5, 5), main = "Tryptamine vs DMSO (1h)")
+plotMA(res_4h, ylim = c(-5, 5), main = "Tryptamine vs DMSO (4h)")
+plotMA(res_Rec, ylim = c(-5, 5), main = "Tryptamine vs DMSO (Recovery)")
+plotMA(res_Time_4vs1, ylim = c(-5, 5),
+       main = "Time Interaction: 1h -> 4h\n(Diff in Tryptamine relative to DMSO)")
+plotMA(res_Time_Recvs4, ylim = c(-5, 5),
+       main = "Time Interaction: 4h -> Rec\n(Diff in Tryptamine relative to DMSO)")
+
+dev.off()
+message("Plots saved to ", file.path(output_dir, "MA_Plots_Analysis_interaction_v2.pdf"))
+```
+
+```{r hit_calling_and_master_table}
+library(tibble)
+
+# --- Thresholds ---
+padj_cutoff      <- 0.05
+candidate_cutoff <- 0.58  # ~1.5x fold change
+hit_cutoff       <- 2     # ~4x fold change
+
+# Normalized counts for the master table
+norm_counts <- counts(dds, normalized = TRUE) %>%
+  as.data.frame() %>%
+  rownames_to_column("GeneID")
+
+# Helper function: process DESeq2 results with tiered hit calling
+process_result <- function(res_object, label_name) {
+  res_object %>%
+    as.data.frame() %>%
+    rownames_to_column("GeneID") %>%
+    mutate(
+      Comparison_Label = label_name,
+      Log10_Pvalue = -log10(pvalue),
+      Status = case_when(
+        is.na(padj) | padj >= padj_cutoff ~ "NO",
+        abs(log2FoldChange) > hit_cutoff ~ "HIT",
+        abs(log2FoldChange) > candidate_cutoff ~ "CANDIDATE",
+        TRUE ~ "NO"
+      )
+    ) %>%
+    dplyr::select(
+      GeneID,
+      Comparison_Label,
+      Log2FoldChange = log2FoldChange,
+      Pvalue = pvalue,
+      Padj = padj,
+      Log10_Pvalue,
+      Status
+    )
+}
+
+# Process all comparisons
+table_1h   <- process_result(res_1h, "Tryptamine_vs_DMSO_1h")
+table_4h   <- process_result(res_4h, "Tryptamine_vs_DMSO_4h")
+table_Rec  <- process_result(res_Rec, "Tryptamine_vs_DMSO_Rec")
+table_Int1 <- process_result(res_Time_4vs1, "Interaction_1h_to_4h")
+table_Int2 <- process_result(res_Time_Recvs4, "Interaction_4h_to_Rec")
+
+all_stats <- bind_rows(table_1h, table_4h, table_Rec, table_Int1, table_Int2)
+
+# Merge with counts
+master_table <- left_join(all_stats, norm_counts, by = "GeneID")
+
+# Add clean gene names from the gene names file
+# GeneID is the Final_Name (seurat_name, e.g., "c12345-g1 1-to-1 GENENAME description")
+# Extract short gene ID for joining
+master_table <- master_table %>%
+  mutate(trinity_gene_id = sub(" .*", "", GeneID))
+
+# Join Zang_et_al_2026 clean names
+master_table <- master_table %>%
+  left_join(
+    gene_names_dedup[, c("Trinity_geneID", "Zang_et_al_2026")],
+    by = c("trinity_gene_id" = "Trinity_geneID")
+  ) %>%
+  # Use Zang_et_al_2026 as the clean gene name
+  rename(clean_geneName = Zang_et_al_2026)
+
+# Save master table
+output_dir <- here("outs", "transcriptomics")
+dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
+
+write.csv(master_table,
+          file.path(output_dir, "Master_Differential_Expression_Results_Interaction_V2.csv"),
+          row.names = FALSE)
+
+write.table(master_table,
+            file.path(output_dir, "Master_Differential_Expression_Results_Interaction_V2.tsv"),
+            sep = "\t", row.names = FALSE)
+
+cat("Master table saved with", nrow(master_table), "rows and",
+    length(unique(master_table$GeneID)), "unique genes\n")
+```
+
+```{r unique_hits}
+# Extract unique significant genes (hits and candidates)
+unique_hits <- master_table %>%
+  filter(Status %in% c("HIT", "CANDIDATE")) %>%
+  filter(!is.na(clean_geneName) & clean_geneName != "") %>%
+  dplyr::select(GeneID, cleangeneName = clean_geneName) %>%
+  distinct(GeneID, .keep_all = TRUE)
+
+output_dir <- here("outs", "transcriptomics")
+write.csv(unique_hits,
+          file.path(output_dir, "Unique_Significant_Hits_Candidates_Interaction_V2.csv"),
+          row.names = FALSE)
+
+cat("Unique significant genes:", nrow(unique_hits), "\n")
+```

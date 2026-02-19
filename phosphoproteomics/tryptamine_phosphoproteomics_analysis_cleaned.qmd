@@ -1,0 +1,3229 @@
+---
+title: "Tryptamine TMT phosphoproteomics analysis"
+subtitle: "Core statistical pipeline: FragPipe output → differential phosphorylation"
+author: "Frank Stein (EMBL Proteomics Core Facility) and Jacob M. Musser (Yale University)"
+date: \today
+output: pdf_document
+description: |
+  This script implements the complete phosphoproteomics analysis for Zang,
+  Malaiwong et al. (2026) "An ancient monoaminergic signaling system coordinates
+  contractility in a nerveless sponge." It processes TMT reporter ion intensities
+  from FragPipe for both phosphopeptide and protein-level (input/lysate) data
+  through quality control, batch correction, variance stabilization, imputation,
+  and limma-based differential analysis. Outputs include limma results with
+  hit/candidate annotations, tidy measurement data (mdata), and exploratory
+  clustering of hit features.
+
+  Paper reference: Fig 4 (phosphoproteomics overview), Methods section.
+---
+
+<!--
+INPUTS (all relative to repository root via here::here()):
+  phosphoproteomics/data/
+    phosphosites_tryptamine_phosphoproteomics.tsv   FragPipe phosphopeptide table
+    input_tryptamine_phosphoproteomics.tsv           FragPipe protein-level table
+    metadata_tryptamine_phosphoproteomics.csv         Sample metadata (conditions, channels, controls)
+    geneID_proteinID_lookup.tsv                       Protein ID → Trinity gene ID mapping
+  data/
+    spongilla_gene_names_final.tsv                    Gene names (Zang_et_al_2026 column)
+
+OUTPUTS (written to outs/<RUN_ID>/):
+    limma_results_annotated.rds / .tsv    Differential analysis results for all contrasts
+    mdata.rds                              Tidy long-format measurement data (all processing stages)
+    conditions.rds                         Sample condition metadata
+    Full_dataset.csv                       Wide master table (all stages merged)
+    Methods.txt                            Auto-generated methods paragraph
+    Workspace.RData                        Full R workspace
+    *.pdf                                  QC plots, volcano, MA, heatmaps, clustering figures
+
+PIPELINE TOGGLES:
+    DO_BATCH_CORRECT = TRUE    Batch correction via limma::removeBatchEffect
+    DO_VSN           = TRUE    Variance stabilization normalization
+    DO_IMPUTE        = TRUE    kNN imputation of missing values
+    DO_EBAYES_TREND  = FALSE   limma eBayes mean-variance trend
+-->
+
+```{r}
+#| label: knitr options
+#| include: false
+knitr::opts_chunk$set(
+  echo = TRUE, message = FALSE, warning = FALSE,
+  cache = FALSE, cache.lazy = FALSE, autodep = TRUE
+)
+```
+
+This analysis pipeline is partly based on an analysis workflow developed by Bernd Klaus.
+
+# R setup
+
+## Loading packages
+
+```{r}
+#| label: loading packages
+library(vsn)
+library(limma)
+library(MSnbase)
+library(gplots)
+library(fdrtool)
+library(biobroom)
+library(tidyverse)
+library(UpSetR)
+library(glue)
+library(ggsci)
+```
+
+## Defining a working directory and setting run parameters
+
+This script assumes you have a top level directory (e.g. your R project or vscode working folder) that contains a data folder and outs folder. The data folder holds all necessary data and metadata files. The outs folder is where all output will be saved. For each run, a subdirectory is created within outs using date_scriptname.
+
+```{r}
+#| label: set directories
+
+# Set data directory.
+DATA_DIR <- here::here("phosphoproteomics", "data")
+
+# Set outs base directory
+OUTS_BASE <- here::here("outs")
+
+# Set run specific output subdirectory and create if missing
+RUN_ID    <- paste0(format(Sys.Date(), "%y%m%d"), "_tryptamine_phosphoproteomics_analysis_BATCH_VSN_IMPUT_NOEBAYES" )
+OUT_DIR   <- here::here(OUTS_BASE, RUN_ID)
+dir_save <- OUT_DIR
+dir.create(OUT_DIR, recursive = TRUE, showWarnings = FALSE)
+```
+
+Set parameters for batch correction and imputation
+
+```{r}
+#| label: set parameters
+
+# Pipeline toggles (run script multiple times with different settings)
+DO_BATCH_CORRECT <- TRUE
+DO_VSN           <- TRUE
+DO_IMPUTE        <- TRUE
+
+# Optional: when VSN is OFF, consider enabling limma's mean–variance trend handling
+DO_EBAYES_TREND  <- FALSE  #!DO_VSN
+```
+
+
+## Set seed and custom functions
+set seed for reproducibility - used by kmeans clustering later in script
+```{r}
+#| label: set seed
+set.seed(1234)
+```
+
+Style bundle for general QC + PCA + overview plots.
+
+```{r}
+#| label: custom plotting functions
+
+# - theme_bw(base_size=12): clean black/white theme with readable text sizing.
+# - scale_shape_manual(...): consistent point shapes (typically maps to `rep`).
+# - scale_fill_manual(...): consistent fill colors (typically maps to `rep` in boxplots).
+# - scale_colour_manual(...): consistent outline/point colors (often maps to `condition` in PCA/scatter).
+customPlot <- list(
+  theme_bw(base_size = 12),
+  scale_shape_manual(values = c(16, 17, 15, 3, 7, 8)),
+  scale_fill_manual(values = c("#D55E00", "#0072B2", "#009E73", "#CC79A7", "#E69F00", "#56B4E9", "#F0E442", "#000000", "#e41a1c", "#377eb8")),
+  scale_colour_manual(values = c("#D55E00", "#0072B2", "#009E73", "#CC79A7", "#E69F00", "#56B4E9", "#F0E442", "#000000", "#e41a1c", "#377eb8"))
+)
+
+# Style bundle for differential analysis plots (volcano/MA/etc.).
+# - colours encode hit class; alpha fades "no hit" points to reduce clutter.
+customPlot_DE <- list(
+  theme_bw(base_size = 12),
+  scale_shape_manual(values = c(16, 17, 15, 3, 7, 8)),
+  scale_colour_manual(values = c("hit" = "#1f78b4", "candidate" = "#a6cee3", "no hit" = "#555555")),
+  scale_alpha_manual(values = c("hit" = 1, "candidate" = 1, "no hit" = 0.1))
+)
+
+# Style bundle for fold-change correlation plots comparing two contrasts (x vs y).
+# - colours/alpha encode the joint hit class across the two comparisons.
+customPlot_DE_cor <- list(
+  theme_bw(base_size = 12),
+  scale_shape_manual(values = c(16, 17, 15, 3, 7, 8)),
+  scale_colour_manual(values = c("hit x - hit y" = "#CC79A7", "hit x - candidate y" = "#009E73", "candidate x - hit y" = "#F0E442", "candidate x - candidate y" = "#000000", "hit x - no hit y" = "#0072B2", "no hit x - hit y" = "#D55E00", "candidate x - no hit y" = "#56B4E9", "no hit x - candidate y" = "#E69F00", "no hit x - no hit y" = "#555555")),
+  scale_alpha_manual(values = c("hit x - hit y" = 1, "hit x - candidate y" = 1, "candidate x - hit y" = 1, "candidate x - candidate y" = 0.6, "hit x - no hit y" = 1, "no hit x - hit y" = 1, "candidate x - no hit y" = 0.6, "no hit x - candidate y" = 0.6, "no hit x - no hit y" = 0.1))
+)
+```
+
+Create helper function to convert phosphopeptide strings into an “asterisked” sequence when reading phospho data. plus absolute phosphosite positions (used later to define unique phosphosite-level IDs).
+
+```{r}
+#| label: custom function to modify phosphosite sequnces. This also has the effect of removing non phosphorylated modifications (e.g. TMT labels, etc) from the sequence, which is used as a key to remove redundancy.
+modify_sequence <- function(prob.sequence, prob, mod, assigned.mod, start.position, collapse.char = ";") {
+  prob.sequence <- unique(prob.sequence)                         # enforce one value per group
+  if (!is.na(prob.sequence)) {
+    prob <- unique(prob)                                         # localization probs for STY residues
+    assigned.mod <- unique(assigned.mod)                         # modification string from search output
+    start.position <- unique(start.position)                     # protein start offset for absolute coords
+    
+    # Strip probability annotations from the peptide sequence (e.g. "(0.95)")
+    sequence <- gsub("\\([0-9]\\.[0-9]+\\)", "", prob.sequence)
+    sequence <- unlist(strsplit(sequence, split = ""))           # split into AA vector
+    
+    # Parse assigned modifications; keep only the mod type of interest (e.g., 79.9663)
+    mods <- unlist(strsplit(assigned.mod, split = ","))
+    mods <- gsub("^ ", "", mods)
+    mods <- mods[grepl(mod, mods)]
+    
+    # Treat N-term mods as position 1 (so they can be indexed into the AA vector)
+    mods <- gsub("^N-term", "1N", mods)
+    
+    # Extract modification positions (within peptide) and the modified amino acid letters
+    mod.positions <- as.numeric(as.character(gsub("[A-z]\\([0-9]+.+", "", mods)))
+    mod.aas <- gsub("^[0-9]+", "", gsub("\\([0-9]+.+", "", mods))
+    
+    # Insert asterisks at modified residue positions in the peptide sequence
+    sequence[mod.positions] <- paste0(sequence[mod.positions], "*")
+    
+    # Convert peptide-relative positions to protein-absolute positions
+    mod.positions <- mod.positions + start.position - 1
+    position <- paste(paste(mod.aas, mod.positions, sep = ""), collapse = collapse.char)
+    
+    # Build output string: <asterisked_seq>___<n_mods>____<AApos;AApos;...>
+    mod.sequence <- paste(sequence, collapse = "")
+    mod.sequence <- paste(mod.sequence, length(mod.positions), sep = "___")
+    mod.sequence <- paste(mod.sequence, position, sep = "____")
+    return(mod.sequence)
+  }else {
+    return(NA)
+  }
+}
+```
+
+# Loading data and annotating experimental conditions
+Read metadata (sample map) and resolve raw file paths. This ensures the pipeline can find input/phospho TSVs even if metadata paths are relative.
+
+```{r}
+#| label: read metadata
+
+conditions <- read.delim(here::here(DATA_DIR, "metadata_tryptamine_phosphoproteomics.csv"),
+                         sep = ",", stringsAsFactors = FALSE)
+
+# Normalize file paths:
+# - If metadata provides an absolute path (UNIX or Windows), keep it.
+# - Otherwise, interpret it relative to ROOT_DIR (project root).
+conditions$file_abs <- ifelse(
+  grepl("^(/|[A-Za-z]:\\\\)", conditions$file),  # UNIX abs or Windows abs
+  conditions$file,
+  here::here(DATA_DIR, conditions$file)
+)
+
+# Fail fast if any referenced file does not exist (prevents silent “no data read” failures later).
+missing <- unique(conditions$file_abs[!file.exists(conditions$file_abs)])
+if (length(missing) > 0) {
+  message("Missing files referenced by metadata (first 20):")
+  print(head(missing, 20))
+  stop("Fix metadata paths or move files into expected locations.")
+}
+
+# Use resolved absolute paths as the canonical file identifier (prevents file.x/file.y artifacts in joins).
+conditions$file <- conditions$file_abs
+
+# Use resolved absolute paths for file iteration downstream.
+files <- unique(conditions$file)
+```
+
+Read in input and phospho files, standardize columns, and convert to a single long table
+`data` ends up with one row per feature × (file/channel) plus metadata from `conditions`.
+```{r}
+#| label: read phospho and input data
+data <- tibble::tibble()
+
+for (i in seq_along(files))
+{
+  message("----- File ", i, " -----")
+  message("Path: ", files[i])
+  print(files[i])
+  
+  # Read one TSV (either phospho/peptide-level or input/protein-level depending on columns present)
+  x <- readr::read_tsv(files[i], show_col_types = FALSE, progress = FALSE)
+
+  # Make column names syntactically valid (avoids issues with dots/spaces downstream)
+  names(x) <- make.names(names(x))
+  
+  # Fill missing Gene with Protein.ID as a fallback identifier
+  x$Gene[is.na(x$Gene)] <- x$Protein.ID[is.na(x$Gene)]
+
+  # Heuristic to decide file type:
+  # presence of STY.79.96633 implies a phospho peptide/site table
+  if ("STY.79.96633" %in% names(x))
+  {
+    peptide.file <- TRUE   # phospho (peptide/site-level)
+  }else
+  {
+    peptide.file <- FALSE  # input (protein-level)
+  }
+  
+  if (peptide.file)  ## phospho file
+  {
+    # Keep only reasonably localized phosphosites
+    x <- x %>% dplyr::filter(STY.79.96633.Best.Localization >= 0.5)
+    
+    # Add required columns expected later (since peptide file lacks protein-table fields)
+    x$Razor.Peptides <- 2
+    x$Unique.Peptides <- 2
+    x$Organism <- ""
+    x$Total.Intensity <- x$Intensity
+    
+    # Derive an "asterisk sequence" encoding phosphosite positions + a phospho.position string
+    x.sequence <- x %>%
+      group_by(STY.79.96633, Assigned.Modifications, Protein.Start) %>%
+      summarise(asterisk.sequence = modify_sequence(prob.sequence = STY.79.96633, mod = "79.9663", prob = STY.79.96633.Best.Localization, assigned.mod = Assigned.Modifications, start.position = Protein.Start))
+    x.sequence <- x.sequence %>%
+      mutate(phospho.position = gsub(".+____", "", asterisk.sequence)) %>%
+      mutate(asterisk.sequence = gsub("____.+", "", asterisk.sequence))
+    x <- left_join(x.sequence, x)
+    rm(x.sequence)
+
+    x <- subset(x, !is.na(STY.79.96633))
+
+    # Define the core feature key used throughout the pipeline:
+    # - phospho: Gene (proteinID in this case) + modified sequence (site-level granularity)
+    # - This means that peptides that are redundant and only differ via spectrum ID, fraction/run ID, charge state, etc are collapsed.
+    x$sequence.id <- paste0(x$Gene, "_", x$asterisk.sequence)
+    
+  }else  ## input lysate file (protein-level)
+  {
+
+    # Keep reasonably supported proteins
+    x <- x %>% dplyr::filter(Razor.Peptides >= 2)
+    
+    # Add required phospho-related columns so downstream code can treat both file types uniformly
+    x$STY.79.96633.Best.Localization <- 0.5
+    x$STY.79.96633 <- ""
+    x$phospho.position <- ""
+
+    # Define the core feature key used throughout the pipeline:
+    # - input:  Gene (proteinID in this case) only to provide protein-level granularity
+    x$sequence.id <- x$Gene
+  }
+
+    # Drop decoys/contaminants
+    x <- x %>% dplyr::filter(!grepl("rev_", Protein))
+    x <- x %>% dplyr::filter(!grepl("contam_", Protein))
+
+  
+  # # Ensure Total.Intensity exists even if missing (downstream assumes the column exists)
+  # if(!"Total.Intensity" %in% names(x)) 
+  # {
+  #   x$Total.Intensity <- 0
+  # }
+  
+  # # Re-apply Gene fallback and drop rows without Protein.ID (needed for later annotation)
+  # x$Gene[is.na(x$Gene)] <- x$Protein.ID[is.na(x$Gene)]
+  # x <- subset(x, !is.na(Protein.ID))
+  
+  # Track which source file each row came from
+  x$file <- files[i]
+
+  # Identify which quant columns to keep for this file (from metadata)
+  keepnames <- conditions %>%
+    dplyr::filter(file == files[i]) %>%
+    dplyr::pull(col.name) %>%
+    as.character()
+
+  message("Matched keepnames n=", length(keepnames))
+  message("Missing keepnames in x: ",
+          paste(setdiff(keepnames, names(x)), collapse = ", "))
+
+  # Hard fail if metadata doesn't match this file (otherwise you silently drop all quant columns)
+  
+  # Hard fail if metadata doesn't match this file (otherwise you silently drop all quant columns)
+  if (length(keepnames) == 0) {
+    stop(
+      "No col.name entries found in metadata for file: ", files[i],
+      "\nCheck that conditions$file matches the files vector (after path normalization)."
+    )
+  }
+  
+  # Keep only standardized annotation columns + the reporter intensity columns for this file
+  x <- x[, c("sequence.id", "Gene", "Protein.ID", "Protein.Description", "Organism",
+             "STY.79.96633", "phospho.position", "STY.79.96633.Best.Localization",
+             "Unique.Peptides", "Razor.Peptides", "Total.Intensity", "file", keepnames)]
+  
+  message("Before gather: sequence.id present? ", "sequence.id" %in% names(x))
+  message("Before gather: keepnames: ", paste(keepnames, collapse = ", "))
+  
+  # Convert wide reporter columns -> long format: one row per (feature × channel)
+  x <- x %>%
+    dplyr::group_by(sequence.id, Gene, Protein.ID, Protein.Description, Organism,
+                    STY.79.96633, phospho.position, STY.79.96633.Best.Localization,
+                    Unique.Peptides, Razor.Peptides, Total.Intensity, file) %>%
+    tidyr::pivot_longer(cols = dplyr::all_of(keepnames),
+                        names_to = "col.name",
+                        values_to = "value")
+  
+  message("After gather: phospho intensity value present? ", "phospho_intensity_value" %in% names(x))
+  
+  # Ensure Total.Intensity is numeric (avoids downstream type issues)
+  x$Total.Intensity <- as.numeric(as.character(x$Total.Intensity))
+  
+  # Append this file's long data onto the master table
+  data <- bind_rows(data, x)
+}
+
+# Attach sample metadata (condition/sample/rep/ID/control mappings) to each long-format row
+data <- left_join(data, conditions, by = c("file", "col.name"))
+
+# Sanity + drop zeros (pipeline assumes strictly positive intensities for log2 transforms)
+#stopifnot("value" %in% names(data))
+data <- subset(data, value > 0)
+
+rm(list = c("x", "files", "keepnames"))
+```
+
+
+# Normalizing phospho signals with input abundance
+Normalizing phospho signals with input abundance
+Goal: create a derived sample type ("input.norm.phospho") where each phospho feature
+is normalized by the corresponding input (protein abundance) for the same Gene/condition/rep.
+This helps separate phosphorylation dynamics from changes in protein abundance.
+```{r}
+#| label: normalize peptide with abundance
+
+# create tibble with protein data to be used for normalization
+normalizer.data <- data %>%
+  ungroup() %>%
+  dplyr::filter(sample == "input") %>%                 # use only the input (protein-level) sample
+  mutate(input_intensity_value = value) %>%                       # rename intensity to "norm.value" for clarity
+  dplyr::select(Gene, Razor.Peptides, input_intensity_value, condition, rep) %>%  # keep only what's needed
+  group_by(Gene, condition, rep) %>%                   # match to phospho by Gene + condition + rep
+  summarise(Razor.Peptides = sum(Razor.Peptides, na.rm = TRUE),
+            input_intensity_value = sum(input_intensity_value, na.rm = TRUE)) # aggregate input signal per Gene/channel
+
+# create tibble with phospho rows that will be normalized
+norm.data <- data %>%
+  dplyr::filter(sample == "phospho") %>%               # start from phospho rows
+  mutate(sample = "input.norm.phospho",                # relabel sample type
+         ID = gsub("^phospho", "input.norm.phospho", ID),       # keep IDs unique & sample-consistent
+         ctrl.ID = gsub("^phospho", "input.norm.phospho", ctrl.ID),
+         phospho_intensity_value = value)
+norm.data$Razor.Peptides <- NULL                       # drop phospho Razor.Peptides (not meaningful here)
+
+# Attach the matching input abundance per Gene/condition/rep that will be used to normalize
+norm.data <- left_join(norm.data, normalizer.data)
+
+# Compute per-Gene scaling factors so the normalized intensities are on a sensible scale
+# (median on log2 scale -> back-transform to linear with 2^median(log2(.)))
+norm.data.sum <- norm.data %>%
+  dplyr::group_by(Gene, Protein.ID) %>%
+  dplyr::summarise(
+    median.input = 2^median(log2(input_intensity_value), na.rm = TRUE),
+    .groups = "drop")
+
+# Add medians, then normalize:
+#  - divide phospho by input (raw intensity value / input intensity value)
+#  - rescale so typical values remain comparable across proteins/features
+norm.data <- dplyr::left_join(norm.data, norm.data.sum, by = c("Gene", "Protein.ID")) %>%
+  dplyr::mutate(value = phospho_intensity_value / input_intensity_value * median.input) %>%
+  dplyr::filter(!is.na(value))                     # drop cases with missing input normalizer
+
+# Force column order to match `data` (so bind_rows works cleanly)
+norm.data <- norm.data[, names(data)]
+
+# ---- Append normalized sample into the master long table ----
+data <- dplyr::bind_rows(data, norm.data)
+
+# ---- Add corresponding metadata rows for the new derived sample type ----
+# Copy phospho metadata and rewrite fields so downstream code treats input.norm.phospho
+# exactly like a real sample type (faceting, contrasts, ctrl.ID logic, etc.).
+conditions_norm <- conditions %>%
+  dplyr::filter(sample == "phospho") %>%
+  dplyr::mutate(
+    sample  = "input.norm.phospho",
+    ID      = gsub("^phospho", "input.norm.phospho", ID),
+    ctrl.ID = gsub("^phospho", "input.norm.phospho", ctrl.ID)
+  )
+
+# Prevent duplicates if this chunk is re-run in the same session
+conditions_norm <- dplyr::anti_join(
+  conditions_norm,
+  conditions,
+  by = intersect(names(conditions_norm), names(conditions))
+)
+
+# Append the new metadata rows
+conditions <- dplyr::bind_rows(conditions, conditions_norm)
+saveRDS(conditions, file.path(dir_save, "conditions.rds"))
+rm(conditions_norm, norm.data, normalizer.data, norm.data.sum)
+
+```
+
+# Protein sample plots
+
+Make bar chart of distinct proteins identified in each sample type.
+```{r}
+#| label: proteinID bar chat
+
+# Count how many distinct proteins (Protein.ID) are observed per (sample, condition, rep),
+# with an input-specific filter to keep only reasonably supported proteins.
+protein_counts_by_group <- data %>%
+  filter(sample %in% c("input", "phospho", "input.norm.phospho")) %>%   # restrict to the main sample types
+  mutate(pass = if_else(sample == "input", Razor.Peptides >= 2, TRUE)) %>%  # apply Razor>=2 filter only to input
+  filter(pass) %>%                                                      # drop low-support input proteins
+  summarise(
+    n_proteins = n_distinct(Protein.ID),                                # protein-level ID count
+    .by = c(sample, condition, rep)                                     # compute per condition and replicate
+  )
+
+# Plot: bar chart of protein counts per condition, separated by replicate (facet),
+# and grouped by sample type (input vs phospho vs input.norm.phospho).
+p <- ggplot(protein_counts_by_group,
+            aes(x = condition, y = n_proteins, fill = sample)) +
+  geom_col(position = position_dodge(width = 0.9)) +                    # side-by-side bars for sample types
+  facet_wrap(~ rep) +                                                   # show each replicate separately
+  customPlot +
+  labs(x = "Condition", y = "Distinct proteins (Protein.ID)", fill = "Sample") +
+  labs(caption = "# Proteins Identified") +
+  ggtitle("Protein identification overview") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5))
+
+# Save to output directory
+ggsave(file.path(dir_save, paste0("ProteinCount_Overview", ".pdf")),
+       p, width = 12.4, height = 4.96)
+
+
+```
+
+Upset plot of protein IDs shared among samples.
+
+```{r proteinIdentificationOverview}
+#| label: proteinID upset plot
+ 
+### Build protein-by-set presence/absence matrix
+# Binary matrix for UpSetR: 1 if Protein.ID is observed (value > 0) in a given ID/channel.
+upsetR.data <- data %>%
+  dplyr::filter(!is.na(Protein.ID), value > 0) %>%   # keep detected proteins
+  dplyr::distinct(Protein.ID, ID) %>%                # unique Protein.ID × ID pairs
+  dplyr::mutate(identified = 1L) %>%                 # presence flag
+  tidyr::pivot_wider(
+    names_from  = ID,                                # columns = sample IDs (“sets”)
+    values_from = identified,
+    values_fill = 0                                  # absence -> 0
+  ) %>%
+  as.data.frame()                                    # UpSetR expects a data.frame
+
+# Set columns for UpSetR (cap number shown for readability)
+set_cols <- setdiff(colnames(upsetR.data), "Protein.ID")
+nsets_use <- min(length(set_cols), 54)
+
+# AAAS palette colors for UpSetR components
+aaas_cols <- ggsci::pal_aaas()(10)
+main_bar_col <- aaas_cols[1]   # intersection sizes
+set_bar_col  <- aaas_cols[2]   # set sizes
+matrix_col   <- aaas_cols[3]   # membership matrix
+shade_col    <- aaas_cols[4]   # background shading
+
+# UpSet: show top intersections, order by frequency
+upset.plot <- upset(
+  upsetR.data,
+  sets = set_cols,
+  order.by = "freq",
+  nsets = nsets_use,
+  nintersects = 30,
+  mb.ratio = c(0.45, 0.55),
+
+  # AAAS styling
+  main.bar.color = main_bar_col,
+  sets.bar.color = set_bar_col,
+  matrix.color   = matrix_col,
+  shade.color    = shade_col,
+  shade.alpha    = 0.15,
+
+  # Text sizing for publication readability
+  text.scale = c(1.4, 1.3, 1.1, 1.1, 1.2, 1.1)
+)
+
+# Save (UpSetR uses base graphics, so write via pdf() device)
+pdf(
+  file = file.path(dir_save, paste0("ProteinIdentification_UpSet_plot_PROTEINS_AAAS", ".pdf")),
+  width = 8.96,
+  height = 12.4
+)
+print(upset.plot)
+dev.off()
+
+
+```
+
+Protein missing heatmap
+```{r}
+#| label: protein missing heatmap
+
+# Build protein-by-ID presence matrix (1 = detected in that ID/channel)
+prot_upset <- data %>%
+  filter(!is.na(Protein.ID), value > 0) %>%     # detected proteins only
+  distinct(Protein.ID, ID) %>%                  # unique Protein.ID × ID pairs
+  mutate(present = 1L) %>%
+  pivot_wider(
+    names_from = ID,                            # columns = IDs (channels)
+    values_from = present,
+    values_fill = 0                             # absence -> 0
+  )
+
+# Cluster proteins by presence/absence pattern across IDs (for nicer heatmap ordering)
+prot_mat <- prot_upset %>%
+  select(-Protein.ID) %>%
+  as.matrix()
+rownames(prot_mat) <- prot_upset$Protein.ID
+
+d <- dist(prot_mat, method = "euclidean")
+hclust.fit <- hclust(d, method = "ward.D2")
+
+# Long format for ggplot heatmap
+prot_tidy <- prot_upset %>%
+  pivot_longer(cols = -Protein.ID, names_to = "ID", values_to = "value")
+
+# Apply clustered protein order on y-axis
+prot_tidy$Protein.ID <- factor(
+  prot_tidy$Protein.ID,
+  ordered = TRUE,
+  levels = hclust.fit$labels[hclust.fit$order]
+)
+
+# Add sample metadata for each ID (enables faceting by sample type)
+prot_tidy <- left_join(prot_tidy, conditions, by = "ID")
+
+# Heatmap: detected (TRUE) vs missing (FALSE) per protein × ID
+ggplot(prot_tidy, aes(ID, Protein.ID)) +
+  geom_tile(aes(fill = value > 0)) +
+  customPlot +
+  xlab("sample ID") +
+  scale_fill_manual(values = c("FALSE" = "#999999", "TRUE" = "#4daf4a"), name = "identified") +
+  theme(
+    axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
+    axis.text.y = element_blank()
+  ) +
+  facet_grid(. ~ sample, space = "free", scales = "free_x") +
+  ggtitle("Missing value overview (proteins)") +
+  labs(caption = "presence defined as any value > 0 for Protein.ID within ID")
+
+ggsave(
+  file.path(dir_save, paste0("ProteinIdentification_MissingValueOverview_PROTEINS", ".pdf")),
+  width = 12.4, height = 8.96
+)
+
+rm(d, hclust.fit)
+```
+
+Protein replicate/file coverage histogram
+```{r}
+#| label: protein replicate/file coverage histogram
+
+# Replicate/file coverage per protein:
+# Count, for each Protein.ID and sample type, how many distinct (replicate, file) combos it appears in.
+sub_i <- data %>%
+  dplyr::filter(!is.na(Protein.ID), value > 0) %>%          # detected proteins only
+  dplyr::distinct(Protein.ID, sample, rep, file) %>%        # unique replicate/file observations
+  dplyr::summarise(
+    found.in.files = n(),                                   # number of (rep,file) combos
+    .by = c(Protein.ID, sample)
+  ) %>%
+  dplyr::mutate(
+    found.in.files = factor(found.in.files),               # treat as categorical for bar plot
+    sample = factor(sample)
+  )
+
+# Plot: distribution of replicate coverage (x = #rep/file combos, y = #proteins), faceted by sample.
+p_replicate_coverage <- ggplot(sub_i, aes(x = found.in.files, fill = sample)) +
+  geom_bar(position = position_dodge(width = 0.9)) +        # side-by-side bars per sample (mostly redundant w/ facet)
+  geom_text(                                                # annotate bars with counts
+    aes(label = after_stat(count), y = after_stat(count)),
+    stat = "count",
+    size = 2,
+    position = position_dodge(width = 0.9),
+    hjust = 1,
+    angle = 90
+  ) +
+  facet_wrap(~ sample) +
+  scale_fill_aaas() +                                       # AAAS palette for consistency with other figures
+  theme_bw(base_size = 12) +
+  labs(
+    x = "Identified in # (replicate, file) combinations per protein",
+    y = "Number of proteins",
+    title = "Protein identification replicate coverage"
+  ) +
+  theme(
+    legend.position = "none",
+    axis.text.x = element_text(angle = 45, hjust = 1)
+  )
+
+ggsave(
+  file.path(
+    dir_save,
+    paste0("ProteinIdentification_ReplicateCoverage_PROTEINS_AAAS", ".pdf")
+  ),
+  plot = p_replicate_coverage,
+  width = 8.96,
+  height = 4.96
+)
+
+rm(sub_i, p_replicate_coverage)
+```
+
+QC plot of reporter intensity values after before and after normalization.
+```{r}
+#| label: qc-reporter-intensity-boxplot
+#| message: false
+#| warning: false
+
+# QC-only plot: checks reporter-intensity distributions; does not change downstream stats.
+
+# Replicates are colored using AAAS palette for consistent figure style.
+
+aaas_fill <- ggsci::pal_aaas("default")(length(unique(data$rep)))
+names(aaas_fill) <- sort(unique(as.character(data$rep)))
+
+p_intensity_box <- ggplot(data = data, aes(condition, log2(value), fill = as.factor(rep))) +
+geom_boxplot(outlier.size = 0.3) +
+ylab("log2(reporter_intensity)") +
+facet_grid(. ~ sample, scales = "free_x", space = "free") +
+scale_fill_manual(values = aaas_fill) +
+customPlot +
+theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1))
+
+ggsave(
+file.path(dir_save, paste0("QC_ReportIntensity_Boxplot", ".pdf")),
+plot = p_intensity_box,
+width = 12.4, height = 4.96
+)
+
+rm(p_intensity_box, aaas_fill)
+```
+
+# Transforming long data to wide data
+
+Build wide reporter-intensity matrix (cdata)
+
+```{r}
+#| label: build-cdata-intensity-matrix
+
+# Create wide matrix to generate combined rep intensity matrix: downstream assumes "reporter_intensity_<sample>*<condition>*<rep>" naming.
+# Sum within sequence.id × sample_condition_rep matches Frank’s aggregation before wide reshape.
+
+cdata <- data %>%                                                  # long → wide intensity matrix
+  group_by(sequence.id) %>%                                        # group by phosphopeptide/protein (input)
+  mutate(sample_condition_rep = paste("reporter_intensity", sample, condition, rep,
+                     sep = "_")) %>%                               # new column key = reporter_intensity_<sample>_<condition>_<rep>
+  dplyr::select(sequence.id, sample_condition_rep, value) %>%      # keep only 
+  group_by(sequence.id, sample_condition_rep) %>%                  # one value per wide column per feature
+  summarise(value = sum(value, na.rm = TRUE)) %>%                  # sum intensity values
+  spread(key = sample_condition_rep, value = value)                # wide columns; missing → NA (no fill)
+
+```
+
+Add coverage metrics (found.in.*): files
+
+```{r}
+#| label: coverage-metrics-files
+
+# Coverage metrics. Keep names and NA behavior (no zero-fill).
+
+# Total distinct files where each sequence.id appears.
+fdata <- data %>%
+  group_by(sequence.id) %>%                       # feature key (Frank/Roy-critical)
+  dplyr::select(sequence.id, file) %>%            # keep fields used to define "distinct file evidence"
+  distinct() %>%                                  # Frank parity: dedupe repeated rows before counting
+  summarise(found.in.files = n())                 # number of unique files with evidence
+
+# Per-file flags: sanitize file names for valid column names.
+fdata_i <- data %>%
+  mutate(file2 = make.names(file)) %>%            # safe column names for wide reshape
+  group_by(sequence.id, file2) %>%                # one flag per feature × file
+  distinct(sequence.id, file2, .keep_all = TRUE) %>% # presence-only (avoid double-counting within file)
+  summarise(found.in.file = n()) %>%              # presence count (typically 1)
+  mutate(file2 = paste0("found.in.file_", file2)) %>%  # Frank schema: found.in.file_<file>
+  spread(key = file2, value = found.in.file)      # wide per-file flags; missing → NA (no fill)
+fdata <- left_join(fdata, fdata_i)                # attach per-file columns (by sequence.id)
+
+# Per-sample file coverage: downstream expects found.in.files_<sample>.
+fdata_i <- data %>%
+  group_by(sequence.id, sample) %>%               # per-sample coverage used in Frank filterData
+  dplyr::select(sequence.id, file, sample) %>%    # fields to dedupe by (seq × sample × file)
+  distinct() %>%                                  # unique files within each sample type
+  summarise(found.in.files = n()) %>%             # count unique files per (seq × sample)
+  mutate(sample = paste0("found.in.files_", sample)) %>%  # Frank schema: found.in.files_<sample>
+  spread(key = sample, value = found.in.files)    # wide per-sample coverage; missing → NA
+fdata <- left_join(fdata, fdata_i)                # attach per-sample coverage columns
+
+
+```
+
+Coverage metrics (found.in.*): conditions and replicates
+
+```{r}
+#| label: coverage-metrics-conditions-reps
+
+# Distinct condition coverage (overall).
+
+fdata_i <- data %>%
+group_by(sequence.id) %>%
+dplyr::select(sequence.id, condition) %>%
+distinct() %>%
+summarise(found.in.conditions = n())
+fdata <- left_join(fdata, fdata_i)
+
+# Distinct condition coverage per sample: found.in.conditions_<sample>.
+
+fdata_i <- data %>%
+group_by(sequence.id, sample) %>%
+dplyr::select(sequence.id, condition, sample) %>%
+distinct() %>%
+summarise(found.in.conditions = n()) %>%
+mutate(sample = paste0("found.in.conditions_", sample)) %>%
+spread(key = sample, value = found.in.conditions)
+fdata <- left_join(fdata, fdata_i)
+
+# Distinct replicate coverage (overall).
+
+fdata_i <- data %>%
+group_by(sequence.id) %>%
+dplyr::select(sequence.id, rep) %>%
+distinct() %>%
+summarise(found.in.reps = n())
+fdata <- left_join(fdata, fdata_i)
+
+# Distinct replicate coverage per sample: found.in.reps_<sample>.
+
+fdata_i <- data %>%
+group_by(sequence.id, sample) %>%
+dplyr::select(sequence.id, rep, sample) %>%
+distinct() %>%
+summarise(found.in.reps = n()) %>%
+mutate(sample = paste0("found.in.reps_", sample)) %>%
+spread(key = sample, value = found.in.reps)
+fdata <- left_join(fdata, fdata_i)
+```
+
+```{r}
+#| label: feature-level-qc-summaries
+
+# These columns are referenced later by Frank/Roy helpers (filters + abundance plots).
+
+# Keep Frank’s distinct() + na.rm behavior for full parity.
+
+# Localization score: overall + per sample.
+
+fdata_i <- data %>%
+group_by(sequence.id) %>%
+dplyr::select(sequence.id, STY.79.96633.Best.Localization) %>%
+distinct() %>%
+summarise(max.STY.79.96633.Best.Localization = max(STY.79.96633.Best.Localization, na.rm = TRUE))
+fdata <- left_join(fdata, fdata_i)
+
+fdata_i <- data %>%
+group_by(sequence.id, sample) %>%
+dplyr::select(sequence.id, sample, STY.79.96633.Best.Localization) %>%
+distinct() %>%
+summarise(max.STY.79.96633.Best.Localization = max(STY.79.96633.Best.Localization, na.rm = TRUE)) %>%
+mutate(sample = paste0("max.STY.79.96633.Best.Localization_", sample)) %>%
+spread(key = sample, value = max.STY.79.96633.Best.Localization)
+fdata <- left_join(fdata, fdata_i)
+
+# Unique peptides: overall + per sample.
+
+fdata_i <- data %>%
+group_by(sequence.id) %>%
+dplyr::select(sequence.id, Unique.Peptides) %>%
+distinct() %>%
+summarise(max.Unique.Peptides = max(Unique.Peptides, na.rm = TRUE))
+fdata <- left_join(fdata, fdata_i)
+
+fdata_i <- data %>%
+group_by(sequence.id, sample) %>%
+dplyr::select(sequence.id, sample, Unique.Peptides) %>%
+distinct() %>%
+summarise(max.Unique.Peptides = max(Unique.Peptides, na.rm = TRUE)) %>%
+mutate(sample = paste0("max.Unique.Peptides_", sample)) %>%
+spread(key = sample, value = max.Unique.Peptides)
+fdata <- left_join(fdata, fdata_i)
+
+# Razor peptides: REQUIRED by Frank filterData (expects max.Razor.Peptides_<sample>).
+
+fdata_i <- data %>%
+group_by(sequence.id) %>%
+dplyr::select(sequence.id, Razor.Peptides) %>%
+distinct() %>%
+summarise(max.Razor.Peptides = max(Razor.Peptides, na.rm = TRUE))
+fdata <- left_join(fdata, fdata_i)
+
+fdata_i <- data %>%
+group_by(sequence.id, sample) %>%
+dplyr::select(sequence.id, sample, Razor.Peptides) %>%
+distinct() %>%
+summarise(max.Razor.Peptides = max(Razor.Peptides, na.rm = TRUE)) %>%
+mutate(sample = paste0("max.Razor.Peptides_", sample)) %>%
+spread(key = sample, value = max.Razor.Peptides)
+fdata <- left_join(fdata, fdata_i)
+
+# Total.Intensity mean: REQUIRED by Frank LimmaAbundancePlot (average.Total.Intensity_<sample>).
+
+fdata_i <- data %>%
+group_by(sequence.id) %>%
+dplyr::select(sequence.id, Total.Intensity) %>%
+distinct() %>%
+summarise(average.Total.Intensity = mean(Total.Intensity, na.rm = TRUE))
+fdata <- left_join(fdata, fdata_i)
+
+fdata_i <- data %>%
+group_by(sequence.id, sample) %>%
+dplyr::select(sequence.id, sample, Total.Intensity) %>%
+distinct() %>%
+summarise(average.Total.Intensity = mean(Total.Intensity, na.rm = TRUE)) %>%
+mutate(sample = paste0("average.Total.Intensity_", sample)) %>%
+spread(key = sample, value = average.Total.Intensity)
+fdata <- left_join(fdata, fdata_i)
+```
+
+Feature annotation table (id_data) + duplicate collapsing
+
+```{r}
+#| label: id-data-annotation-dedup
+
+# Annotation columns are joined into cdata; keep identical fields/behavior to avoid breaking Roy scripts.
+
+id_data <- data %>%
+ungroup() %>%
+dplyr::select(sequence.id, Gene, Protein.ID, Protein.Description, Organism, STY.79.96633, phospho.position) %>%
+distinct()
+
+# If sequence.id has multiple annotation rows, collapse values to semicolon-separated uniques (Frank behavior).
+
+dups <- id_data %>%
+group_by(sequence.id) %>%
+summarize(n = n()) %>%
+dplyr::filter(n > 1) %>%
+dplyr::select(sequence.id)
+
+if (nrow(dups) > 0)
+{
+dups <- dups$sequence.id
+dup.data <- subset(id_data, sequence.id %in% dups)
+id_data <- subset(id_data, !sequence.id %in% dups)
+combine_ids <- function(ids)
+{
+ids <- as.character(ids)
+return(paste(sort(unique(unlist(strsplit(ids, split = "[;]")))), collapse = ";"))
+}
+dup.data <- dup.data %>%
+group_by(sequence.id) %>%
+summarise(Protein.ID = combine_ids(Protein.ID),
+Gene = combine_ids(Gene),
+Protein.Description = combine_ids(Protein.Description),
+Organism = combine_ids(Organism),
+STY.79.96633 = combine_ids(STY.79.96633),
+phospho.position = combine_ids(phospho.position))
+id_data <- bind_rows(id_data, dup.data)
+rm(dup.data, combine_ids)
+}
+rm(dups)
+
+```
+
+Assemble final wide table (cdata)
+
+```{r}
+#| label: assemble-final-cdata
+
+# Final assembly: attach annotation/QC (fdata) to intensity matrix (cdata) by sequence.id.
+
+fdata <- left_join(id_data, fdata)
+rm(id_data)
+
+cdata <- left_join(fdata, cdata)
+rm(fdata_i, fdata)
+
+```
+
+Fail-fast schema checks
+
+```{r}
+#| label: schema-assertions
+
+# Guardrails: catch sample-label/schema drift early (prevents hard-to-debug downstream failures).
+
+stopifnot("sequence.id" %in% names(cdata))
+stopifnot(any(grepl("^reporter_intensity_", names(cdata))))
+stopifnot(all(paste0("found.in.files_", unique(conditions$sample)) %in% names(cdata)))
+stopifnot(all(paste0("max.Razor.Peptides_", unique(conditions$sample)) %in% names(cdata)))
+stopifnot(all(paste0("average.Total.Intensity_", unique(conditions$sample)) %in% names(cdata)))
+stopifnot("max.STY.79.96633.Best.Localization" %in% names(cdata))
+
+```
+
+
+# Filter data
+
+Only proteins that were quantified with two unique peptide matches are kept for the analysis. Proteins were filtered according to these condition already when loading the data. Moreover, only proteins were kept if they were quantified in at least 2/3 of the replicates. This code section is a relict of Frank's proteomics processing script and will not affect results.
+
+```{r}
+#| label: relict filter data
+
+# --- Filter data (Frank-parity behavior; simplified implementation) ---
+dim(cdata)
+
+min.found.in.files <- 1
+min.Razor.Peptides <- 2
+
+samples <- unique(conditions$sample)                                  # expected: input/phospho/input.norm.phospho
+
+# Per-sample keep flags: keep_<sample> = TRUE only if both QC criteria pass.
+for (s in samples)
+{
+  fcol <- paste0("found.in.files_", s)                                # file coverage metric (schema-critical)
+  rcol <- paste0("max.Razor.Peptides_", s)                             # Razor peptide support (schema-critical)
+  kcol <- paste0("keep_", s)                                           # downstream relies on these columns
+
+  cdata[[kcol]] <- !is.na(cdata[[fcol]]) & !is.na(cdata[[rcol]]) &     # missing metrics never pass
+    cdata[[fcol]] >= min.found.in.files &
+    cdata[[rcol]] >= min.Razor.Peptides
+}
+
+# Global keep: retain feature if it passes in ANY sample type.
+keep_cols <- paste0("keep_", samples)
+cdata$keep <- rowSums(cdata[, keep_cols, drop = FALSE]) > 0            # replaces slow row loop
+
+cdata <- subset(cdata, keep)                                          # typically no-op here, but keeps Frank structure
+dim(cdata)
+
+rm(min.found.in.files, min.Razor.Peptides, samples, keep_cols)
+
+
+```
+
+# Building an expression set, batch removal, normalization, and imputation
+
+Build an expression set object for downstream analysis
+```{r}
+#| label: Build expression set object
+
+# Constructing assay data
+raw_data <- cdata %>%
+  dplyr::select(starts_with("reporter_intensity")) %>%
+  as.data.frame()
+rownames(raw_data) <- cdata$sequence.id
+names(raw_data) <- gsub("reporter_intensity_", "", names(raw_data))
+
+# Constructing metadata
+conditions_i <- data.frame(ID = names(raw_data))
+conditions_i <- left_join(conditions_i, conditions)
+
+# Constructing fdata
+fdata <- cdata %>%
+  dplyr::select(-starts_with("reporter_intensity")) %>%
+  as.data.frame()
+
+# Defining ID columns
+rownames(fdata) <- fdata$sequence.id
+rownames(conditions_i) <- conditions_i$ID
+colnames(raw_data) <- conditions_i$ID
+
+# Log2-transformation of raw_reporter_intensity values
+raw_data_m <- log2(as.matrix(raw_data))
+raw_data_m[is.infinite((raw_data_m))] <- NA
+raw_data_m[is.na((raw_data_m))] <- NA
+
+# Creating an expression set
+raw_dataE <- ExpressionSet(assayData = raw_data_m, 
+                           phenoData = AnnotatedDataFrame(conditions_i), 
+                           featureData = AnnotatedDataFrame(fdata))
+validObject(raw_dataE)
+rm(raw_data, raw_data_m, conditions_i, fdata)
+```
+
+Rmemove batch effects with limma
+```{r}
+#| label: remove batch effects
+
+batchcl_dataE <- raw_dataE
+
+if (DO_BATCH_CORRECT) {
+# Loop over each unique sample.
+for (s in unique(conditions$sample))
+{
+  # Print the current sample being processed.
+  print(s)
+  # Subset the data for the current sample and exclude missing values.
+  batchcl_dataE_i <- 
+    batchcl_dataE[fData(batchcl_dataE)[, paste0("keep_", s)], 
+                      batchcl_dataE$sample == s]
+
+  # Extract the available (non-missing) expression values.
+  exprs_available <- exprs(batchcl_dataE_i)
+  # Identify rows where all values are non-missing.
+  non_missing_indices <- complete.cases(exprs_available)
+
+  # Apply batch effect removal only to the non-missing values.
+  exprs(batchcl_dataE_i)[non_missing_indices, ] <- 
+    removeBatchEffect(exprs_available[non_missing_indices, ], 
+      batch = as.character(pData(batchcl_dataE_i)$rep), 
+      design = model.matrix(~0 + as.character(pData(batchcl_dataE_i)$condition)))
+
+  # Write the batch-effect cleaned values back into the main data.
+  for (cn in colnames(batchcl_dataE_i))
+  {
+    exprs(batchcl_dataE)[fData(batchcl_dataE)[, paste0("keep_", s)], cn] <- 
+      exprs(batchcl_dataE_i)[, cn]
+  }
+  # Remove temporary column variable.
+  rm(cn)
+}
+rm(s)
+}
+```
+
+
+The vsn package from Wolfgang Huber is used to apply a variance stabilization normalization method on the log2 raw data.
+Apply VSN normalization within each sample type (input / phospho / input.norm.phospho), restricted to features flagged as keep_<sample> to avoid normalizing on sparse/low-quality entries.
+```{r}
+#| label: normalize data
+
+norm_dataE <- batchcl_dataE
+
+if (DO_VSN) {
+  for (s in unique(conditions$sample))
+  {
+    print(paste0(s))  # progress / which sample type is being normalized
+
+    # Pull the (kept) feature × channel matrix for this sample type, converting from log2 back to linear
+    # because normalizeVSN/vsn2 expect intensities on the original scale.
+    norm_input.data_i <- 2^exprs(norm_dataE[
+      fData(norm_dataE)[, paste0("keep_", s)],
+      norm_dataE$sample == s])
+
+    # Fit VSN and return normalized intensities (linear scale); preserves columns = channels.
+    norm_dataE_i <- normalizeVSN(norm_input.data_i)
+
+    # Write normalized values back into the full ExpressionSet for the corresponding features/columns.
+    # This keeps non-kept features untouched (typically NA or unnormalized) for this sample type.
+    for (cn in colnames(norm_dataE_i))
+    {
+     exprs(norm_dataE)[fData(norm_dataE)[, paste0("keep_", s)], cn] <-
+       norm_dataE_i[, cn]
+    }
+    rm(cn, norm_dataE_i)
+
+    # QC diagnostic: mean–SD plot after VSN (computed on the same per-sample-type subset).
+    sdplot.object <- meanSdPlot(vsn2(norm_input.data_i), plot = FALSE)
+    print(sdplot.object$gg + ggtitle(s))
+    rm(sdplot.object, norm_input.data_i)
+  }
+  rm(s)
+} else {
+  norm_dataE <- batchcl_dataE  # no-op stage; keeps object name contract
+}
+
+
+
+
+```
+
+
+This block prepares a copy of the normalized ExpressionSet (norm_dataE) for missing-value imputation, converts it to an MSnSet so it can use MSnbase’s impute(), then performs kNN imputation separately within each sample type (input, phospho, input.norm.phospho). Importantly, imputation is restricted to features flagged keep_<sample> and only to columns belonging to that sample type, and the imputed values are written back into the full object.
+```{r}
+#| label: impute data
+
+if (DO_IMPUTE) {
+  # Create an imputation-ready copy of the normalized ExpressionSet.
+  # (We rebuild the object to ensure assay/pheno/feature slots are consistent and then coerce to MSnSet.)
+  imput_dataE <- 
+    ExpressionSet(assayData = exprs(norm_dataE),
+                  phenoData = AnnotatedDataFrame(pData(norm_dataE)),
+                  featureData = AnnotatedDataFrame(fData(norm_dataE)))
+
+  # Convert to MSnSet so MSnbase::impute() can be applied.
+  imput_dataE <- as(imput_dataE, "MSnSet")
+
+  # Impute missing values per sample type, using only features passing keep_<sample>.
+  for (s in unique(conditions$sample))
+  {
+    print(s)  # progress
+
+    # Subset to: (features kept for this sample type) × (columns belonging to this sample type),
+    # then apply kNN imputation on that restricted matrix.
+    imput_dataE_i <- 
+      impute(
+        imput_dataE[
+          fData(imput_dataE)[, paste0("keep_", s)], 
+          imput_dataE$sample == s
+        ], 
+        method = "knn"
+     )
+
+    # Write the imputed values back into the full object for the same feature subset.
+    # This preserves values for other sample types and non-kept features.
+    for (cn in colnames(imput_dataE_i))
+    {
+      exprs(imput_dataE)[
+        fData(imput_dataE)[, paste0("keep_", s)], cn
+      ] <- 
+        exprs(imput_dataE_i)[, cn]
+   }
+    rm(cn)
+  }
+
+  rm(s, imput_dataE_i)
+} else {
+  imput_dataE <- norm_dataE # no imputation
+}
+
+```
+
+his block computes per-channel fold-changes relative to the matched control condition within each sample type. It takes normalized log2 expression values from norm_dataE, converts back to linear scale, and for each conditions$ID column (e.g., phospho_Tryptamine_3min_rep1) computes:
+
+ctrl.ratio = intensity(ID) / (median intensity of control columns for the same sample/time (across reps))
+
+It then stores these control-normalized ratios back into a new ExpressionSet (ctrl.ratio_dataE) on the log2 scale so downstream limma/plots can use them consistently.
+```{r}
+#| label: calcualte ctrl fold changes
+
+
+# Compute control-normalized ratios (linear fold-change), then return to log2 scale in a new ExpressionSet.
+fc.data <- as.data.frame(2^exprs(norm_dataE))                 # back-transform from log2 to linear intensity
+names.orig <- names(fc.data)                                  # snapshot of original column names for grep()
+
+# For each measurement column (conditions$ID), compute ratio vs matched control median (same sample type).
+for (i in seq_along(conditions$ID))
+{
+  fc.data[, paste0(conditions$ID[i], ".ctrl.ratio")] <-        # new per-column ratio feature
+    fc.data[, as.character(conditions$ID[i])] /                # numerator: this channel’s intensity
+    apply(                                                     # denominator: per-feature median across matching control columns
+      fc.data[, grep(paste0("^", conditions$sample[i], "_", conditions$ctrl[i], "_"),
+                     names.orig, value = TRUE)],               # control set selected by name pattern
+      1, median, na.rm = TRUE                                  # row-wise (per sequence.id) median across control reps
+    )
+    # fc.data[, as.character(conditions$ctrl.ID[i])]            # old option: divide by a single matched control column
+}
+rm(i)
+
+# Keep only the newly created ratio columns (drop original intensity columns).
+fc.data <- fc.data %>%
+  dplyr::select(ends_with(".ctrl.ratio"))
+
+# Preserve the feature key explicitly (though it is dropped later again in this block).
+fc.data$sequence.id <- rownames(fc.data)
+
+# Re-select ratio columns only (sequence.id is not carried forward from here).
+fc.data <- fc.data %>%
+  dplyr::select(ends_with(".ctrl.ratio"))
+
+# Create a new ExpressionSet to hold control ratios on the same sample/feature structure as norm_dataE.
+ctrl.ratio_dataE <- norm_dataE
+
+# Strip the ".ctrl.ratio" suffix so names match the existing sample IDs in ctrl.ratio_dataE.
+names(fc.data) <- gsub(".ctrl.ratio", "", names(fc.data))
+
+# Reorder columns to exactly match ctrl.ratio_dataE’s column order (critical for downstream alignment).
+fc.data <- fc.data[ , colnames(ctrl.ratio_dataE)]
+
+# Store ratios in the ExpressionSet on log2 scale (consistent with the rest of the pipeline).
+exprs(ctrl.ratio_dataE) <- fc.data %>%
+  as.matrix() %>%
+  log2()
+
+rm(fc.data)
+
+```
+
+
+# Prep for Limma
+
+Merge per-stage assay matrices back into the wide master table (cdata) for a single exportable dataset.
+Note: exprs(*) is on log2 scale; 2^exprs(*) returns linear intensities for human-readable outputs.
+```{r}
+#| label: Modify cdata
+
+# Batch-corrected intensities
+cdata_i <- as.data.frame(2^exprs(batchcl_dataE))                     # linear intensity matrix (features × samples)
+names(cdata_i) <- paste0("batchcl_reporter_intensity_", names(cdata_i)) # prefix to avoid name collisions
+cdata_i$sequence.id <- rownames(cdata_i)                             # join key (must match cdata$sequence.id)
+cdata <- left_join(cdata, cdata_i, by = "sequence.id")               # attach columns to cdata
+rm(cdata_i)
+
+# VSN-normalized (or passthrough) intensities
+cdata_i <- as.data.frame(2^exprs(norm_dataE))
+names(cdata_i) <- paste0("norm_reporter_intensity_", names(cdata_i))
+cdata_i$sequence.id <- rownames(cdata_i)
+cdata <- left_join(cdata, cdata_i, by = "sequence.id")
+rm(cdata_i)
+
+# Imputed (or passthrough) intensities
+cdata_i <- as.data.frame(2^exprs(imput_dataE))
+names(cdata_i) <- paste0("imput_reporter_intensity_", names(cdata_i))
+cdata_i$sequence.id <- rownames(cdata_i)
+cdata <- left_join(cdata, cdata_i, by = "sequence.id")
+rm(cdata_i)
+
+# Control-normalized ratios (stored as log2 in ctrl.ratio_dataE; back-transform to linear ratios here)
+cdata_i <- as.data.frame(2^exprs(ctrl.ratio_dataE))
+names(cdata_i) <- paste0("ctrl.ratio_", names(cdata_i))
+cdata_i$sequence.id <- rownames(cdata_i)
+cdata <- left_join(cdata, cdata_i, by = "sequence.id")
+rm(cdata_i)
+
+# Single wide export: raw annotations + QC fields + all derived intensity/ratio columns.
+write.csv(cdata, file = file.path(dir_save, paste0("Full_dataset", ".csv")), row.names = FALSE)
+```
+
+This chunk converts each ExpressionSet (raw, batch-corrected, normalized, imputed, control-ratio) into a single long “tidy” table (mdata) on the linear scale (2^value), joins in sample metadata (conditions), and tags each row with a measurement label so downstream QC plots can facet/compare transformation stages. It also includes a special “input mapping” step so protein-level input measurements can be aligned back to the sequence.id/Gene lookup used in cdata.
+
+```{r}
+#| label: Create ExpressionSet
+#| cache: false
+
+# Build one long tidy table (mdata) across processing stages for QC plots (boxplots/CV/PCA summaries).
+# tidy(<ExpressionSet>) yields a (feature × sample) long table; we back-transform to linear for interpretability.
+mdata <- NULL
+
+# Lookup table mapping feature keys to Gene.
+# Note: cdata contains BOTH phospho features (Gene_site) and input features (Gene),
+# so Gene.lut includes rows where sequence.id == Gene for the input sample.
+Gene.lut <- cdata %>%
+  dplyr::select(sequence.id, Gene) %>%
+  dplyr::distinct()
+
+# biobroom emits a deprecation warning via tbl_df(); this silences that noise
+# without changing results.
+safe_tidy <- function(E) suppressWarnings(tidy(E))
+
+# Build tidy (long) table for one ExpressionSet matrix, and "lift" input (gene-level)
+# intensities onto the phosphosite feature space so it can be merged with phospho rows.
+make_mdata_block <- function(E, measurement_label) {
+
+  mdata_i <- safe_tidy(E) %>%
+    dplyr::mutate(value = 2 ^ value)
+
+  names(mdata_i)[1:2] <- c("sequence.id", "ID")
+
+  # Explicit join key; avoids "Joining with by = join_by(ID)" messages.
+  mdata_i <- dplyr::left_join(mdata_i, conditions, by = "ID")
+
+  mdata_i$measurement <- measurement_label
+
+  # Split input vs phospho
+  mdata_input  <- dplyr::filter(mdata_i, sample == "input")
+  mdata_phospho <- dplyr::filter(mdata_i, sample != "input")
+
+  # Add Gene to the input rows (sequence.id == Gene in input tables),
+  # then replicate gene-level input intensities across all phosphosite features for that gene.
+  mdata_input <- mdata_input %>%
+    dplyr::left_join(Gene.lut, by = "sequence.id", relationship = "many-to-one") %>%
+    dplyr::filter(sequence.id == Gene) %>%          # keep the true input entries
+    dplyr::select(-sequence.id)                     # drop gene-level key before expansion
+
+  mdata_input <- dplyr::left_join(
+    Gene.lut, mdata_input,
+    by = "Gene",
+    relationship = "many-to-many"                   # expected: many sites per gene, many rows per gene in input
+  ) %>%
+    tidyr::drop_na(value)                           # narrower than na.omit(): only drop missing intensities
+
+  # Match columns exactly so bind_rows is stable
+  mdata_input <- mdata_input[, names(mdata_phospho)]
+
+  dplyr::bind_rows(mdata_phospho, mdata_input)
+}
+
+# Build and stack all measurements
+mdata <- dplyr::bind_rows(
+  make_mdata_block(raw_dataE,      "raw_reporter_intensity"),
+  make_mdata_block(batchcl_dataE,  "batchcl_reporter_intensity"),
+  make_mdata_block(norm_dataE,     "norm_reporter_intensity"),
+  make_mdata_block(imput_dataE,    "imput_reporter_intensity"),
+  make_mdata_block(ctrl.ratio_dataE, "ctrl.ratio")
+)
+
+# Add Gene annotation for plotting/grouping (one Gene per sequence.id expected)
+mdata <- dplyr::left_join(mdata, Gene.lut, by = "sequence.id", relationship = "many-to-one")
+
+# Factors for controlled ordering in plots
+mdata$condition <- factor(
+  mdata$condition,
+  ordered = TRUE,
+  levels = c(
+    "DMSO_3min", "Tryptamine_3min",
+    "DMSO_15min", "Tryptamine_15min",
+    "DMSO_30min", "Tryptamine_30min"
+  )
+)
+
+mdata$measurement <- factor(
+  mdata$measurement,
+  ordered = TRUE,
+  levels = c(
+    "raw_reporter_intensity",
+    "batchcl_reporter_intensity",
+    "norm_reporter_intensity",
+    "imput_reporter_intensity",
+    "ctrl.ratio"
+  )
+)
+
+saveRDS(mdata, file.path(dir_save, "mdata.rds"))
+```
+
+
+Pre-Limma Plots. This block makes two “normalization overview” boxplot figures (leftover from Frank's code)
+1: All non-ratio measurement types (raw/batchcl/norm/imput, etc.)
+2: Ratio measurement types
+It explicitly handles non-finite log2 values (NA, Inf, -Inf) to avoid ggplot warnings.
+```{r}
+#| label: Normalization overview boxplot figures
+#| fig.height: 6
+
+# Precompute log2(value) safely:
+# - reporter intensities and ratios should be > 0
+# - value == 0 or NA will become NA in log2_value and will be dropped explicitly
+mdata_plot <- mdata %>%
+  mutate(
+    log2_value = dplyr::if_else(is.finite(value) & value > 0, log2(value), NA_real_)
+  )
+
+# Optional quick diagnostics (uncomment if you want a sanity check)
+mdata_plot %>%
+  mutate(is_bad = is.na(log2_value)) %>%
+  count(measurement, sample, is_bad) %>%
+  arrange(desc(n)) %>%
+  print(n = 50)
+
+# Ratios should be > 0; check if anything is <= 0
+mdata_plot %>%
+  filter(grepl("ratio", measurement), !is.na(value), value <= 0) %>%
+  count(measurement, sample) %>%
+  print(n = 50)
+
+# -------------------------
+# Plot 1: non-ratio panels
+# -------------------------
+p1 <- ggplot(
+  data = mdata_plot %>%
+    filter(!grepl("ratio", measurement), !is.na(log2_value)),
+  aes(x = condition, y = log2_value)
+) +
+  geom_boxplot(aes(fill = rep)) +          # boxplots per condition, colored by replicate
+  customPlot +                             # your custom theme/settings object
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
+  ggtitle("Data Transformation Overview") +
+  facet_grid(sample ~ measurement)         # rows: sample; cols: measurement
+
+ggsave(
+  filename = file.path(dir_save, "Normalization_overview.pdf"),
+  plot = p1,                               # explicit plot object (more robust than "last plot")
+  width = 12,
+  height = 15
+)
+
+# -------------------------
+# Plot 2: ratio panels
+# -------------------------
+p2 <- ggplot(
+  data = mdata_plot %>%
+    filter(grepl("ratio", measurement), !is.na(log2_value)),
+  aes(x = condition, y = log2_value)
+) +
+  geom_boxplot(aes(fill = rep)) +
+  customPlot +
+  ggtitle("Data Transformation Overview (ratios)") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
+  facet_grid(sample ~ measurement, scales = "free_y")  # use 'scales' (not 'scale'); free_y is usually what you want
+
+ggsave(
+  filename = file.path(dir_save, "Normalization_overview_ratios.pdf"),
+  plot = p2,
+  width = 6,
+  height = 15
+)
+
+```
+
+CV overview (coefficient of variation)
+Goal: summarize replicate variability per Gene, per measurement/sample/condition.
+
+```{r}
+#| label: CV summary
+#| fig.height: 6
+
+# Compute CV per Gene × measurement × sample × condition
+# (CV = sd/mean across replicate-level values; NAs are ignored)
+cv.data <- mdata %>%
+  group_by(Gene, measurement, sample, condition) %>%
+  summarise(CV = sd(value, na.rm = TRUE) / mean(value, na.rm = TRUE))
+
+# Compute CV per Gene × measurement × sample across ALL conditions combined
+# (by setting condition="all" and recomputing sd/mean over the pooled values)
+cv.data.all <- mdata %>%
+  mutate(condition = "all") %>%
+  group_by(Gene, measurement, sample, condition) %>%
+  summarise(CV = sd(value, na.rm = TRUE) / mean(value, na.rm = TRUE))
+
+# Combine per-condition CVs with pooled "all" CVs
+cv.data <- bind_rows(cv.data, cv.data.all)
+rm(cv.data.all)
+
+# Plot distribution of gene-level CVs (%), by condition, faceted by sample/measurement
+ggplot(data = cv.data, aes(condition, CV * 100)) +
+  geom_violin() +                    # distribution shape
+  geom_boxplot(width = 0.1) +        # median/IQR overlay
+  customPlot +
+  ggtitle("CV overview") +
+  ylab("CV [%]") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
+  facet_grid(sample ~ measurement)
+
+# Save to disk
+ggsave(file.path(dir_save, "CV_overview.pdf"), width = 14, height = 15)
+```
+
+
+# LIMMA analysis
+
+A protein is considered a 'hit', if the false discovery rate is smaller 0.05 and an absolute log2 fold-change of at least log2(2) is observed. A protein is considered a 'candidate', if the false discovery rate is smaller 0.2 and an absolute log2 fold-change of at least log2(1.5) is observed.
+
+Initialize limma
+```{r}
+#| label: Initialize limma results
+
+limma_results <- NULL
+```
+
+Run limma
+```{r}
+#| label: Limma Run
+
+# Iterate over each sample type (e.g., "phospho", "input", "input.norm.phospho")
+for (s in unique(conditions$sample))
+{
+  # Construct the feature-keep column name, e.g. "keep_phospho"
+  keep_col <- paste0("keep_", s)
+
+  # ---------------------------------------------------------------------------
+  # 1) Subset to the analysis matrix for this sample type
+  #    - rows: only features flagged keep_<s> in the featureData (fData)
+  #    - cols: only samples (channels) whose pData sample label == s
+  #    NOTE: limma_data is an ExpressionSet subset. exprs(limma_data) is the matrix.
+  # ---------------------------------------------------------------------------
+  limma_data <- imput_dataE[
+    fData(imput_dataE)[, keep_col],   # row filter: features "kept" for this sample type
+    imput_dataE$sample == s           # col filter: only columns for this sample type
+  ]
+
+  # ---------------------------------------------------------------------------
+  # 2) Guardrails: if too few features or too few samples, limma will error
+  #    (you need at least 2 rows and 2 columns to fit anything sensible).
+  # ---------------------------------------------------------------------------
+  if (nrow(limma_data) < 2 || ncol(limma_data) < 2) {
+    message(
+      "Skipping limma for sample type ", s,
+      " (nrow=", nrow(limma_data), ", ncol=", ncol(limma_data), ")"
+    )
+    next
+  }
+
+  # ---------------------------------------------------------------------------
+  # 3) Construct observation weights from the raw (pre-imputation) matrix
+  #
+  #    Goal: downweight imputed observations during model fitting.
+  #    Strategy: look up the corresponding entries in raw_dataE for the same
+  #              features (rows) and samples (columns).
+  #
+  #    If the alignment fails for any reason, fall back to all-ones weights.
+  # ---------------------------------------------------------------------------
+  limma_weights <- tryCatch(
+    exprs(raw_dataE)[
+      rownames(exprs(limma_data)),    # align rows by feature IDs
+      colnames(exprs(limma_data))     # align cols by sample IDs
+    ],
+    error = function(e) NULL
+  )
+
+  # If we couldn’t align weights (missing names, mismatch, etc.), use all 1s.
+  if (is.null(limma_weights) || !all(dim(limma_weights) == dim(exprs(limma_data)))) {
+    limma_weights <- matrix(
+      1,
+      nrow = nrow(exprs(limma_data)),
+      ncol = ncol(exprs(limma_data))
+    )
+    dimnames(limma_weights) <- dimnames(exprs(limma_data))
+  }
+
+  # Convert raw values into weights:
+  # - If raw value was NA (missing in raw), it was presumably imputed later -> weight 0.01
+  # - If raw value was observed -> weight 1
+  limma_weights <- ifelse(is.na(limma_weights), 0.01, 1)
+
+  # ---------------------------------------------------------------------------
+  # 4) Define the set of contrasts to test
+  #
+  #    Includes:
+  #    - treatment vs control at each timepoint
+  #    - within-treatment time comparisons
+  #    - within-control time comparisons
+  #    - difference-in-differences contrasts to test whether treatment effect changes with time
+  # ---------------------------------------------------------------------------
+  comparison.list <- c(
+    "Tryptamine_3min - DMSO_3min",
+    "Tryptamine_15min - DMSO_15min",
+    "Tryptamine_30min - DMSO_30min",
+    "Tryptamine_15min - Tryptamine_3min",
+    "Tryptamine_30min - Tryptamine_3min",
+    "Tryptamine_30min - Tryptamine_15min",
+    "DMSO_15min - DMSO_3min",
+    "DMSO_30min - DMSO_3min",
+    "DMSO_30min - DMSO_15min",
+    "(Tryptamine_15min - DMSO_15min) - (Tryptamine_3min - DMSO_3min)",
+    "(Tryptamine_30min - DMSO_30min) - (Tryptamine_3min - DMSO_3min)",
+    "(Tryptamine_30min - DMSO_30min) - (Tryptamine_15min - DMSO_15min)",
+    "(Tryptamine_15min - Tryptamine_3min) - (DMSO_15min - DMSO_3min)",
+    "(Tryptamine_30min - Tryptamine_3min) - (DMSO_30min - DMSO_3min)",
+    "(Tryptamine_30min - Tryptamine_15min) - (DMSO_30min - DMSO_15min)"
+  )
+
+  # ---------------------------------------------------------------------------
+  # 5) Build the design matrix
+  #
+  #    - limma.cond: condition factor for each column/sample (e.g. DMSO_3min)
+  #    - limma.rep:  replicate/block factor (e.g. biological replicate ID)
+  #
+  #    model.matrix(~ 0 + cond + rep) yields:
+  #    - one coefficient per condition level (no intercept)
+  #    - plus additive replicate effects to control for replicate-to-replicate shifts
+  #
+  #    This is a fixed-effect blocking approach.
+  # ---------------------------------------------------------------------------
+  limma.cond <- factor(pData(limma_data)$condition, ordered = FALSE)
+  limma.rep  <- factor(pData(limma_data)$rep,       ordered = FALSE)
+
+  design.matrix <- model.matrix(~ 0 + limma.cond + limma.rep)
+
+  # Clean column names: remove "limma.cond" prefix so contrast strings match
+  colnames(design.matrix) <- gsub("limma.cond", "", colnames(design.matrix))
+
+  # ---------------------------------------------------------------------------
+  # 6) Fit the model, apply contrasts, and compute moderated statistics
+  #
+  #    - lmFit fits a linear model per feature
+  #    - contrasts.fit transforms coefficients into the specified contrasts
+  #    - eBayes computes moderated t-statistics, log-odds, etc.
+  #
+  #    DO_EBAYES_TREND toggles mean-variance trend estimation.
+  # ---------------------------------------------------------------------------
+  limma.object <- eBayes(
+    contrasts.fit(
+      lmFit(limma_data, design = design.matrix, weights = limma_weights),
+      makeContrasts(contrasts = comparison.list, levels = design.matrix)
+    ),
+    trend = DO_EBAYES_TREND
+  )
+
+  # ---------------------------------------------------------------------------
+  # 7) Extract results for each contrast and append to master results table
+  # ---------------------------------------------------------------------------
+  for (comparison in comparison.list)
+  {
+    # Full table of results for this contrast, sorted by moderated t-statistic
+    limma_results_i <- limma::topTable(
+      limma.object,
+      sort.by = "t",
+      coef = comparison,
+      number = Inf
+    )
+
+    # Standardize limma column names (helps downstream code stay stable)
+    names(limma_results_i)[grep("P.Value", names(limma_results_i))]   <- "pvalue.limma"
+    names(limma_results_i)[grep("adj.P.Val", names(limma_results_i))] <- "fdr.limma"
+
+    # Drop rows where model output is incomplete (should be rare if keep filters are correct)
+    limma_results_i <- subset(limma_results_i, !is.na(logFC))
+
+    # Optional additional multiple-testing estimates using fdrtool on t-statistics
+    fdr_res <- NULL
+    try(fdr_res <- fdrtool(limma_results_i$t, plot = FALSE, verbose = FALSE))
+
+    if (!is.null(fdr_res))
+    {
+      limma_results_i$pvalue.fdrtool <- fdr_res$pval
+      limma_results_i$qval.fdrtool   <- fdr_res$qval
+      limma_results_i$lfdr.fdrtool   <- fdr_res$lfdr
+    } else {
+      # Conservative fallback if fdrtool fails
+      limma_results_i$pvalue.fdrtool <- 1
+      limma_results_i$qval.fdrtool   <- 1
+      limma_results_i$lfdr.fdrtool   <- 1
+    }
+
+    # Create a more readable label for plotting/reporting
+    comparison.label <- gsub("\\) - \\(", ") against (", comparison)
+    comparison.label <- gsub(" - ", " vs ", comparison.label)
+
+    # Add identifiers for downstream grouping/filtering
+    limma_results_i$comparison       <- comparison
+    limma_results_i$comparison.label <- comparison.label
+    limma_results_i$sample           <- s
+
+    # Append into the global results data frame (assumes limma_results exists upstream)
+    limma_results <- bind_rows(limma_results, limma_results_i)
+
+    rm(limma_results_i, fdr_res)
+  }
+
+  # Cleanup large objects to reduce memory footprint across sample loops
+  rm(
+    comparison.list, comparison, design.matrix, limma.cond, limma.rep,
+    limma_data, limma_weights, limma.object
+  )
+}
+
+rm(s)
+
+
+```
+
+
+
+Fdr statistics comparison limma vs fdrtool
+
+```{r}
+#| label: Limma FDR comparison
+#| fig.height: 7
+
+# -------------------------------------------------------------------
+# Shared settings for readability and to prevent text clipping
+# -------------------------------------------------------------------
+facet_labeller <- label_wrap_gen(width = 35)  # wrap long facet titles onto multiple lines
+
+# Increase margins so long plot titles (and facet strip text) are not clipped in the PDF
+plot_margin_fix <- theme(
+  plot.margin = margin(t = 18, r = 10, b = 10, l = 10),
+  strip.text  = element_text(size = 6)       # C: smaller strip text
+)
+
+# -------------------------------------------------------------------
+# Plot 1: FDR vs |t|, with meaningful lines (sorted by abs(t))
+# -------------------------------------------------------------------
+
+# Create a wrapped facet label column and reshape to long format so we can plot both methods cleanly
+plot_df_fdr <- limma_results %>%
+  mutate(
+    facet_label = str_wrap(paste0(sample, ": ", comparison.label), width = 35),
+    abs_t = abs(t)
+  ) %>%
+  # Keep only what we need; drop NAs defensively
+  select(facet_label, abs_t, fdr.limma, qval.fdrtool) %>%
+  pivot_longer(
+    cols = c(fdr.limma, qval.fdrtool),
+    names_to = "method",
+    values_to = "fdr"
+  ) %>%
+  mutate(
+    method = recode(
+      method,
+      fdr.limma   = "limma - adj.P.Val",
+      qval.fdrtool = "fdrtool - qval"
+    )
+  ) %>%
+  filter(is.finite(abs_t), is.finite(fdr)) %>%
+  group_by(facet_label, method) %>%
+  arrange(abs_t, .by_group = TRUE) %>%  # critical: makes geom_line connect points in increasing |t|
+  ungroup()
+
+p1 <- ggplot(plot_df_fdr, aes(x = abs_t, y = fdr, colour = method)) +
+  geom_line() +                           # now interpretable because x is sorted per facet/method
+  geom_point(size = 0.3) +                # light points help show density without overwhelming
+  facet_wrap(~ facet_label, scales = "free_x") +
+  ylab("fdr") +
+  customPlot +
+  ggtitle("FDR comparison limma vs fdrtool") +
+  plot_margin_fix
+
+ggsave(
+  filename = file.path(dir_save, "t_vs_fdr_limma_vs_fdrtool.pdf"),
+  plot     = p1,
+  width    = 40.4,
+  height   = 27
+)
+
+# -------------------------------------------------------------------
+# Plot 2: Overlay p-value histograms (limma vs fdrtool), with wrapped facets
+# -------------------------------------------------------------------
+
+plot_df_p <- limma_results %>%
+  mutate(
+    facet_label = str_wrap(paste0(sample, ": ", comparison.label), width = 35)
+  ) %>%
+  # Drop non-finite p-values defensively; constrain to [0,1] for clean histograms
+  filter(
+    is.finite(pvalue.limma),  pvalue.limma  >= 0, pvalue.limma  <= 1,
+    is.finite(pvalue.fdrtool), pvalue.fdrtool >= 0, pvalue.fdrtool <= 1
+  ) %>%
+  # Reshape so we can overlay histograms with a single geom
+  select(facet_label, pvalue.limma, pvalue.fdrtool) %>%
+  pivot_longer(
+    cols = c(pvalue.limma, pvalue.fdrtool),
+    names_to = "method",
+    values_to = "pvalue"
+  ) %>%
+  mutate(
+    method = recode(
+      method,
+      pvalue.limma   = "limma",
+      pvalue.fdrtool = "fdrtool"
+    )
+  )
+
+p2 <- ggplot(plot_df_p, aes(x = pvalue, fill = method)) +
+  geom_histogram(bins = 40, alpha = 0.5, position = "identity") +  # constant alpha; no alpha guide needed
+  xlab("p-value") +
+  facet_wrap(~ facet_label, scales = "free_y") +
+  coord_cartesian(xlim = c(0, 1)) +
+  customPlot +
+  ggtitle("p-value histogram limma vs fdrtool") +
+  plot_margin_fix
+
+ggsave(
+  filename = file.path(dir_save, "p-value_histogram_limma_vs_fdrtool.pdf"),
+  plot     = p2,
+  width    = 40.4,
+  height   = 27
+)
+
+```
+
+
+This block selects an FDR method (limma BH-FDR vs fdrtool q-values) per comparison, then fills unified pvalue/fdr columns accordingly. It calls “hit” and “candidate” features using combined FDR and fold-change thresholds and adds these rules as plot captions, before tabulating hit counts and restoring the original comparison labels.
+```{r}
+#| label: Limma hit/candidate annotation
+
+# Initialize column that records which multiple-testing method will be used
+# to annotate hits for each comparison ("limma" vs "fdrtool").
+limma_results$hit_annotation_method <- NA
+
+# Thresholds used to call hits/candidates.
+fdr_hit_threshold <- 0.05
+fdr_candidate_threshold <- 0.2
+fc_hit_threshold <- 2
+fc_candidate_threshold <- 1.5
+
+# Create unified p-value and FDR columns that will be populated from either:
+# - limma outputs (pvalue.limma, fdr.limma), or
+# - fdrtool outputs (pvalue.fdrtool, qval.fdrtool)
+limma_results$pvalue <- NA
+limma_results$fdr <- NA
+
+# Temporarily store the original comparison labels, then prepend "sample: "
+# so that comparisons are unique across sample types (phospho/input/etc.).
+limma_results$comparison.old <- limma_results$comparison
+limma_results$comparison <- with(limma_results, paste0(sample, ": ", comparison))
+
+# For each sample-specific comparison, choose the annotation method by whichever
+# produces more discoveries at the hit FDR threshold.
+for (comparison in unique(limma_results$comparison))
+{
+  # Count "hits" using limma's adjusted FDR (typically BH).
+  limma_hits <- 
+    nrow(limma_results[limma_results$comparison == comparison & 
+                         limma_results$fdr.limma <= fdr_hit_threshold, ])
+  
+  # Count "hits" using fdrtool's q-values.
+  fdrtool_hits <- 
+    nrow(limma_results[limma_results$comparison == comparison & 
+                         limma_results$qval.fdrtool <= fdr_hit_threshold, ])
+  
+  # If limma yields at least as many hits as fdrtool, prefer limma.
+  if (limma_hits >= fdrtool_hits)
+  {
+    limma_results$hit_annotation_method[limma_results$comparison == comparison] <- 
+      "limma"
+  }
+  
+  # If fdrtool yields more hits than limma, prefer fdrtool.
+  if (fdrtool_hits > limma_hits)
+  {
+    limma_results$hit_annotation_method[limma_results$comparison == comparison] <- 
+      "fdrtool"
+  }
+  
+  rm(limma_hits, fdrtool_hits)
+}
+rm(comparison)
+
+# Quick check of how often each method was selected.
+table(limma_results$hit_annotation_method)
+
+# Optionally force everything to limma (commented out).
+# limma_results$hit_annotation_method <- "limma"
+
+# Override: for "simple" comparisons (no parentheses or commas in the label),
+# force limma regardless of the earlier hit-count-based selection.
+limma_results$hit_annotation_method[!grepl("[(,)]", limma_results$comparison)] <- "limma"
+
+# Populate unified pvalue/fdr columns from limma for rows labeled "limma".
+limma_results$pvalue[limma_results$hit_annotation_method == "limma"] <- 
+  limma_results$pvalue.limma[limma_results$hit_annotation_method == "limma"]
+limma_results$fdr[limma_results$hit_annotation_method == "limma"] <- 
+  limma_results$fdr.limma[limma_results$hit_annotation_method == "limma"]
+
+# Populate unified pvalue/fdr columns from fdrtool for rows labeled "fdrtool".
+# Note: fdrtool uses q-values (qval.fdrtool) as the multiple-testing metric here.
+limma_results$pvalue[limma_results$hit_annotation_method == "fdrtool"] <- 
+  limma_results$pvalue.fdrtool[limma_results$hit_annotation_method == "fdrtool"]
+limma_results$fdr[limma_results$hit_annotation_method == "fdrtool"] <- 
+  limma_results$qval.fdrtool[limma_results$hit_annotation_method == "fdrtool"]
+
+# Boolean hit call: requires BOTH statistical significance and effect size.
+# Assumes logFC is on a log2 scale (since thresholds use log2(fc_threshold)).
+limma_results$hit <- 
+  with(limma_results, ifelse(fdr <= fdr_hit_threshold & abs(logFC) >= 
+                               log2(fc_hit_threshold), TRUE, FALSE))
+
+# Three-level annotation:
+# - "hit": stringent FDR + FC
+# - "candidate": relaxed FDR + FC
+# - "no hit": everything else
+limma_results$hit_annotation <- 
+  with(limma_results, 
+       ifelse(fdr <= fdr_hit_threshold & abs(logFC) >= 
+                log2(fc_hit_threshold), "hit",
+              ifelse(fdr <= fdr_candidate_threshold & abs(logFC) >= 
+                       log2(fc_candidate_threshold), "candidate", "no hit")))
+
+# Make hit_annotation an ordered factor so plotting/summaries keep this ordering.
+limma_results$hit_annotation <- 
+  factor(limma_results$hit_annotation, 
+         ordered = TRUE, 
+         levels = c("hit", "candidate", "no hit"))
+
+# Build caption text describing the hit/candidate rules and attach to plot objects.
+caption.text_DE = glue("hit: fdr <= {fdr_hit_threshold} & absolute log2(fold-change) >= log2({fc_hit_threshold})
+candidate: fdr <= {fdr_candidate_threshold} & absolute log2(fold-change) >= log2({fc_candidate_threshold})")
+customPlot_DE <- append(customPlot_DE, list(labs(caption = caption.text_DE)))
+customPlot_DE_cor <- append(customPlot_DE_cor, list(labs(caption = caption.text_DE)))
+
+# Print a summary table of hit/candidate/no-hit counts per (sample: comparison).
+with(limma_results, table(comparison, hit_annotation))
+write_tsv(as_tibble(with(limma_results, table(comparison, hit_annotation))), file = file.path(dir_save, paste0("limma_results_table.tsv")))
+
+# Restore original comparison labels and clean up temporary column.
+limma_results$comparison <- limma_results$comparison.old
+limma_results$comparison.old <- NULL
+```
+
+# Limma result plots
+
+Generates a faceted volcano plot (logFC vs -log10(pvalue)) colored/alpha-coded by hit status, labels non–“no hit” points with gene/feature IDs, and saves the figure as a PDF.
+
+```{r}
+#| label: Limma Volcano Plot
+#| fig.height: 7
+
+# Build a wrapped facet label so strip titles don’t overflow
+plot_df_volcano <- limma_results
+plot_df_volcano$facet_label <- with(
+  plot_df_volcano,
+  paste0(sample, ": ", comparison.label, " [", hit_annotation_method, "]")
+)
+
+p_volcano <- ggplot(
+  data = plot_df_volcano,
+  aes(logFC, -log10(pvalue), colour = hit_annotation, alpha = hit_annotation)
+) +
+  geom_vline(xintercept = 0) +
+  geom_point() +
+  geom_text(
+    aes(label = gsub("[|].+", "", sequence.id)),
+    colour = "black",
+    show.legend = FALSE,
+    data = subset(plot_df_volcano, hit_annotation != "no hit"),
+    vjust = 0,
+    nudge_y = 0.1,
+    size = 2,
+    check_overlap = TRUE
+  ) +
+  facet_wrap(
+    ~ facet_label,
+    labeller = ggplot2::label_wrap_gen(width = 35)
+  ) +
+  xlab("log2(fold-change)") +
+  customPlot_DE +
+  ggtitle("Volcano plot") +
+  plot_margin_fix
+
+ggsave(
+  file.path(dir_save, paste0("Volcano_plot", ".pdf")),
+  plot = p_volcano,
+  width = 40.4,
+  height = 27
+)
+```
+
+Creates a faceted MA plot (mean abundance AveExpr vs effect size logFC) to visualize fold-changes as a function of average intensity, highlights and labels hits/candidates, and saves the plot as a PDF.
+
+```{r}
+#| label: MA Plot
+#| fig.height: 7
+
+# MA plot: mean abundance (AveExpr) vs logFC, with hits/candidates highlighted and labeled.
+# Facet labels are wrapped to prevent strip-title overflow.
+plot_df_ma <- limma_results
+plot_df_ma$facet_label <- with(
+  plot_df_ma,
+  paste0(sample, ": ", comparison.label, " [", hit_annotation_method, "]")
+)
+
+p_ma <- ggplot(
+  data = plot_df_ma,
+  aes(AveExpr, logFC, colour = hit_annotation, alpha = hit_annotation)
+) +
+  geom_hline(yintercept = 0) +
+  geom_point() +
+  
+  # Label only hit/candidate points to reduce clutter; strip anything after "|" in sequence.id.
+  geom_text(
+    aes(label = gsub("[|].+", "", sequence.id)),
+    colour = "black",
+    show.legend = FALSE,
+    data = subset(plot_df_ma, hit_annotation != "no hit"),
+    vjust = 0,
+    nudge_y = 0.1,
+    size = 2,
+    check_overlap = TRUE
+  ) +
+  
+  # Wrap facet-strip text so long sample/comparison labels fit.
+  facet_wrap(
+    ~ facet_label,
+    labeller = ggplot2::label_wrap_gen(width = 35)
+  ) +
+  
+  # Axes: AveExpr is limma’s average log2 intensity; logFC is log2 fold-change.
+  xlab("average log2(reporter_intensity)") +
+  ylab("log2(fold-change)") +
+  
+  # Shared caption/styling including hit/candidate thresholds (defined earlier).
+  customPlot_DE +
+  ggtitle("MA plot") +
+  plot_margin_fix
+
+# Save explicitly (avoids reliance on last_plot()).
+ggsave(
+  file.path(dir_save, paste0("MA_plot", ".pdf")),
+  plot = p_ma,
+  width = 40.4,
+  height = 27
+)
+```
+
+Creates a “MA-like” plot using log2(Total.Intensity) (sample-specific total peptide intensity) on the x-axis vs logFC on the y-axis, highlights and labels hits/candidates, facets by sample/comparison/method with wrapped strip labels, and saves the plot.
+
+```{r}
+#| label: Abundance Plot
+#| fig.height: 7
+
+# Build a sample-matched Total.Intensity column:
+# for each row, pull the appropriate "average.Total.Intensity_<sample>" value.
+limma_results$Total.Intensity <- NA
+for (s in unique(conditions$sample))
+{
+  limma_results$Total.Intensity[limma_results$sample == s] <-
+    limma_results[limma_results$sample == s, paste0("average.Total.Intensity_", s)]
+}
+rm(s)
+
+# MA-Total.Intensity plot: log2(total intensity) vs logFC, with hits/candidates highlighted.
+# Wrap facet labels to avoid strip-title overflow.
+plot_df_maTI <- limma_results
+plot_df_maTI$facet_label <- with(
+  plot_df_maTI,
+  paste0(sample, ": ", comparison.label, " [", hit_annotation_method, "]")
+)
+
+p_maTI <- ggplot(
+  data = plot_df_maTI,
+  aes(log2(Total.Intensity), logFC, colour = hit_annotation, alpha = hit_annotation)
+) +
+  geom_hline(yintercept = 0) +
+  geom_point() +
+  
+  # Label only hit/candidate points; strip anything after "|" in sequence.id for compact labels.
+  geom_text(
+    aes(label = gsub("[|].+", "", sequence.id)),
+    colour = "black",
+    show.legend = FALSE,
+    data = subset(plot_df_maTI, hit_annotation != "no hit"),
+    vjust = 0,
+    nudge_y = 0.1,
+    size = 2,
+    check_overlap = TRUE
+  ) +
+  
+  # Facet by sample + comparison + method; wrap long strip labels.
+  facet_wrap(
+    ~ facet_label,
+    labeller = ggplot2::label_wrap_gen(width = 35)
+  ) +
+  
+  ylab("log2(fold-change)") +
+  
+  # Shared caption/styling including hit/candidate thresholds (defined earlier).
+  customPlot_DE +
+  ggtitle("MA-Total.Intensity plot") +
+  plot_margin_fix
+
+# Save explicitly (avoids reliance on last_plot()).
+ggsave(
+  file.path(dir_save, paste0("MA_Total.Intensity_plot", ".pdf")),
+  plot = p_maTI,
+  width = 40.4,
+  height = 27
+)
+```
+
+Constructs a per-feature dataset of paired log2 fold-changes for selected contrast pairs (within each sample type), annotates points by hit status from the corresponding difference-in-differences comparison, and generates faceted fold-change correlation plots (two variants) plus a CSV export of the underlying correlation data.
+```{r}
+#| label: Fold change correlation
+#| fig.height: 7
+
+
+FC.correlation.list <- list(
+  structure(
+    c("(Tryptamine_15min - DMSO_15min) - (Tryptamine_3min - DMSO_3min)", "Tryptamine_15min - DMSO_15min", "Tryptamine_3min - DMSO_3min"),
+    .Names = c("Tryptamine_15min_vs_DMSO_15min_against_Tryptamine_3min_vs_DMSO_3min", "Tryptamine_15min_vs_DMSO_15min", "Tryptamine_3min_vs_DMSO_3min")
+  ),
+  structure(
+    c("(Tryptamine_30min - DMSO_30min) - (Tryptamine_3min - DMSO_3min)", "Tryptamine_30min - DMSO_30min", "Tryptamine_3min - DMSO_3min"),
+    .Names = c("Tryptamine_30min_vs_DMSO_30min_against_Tryptamine_3min_vs_DMSO_3min", "Tryptamine_30min_vs_DMSO_30min", "Tryptamine_3min_vs_DMSO_3min")
+  ),
+  structure(
+    c("(Tryptamine_30min - DMSO_30min) - (Tryptamine_15min - DMSO_15min)", "Tryptamine_30min - DMSO_30min", "Tryptamine_15min - DMSO_15min"),
+    .Names = c("Tryptamine_30min_vs_DMSO_30min_against_Tryptamine_15min_vs_DMSO_15min", "Tryptamine_30min_vs_DMSO_30min", "Tryptamine_15min_vs_DMSO_15min")
+  ),
+  structure(
+    c("(Tryptamine_15min - Tryptamine_3min) - (DMSO_15min - DMSO_3min)", "Tryptamine_15min - Tryptamine_3min", "DMSO_15min - DMSO_3min"),
+    .Names = c("Tryptamine_15min_vs_Tryptamine_3min_against_DMSO_15min_vs_DMSO_3min", "Tryptamine_15min_vs_Tryptamine_3min", "DMSO_15min_vs_DMSO_3min")
+  ),
+  structure(
+    c("(Tryptamine_30min - Tryptamine_3min) - (DMSO_30min - DMSO_3min)", "Tryptamine_30min - Tryptamine_3min", "DMSO_30min - DMSO_3min"),
+    .Names = c("Tryptamine_30min_vs_Tryptamine_3min_against_DMSO_30min_vs_DMSO_3min", "Tryptamine_30min_vs_Tryptamine_3min", "DMSO_30min - DMSO_3min")
+  ),
+  structure(
+    c("(Tryptamine_30min - Tryptamine_15min) - (DMSO_30min - DMSO_15min)", "Tryptamine_30min - Tryptamine_15min", "DMSO_30min - DMSO_15min"),
+    .Names = c("Tryptamine_30min_vs_Tryptamine_15min_against_DMSO_30min_vs_DMSO_15min", "Tryptamine_30min_vs_Tryptamine_15min", "DMSO_30min - DMSO_15min")
+  )
+)
+
+fc.cor.data <- NULL
+for (i in seq_along(FC.correlation.list))
+{
+  FC.correlation.list_i <- FC.correlation.list[[i]]
+  for (s in unique(limma_results$sample))
+  {
+    limma_results_i <- limma_results %>%
+      dplyr::filter(sample == s)
+
+    # X-axis fold-change: contrast #3 in the triplet
+    fc.cor.data_x <- limma_results_i %>%
+      group_by(sequence.id, sample) %>%
+      dplyr::filter(comparison == FC.correlation.list_i[3]) %>%
+      mutate(x.label = comparison.label, x = logFC, x.hit = hit_annotation) %>%
+      dplyr::select(sequence.id, sample, x, x.label, x.hit)
+
+    # Y-axis fold-change: contrast #2 in the triplet
+    fc.cor.data_y <- limma_results_i %>%
+      group_by(sequence.id, sample) %>%
+      dplyr::filter(comparison == FC.correlation.list_i[2]) %>%
+      mutate(y.label = comparison.label, y = logFC, y.hit = hit_annotation) %>%
+      dplyr::select(sequence.id, sample, y, y.label, y.hit)
+
+    # Join x/y explicitly by feature key + sample type (robust to new columns appearing later)
+    fc.cor.data_i <- left_join(fc.cor.data_x, fc.cor.data_y, by = c("sequence.id", "sample"))
+
+    # Hit/candidate/no-hit comes from contrast #1 (timecourse / diff-in-diff); store its label as `comparison`
+    fc.cor.data_hit <- limma_results_i %>%
+      group_by(sequence.id, sample) %>%
+      dplyr::filter(comparison == FC.correlation.list_i[1]) %>%
+      mutate(comparison = comparison.label) %>%
+      dplyr::select(sequence.id, sample, comparison, hit_annotation)
+
+    # Attach the timecourse/diff-in-diff hit annotation (again explicit join keys)
+    fc.cor.data_i <- left_join(fc.cor.data_i, fc.cor.data_hit, by = c("sequence.id", "sample"))
+
+    rm(fc.cor.data_x, fc.cor.data_y, fc.cor.data_hit)
+    fc.cor.data <- bind_rows(fc.cor.data, fc.cor.data_i)
+
+    rm(fc.cor.data_i)
+    rm(limma_results_i)
+  }
+}
+
+fc.cor.data <- subset(fc.cor.data, !is.na(comparison))
+
+# Combined x/y hit status for alternate coloring
+fc.cor.data$hit_x_and_y <- paste(fc.cor.data$x.hit, "x -", fc.cor.data$y.hit, "y")
+fc.cor.data$hit_x_and_y <- gsub("enriched ", "", fc.cor.data$hit_x_and_y)
+fc.cor.data$hit_x_and_y <- factor(fc.cor.data$hit_x_and_y, ordered = TRUE,
+                                  levels = c("hit x - hit y",
+                                             "hit x - candidate y",
+                                             "candidate x - hit y",
+                                             "candidate x - candidate y",
+                                             "hit x - no hit y",
+                                             "no hit x - hit y",
+                                             "candidate x - no hit y",
+                                             "no hit x - candidate y",
+                                             "no hit x - no hit y"))
+
+write.csv(fc.cor.data, file = file.path(dir_save, paste0("Fold_change_correlation_data", ".csv")), row.names = FALSE)
+fc.cor.data <- na.omit(fc.cor.data)
+
+# Single facet label per panel (easier to read than label_both across 4 variables)
+fc.cor.data$facet_label <- with(
+  fc.cor.data,
+  paste0(sample, ": ", comparison, "\nX: ", x.label, "\nY: ", y.label)
+)
+
+# Plot size now scales with facet label length (more predictive than comparison length alone)
+no.of.comparisons <- length(unique(fc.cor.data$facet_label))
+max.comp.nchar <- max(nchar(gsub("\n", " ", unique(fc.cor.data$facet_label)))) + 12
+max.comp.nchar <- ifelse(max.comp.nchar <= 82, 82, max.comp.nchar)
+gr.width.multiplikator <- round(max.comp.nchar / 82 * 5, digits = 2)
+gr.width <- 4 + ceiling(sqrt(no.of.comparisons)) * gr.width.multiplikator
+gr.height <- 4 + floor(sqrt(no.of.comparisons)) * 5
+
+# ggsave() refuses dimensions > 50 inches by default; rescale if needed
+max_inches <- 49  # keep under the 50" hard stop
+scale_factor <- max(gr.width / max_inches, gr.height / max_inches, 1)
+
+if (scale_factor > 1) {
+  gr.width  <- gr.width  / scale_factor
+  gr.height <- gr.height / scale_factor
+}
+
+
+# Plot 1: colored by hit_annotation from the timecourse/diff-in-diff contrast
+p_fc_cor1 <- ggplot(data = fc.cor.data, aes(x, y, colour = hit_annotation, alpha = hit_annotation)) +
+  geom_vline(aes(xintercept = 0)) +
+  geom_hline(aes(yintercept = 0)) +
+  geom_abline() +  # identity line (y = x)
+  geom_point() +
+  geom_text(aes(label = gsub("[|].+", "", sequence.id)), colour = "black", show.legend = FALSE,
+            data = subset(fc.cor.data, hit_annotation != "no hit"),
+            vjust = 0, nudge_y = 0.1, size = 2, check_overlap = TRUE) +
+  facet_wrap(~ facet_label, labeller = ggplot2::label_wrap_gen(width = 45)) +
+  xlab("log2 fold-change (x contrast)") +
+  ylab("log2 fold-change (y contrast)") +
+  customPlot_DE +
+  ggtitle("Fold-change correlation (colored by diff-in-diff hit status)") +
+  plot_margin_fix
+
+ggsave(
+  file.path(dir_save, paste0("Fold_change_correlation", ".pdf")),
+  plot = p_fc_cor1,
+  width = gr.width,
+  height = gr.height
+)
+
+# Plot 2: colored by combined x/y hit status; label only features where x or y is a hit
+p_fc_cor2 <- ggplot(data = fc.cor.data, aes(x, y, colour = hit_x_and_y, alpha = hit_x_and_y)) +
+  geom_vline(aes(xintercept = 0)) +
+  geom_hline(aes(yintercept = 0)) +
+  geom_abline() +
+  geom_point() +
+  geom_text(aes(label = gsub("[|].+", "", sequence.id)), colour = "black", show.legend = FALSE,
+            data = subset(fc.cor.data, x.hit %in% c("hit") | y.hit %in% c("hit")),
+            vjust = 0, nudge_y = 0.1, size = 2, check_overlap = TRUE) +
+  facet_wrap(~ facet_label, labeller = ggplot2::label_wrap_gen(width = 45)) +
+  xlab("log2 fold-change (x contrast)") +
+  ylab("log2 fold-change (y contrast)") +
+  customPlot_DE_cor +
+  ggtitle("Fold-change correlation (colored by x/y hit combination)") +
+  plot_margin_fix
+
+ggsave(
+  file.path(dir_save, paste0("Fold_change_correlation_alt_hit_class", ".pdf")),
+  plot = p_fc_cor2,
+  width = gr.width,
+  height = gr.height
+)
+
+
+rm(FC.correlation.list, gr.width, gr.height)
+
+```
+
+Save Limma results
+
+```{r}
+#| label: save limma results
+
+
+# --- Lookup tables: Protein.ID -> Trinity geneID -> final gene name ---
+
+# Paths (edit these)
+path_prot2trinity <- here::here(DATA_DIR, "geneID_proteinID_lookup.tsv")
+path_trinity2name <- here::here("data", "spongilla_gene_names_final.tsv")
+
+# Read lookups (keep columns stable using clean_names)
+prot2trinity <- readr::read_tsv(path_prot2trinity, show_col_types = FALSE) %>%
+  janitor::clean_names() %>%  # expects: trinity_geneid, protein_id
+  dplyr::select(trinity_gene_id, protein_id) %>%
+  dplyr::distinct() %>%
+  # Convert underscore Trinity IDs (c100000_g1) to hyphen format (c100000-g1)
+  # to match the canonical gene names file
+  dplyr::mutate(trinity_gene_id = gsub("_", "-", trinity_gene_id))
+
+# Read final gene names (Zang et al. 2026) — single canonical source for all gene labels
+trinity2name <- readr::read_tsv(path_trinity2name, show_col_types = FALSE) %>%
+  dplyr::select(
+    trinity_gene_id = Trinity_geneID,
+    automated_name = seurat_name,
+    Zang_et_al_2026,
+    name_type
+  ) %>%
+  dplyr::distinct()
+
+# Join mappings into limma_results.
+# Preserve original "Gene" (currently Protein.ID) in a new column.
+limma_results <- limma_results %>%
+  dplyr::mutate(Protein.ID = Gene) %>%
+  dplyr::left_join(prot2trinity, by = c("Protein.ID" = "protein_id")) %>%
+  dplyr::left_join(trinity2name, by = "trinity_gene_id") %>%
+  # Overwrite Gene with Zang_et_al_2026 name when available; otherwise keep the original
+  dplyr::mutate(Gene = dplyr::if_else(!is.na(Zang_et_al_2026), Zang_et_al_2026, Gene))
+
+# Zang_et_al_2026 names are already short display-ready labels (with paralog suffixes)
+# so Gene.short = Gene (no further shortening needed)
+limma_results <- limma_results %>%
+  dplyr::mutate(Gene.short = Gene)
+
+# Save updated results (TSV for portability; RDS for exact re-loading)
+readr::write_tsv(limma_results, file.path(dir_save, "limma_results_annotated.tsv"))
+saveRDS(limma_results, file.path(dir_save, "limma_results_annotated.rds"))
+
+```
+
+
+# Limma Results Clustering
+
+Preparation of cluster data. Selects all “hit” features from phospho and input-normalized-phospho limma results, extracts their control-normalized ratios from the tidy table (mdata), collapses replicate-level values to a median per feature/sample/condition, reshapes to a wide matrix for clustering/heatmaps, exports the matrix to CSV, log2-transforms it, and replaces missing values with 0 for downstream clustering.
+
+```{r}
+#| label: Clustering preparation
+
+# Collect the set of features (sequence.id) called "hit" in limma, restricting to
+# phospho and input-normalized-phospho sample types.
+hits <- unique(subset(limma_results, hit_annotation %in% c("hit") & sample %in% c("input.norm.phospho", "phospho"))$sequence.id)
+
+# Label describing this heatmap selection (used later in titles/filenames).
+heatmap_selection_label <- "with all hit proteins"
+
+# Pull tidy measurements for those hits from mdata:
+# - measurement == "ctrl.ratio" (control-normalized ratio)
+# - collapse to one value per (feature, sample, condition) using median.
+m_clust.data <- subset(mdata, measurement == "ctrl.ratio" & sequence.id %in% hits) %>%
+  group_by(sequence.id, sample, condition) %>%
+  # Drop rows where sequence.id equals Gene (intended to avoid non-feature rows if present).
+  dplyr::filter(sequence.id != Gene) %>%
+  summarise(median.value = median(value, na.rm = TRUE))
+
+# Reshape to a wide matrix with one row per feature and one column per (sample_condition).
+clust.data_m <- m_clust.data %>%
+  mutate(key = paste(sample, condition, sep = "_")) %>%
+  ungroup() %>%
+  dplyr::select(sequence.id, key, median.value) %>%
+  group_by(sequence.id) %>%
+  spread(key = key, value = median.value) %>%
+  as.data.frame()
+
+# Save the wide clustering matrix used for downstream heatmaps (for reproducibility/debugging).
+write.csv(clust.data_m, file.path(dir_save, paste0("Clustering_data_", nrow(clust.data_m), "_proteins", ".csv")), row.names = FALSE)
+
+# Set rownames to sequence.id for matrix-based clustering/plotting.
+rownames(clust.data_m) <- clust.data_m$sequence.id
+
+# Keep only features that successfully made it into the wide matrix (guards against empty/all-NA rows).
+m_clust.data <- m_clust.data %>%
+  dplyr::filter(sequence.id %in% clust.data_m$sequence.id)
+
+# Remove the sequence.id column so the remainder can be coerced to a numeric matrix.
+clust.data_m$sequence.id <- NULL
+
+# Convert to numeric matrix and log2-transform (ctrl.ratio expected to be on linear scale here).
+clust.data_m <- clust.data_m %>%
+  as.matrix() %>%
+  log2()
+
+# Replace missing values with 0 for clustering/heatmap input.
+clust.data_m[is.na(clust.data_m)] <- 0
+
+```
+
+PCA of clustering data. Runs PCA on the log2-transformed clustering matrix (clust.data_m), computes percent variance explained, plots PC1 vs PC2 with point color mapped to PC3, annotates axes/subtitle with variance explained, and saves the figure.
+```{r}
+#| label: PCA
+
+# Feature PCA: points are features (sequence.id). Values are log2(ctrl.ratio) medians across replicates
+# for each sample_type x condition column in clust.data_m.
+
+clust.data_PCA <- prcomp(clust.data_m, scale = FALSE)
+
+perc_var <- round(100 * clust.data_PCA$sdev ^ 2 / sum(clust.data_PCA$sdev ^ 2), 1)
+
+PCA_clust.data <- data.frame(
+  PC1 = clust.data_PCA$x[, 1],
+  PC2 = clust.data_PCA$x[, 2],
+  PC3 = clust.data_PCA$x[, 3]
+)
+
+caption_pca_features <- paste(
+  heatmap_selection_label,
+  "Points = features (sequence.id; hit phosphosite keys).",
+  "Values = log2(median ctrl.ratio) across replicates; NA set to 0.",
+  sep = "\n"
+)
+
+p_pca_features <- ggplot(data = PCA_clust.data, aes(PC1, PC2, colour = PC3)) +
+  geom_point() +
+  theme_bw(base_size = 12) +
+  scale_colour_gradientn(colours = c("black", "#377eb8", "#984ea3",
+                                     "#e41a1c", "#ff7f00", "#ffff33")) +
+  labs(caption = caption_pca_features) +
+  ggtitle(
+    "PCA of feature profiles (ctrl-normalized log2 ratios)",
+    subtitle = paste0("Point color = PC3 (", perc_var[3], "% variance)")
+  ) +
+  xlab(paste0("PC1 (", perc_var[1], "% variance)")) +
+  ylab(paste0("PC2 (", perc_var[2], "% variance)")) +
+  plot_margin_fix +
+  theme(
+    plot.caption = element_text(size = 8, hjust = 0.5, lineheight = 1.05),
+    plot.caption.position = "plot",
+    plot.margin = margin(5.5, 5.5, 18, 5.5)  # extra bottom margin prevents caption clipping
+  )
+
+ggsave(file.path(dir_save, "PCA_features_ctrl_ratio.pdf"),
+       plot = p_pca_features, width = 7, height = 5)
+
+rm(clust.data_PCA, perc_var)
+
+```
+
+Alternative PCA plots
+Plot B1: color by sample type, shape by treatment, facet by timepoint
+(Usually readable because sample_type is low-cardinality; timepoints are few.)
+
+Plot B2: color by condition (treatment+time), shape by sample type
+(This uses many colors if you have many conditions, but is a quick overview.)
+
+Plot B3: keep your “PC3 as color” idea, but add shape=sample type and facet=treatment
+(This gives you PC3 context while still labeling biology.)
+
+```{r}
+#| label: alternative PCA plots
+
+
+# ---- Sample PCA (points = sample_type x condition columns) ----
+
+# Column keys correspond to sample_type_condition (e.g., "phospho_Tryptamine_15min")
+sample_keys <- colnames(clust.data_m)
+
+sample_meta <- data.frame(
+  key = sample_keys,
+  sample_type = sub("_.*$", "", sample_keys),
+  condition   = sub("^[^_]+_", "", sample_keys),
+  stringsAsFactors = FALSE
+)
+
+# Split condition into treatment + timepoint (handles cases with multiple underscores safely)
+cond_split <- strsplit(sample_meta$condition, "_", fixed = TRUE)
+sample_meta$treatment <- vapply(cond_split, function(z) if (length(z) >= 1) z[1] else NA_character_, character(1))
+sample_meta$timepoint <- vapply(cond_split, function(z) {
+  if (length(z) >= 2) paste(z[-1], collapse = "_") else NA_character_
+}, character(1))
+
+# PCA over sample columns: transpose so rows = sample points
+pca_samples <- prcomp(t(clust.data_m), scale = FALSE)
+perc_var_s <- round(100 * pca_samples$sdev ^ 2 / sum(pca_samples$sdev ^ 2), 1)
+
+scores <- data.frame(
+  key = rownames(pca_samples$x),
+  PC1 = pca_samples$x[, 1],
+  PC2 = pca_samples$x[, 2],
+  PC3 = pca_samples$x[, 3],
+  stringsAsFactors = FALSE
+)
+
+PCA_samples_df <- merge(scores, sample_meta, by = "key", all.x = TRUE)
+PCA_samples_df$label <- paste0(PCA_samples_df$sample_type, "\n", PCA_samples_df$condition)
+
+caption_pca_samples <- paste(
+  heatmap_selection_label,
+  "Points = sample_type × condition columns.",
+  "Values = log2(median ctrl.ratio) across selected hit features; NA set to 0.",
+  sep = "\n"
+)
+
+# B1: color by sample type; shape by treatment; facet by timepoint
+p_pca_samples_1 <- ggplot(PCA_samples_df, aes(PC1, PC2, colour = sample_type, shape = treatment)) +
+  geom_point(size = 3) +
+  geom_text(aes(label = label), vjust = -0.7, size = 2.6, check_overlap = TRUE, show.legend = FALSE) +
+  facet_wrap(~ timepoint, labeller = ggplot2::label_wrap_gen(width = 15)) +
+  theme_bw(base_size = 12) +
+  labs(caption = caption_pca_samples) +
+  ggtitle("PCA of sample/condition profiles (ctrl-normalized log2 ratios)",
+          subtitle = paste0("PC1=", perc_var_s[1], "%, PC2=", perc_var_s[2], "% variance")) +
+  xlab(paste0("PC1 (", perc_var_s[1], "%)")) +
+  ylab(paste0("PC2 (", perc_var_s[2], "%)")) +
+
+  # Add padding so points/labels near the edge have room
+  scale_x_continuous(expand = expansion(mult = 0.08)) +
+  scale_y_continuous(expand = expansion(mult = 0.10)) +
+
+  plot_margin_fix +
+  coord_cartesian(clip = "off") +
+  theme(
+    plot.caption = element_text(size = 8, hjust = 0.5, lineheight = 1.05),
+    plot.caption.position = "plot",
+    plot.margin = margin(8, 8, 20, 8),
+    # If strip titles ever get tight, this helps slightly
+    strip.text = element_text(size = 9)
+  )
+
+
+ggsave(file.path(dir_save, "PCA_samples_color_sampleType_shape_treatment_facet_timepoint.pdf"),
+       plot = p_pca_samples_1, width = 9, height = 5.5)
+
+# B2: color by condition; shape by sample type
+p_pca_samples_2 <- ggplot(PCA_samples_df, aes(PC1, PC2, colour = condition, shape = sample_type)) +
+  geom_point(size = 3) +
+  geom_text(aes(label = sample_type), vjust = -0.7, size = 2.6, check_overlap = TRUE, show.legend = FALSE) +
+  theme_bw(base_size = 12) +
+  labs(caption = caption_pca_samples) +
+  ggtitle("PCA of sample/condition profiles (ctrl-normalized log2 ratios)",
+          subtitle = paste0("Color=condition; shape=sample type | PC1=", perc_var_s[1], "%, PC2=", perc_var_s[2], "%")) +
+  xlab(paste0("PC1 (", perc_var_s[1], "%)")) +
+  ylab(paste0("PC2 (", perc_var_s[2], "%)")) +
+  plot_margin_fix +
+  theme(
+    plot.caption = element_text(size = 8, hjust = 0.5, lineheight = 1.05),
+    plot.caption.position = "plot",
+    plot.margin = margin(5.5, 5.5, 18, 5.5)
+  )
+
+ggsave(file.path(dir_save, "PCA_samples_color_condition_shape_sampleType.pdf"),
+       plot = p_pca_samples_2, width = 8, height = 5)
+
+# B3: color by treatment; shape by sample type; facet by timepoint (often the cleanest biological view)
+p_pca_samples_3 <- ggplot(PCA_samples_df, aes(PC1, PC2, colour = treatment, shape = sample_type)) +
+  geom_point(size = 3) +
+  facet_wrap(~ timepoint, labeller = ggplot2::label_wrap_gen(width = 15)) +
+  theme_bw(base_size = 12) +
+  labs(caption = caption_pca_samples) +
+  ggtitle("PCA of sample/condition profiles (ctrl-normalized log2 ratios)",
+          subtitle = paste0("Color=treatment; shape=sample type | PC1=", perc_var_s[1], "%, PC2=", perc_var_s[2], "%")) +
+  xlab(paste0("PC1 (", perc_var_s[1], "%)")) +
+  ylab(paste0("PC2 (", perc_var_s[2], "%)")) +
+  plot_margin_fix +
+  theme(
+    plot.caption = element_text(size = 8, hjust = 0.5, lineheight = 1.05),
+    plot.caption.position = "plot",
+    plot.margin = margin(5.5, 5.5, 18, 5.5)
+  )
+
+ggsave(file.path(dir_save, "PCA_samples_color_treatment_shape_sampleType_facet_timepoint.pdf"),
+       plot = p_pca_samples_3, width = 9, height = 5.5)
+
+rm(pca_samples, perc_var_s, sample_meta, scores, PCA_samples_df, sample_keys, cond_split)
+
+```
+
+Determine optimal cluster number with elbow plot. Computes within-cluster sum of squares (WSS) for k-means clustering across a range of k values, plots the WSS “elbow curve,” and marks the selected number of clusters (currently fixed at k = 10) for downstream clustering of the feature matrix.
+
+```{r}
+#| label: Elbow plot for kmeans clustering
+
+# Choose an upper bound on the number of clusters to evaluate:
+# - if few features (<30), consider up to n clusters
+# - otherwise consider up to ~n/4 clusters
+# - cap at 50 to keep runtime reasonable
+no <- ifelse(nrow(clust.data_m) < 30, nrow(clust.data_m), ceiling(nrow(clust.data_m) / 4))
+no <- ifelse(no > 50, 50, no)
+
+# Compute total within-cluster sum of squares (WSS) for k = 1..(no-1).
+# Lower WSS indicates tighter clusters; WSS decreases monotonically with k.
+wss <- sapply(1:(no -1), function(k) sum(kmeans(clust.data_m, k)$withinss))
+
+# Format for plotting
+wss_df <- data.frame(Clusters = 1:(no - 1), WSS = wss)
+
+# Second-derivative heuristic to identify an "elbow" (high curvature point) in the WSS curve
+diff_wss <- diff(wss, differences = 2)
+
+# Choose k at maximum curvature (index fix accounts for differencing shortening the vector)
+cluster.number <- which.max(abs(diff_wss[-1])) + 2
+
+# Override: use a fixed number of clusters (manual choice)
+#cluster.number <- 10
+
+# Elbow plot with selected k highlighted
+ggplot(data = wss_df, aes(Clusters, WSS)) +
+  geom_point() +
+  geom_line() +
+  geom_vline(xintercept = cluster.number, col = "red") +
+  ggtitle("Elbow plot", subtitle = "Elbow Method for Determining Optimal Number of Clusters") +
+  customPlot +
+  xlab("Number of clusters") +
+  ylab("Within groups sum of squares")
+
+# Save
+ggsave(file.path(dir_save, paste0("Clustering_Elbow_plot_", nrow(clust.data_m), "_proteins", ".pdf")), width = 5, height = 4)
+
+# Cleanup
+rm(wss)
+
+
+```
+
+K-means clustering
+
+```{r}
+#| label: K-means clustering
+
+kmeans.fit <- kmeans(clust.data_m, cluster.number)
+cluster.groups <- data.frame(sequence.id = names(kmeans.fit$cluster),
+                             kmeans.cluster.group = kmeans.fit$cluster)
+Gene.lut <- unique(cdata[, c("sequence.id", "Gene")])
+cluster.groups <- left_join(cluster.groups, Gene.lut)
+rm(kmeans.fit, no)
+```
+
+Hierarchical clustering
+Computes hierarchical clustering (Ward.D2 on Euclidean distances) for the feature matrix, assigns features to cluster.number clusters, merges hierarchical cluster IDs into the cluster annotation table, and orders features in m_clust.data according to the dendrogram for consistent heatmap ordering.
+```{r}
+#| label: Clustering features with Hclust
+
+# Compute pairwise distances between features (rows of clust.data_m)
+d <- dist(clust.data_m, method = "euclidean")
+
+# Hierarchical clustering using Ward's criterion (tends to create compact/spherical clusters)
+hclust.fit <- hclust(d, method = "ward.D2")
+
+# Cut the dendrogram into k = cluster.number clusters and store per-feature assignments
+cluster.groups_hclust <- 
+  data.frame(sequence.id = names(cutree(hclust.fit, k = cluster.number)),
+             hclust.cluster.group = cutree(hclust.fit, k = cluster.number))
+
+# Add hierarchical cluster labels to the existing cluster.groups table (kmeans + Gene)
+cluster.groups <- left_join(cluster.groups, cluster.groups_hclust)
+
+rm(cluster.groups_hclust)
+
+# Attach cluster labels back onto the long/tidy clustering data used for heatmaps/plots
+m_clust.data <- left_join(m_clust.data, cluster.groups)
+
+# Order sequence.id as an ordered factor matching dendrogram leaf order (controls plot ordering)
+m_clust.data$sequence.id <- factor(m_clust.data$sequence.id, ordered = TRUE, 
+                                    levels = hclust.fit$labels[hclust.fit$order])
+
+# Cleanup
+rm(d, hclust.fit)
+
+```
+
+Plot clustering results. Generates heatmaps, PCA, and trajectory plots to visualize “hit” feature profiles across conditions, compare hierarchical vs k-means cluster assignments, and export cluster membership tables for downstream interpretation.
+
+```{r}
+#| label: Plot clustering
+#| fig.height: 7
+
+
+# ------------------------------------------------------------
+# Cluster visualization suite (robust condition ordering + readable labels)
+# ------------------------------------------------------------
+
+# Helper: cap ggsave dimensions to avoid the 50-inch limit
+cap_dims <- function(width, height, max_inches = 49) {
+  scale_factor <- max(width / max_inches, height / max_inches, 1)
+  list(width = width / scale_factor, height = height / scale_factor)
+}
+
+# Helper: first non-empty string in a vector
+first_nonempty <- function(x) {
+  x <- x[!is.na(x) & nzchar(x)]
+  if (length(x) == 0) NA_character_ else x[1]
+}
+
+# Helper: extract first integer found in a string (e.g., "15min" -> 15)
+extract_first_number <- function(x) {
+  m <- regexpr("[0-9]+", x)
+  out <- rep(NA_real_, length(x))
+  ok <- m != -1
+  out[ok] <- as.numeric(regmatches(x, m)[ok])
+  out
+}
+
+# ------------------------------------------------------------
+# 0) Preserve existing dendrogram order of sequence.id (unique factor levels)
+#    (joins can sometimes drop factor class; we reapply ordering after joins)
+# ------------------------------------------------------------
+seq_levels0 <- if (is.factor(m_clust.data$sequence.id)) levels(m_clust.data$sequence.id) else unique(m_clust.data$sequence.id)
+
+# ------------------------------------------------------------
+# 1) Build per-feature label lookup from limma_results:
+#    base label = "Protein.ID | Gene.short" (fallbacks included)
+#    optional disambiguation: append short site token for duplicate labels
+# ------------------------------------------------------------
+cols_keep <- intersect(c("sequence.id", "Protein.ID", "Gene.short", "Gene"), names(limma_results))
+feature_lut <- limma_results %>%
+  dplyr::select(dplyr::all_of(cols_keep)) %>%
+  dplyr::distinct()
+
+if (!("Protein.ID" %in% names(feature_lut))) feature_lut$Protein.ID <- NA_character_
+if (!("Gene.short" %in% names(feature_lut))) feature_lut$Gene.short <- NA_character_
+if (!("Gene" %in% names(feature_lut))) feature_lut$Gene <- NA_character_
+
+feature_lut <- feature_lut %>%
+  dplyr::group_by(sequence.id) %>%
+  dplyr::summarise(
+    Protein.ID = first_nonempty(Protein.ID),
+    Gene.short = first_nonempty(Gene.short),
+    Gene = first_nonempty(Gene),
+    .groups = "drop"
+  ) %>%
+  dplyr::mutate(
+    Gene.short = dplyr::if_else(is.na(Gene.short) | !nzchar(Gene.short), Gene, Gene.short),
+    base_label = dplyr::case_when(
+      !is.na(Protein.ID) & nzchar(Protein.ID) & !is.na(Gene.short) & nzchar(Gene.short) ~ paste0(Protein.ID, " | ", Gene.short),
+      !is.na(Protein.ID) & nzchar(Protein.ID) ~ Protein.ID,
+      !is.na(Gene.short) & nzchar(Gene.short) ~ Gene.short,
+      TRUE ~ sequence.id
+    )
+  )
+
+# Optional: disambiguate duplicated base labels by appending a short site/peptide token from sequence.id
+DISAMBIGUATE_DUP_LABELS <- TRUE
+SITE_TOKEN_NCHAR <- 14
+
+if (DISAMBIGUATE_DUP_LABELS) {
+  site_token <- feature_lut$sequence.id
+  site_token <- sub("^[^_]+_", "", site_token)   # drop "Gene_" prefix if present
+  site_token <- sub("[|].*$", "", site_token)    # drop metadata after "|"
+  site_token <- gsub("\\s+", "", site_token)
+  site_token <- substr(site_token, 1, SITE_TOKEN_NCHAR)
+
+  dup <- duplicated(feature_lut$base_label) | duplicated(feature_lut$base_label, fromLast = TRUE)
+  feature_lut$feature_label <- feature_lut$base_label
+  feature_lut$feature_label[dup] <- paste0(feature_lut$base_label[dup], " | ", site_token[dup])
+} else {
+  feature_lut$feature_label <- feature_lut$base_label
+}
+
+# Map sequence.id -> label (labels may repeat; that's OK when used as axis labels)
+y_label_map <- setNames(feature_lut$feature_label, feature_lut$sequence.id)
+y_label_fun <- function(x) {
+  lab <- unname(y_label_map[x])
+  missing <- is.na(lab) | !nzchar(lab)
+  lab[missing] <- x[missing]
+  lab
+}
+
+# Attach labels to cluster.groups for export/debugging (does not affect y ordering)
+cluster.groups <- dplyr::left_join(cluster.groups, feature_lut, by = "sequence.id")
+
+# Attach labels to m_clust.data and restore sequence.id ordering
+m_clust.data <- dplyr::left_join(
+  m_clust.data,
+  feature_lut %>% dplyr::select(sequence.id, Protein.ID, Gene.short, Gene, feature_label),
+  by = "sequence.id"
+)
+m_clust.data$sequence.id <- factor(as.character(m_clust.data$sequence.id), levels = seq_levels0, ordered = TRUE)
+
+# ------------------------------------------------------------
+# 2) Robust condition parsing + ordering (guaranteed unique levels)
+# ------------------------------------------------------------
+m_clust.data <- m_clust.data %>%
+  dplyr::mutate(
+    condition = trimws(as.character(condition)),
+    treatment = sub("_.*$", "", condition),
+    timepoint_raw = sub("^[^_]+_", "", condition),
+    # keep only first "<digits>min" if present (handles "15min_rep1" -> "15min")
+    timepoint = ifelse(grepl("[0-9]+\\s*min", timepoint_raw, ignore.case = TRUE),
+                       sub(".*?([0-9]+\\s*min).*", "\\1", timepoint_raw, ignore.case = TRUE),
+                       timepoint_raw),
+    timepoint = gsub("\\s+", "", timepoint),
+    time_min = extract_first_number(timepoint),
+    log2_ratio = log2(median.value)
+  )
+
+# Clean non-finite (e.g., log2(0))
+m_clust.data$log2_ratio[!is.finite(m_clust.data$log2_ratio)] <- NA_real_
+
+# Build condition order from UNIQUE condition strings only (prevents duplicated factor levels)
+cond_tbl <- data.frame(condition = unique(m_clust.data$condition), stringsAsFactors = FALSE)
+cond_tbl$treatment <- sub("_.*$", "", cond_tbl$condition)
+cond_tbl$timepoint_raw <- sub("^[^_]+_", "", cond_tbl$condition)
+cond_tbl$timepoint <- ifelse(grepl("[0-9]+\\s*min", cond_tbl$timepoint_raw, ignore.case = TRUE),
+                             sub(".*?([0-9]+\\s*min).*", "\\1", cond_tbl$timepoint_raw, ignore.case = TRUE),
+                             cond_tbl$timepoint_raw)
+cond_tbl$timepoint <- gsub("\\s+", "", cond_tbl$timepoint)
+cond_tbl$time_min <- extract_first_number(cond_tbl$timepoint)
+cond_tbl$treatment_rank <- ifelse(cond_tbl$treatment == "DMSO", 0L, 1L)
+
+cond_tbl <- cond_tbl[order(cond_tbl$time_min, cond_tbl$treatment_rank, cond_tbl$treatment, cond_tbl$condition), ]
+cond_levels <- unique(cond_tbl$condition)  # GUARANTEED UNIQUE
+
+m_clust.data$condition <- factor(m_clust.data$condition, levels = cond_levels, ordered = TRUE)
+
+# Timepoint ordering (unique)
+time_tbl <- unique(data.frame(timepoint = m_clust.data$timepoint, time_min = m_clust.data$time_min, stringsAsFactors = FALSE))
+time_tbl <- time_tbl[order(time_tbl$time_min, time_tbl$timepoint), ]
+time_levels <- unique(time_tbl$timepoint)
+
+m_clust.data$timepoint <- factor(m_clust.data$timepoint, levels = time_levels, ordered = TRUE)
+
+# Treatment ordering (if standard pair exists)
+if (all(c("DMSO", "Tryptamine") %in% unique(as.character(m_clust.data$treatment)))) {
+  m_clust.data$treatment <- factor(m_clust.data$treatment, levels = c("DMSO", "Tryptamine"))
+} else {
+  m_clust.data$treatment <- factor(m_clust.data$treatment)
+}
+
+caption_cluster <- paste(
+  heatmap_selection_label,
+  "Values = log2(median ctrl.ratio) across replicates.",
+  "Rows ordered by hierarchical dendrogram on sequence.id; y-axis shows Protein.ID | Gene.short (optionally + site token).",
+  sep = "\n"
+)
+
+# ------------------------------------------------------------
+# 3) Heatmap of all hits (y labels via scale_y_discrete)
+# ------------------------------------------------------------
+n_cond <- length(levels(m_clust.data$condition))
+seq_levels <- levels(m_clust.data$sequence.id)
+n_feat <- length(seq_levels)
+max_lab <- max(nchar(y_label_fun(seq_levels)))
+
+gr.width  <- 5 + n_cond * 0.8 + max_lab * 0.03
+gr.height <- 3 + n_feat * 0.012
+dims <- cap_dims(gr.width, gr.height)
+gr.width <- dims$width; gr.height <- dims$height
+
+p_heat_hits <- ggplot(data = m_clust.data, aes(condition, sequence.id)) +
+  geom_tile(aes(fill = log2_ratio)) +
+  scale_fill_gradient2(low = "#2166ac", high = "#b2182b", midpoint = 0,
+                       mid = "#f7f7f7", name = "log2.ratio", na.value = "grey85") +
+  scale_y_discrete(labels = y_label_fun) +
+  facet_grid(. ~ sample, scales = "free_x", space = "free_x") +
+  theme_bw(base_size = 12) +
+  theme(
+    axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
+    axis.text.y = element_text(size = 1),
+    plot.caption = element_text(size = 8, hjust = 0.5, lineheight = 1.05),
+    plot.caption.position = "plot",
+    plot.margin = margin(6, 6, 18, 6)
+  ) +
+  labs(caption = caption_cluster) +
+  ylab("Protein.ID | Gene.short") +
+  ggtitle("Heatmap of hit feature profiles")
+
+ggsave(
+  file.path(dir_save, paste0("Heatmap_hits_", nrow(clust.data_m), "_proteins", ".pdf")),
+  plot = p_heat_hits,
+  width = gr.width, height = gr.height
+)
+
+# ------------------------------------------------------------
+# 4) Agreement plot: hclust vs kmeans
+# ------------------------------------------------------------
+p_cluster_agreement <- ggplot(data = cluster.groups, aes(hclust.cluster.group, kmeans.cluster.group)) +
+  geom_abline(colour = "grey") +
+  geom_jitter(width = 0.2, height = 0.2, alpha = 0.3) +
+  scale_x_continuous(breaks = 1:cluster.number) +
+  scale_y_continuous(breaks = 1:cluster.number) +
+  customPlot +
+  theme(panel.grid.minor = element_blank()) +
+  ggtitle("Cluster assignment agreement", subtitle = "hclust vs kmeans")
+
+ggsave(
+  file.path(dir_save, paste0("Clustering_Correlation_hclust_vs_kmeans_", nrow(clust.data_m), "_proteins", ".pdf")),
+  plot = p_cluster_agreement,
+  width = 5, height = 5
+)
+
+# ------------------------------------------------------------
+# 5) PCA colored by cluster membership (no per-point text; gather only cluster cols)
+# ------------------------------------------------------------
+clust.data_PCA <- prcomp(clust.data_m, scale = FALSE)
+perc_var <- round(100 * clust.data_PCA$sdev ^ 2 / sum(clust.data_PCA$sdev ^ 2), 1)
+
+PCA_feat <- data.frame(
+  sequence.id = rownames(clust.data_PCA$x),
+  PC1 = clust.data_PCA$x[, 1],
+  PC2 = clust.data_PCA$x[, 2],
+  stringsAsFactors = FALSE
+)
+
+m_cluster.groups <- cluster.groups %>%
+  dplyr::select(sequence.id, hclust.cluster.group, kmeans.cluster.group) %>%
+  tidyr::gather(-sequence.id, key = "cluster.group", value = "cluster") %>%
+  dplyr::mutate(
+    cluster.group = gsub("\\.cluster\\.group$", "", cluster.group),
+    cluster = factor(cluster)
+  )
+
+PCA_feat <- dplyr::left_join(PCA_feat, m_cluster.groups, by = "sequence.id")
+
+p_pca_clusters <- ggplot(PCA_feat, aes(PC1, PC2, colour = cluster)) +
+  geom_point(size = 0.9, alpha = 0.75) +
+  facet_wrap(~ cluster.group) +
+  theme_bw(base_size = 12) +
+  theme(
+    plot.caption = element_text(size = 8, hjust = 0.5, lineheight = 1.05),
+    plot.caption.position = "plot",
+    plot.margin = margin(6, 6, 18, 6)
+  ) +
+  labs(caption = caption_cluster) +
+  ggtitle("PCA of features (colored by cluster membership)",
+          subtitle = paste0("PC1=", perc_var[1], "%, PC2=", perc_var[2], "% variance; points = features")) +
+  xlab(paste0("PC1 (", perc_var[1], "%)")) +
+  ylab(paste0("PC2 (", perc_var[2], "%)"))
+
+ggsave(
+  file.path(dir_save, paste0("PCA_clustering_data_", cluster.number, "_cluster_", nrow(clust.data_m), "_proteins", ".pdf")),
+  plot = p_pca_clusters,
+  width = 8, height = 4.5
+)
+
+rm(clust.data_PCA, perc_var, PCA_feat, m_cluster.groups)
+
+# ------------------------------------------------------------
+# 6) Clustered heatmaps (hclust and kmeans)
+# ------------------------------------------------------------
+gr.height2 <- 3 + n_feat * 0.012 + cluster.number * 0.6
+dims2 <- cap_dims(gr.width, gr.height2)
+gr.width2 <- dims2$width; gr.height2 <- dims2$height
+
+p_heat_hclust <- ggplot(data = m_clust.data, aes(condition, sequence.id)) +
+  geom_tile(aes(fill = log2_ratio)) +
+  scale_fill_gradient2(low = "#2166ac", high = "#b2182b", midpoint = 0,
+                       mid = "#f7f7f7", name = "log2.ratio", na.value = "grey85") +
+  scale_y_discrete(labels = y_label_fun) +
+  facet_grid(hclust.cluster.group ~ sample, scales = "free_y", space = "free_y") +
+  theme_bw(base_size = 12) +
+  theme(
+    axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
+    axis.text.y = element_text(size = 1),
+    plot.caption = element_text(size = 8, hjust = 0.5, lineheight = 1.05),
+    plot.caption.position = "plot",
+    plot.margin = margin(6, 6, 18, 6)
+  ) +
+  labs(caption = caption_cluster) +
+  ylab("Protein.ID | Gene.short") +
+  ggtitle("Heatmap", subtitle = "hierarchical clustering")
+
+ggsave(
+  file.path(dir_save, paste0("Clustering_heatmap_hits_hclust_", cluster.number, "_cluster_", nrow(clust.data_m), "_proteins", ".pdf")),
+  plot = p_heat_hclust,
+  width = gr.width2, height = gr.height2
+)
+
+p_heat_kmeans <- ggplot(data = m_clust.data, aes(condition, sequence.id)) +
+  geom_tile(aes(fill = log2_ratio)) +
+  scale_fill_gradient2(low = "#2166ac", high = "#b2182b", midpoint = 0,
+                       mid = "#f7f7f7", name = "log2.ratio", na.value = "grey85") +
+  scale_y_discrete(labels = y_label_fun) +
+  facet_grid(kmeans.cluster.group ~ sample, scales = "free_y", space = "free_y") +
+  theme_bw(base_size = 12) +
+  theme(
+    axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
+    axis.text.y = element_text(size = 1),
+    plot.caption = element_text(size = 8, hjust = 0.5, lineheight = 1.05),
+    plot.caption.position = "plot",
+    plot.margin = margin(6, 6, 18, 6)
+  ) +
+  labs(caption = caption_cluster) +
+  ylab("Protein.ID | Gene.short") +
+  ggtitle("Heatmap", subtitle = "kmeans clustering")
+
+ggsave(
+  file.path(dir_save, paste0("Clustering_heatmap_hits_kmeans_", cluster.number, "_cluster_", nrow(clust.data_m), "_proteins", ".pdf")),
+  plot = p_heat_kmeans,
+  width = gr.width2, height = gr.height2
+)
+
+# ------------------------------------------------------------
+# 7) Line plots (existing): x = condition (treatment_timepoint)
+# ------------------------------------------------------------
+gr.width_line <- 4 + ceiling(sqrt(cluster.number)) * 3
+gr.height_line <- 2.5 + floor(sqrt(cluster.number)) * 3
+dimsL <- cap_dims(gr.width_line, gr.height_line)
+gr.width_line <- dimsL$width; gr.height_line <- dimsL$height
+
+p_line_hclust_condition <- ggplot(data = m_clust.data, aes(condition, log2_ratio, colour = sample)) +
+  geom_hline(yintercept = 0) +
+  geom_line(aes(group = paste(sequence.id, sample, hclust.cluster.group)), alpha = 0.1) +
+  geom_smooth(fun.data = "mean_se", stat = "summary",
+              aes(group = paste(hclust.cluster.group, sample))) +
+  facet_wrap(~ hclust.cluster.group) +
+  customPlot +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
+  labs(caption = heatmap_selection_label) +
+  ggtitle("Line plot", subtitle = "hierarchical clustering (x = treatment_timepoint)") +
+  ylab("log2(ratio)")
+
+ggsave(
+  file.path(dir_save, paste0("Clustering_line_plot_hclust_", cluster.number, "_cluster_", nrow(clust.data_m), "_proteins", ".pdf")),
+  plot = p_line_hclust_condition,
+  width = gr.width_line, height = gr.height_line
+)
+
+p_line_kmeans_condition <- ggplot(data = m_clust.data, aes(condition, log2_ratio, colour = sample)) +
+  geom_hline(yintercept = 0) +
+  geom_line(aes(group = paste(sequence.id, sample, kmeans.cluster.group)), alpha = 0.1) +
+  geom_smooth(fun.data = "mean_se", stat = "summary",
+              aes(group = paste(kmeans.cluster.group, sample))) +
+  facet_wrap(~ kmeans.cluster.group) +
+  customPlot +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
+  labs(caption = heatmap_selection_label) +
+  ggtitle("Line plot", subtitle = "kmeans clustering (x = treatment_timepoint)") +
+  ylab("log2(ratio)")
+
+ggsave(
+  file.path(dir_save, paste0("Clustering_line_plot_kmeans_", cluster.number, "_cluster_", nrow(clust.data_m), "_proteins", ".pdf")),
+  plot = p_line_kmeans_condition,
+  width = gr.width_line, height = gr.height_line
+)
+
+# ------------------------------------------------------------
+# 8) NEW line plot variant: x = timepoint only; linetype distinguishes treatment
+# ------------------------------------------------------------
+lt_levels <- levels(m_clust.data$treatment)
+lt_vals <- setNames(rep("solid", length(lt_levels)), lt_levels)
+if ("DMSO" %in% names(lt_vals)) lt_vals["DMSO"] <- "dotted"
+if ("Vehicle" %in% names(lt_vals)) lt_vals["Vehicle"] <- "dotted"
+if ("Control" %in% names(lt_vals)) lt_vals["Control"] <- "dotted"
+
+p_line_hclust_time <- ggplot(data = m_clust.data, aes(timepoint, log2_ratio, colour = sample, linetype = treatment)) +
+  geom_hline(yintercept = 0) +
+  geom_line(aes(group = paste(sequence.id, sample, hclust.cluster.group, treatment)), alpha = 0.1) +
+  geom_smooth(fun.data = "mean_se", stat = "summary",
+              aes(group = paste(hclust.cluster.group, sample, treatment))) +
+  scale_linetype_manual(values = lt_vals) +
+  facet_wrap(~ hclust.cluster.group) +
+  customPlot +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
+  labs(caption = heatmap_selection_label) +
+  ggtitle("Line plot", subtitle = "hierarchical clustering (x = timepoint; linetype = treatment)") +
+  xlab("timepoint") +
+  ylab("log2(ratio)")
+
+ggsave(
+  file.path(dir_save, paste0("Clustering_line_plot_hclust_timeonly_", cluster.number, "_cluster_", nrow(clust.data_m), "_proteins", ".pdf")),
+  plot = p_line_hclust_time,
+  width = gr.width_line, height = gr.height_line
+)
+
+p_line_kmeans_time <- ggplot(data = m_clust.data, aes(timepoint, log2_ratio, colour = sample, linetype = treatment)) +
+  geom_hline(yintercept = 0) +
+  geom_line(aes(group = paste(sequence.id, sample, kmeans.cluster.group, treatment)), alpha = 0.1) +
+  geom_smooth(fun.data = "mean_se", stat = "summary",
+              aes(group = paste(kmeans.cluster.group, sample, treatment))) +
+  scale_linetype_manual(values = lt_vals) +
+  facet_wrap(~ kmeans.cluster.group) +
+  customPlot +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
+  labs(caption = heatmap_selection_label) +
+  ggtitle("Line plot", subtitle = "kmeans clustering (x = timepoint; linetype = treatment)") +
+  xlab("timepoint") +
+  ylab("log2(ratio)")
+
+ggsave(
+  file.path(dir_save, paste0("Clustering_line_plot_kmeans_timeonly_", cluster.number, "_cluster_", nrow(clust.data_m), "_proteins", ".pdf")),
+  plot = p_line_kmeans_time,
+  width = gr.width_line, height = gr.height_line
+)
+
+# ------------------------------------------------------------
+# 9) Export cluster assignments (include Protein.ID, Gene.short, feature_label)
+# ------------------------------------------------------------
+write.csv(
+  cluster.groups,
+  file.path(dir_save, paste0("Cluster_results_", cluster.number, "_cluster_", nrow(clust.data_m), "_proteins", ".csv")),
+  row.names = FALSE
+)
+
+rm(gr.width, gr.height, gr.width2, gr.height2, gr.width_line, gr.height_line,
+   dims, dims2, dimsL, feature_lut, y_label_map, cond_tbl, time_tbl, lt_levels, lt_vals)
+
+
+
+```
+
+# Save Methods for analysis
+
+```{r}
+#| label: save methods
+
+method.description <- "For the proteomics data analysis the raw output files of FragPipe (protein.tsv files files) were processed using the R programming environment (ISBN 3-900051-07-0)."
+method.description <- append(method.description, "Initial data processing included filtering out contaminants and reverse proteins. Only proteins quantified with at least 2 razor peptides (with Razor.Peptides >= 2) were considered for further analysis.")
+method.description <- append(method.description, paste(nrow(cdata), "proteins passed the quality control filters."))
+# Preprocessing steps are described conditionally so Methods.txt matches the toggle settings.
+if (DO_BATCH_CORRECT) {
+  method.description <- append(
+    method.description,
+    glue("In order to correct for technical variability, batch effects were removed using the 'removeBatchEffect' function of the limma package (PMID: 25605792) on the log2 transformed raw TMT reporter ion intensities ('channel' columns).")
+  )
+}
+if (DO_VSN) {
+  method.description <- append(
+    method.description,
+    glue("Normalization was performed using the 'normalizeVSN' function of the limma package (VSN - variance stabilization normalization - PMID: 12169536).")
+  )
+}
+if (DO_IMPUTE) {
+  method.description <- append(
+    method.description,
+    "Missing values were imputed with the 'knn' method using the 'impute' function from the MSnbase package (PMID: 22113085). This method estimates missing data points based on similarity to neighboring data points."
+  )
+}
+method.description <- append(method.description, "Differential expression analysis was performed using the moderated t-test provided by the limma package (PMID: 25605792). The model accounted for replicate information by including it as a factor in the design matrix passed to the 'lmFit' function.")
+method.description <- append(method.description, "Observations missing in the raw data were assigned a weight of 0.01 in the limma model, while observed values were given a weight of 1.")
+if ("fdrtool" %in% limma_results$hit_annotation_method)
+{
+  method.description <- append(method.description, "To obtain p-values and false discovery rates (FDRs), the 'fdrtool' function from the fdrtool package (PMID: 18441000) was used to analyze the t-values produced by limma for certain comparisons.")
+}
+method.description <- append(method.description, glue("Proteins were annotated as hits if they had a false discovery rate (FDR) below {fdr_hit_threshold} and an absolute fold change greater than {fc_hit_threshold}. Proteins were considered candidates if they had an FDR below {fdr_candidate_threshold} and an absolute fold change greater than {fc_candidate_threshold}."))
+method.description <- append(method.description, glue("Clustering {heatmap_selection_label} based on the median protein abundances normalized by median of control condition was conducted to identify groups of proteins with similar patterns across conditions. The 'kmeans' method was employed, using Euclidean distance as the distance metric and 'ward.D2' linkage for hierarchical clustering. The optimal number of clusters ({cluster.number}) was determined using the Elbow method, which identifies the point where the within-group sum of squares stabilizes."))
+method.description <- paste(method.description, collapse = " ")
+writeLines(text = method.description, con = file.path(dir_save, paste0("Methods", ".txt")))
+```
+
+# Save R workspace and session information
+
+```{r}
+#| label: save workspace
+save.image(file.path(dir_save, paste0("Workspace", ".RData")))
+# load(file.path(dir_save, paste0("Workspace", ".RData")))
+```
+
+```{r}
+#| label: save session info
+sessionInfo()
+```
+
+# Plot individual proteins
+
+```{r}
+#| label: Plot individual proteins
+#| eval: false
+
+
+# plot.dir_save <- file.path(dir_save, "plots")
+# if (!dir.exists(plot.dir_save)) dir.create(plot.dir_save)
+# proteins <- unique(cdata$Gene)
+# proteins <- sort(proteins)
+# pb <- txtProgressBar(min = 0, max = length(proteins), style = 3)
+# for (i in seq_along(proteins))
+# {
+#   setTxtProgressBar(pb, i)
+#   protein <- proteins[i]
+#   f.name <- file.path(plot.dir_save, paste0(gsub("[.]", "-", make.names(protein)), ".pdf"))
+#   if (!file.exists(f.name))
+#   {
+#     pdf(width = 10, height = 14.5, file = f.name)
+#     peptides <- unique(cdata$sequence.id[cdata$Gene == protein])
+#     peptides <- sort(peptides)
+#     for (j in seq_along(peptides))
+#     {
+#       peptide <- peptides[j]
+#       mdata_i <- subset(mdata, sequence.id == peptide)
+#       cdata_i <- subset(cdata, sequence.id == peptide)
+#       if (nrow(cdata_i) == 1 & nrow(mdata_i) > 0)
+#       {
+#         titlestring <- paste(cdata_i$sequence.id[1], "-", cdata_i$Protein.ID[1])
+#         try(
+#           print(
+#             ggplot(data = mdata_i, aes(condition, log2(value), fill = condition)) +
+#               geom_boxplot() +
+#               geom_point(aes(shape = rep)) +
+#               facet_grid(measurement ~ sample, space = "free_x", scale = "free") +
+#               customPlot +
+#               theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
+#               ggtitle(titlestring, subtitle = cdata_i$Protein.Description[1])
+#           )
+#         )
+#         rm(titlestring)
+#       }
+#       rm(mdata_i, cdata_i)
+#     }
+#     dev.off()
+#   }
+# }
+# close(pb)
+
+# f.name <- file.path(dir_save, paste0("all_proteins", ".pdf"))
+# pdf(width = 10, height = 14.5, file = f.name)
+# genes <- unique(cdata$sequence.id)
+# genes <- sort(genes)
+# pb <- txtProgressBar(min = 0, max = length(genes), style = 3)
+# for (i in seq_along(genes))
+# {
+#   gene <- genes[i]
+#   setTxtProgressBar(pb, i)
+#   mdata_i <- subset(mdata, sequence.id == gene)
+#   cdata_i <- subset(cdata, sequence.id == gene)
+#   if (nrow(cdata_i) == 1 & nrow(mdata_i) > 0)
+#   {
+#     titlestring <- paste(cdata_i$sequence.id[1], "-", cdata_i$Protein.ID[1])
+#     try(
+#       print(
+#         ggplot(data = mdata_i, aes(condition, log2(value), fill = condition)) +
+#           geom_boxplot() +
+#           geom_point(aes(shape = rep)) +
+#           facet_grid(measurement ~ sample, space = "free_x", scale = "free") +
+#           customPlot +
+#           theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
+#           ggtitle(titlestring, subtitle = cdata_i$Protein.Description[1])
+#       )
+#     )
+#     rm(titlestring)
+#   }
+#   rm(mdata_i, cdata_i)
+# }
+# dev.off()
+# close(pb)
+
+# f.name <- file.path(dir_save, paste0("hit_proteins", ".pdf"))
+# pdf(width = 10, height = 14.5, file = f.name)
+# genes <- unique(subset(limma_results, hit_annotation %in% c("hit", "candidate"))$sequence.id)
+# genes <- sort(genes)
+# pb <- txtProgressBar(min = 0, max = length(genes), style = 3)
+# for (i in seq_along(genes))
+# {
+#   gene <- genes[i]
+#   setTxtProgressBar(pb, i)
+#   mdata_i <- subset(mdata, sequence.id == gene)
+#   cdata_i <- subset(cdata, sequence.id == gene)
+#   if (nrow(cdata_i) == 1 & nrow(mdata_i) > 0)
+#   {
+#     titlestring <- paste(cdata_i$sequence.id[1], "-", cdata_i$Protein.ID[1])
+#     try(
+#       print(
+#         ggplot(data = mdata_i, aes(condition, log2(value), fill = condition)) +
+#           geom_boxplot() +
+#           geom_point(aes(shape = rep)) +
+#           facet_grid(measurement ~ sample, space = "free_x", scale = "free") +
+#           customPlot +
+#           theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
+#           ggtitle(titlestring, subtitle = cdata_i$Protein.Description[1])
+#       )
+#     )
+#     rm(titlestring)
+#   }
+#   rm(mdata_i, cdata_i)
+# }
+# dev.off()
+# close(pb)
+```

@@ -1,0 +1,25 @@
+# gene tree for transporter
+# cp transporter.fasta tree_00.fasta
+
+# prost embedding (install PROST first https://github.com/MesihK/prost)
+python prost.py makedb --no-cache tree_00.fasta tree_00.fasta.prdb
+
+# prost search
+$ awk -F '\t' '{printf "python prost.py search --thr=0.00001 --jobs 12 tree_00.fasta.prdb ../proteome/%s.prdb prost.tree_00_to_%s\n", $2,$1}' species.stub |sh
+
+# blast search
+$ awk '{printf "sh run_blast.sh --tr1 tree_00.fasta --t1 prot --n1 tree_00 --tr2 ../proteome/%s --t2 prot --n2 %s\n", $2,$1}' species.stub | sh 
+
+# get top 100 hits for each species (blast and prost sort output by evalue by default)
+# for f in $(ls out.*.txt prost.*.tsv);do head -100 $f > $f.top100;done
+
+# combine hits
+$ cat *.top100 | awk -F '\t' '{print $2}' |sort -u > tree_00.all.hits.tsv
+
+# get sequences
+$ awk -F '[\t||]' 'FNR==NR{a[$1]=$2;next} {printf "python utils_pfammsa.py getsinglemsa ../proteome/%s \"%s\" seq.%04d\n", a[$1], $0, FNR}' species.stub tree_00.all.hits.tsv |sh
+$ cat seq*_seq.fa > g.fas
+
+# generate MSA and tree
+$ mafft --maxiterate 1000 --localpair --thread 32 g.fas > g.msa
+$ iqtree2 -s g.msa -m MFP -bb 1000 -alrt 1000 -nt 32

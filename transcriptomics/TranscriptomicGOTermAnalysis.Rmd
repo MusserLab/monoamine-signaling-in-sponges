@@ -1,0 +1,256 @@
+
+```{r}
+# =============================================================================
+# 1. SETUP & LIBRARIES
+# =============================================================================
+library(here)
+library(goseq)
+library(dplyr)
+library(tidyr)
+library(rrvgo)
+library(org.Hs.eg.db)
+library(GO.db)
+
+# =============================================================================
+# 2. LOAD DATA
+# =============================================================================
+
+# A. GO Terms
+go_map <- read.delim(here("data", "sl_go_merged_id.tsv"), header = FALSE, stringsAsFactors = FALSE)[, 1:2]
+colnames(go_map) <- c("gene_id", "go_id")
+
+# B. Gene Lengths
+gene_lengths <- read.delim(here("data", "gene_lengths.txt"), header = TRUE, stringsAsFactors = FALSE)
+
+# C. Transcriptomic Data
+de_data <- read.delim(here("transcriptomics", "data", "Master_DE_Results_Interaction_V2.tsv"), header = TRUE, stringsAsFactors = FALSE)
+
+# =============================================================================
+# 3. PRE-PROCESS
+# =============================================================================
+
+# Clean Gene IDs
+de_data$short_gene_id <- sub(" .*", "", de_data$GeneID)
+
+go_map$gene_id <- sub(" .*", "", go_map$gene_id)
+go_map$gene_id <- sub("_", "-", go_map$gene_id)
+# =============================================================================
+# 4. DEFINE PER-COMPARISON FUNCTION
+# =============================================================================
+
+run_goseq_transcriptome <- function(current_label) {
+  
+  message(paste("\n--- Processing Comparison:", current_label, "---"))
+  sub_data <- de_data %>% filter(Comparison_Label == current_label)
+  
+  # Universe: Genes in this comparison AND in GO map
+  all_detected <- unique(sub_data$short_gene_id)
+  universe_ids <- intersect(all_detected, go_map$gene_id)
+  
+  if(length(universe_ids) < 10) return(NULL)
+
+  # Hits: Status HIT/CANDIDATE
+  hit_ids <- sub_data %>%
+    filter(Status %in% c("HIT", "CANDIDATE")) %>%
+    pull(short_gene_id) %>%
+    unique()
+  
+  valid_hits <- intersect(hit_ids, universe_ids)
+  
+  if(length(valid_hits) == 0) return(NULL)
+  
+  # Run goseq
+  genes_vector <- as.integer(universe_ids %in% valid_hits)
+  names(genes_vector) <- universe_ids
+  
+  matched_lengths <- gene_lengths$length[match(names(genes_vector), gene_lengths$gene_names)]
+  if(any(is.na(matched_lengths))) matched_lengths[is.na(matched_lengths)] <- median(gene_lengths$length, na.rm = TRUE)
+  names(matched_lengths) <- names(genes_vector)
+  
+  pwf <- nullp(genes_vector, genome = "custom", id = "custom", bias.data = matched_lengths, plot.fit = FALSE)
+  GO_results <- goseq(pwf, gene2cat = go_map, use_genes_without_cat = FALSE)
+  
+  GO_results$padj <- p.adjust(GO_results$over_represented_pvalue, method = "BH")
+  GO_results$comparison_label <- current_label
+  
+  return(GO_results)
+}
+
+# =============================================================================
+# 5. EXECUTE PIPELINE
+# =============================================================================
+
+# --- STEP 1: Run Per-Comparison Analysis ---
+comparisons <- unique(de_data$Comparison_Label)
+all_goseq_results <- list()
+
+for(comp in comparisons) {
+  res <- tryCatch({ run_goseq_transcriptome(comp) }, error = function(e) { return(NULL) })
+  if(!is.null(res)) all_goseq_results[[comp]] <- res
+}
+
+# --- STEP 2: Run GLOBAL Analysis (All Comparisons Combined) ---
+message("\n=======================================================")
+message("RUNNING GLOBAL ANALYSIS (Aggregated Hits)")
+message("=======================================================")
+
+# A. Define Global Universe
+# All genes detected in ANY comparison in the experiment, filtered for GO terms
+global_detected <- unique(de_data$short_gene_id)
+global_universe_ids <- intersect(global_detected, go_map$gene_id)
+
+message(paste("Global Universe Size:", length(global_universe_ids)))
+
+# B. Define Global Hits
+# Any gene that is a HIT or CANDIDATE in at least one comparison
+global_raw_hits <- de_data %>%
+  filter(Status %in% c("HIT", "CANDIDATE")) %>%
+  pull(short_gene_id) %>%
+  unique()
+
+global_valid_hits <- intersect(global_raw_hits, global_universe_ids)
+message(paste("Global Unique Hits:", length(global_valid_hits)))
+
+# C. Run goseq for Global Set
+if(length(global_valid_hits) > 5) {
+  
+  genes_vector <- as.integer(global_universe_ids %in% global_valid_hits)
+  names(genes_vector) <- global_universe_ids
+  
+  matched_lengths <- gene_lengths$length[match(names(genes_vector), gene_lengths$gene_names)]
+  if(any(is.na(matched_lengths))) matched_lengths[is.na(matched_lengths)] <- median(gene_lengths$length, na.rm = TRUE)
+  names(matched_lengths) <- names(genes_vector)
+  
+  pwf <- nullp(genes_vector, genome = "custom", id = "custom", bias.data = matched_lengths, plot.fit = FALSE)
+  global_res <- goseq(pwf, gene2cat = go_map, use_genes_without_cat = FALSE)
+  
+  global_res$padj <- p.adjust(global_res$over_represented_pvalue, method = "BH")
+  global_res$comparison_label <- "Global_Transcriptome_Combined"
+  
+  # Append to the main results list
+  all_goseq_results[["Global_Transcriptome_Combined"]] <- global_res
+  message("Global analysis successful.")
+  
+} else {
+  warning("Not enough global hits to run analysis.")
+}
+
+# --- STEP 3: Combine and Save ---
+final_results <- bind_rows(all_goseq_results)
+
+if(nrow(final_results) > 0) {
+  
+  # Save Significant Results
+  sig_results <- final_results %>% filter(padj < 0.05) %>% arrange(comparison_label, padj)
+  
+  output_dir <- here("outs", "transcriptomics")
+  dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
+  write.table(sig_results, file.path(output_dir, "transcriptome_goseq_results_WITH_GLOBAL.tsv"),
+              sep = "\t", quote = FALSE, row.names = FALSE)
+  
+  message("\nPipeline Complete. Results (including Global set) saved.")
+  print(table(sig_results$comparison_label))
+  
+} else {
+  stop("No significant results found.")
+}
+
+# --- STEP 4: Annotate & Visualize (rrvgo) ---
+run_rrvgo_plots <- function(data, label, ontology_type, threshold = 0.7) {
+  
+  sub_df <- data %>%
+    filter(comparison_label == label) %>%
+    filter(ONTOLOGY == ontology_type) %>%
+    filter(padj < 0.05)
+  
+  if (nrow(sub_df) < 3) return(NULL)
+  
+  message(paste("Plotting rrvgo:", label, "-", ontology_type))
+  
+  go_vector <- sub_df$category
+  scores    <- -log10(sub_df$padj)
+  names(scores) <- go_vector
+  
+  simMatrix <- calculateSimMatrix(go_vector, orgdb = "org.Hs.eg.db", ont = ontology_type, method = "Rel")
+  reducedTerms <- reduceSimMatrix(simMatrix, scores, threshold = threshold, orgdb = "org.Hs.eg.db")
+  
+  safe_label <- gsub("[^A-Za-z0-9]", "_", label)
+
+  rrvgo_dir <- here("outs", "transcriptomics", "rrvgo")
+  dir.create(rrvgo_dir, showWarnings = FALSE, recursive = TRUE)
+
+  png(file.path(rrvgo_dir, paste0("rrvgo_treemap_", safe_label, "_", ontology_type, ".png")), width = 2000, height = 1600, res = 300)
+  treemapPlot(reducedTerms)
+  dev.off()
+
+  p <- scatterPlot(simMatrix, reducedTerms)
+  png(file.path(rrvgo_dir, paste0("rrvgo_scatter_", safe_label, "_", ontology_type, ".png")), width = 2000, height = 2000, res = 300)
+  print(p)
+  dev.off()
+}
+
+# --- STEP 2: Annotate & Visualize ---
+message("Annotating results with Ontology types...")
+unique_gos <- unique(final_results$category)
+go_info <- select(GO.db, keys = unique_gos, columns = c("ONTOLOGY"), keytype = "GOID")
+
+results_annotated <- final_results %>%
+  left_join(go_info, by = c("category" = "GOID")) %>%
+  filter(!is.na(ONTOLOGY))
+
+ontologies <- c("BP", "MF", "CC")
+unique_comps_results <- unique(results_annotated$comparison_label)
+
+message("\nStarting Visualization...")
+for (comp in unique_comps_results) {
+  for (ont in ontologies) {
+    tryCatch({
+      run_rrvgo_plots(results_annotated, comp, ont)
+    }, error = function(e) {
+      message(paste("Plotting error:", comp, ont, "-", e$message))
+    })
+  }
+}
+
+```
+
+Check if there are missing GO terms for DE genes
+```{r}
+library(dplyr)
+
+# 1. Load Data (re-use here() paths from above)
+go_map <- read.delim(here("data", "sl_go_merged_id.tsv"), header = FALSE, stringsAsFactors = FALSE)[, 1:2]
+colnames(go_map) <- c("gene_id", "go_id")
+go_map$gene_id <- sub(" .*", "", go_map$gene_id)
+go_map$gene_id <- sub("_", "-", go_map$gene_id)
+
+de_data <- read.delim(here("transcriptomics", "data", "Master_DE_Results_Interaction_V2.tsv"), header = TRUE, stringsAsFactors = FALSE)
+
+# 2. Clean Gene IDs in DE data (remove text after space)
+de_data$short_gene_id <- sub(" .*", "", de_data$GeneID)
+
+# 3. Identify Significant Genes (Hits + Candidates)
+sig_genes <- de_data %>%
+  filter(Status %in% c("HIT", "CANDIDATE")) %>%
+  pull(short_gene_id) %>%
+  unique()
+
+# 4. Check against GO database
+# Genes present in GO file
+genes_with_go <- unique(go_map$gene_id)
+
+# Find intersection and difference
+missing_genes <- setdiff(sig_genes, genes_with_go)
+present_genes <- intersect(sig_genes, genes_with_go)
+
+# 5. Print Statistics
+cat("Total DE Genes:", length(sig_genes), "\n")
+cat("DE Genes with GO terms:", length(present_genes), "\n")
+cat("DE Genes MISSING GO terms:", length(missing_genes), "\n")
+cat("Missing Percentage:", round(length(missing_genes) / length(sig_genes) * 100, 2), "%\n")
+
+# 6. (Optional) Save the missing ID list to check them manually
+missing_go_dir <- here("outs", "transcriptomics")
+dir.create(missing_go_dir, showWarnings = FALSE, recursive = TRUE)
+write.table(missing_genes, file.path(missing_go_dir, "missing_GO_annotations.txt"), quote = FALSE, row.names = FALSE, col.names = FALSE)
+```

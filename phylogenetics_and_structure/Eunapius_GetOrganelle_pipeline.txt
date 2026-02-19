@@ -1,0 +1,19 @@
+# Organelle assembly
+get_organelle_from_reads.py \
+    -1 AHES_DNA_A237FMKLT4_L004_R1_001.fastq.gz \
+    -2 AHES_DNA_A237FMKLT4_L004_R2_001.fastq.gz \
+    -s freshwater-sponges_mt.fasta \
+    -F animal_mt \
+    -o output_mito_custom \
+    -t $SLURM_CPUS_PER_TASK
+    
+# alignment
+clustalo.exe -i input.fasta -o clustal.aln -v --outfmt=clustal --output-order=tree-order --iter=0 --full --full-iter --cluster-size=100 -t DNA
+
+# iqtree
+iqtree -s $INPUT_ALIGNMENT \
+        --prefix $PREFIX \
+        -T $SLURM_CPUS_PER_TASK \
+        -m MFP \
+        -B 1000 \
+        --bnni

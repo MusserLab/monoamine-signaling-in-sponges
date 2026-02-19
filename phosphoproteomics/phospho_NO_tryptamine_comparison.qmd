@@ -1,0 +1,1031 @@
+---
+title: "Phosphosite Overlap: NO vs Tryptamine Treatment"
+author: "Claude & JM"
+date: today
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    code-fold: true
+    self-contained: true
+execute:
+  warning: true
+  message: true
+---
+
+```{r setup}
+#| label: setup
+#| include: false
+
+library(tidyverse)
+library(here)
+library(Biostrings)  # For FASTA parsing
+
+# Output directory
+dir_out <- here("outs", "phosphoproteomics", "NO_comparison")
+if (!dir.exists(dir_out)) dir.create(dir_out, recursive = TRUE)
+```
+
+## Overview
+This analysis compares phosphoproteomic hits between:
+
+1. **NO treatment** (2 min post-treatment, single timepoint) - from `NO_phosphoproteomics.csv`
+2. **Tryptamine treatment** (3, 15, 30 min time course) - from limma results
+
+The challenge: NO data has peptide sequences with phosphorylation marked as `(P)` but no explicit position in the protein, whereas tryptamine data has explicit `phospho.position` (e.g., `S81`).
+
+**Strategy**: Map NO peptides to the proteome FASTA to calculate exact phosphosite positions, then compare by `Protein.ID` + position.
+
+## 1. Load Data
+
+```{r load-data}
+#| label: load-data
+
+# NO phosphoproteomics
+no_data <- read_csv(
+  here("phosphoproteomics", "data", "NO_phosphoproteomics.csv"),
+  show_col_types = FALSE
+)
+
+cat("NO dataset:", nrow(no_data), "phosphopeptides\n")
+cat("Columns:", paste(names(no_data), collapse = ", "), "\n\n")
+
+# Tryptamine limma results
+tryp_data <- readRDS(
+ here("phosphoproteomics", "data", "limma_results_annotated.rds")
+)
+
+cat("Tryptamine dataset:", nrow(tryp_data), "rows\n")
+cat("Unique phosphosites:", n_distinct(tryp_data$sequence.id), "\n")
+
+# Load gene annotations from canonical gene names file (Zang et al. 2026)
+gene_annotations <- readr::read_tsv(
+  here("data", "spongilla_gene_names_final.tsv"),
+  show_col_types = FALSE
+) %>%
+  dplyr::select(
+    trinity_gene_id = Trinity_geneID,
+    Gene.short.new = Zang_et_al_2026,
+    name_type
+  ) %>%
+  dplyr::distinct(trinity_gene_id, .keep_all = TRUE)
+
+# Join to update Gene.short with Zang et al. 2026 names
+tryp_data <- tryp_data %>%
+  dplyr::left_join(gene_annotations, by = "trinity_gene_id") %>%
+  dplyr::mutate(
+    Gene.short = dplyr::if_else(!is.na(Gene.short.new), Gene.short.new, Gene.short),
+    name_type = dplyr::if_else(is.na(name_type), "trinity_only", name_type)
+  ) %>%
+  dplyr::select(-Gene.short.new)
+
+cat("Gene names updated from spongilla_gene_names_final.tsv\n")
+
+# Proteome FASTA
+fasta_path <- here("phosphoproteomics", "data", "spongilla_proteome.fasta")
+proteome <- readAAStringSet(fasta_path)
+
+cat("\nProteome FASTA:", length(proteome), "protein sequences\n")
+```
+
+## 2. Parse FASTA into Lookup Table
+
+```{r parse-fasta}
+#| label: parse-fasta
+
+# Extract protein IDs from FASTA headers
+# Headers look like: >c100000_g1_i1_m.41809
+# We need to extract the m.XXXXX part
+
+fasta_df <- tibble(
+  header = names(proteome),
+  sequence = as.character(proteome)
+) %>%
+  mutate(
+    # Extract m.XXXXX from header
+    Protein.ID = str_extract(header, "m\\.[0-9]+"),
+    seq_length = nchar(sequence)
+  )
+
+cat("Parsed", nrow(fasta_df), "proteins from FASTA\n")
+cat("Proteins with valid m.XXXXX ID:", sum(!is.na(fasta_df$Protein.ID)), "\n")
+
+# Check for duplicate protein IDs (shouldn't happen but let's verify)
+dup_ids <- fasta_df %>%
+  filter(!is.na(Protein.ID)) %>%
+  count(Protein.ID) %>%
+  filter(n > 1)
+
+if (nrow(dup_ids) > 0) {
+  cat("WARNING:", nrow(dup_ids), "duplicate protein IDs found\n")
+  print(head(dup_ids))
+} else {
+  cat("No duplicate protein IDs - good\n")
+}
+
+# Create lookup table (Protein.ID -> sequence)
+protein_lookup <- fasta_df %>%
+  filter(!is.na(Protein.ID)) %>%
+  select(Protein.ID, sequence, seq_length) %>%
+  # If duplicates exist, take first occurrence
+
+  distinct(Protein.ID, .keep_all = TRUE)
+
+cat("\nProtein lookup table:", nrow(protein_lookup), "entries\n")
+```
+
+## 3. Map NO Peptides to Protein Positions
+
+```{r map-peptides}
+#| label: map-peptides
+
+# Function to parse a modified peptide and find its position in a protein
+map_phosphopeptide <- function(modified_peptide, protein_sequence) {
+
+
+  # Return structure for tracking edge cases
+  result <- list(
+    raw_peptide = NA_character_,
+    phospho_residue = NA_character_,
+    relative_position = NA_integer_,
+    peptide_start = NA_integer_,
+    absolute_position = NA_integer_,
+    phospho_position = NA_character_,
+    mapping_status = "not_attempted",
+    mapping_notes = ""
+  )
+
+ # Handle NA or empty input
+if (is.na(modified_peptide) || modified_peptide == "") {
+    result$mapping_status <- "invalid_input"
+    result$mapping_notes <- "Empty or NA peptide"
+    return(result)
+  }
+
+  # Step 1: Extract the raw peptide sequence (remove phospho notation)
+  # Phosphorylation is marked as (P) after the modified residue: SSST(P)GHDPR
+  raw_peptide <- str_remove_all(modified_peptide, "\\(P\\)")
+  result$raw_peptide <- raw_peptide
+
+  # Step 2: Find which residue is phosphorylated
+  # The (P) comes AFTER the modified residue
+  # Find position of (P) in the modified peptide, then the residue before it
+  phospho_matches <- str_locate_all(modified_peptide, "\\(P\\)")[[1]]
+
+  if (nrow(phospho_matches) == 0) {
+    result$mapping_status <- "no_phospho_mark"
+    result$mapping_notes <- "No (P) found in peptide"
+    return(result)
+  }
+
+  if (nrow(phospho_matches) > 1) {
+    result$mapping_status <- "multiple_phosphosites"
+    result$mapping_notes <- paste0(nrow(phospho_matches), " phosphosites in peptide - using first")
+    # Continue with first phosphosite
+  }
+
+  # Position of (P) in modified peptide
+  phospho_mark_start <- phospho_matches[1, "start"]
+
+  # The phosphorylated residue is the character before (P)
+  # But we need to account for any earlier (P) marks when calculating position in raw peptide
+  # Count how many (P) marks come before this position
+  earlier_marks <- sum(phospho_matches[, "start"] < phospho_mark_start)
+  # Each (P) is 3 characters, so adjust position
+  relative_position <- phospho_mark_start - 1 - (earlier_marks * 3)
+
+  phospho_residue <- substr(raw_peptide, relative_position, relative_position)
+  result$phospho_residue <- phospho_residue
+  result$relative_position <- relative_position
+
+  # Validate it's S, T, or Y
+  if (!phospho_residue %in% c("S", "T", "Y")) {
+    result$mapping_status <- "invalid_residue"
+    result$mapping_notes <- paste0("Phosphorylated residue is '", phospho_residue, "', expected S/T/Y")
+    return(result)
+  }
+
+  # Step 3: Find peptide in protein sequence
+  if (is.na(protein_sequence) || protein_sequence == "") {
+    result$mapping_status <- "protein_not_found"
+    result$mapping_notes <- "Protein sequence not in FASTA"
+    return(result)
+  }
+
+  # Find all occurrences of the peptide in the protein
+  matches <- str_locate_all(protein_sequence, fixed(raw_peptide))[[1]]
+
+  if (nrow(matches) == 0) {
+    # Try with I/L substitution (they have same mass, often ambiguous)
+    raw_peptide_IL <- str_replace_all(raw_peptide, "I", "L")
+    matches <- str_locate_all(protein_sequence, fixed(raw_peptide_IL))[[1]]
+
+    if (nrow(matches) == 0) {
+      raw_peptide_LI <- str_replace_all(raw_peptide, "L", "I")
+      matches <- str_locate_all(protein_sequence, fixed(raw_peptide_LI))[[1]]
+    }
+
+    if (nrow(matches) == 0) {
+      result$mapping_status <- "peptide_not_found"
+      result$mapping_notes <- "Peptide sequence not found in protein (tried I/L swap)"
+      return(result)
+    } else {
+      result$mapping_notes <- paste0(result$mapping_notes, "Matched with I/L substitution. ")
+    }
+  }
+
+  if (nrow(matches) > 1) {
+    result$mapping_status <- "multiple_matches"
+    result$mapping_notes <- paste0(result$mapping_notes, nrow(matches), " peptide matches in protein - using first. ")
+  }
+
+  # Use first match
+  peptide_start <- matches[1, "start"]
+  result$peptide_start <- peptide_start
+
+  # Step 4: Calculate absolute position
+  absolute_position <- peptide_start + relative_position - 1
+  result$absolute_position <- absolute_position
+  result$phospho_position <- paste0(phospho_residue, absolute_position)
+
+  # Set final status
+  if (result$mapping_status == "not_attempted" || result$mapping_status == "multiple_phosphosites") {
+    if (nrow(matches) > 1) {
+      result$mapping_status <- "success_multiple_matches"
+    } else {
+      result$mapping_status <- "success"
+    }
+  }
+
+  return(result)
+}
+
+# Apply mapping to all NO peptides
+cat("Mapping", nrow(no_data), "phosphopeptides to protein positions...\n")
+
+# Join NO data with protein sequences
+no_with_seq <- no_data %>%
+  left_join(protein_lookup, by = "Protein.ID")
+
+# Map each peptide
+mapping_results <- map2(
+  no_with_seq$Modified.Peptide,
+  no_with_seq$sequence,
+  ~ map_phosphopeptide(.x, .y),
+  .progress = TRUE
+)
+
+# Convert list results to dataframe columns
+mapping_df <- tibble(
+  raw_peptide = map_chr(mapping_results, "raw_peptide"),
+  phospho_residue = map_chr(mapping_results, "phospho_residue"),
+  relative_position = map_int(mapping_results, "relative_position"),
+  peptide_start = map_int(mapping_results, "peptide_start"),
+  absolute_position = map_int(mapping_results, "absolute_position"),
+  phospho_position = map_chr(mapping_results, "phospho_position"),
+  mapping_status = map_chr(mapping_results, "mapping_status"),
+  mapping_notes = map_chr(mapping_results, "mapping_notes")
+)
+
+# Combine with original data
+no_mapped <- bind_cols(no_data, mapping_df)
+
+cat("\nMapping complete.\n")
+```
+
+## 4. Edge Case Summary
+
+```{r edge-case-summary}
+#| label: edge-case-summary
+
+# Summarize mapping outcomes
+status_summary <- no_mapped %>%
+  count(mapping_status) %>%
+  mutate(
+    pct = round(n / sum(n) * 100, 1),
+    description = case_when(
+      mapping_status == "success" ~ "Successfully mapped (unique match)",
+      mapping_status == "success_multiple_matches" ~ "Mapped but peptide occurs multiple times in protein",
+      mapping_status == "multiple_phosphosites" ~ "Peptide has multiple phosphosites",
+      mapping_status == "peptide_not_found" ~ "Peptide not found in protein sequence",
+      mapping_status == "protein_not_found" ~ "Protein ID not in FASTA",
+      mapping_status == "invalid_residue" ~ "Phospho mark not on S/T/Y",
+      mapping_status == "no_phospho_mark" ~ "No (P) notation in peptide",
+      mapping_status == "invalid_input" ~ "Empty or NA input",
+      TRUE ~ mapping_status
+    )
+  ) %>%
+  arrange(desc(n))
+
+cat("=== MAPPING STATUS SUMMARY ===\n\n")
+for (i in 1:nrow(status_summary)) {
+  cat(sprintf("%-30s: %4d (%5.1f%%) - %s\n",
+              status_summary$mapping_status[i],
+              status_summary$n[i],
+              status_summary$pct[i],
+              status_summary$description[i]))
+}
+
+# Successful mappings (usable for comparison)
+successful_statuses <- c("success", "success_multiple_matches")
+n_successful <- sum(no_mapped$mapping_status %in% successful_statuses)
+cat("\n\nTotal usable mappings:", n_successful, "of", nrow(no_mapped),
+    "(", round(n_successful/nrow(no_mapped)*100, 1), "%)\n")
+
+# Show examples of failures for debugging
+cat("\n=== EXAMPLES OF MAPPING FAILURES ===\n")
+
+failures <- no_mapped %>%
+  filter(!mapping_status %in% successful_statuses) %>%
+  select(Protein.ID, Modified.Peptide, mapping_status, mapping_notes) %>%
+  slice_head(n = 10)
+
+if (nrow(failures) > 0) {
+  print(failures)
+} else {
+  cat("No failures!\n")
+}
+```
+
+```{r save-edge-cases}
+#| label: save-edge-cases
+
+# Save detailed edge case report
+edge_case_report <- no_mapped %>%
+  filter(!mapping_status %in% c("success")) %>%
+  select(
+    Protein.ID, Modified.Peptide, annotation, hit_annotation,
+    mapping_status, mapping_notes, raw_peptide, phospho_position
+  )
+
+write_csv(edge_case_report, file.path(dir_out, "edge_cases_report.csv"))
+cat("Edge cases saved to:", file.path(dir_out, "edge_cases_report.csv"), "\n")
+cat("Total edge cases:", nrow(edge_case_report), "\n")
+```
+
+## 5. Prepare Datasets for Comparison
+
+```{r prepare-comparison}
+#| label: prepare-comparison
+
+# NO data: keep successfully mapped phosphosites
+no_for_comparison <- no_mapped %>%
+  filter(mapping_status %in% successful_statuses) %>%
+  select(
+    Protein.ID,
+    phospho_position,
+    Modified.Peptide,
+    raw_peptide,
+    logFC_NO = logFC,
+    fdr_NO = fdr.limma,
+    hit_annotation_NO = hit_annotation,
+    annotation_NO = annotation,
+    mapping_status,
+    mapping_notes
+  ) %>%
+  # Create a unified site ID for joining
+  mutate(site_id = paste(Protein.ID, phospho_position, sep = "_"))
+
+cat("NO phosphosites for comparison:", nrow(no_for_comparison), "\n")
+cat("Unique site_ids:", n_distinct(no_for_comparison$site_id), "\n")
+
+# Check for duplicate site_ids (same site from different peptides)
+dup_sites_NO <- no_for_comparison %>%
+  count(site_id) %>%
+  filter(n > 1)
+
+if (nrow(dup_sites_NO) > 0) {
+  cat("\nNOTE:", nrow(dup_sites_NO), "sites detected by multiple peptides in NO data\n")
+  cat("These will be collapsed (keeping most significant)\n")
+
+  # Keep the entry with strongest hit annotation
+  no_for_comparison <- no_for_comparison %>%
+    mutate(hit_rank = case_when(
+      hit_annotation_NO == "hit" ~ 1,
+      hit_annotation_NO == "candidate" ~ 2,
+      TRUE ~ 3
+    )) %>%
+    group_by(site_id) %>%
+    slice_min(hit_rank, n = 1, with_ties = FALSE) %>%
+    ungroup() %>%
+    select(-hit_rank)
+
+  cat("After deduplication:", nrow(no_for_comparison), "unique sites\n")
+}
+
+# Define the specific comparisons of interest
+# Individual timepoint comparisons (Tryptamine vs DMSO)
+timepoint_comparisons <- c(
+"Tryptamine_3min - DMSO_3min",
+  "Tryptamine_15min - DMSO_15min",
+  "Tryptamine_30min - DMSO_30min"
+)
+
+# Difference-in-difference comparisons
+diff_comparisons <- c(
+  "(Tryptamine_15min - DMSO_15min) - (Tryptamine_3min - DMSO_3min)",
+  "(Tryptamine_30min - DMSO_30min) - (Tryptamine_15min - DMSO_15min)"
+)
+
+all_comparisons <- c(timepoint_comparisons, diff_comparisons)
+
+cat("\n=== COMPARISONS OF INTEREST ===\n")
+cat("Individual timepoints:\n")
+for (c in timepoint_comparisons) cat("  -", c, "\n")
+cat("\nDifference-in-difference:\n")
+for (c in diff_comparisons) cat("  -", c, "\n")
+
+# Tryptamine data: filter to comparisons of interest
+tryp_phospho <- tryp_data %>%
+  filter(
+    sample == "input.norm.phospho",
+    comparison %in% all_comparisons
+  ) %>%
+  select(
+    sequence.id,
+    Protein.ID,
+    phospho.position,
+    Gene,
+    Gene.short,
+    automated_name,
+    comparison,
+    logFC,
+    fdr,
+    hit_annotation
+  ) %>%
+  mutate(
+    site_id = paste(Protein.ID, phospho.position, sep = "_"),
+    comparison_type = if_else(
+      comparison %in% timepoint_comparisons,
+      "timepoint",
+      "diff_in_diff"
+    ),
+    # Create short comparison labels for display
+    comparison_short = case_when(
+      comparison == "Tryptamine_3min - DMSO_3min" ~ "3min",
+      comparison == "Tryptamine_15min - DMSO_15min" ~ "15min",
+      comparison == "Tryptamine_30min - DMSO_30min" ~ "30min",
+      comparison == "(Tryptamine_15min - DMSO_15min) - (Tryptamine_3min - DMSO_3min)" ~ "Δ3→15min",
+      comparison == "(Tryptamine_30min - DMSO_30min) - (Tryptamine_15min - DMSO_15min)" ~ "Δ15→30min",
+      TRUE ~ comparison
+    )
+  )
+
+cat("\nTryptamine phospho data (filtered):", nrow(tryp_phospho), "rows\n")
+cat("Unique phosphosites:", n_distinct(tryp_phospho$sequence.id), "\n")
+cat("Comparisons included:", n_distinct(tryp_phospho$comparison), "\n")
+
+# Verify all comparisons are present
+cat("\nRows per comparison:\n")
+print(tryp_phospho %>% count(comparison_short))
+```
+
+## 6. Compare Phosphosite Overlap by Comparison Type
+
+```{r compare-per-comparison}
+#| label: compare-per-comparison
+
+# Create comparison tables for each tryptamine comparison
+# Join NO data with tryptamine data for each comparison separately
+
+# Get NO hits/candidates
+no_significant <- no_for_comparison %>%
+  filter(hit_annotation_NO %in% c("hit", "candidate"))
+
+cat("NO hits/candidates:", nrow(no_significant), "\n\n")
+
+# Function to create comparison table
+create_comparison_table <- function(tryp_df, no_df, comparison_name) {
+
+  # Get tryptamine hits/candidates for this comparison
+  tryp_sig <- tryp_df %>%
+    filter(
+      comparison_short == comparison_name,
+      hit_annotation %in% c("hit", "candidate")
+    )
+
+  # Find overlap with NO
+  shared <- inner_join(
+    no_df,
+    tryp_sig,
+    by = "site_id",
+    suffix = c("", "_tryp")
+  ) %>%
+    mutate(
+      direction = case_when(
+        sign(logFC_NO) > 0 & sign(logFC) > 0 ~ "both_up",
+        sign(logFC_NO) < 0 & sign(logFC) < 0 ~ "both_down",
+        sign(logFC_NO) > 0 & sign(logFC) < 0 ~ "NO_up_Tryp_down",
+        sign(logFC_NO) < 0 & sign(logFC) > 0 ~ "NO_down_Tryp_up",
+        TRUE ~ "undefined"
+      ),
+      same_direction = direction %in% c("both_up", "both_down")
+    )
+
+  return(shared)
+}
+
+# Create tables for each comparison
+comparison_tables <- list()
+comparison_summaries <- list()
+
+for (comp in c("3min", "15min", "30min", "Δ3→15min", "Δ15→30min")) {
+  tbl <- create_comparison_table(tryp_phospho, no_significant, comp)
+  comparison_tables[[comp]] <- tbl
+
+  # Summary stats
+  n_tryp_sig <- tryp_phospho %>%
+    filter(comparison_short == comp, hit_annotation %in% c("hit", "candidate")) %>%
+    n_distinct(.$site_id)
+
+  comparison_summaries[[comp]] <- tibble(
+    comparison = comp,
+    NO_hits_candidates = nrow(no_significant),
+    Tryp_hits_candidates = n_tryp_sig,
+    shared = nrow(tbl),
+    same_direction = sum(tbl$same_direction),
+    opposite_direction = sum(!tbl$same_direction),
+    pct_same_direction = if(nrow(tbl) > 0) round(sum(tbl$same_direction) / nrow(tbl) * 100, 1) else NA
+  )
+}
+
+# Print summary
+summary_df <- bind_rows(comparison_summaries)
+cat("=== OVERLAP SUMMARY BY COMPARISON ===\n\n")
+print(summary_df)
+```
+
+```{r direction-breakdown}
+#| label: direction-breakdown
+
+# Detailed direction breakdown for each comparison
+cat("\n=== DIRECTION BREAKDOWN BY COMPARISON ===\n\n")
+
+for (comp in names(comparison_tables)) {
+  tbl <- comparison_tables[[comp]]
+  if (nrow(tbl) > 0) {
+    cat(comp, ":\n")
+    direction_counts <- tbl %>% count(direction) %>% arrange(desc(n))
+    for (i in 1:nrow(direction_counts)) {
+      cat(sprintf("  %-20s: %d\n", direction_counts$direction[i], direction_counts$n[i]))
+    }
+    cat("\n")
+  }
+}
+```
+
+## 7. Detailed Comparison Tables
+
+```{r detailed-tables}
+#| label: detailed-tables
+
+# Create detailed output tables with all requested information
+create_detailed_table <- function(shared_df, comparison_name) {
+  if (nrow(shared_df) == 0) return(NULL)
+
+  shared_df %>%
+    select(
+      site_id,
+      Protein.ID,
+      phospho_position,
+      Gene_full = Gene,
+      Gene_short = Gene.short,
+      automated_name,
+      NO_logFC = logFC_NO,
+      NO_fdr = fdr_NO,
+      NO_status = hit_annotation_NO,
+      Tryp_logFC = logFC,
+      Tryp_fdr = fdr,
+      Tryp_status = hit_annotation,
+      direction,
+      same_direction
+    ) %>%
+    mutate(
+      NO_logFC = round(NO_logFC, 3),
+      Tryp_logFC = round(Tryp_logFC, 3),
+      NO_fdr = signif(NO_fdr, 3),
+      Tryp_fdr = signif(Tryp_fdr, 3)
+    ) %>%
+    arrange(Gene_short, phospho_position)
+}
+
+# Generate and display tables for each comparison
+detailed_tables <- list()
+
+for (comp in names(comparison_tables)) {
+  detailed_tables[[comp]] <- create_detailed_table(comparison_tables[[comp]], comp)
+}
+```
+
+### Individual Timepoint Comparisons
+
+#### NO vs Tryptamine 3 min
+```{r table-3min}
+#| label: table-3min
+
+tbl_3min <- detailed_tables[["3min"]]
+if (!is.null(tbl_3min) && nrow(tbl_3min) > 0) {
+  cat("Shared significant phosphosites:", nrow(tbl_3min), "\n")
+  cat("Same direction:", sum(tbl_3min$same_direction), "| Opposite:", sum(!tbl_3min$same_direction), "\n\n")
+  print(tbl_3min, n = Inf)
+} else {
+  cat("No shared significant phosphosites\n")
+}
+```
+
+#### NO vs Tryptamine 15 min
+```{r table-15min}
+#| label: table-15min
+
+tbl_15min <- detailed_tables[["15min"]]
+if (!is.null(tbl_15min) && nrow(tbl_15min) > 0) {
+  cat("Shared significant phosphosites:", nrow(tbl_15min), "\n")
+  cat("Same direction:", sum(tbl_15min$same_direction), "| Opposite:", sum(!tbl_15min$same_direction), "\n\n")
+  print(tbl_15min, n = Inf)
+} else {
+  cat("No shared significant phosphosites\n")
+}
+```
+
+#### NO vs Tryptamine 30 min
+```{r table-30min}
+#| label: table-30min
+
+tbl_30min <- detailed_tables[["30min"]]
+if (!is.null(tbl_30min) && nrow(tbl_30min) > 0) {
+  cat("Shared significant phosphosites:", nrow(tbl_30min), "\n")
+  cat("Same direction:", sum(tbl_30min$same_direction), "| Opposite:", sum(!tbl_30min$same_direction), "\n\n")
+  print(tbl_30min, n = Inf)
+} else {
+  cat("No shared significant phosphosites\n")
+}
+```
+
+### Difference-in-Difference Comparisons
+
+#### NO vs Tryptamine Δ3→15 min
+```{r table-diff-3-15}
+#| label: table-diff-3-15
+
+tbl_diff1 <- detailed_tables[["Δ3→15min"]]
+if (!is.null(tbl_diff1) && nrow(tbl_diff1) > 0) {
+  cat("Shared significant phosphosites:", nrow(tbl_diff1), "\n")
+  cat("Same direction:", sum(tbl_diff1$same_direction), "| Opposite:", sum(!tbl_diff1$same_direction), "\n\n")
+  print(tbl_diff1, n = Inf)
+} else {
+  cat("No shared significant phosphosites\n")
+}
+```
+
+#### NO vs Tryptamine Δ15→30 min
+```{r table-diff-15-30}
+#| label: table-diff-15-30
+
+tbl_diff2 <- detailed_tables[["Δ15→30min"]]
+if (!is.null(tbl_diff2) && nrow(tbl_diff2) > 0) {
+  cat("Shared significant phosphosites:", nrow(tbl_diff2), "\n")
+  cat("Same direction:", sum(tbl_diff2$same_direction), "| Opposite:", sum(!tbl_diff2$same_direction), "\n\n")
+  print(tbl_diff2, n = Inf)
+} else {
+  cat("No shared significant phosphosites\n")
+}
+```
+
+## 8. Visualization Plots
+
+```{r plot-setup}
+#| label: plot-setup
+
+# Theme for consistent plotting
+theme_paper <- function(base_size = 11) {
+  theme_bw(base_size = base_size) +
+    theme(
+      panel.grid.minor = element_blank(),
+      strip.background = element_rect(fill = "grey95"),
+      legend.position = "bottom"
+    )
+}
+
+# Color palette for direction
+direction_colors <- c(
+  "both_up" = "#E64B35",
+  "both_down" = "#4DBBD5",
+  "NO_up_Tryp_down" = "#F39B7F",
+  "NO_down_Tryp_up" = "#8491B4"
+)
+```
+
+### Plot 1: logFC Correlation Scatter Plots
+
+```{r plot-scatter}
+#| label: plot-scatter
+#| fig-width: 12
+#| fig-height: 8
+
+# Combine all comparison tables for plotting
+all_shared <- bind_rows(
+  comparison_tables,
+  .id = "comparison"
+) %>%
+  mutate(
+    comparison = factor(comparison, levels = c("3min", "15min", "30min", "Δ3→15min", "Δ15→30min"))
+  )
+
+if (nrow(all_shared) > 0) {
+  p_scatter <- ggplot(all_shared, aes(x = logFC_NO, y = logFC)) +
+    geom_hline(yintercept = 0, linetype = "dashed", color = "grey50") +
+    geom_vline(xintercept = 0, linetype = "dashed", color = "grey50") +
+    geom_abline(slope = 1, intercept = 0, linetype = "dotted", color = "grey30") +
+    geom_point(aes(color = direction), alpha = 0.7, size = 2) +
+    scale_color_manual(
+      values = direction_colors,
+      labels = c("both_up" = "Both Up", "both_down" = "Both Down",
+                 "NO_up_Tryp_down" = "NO↑ Tryp↓", "NO_down_Tryp_up" = "NO↓ Tryp↑")
+    ) +
+    facet_wrap(~comparison, nrow = 2) +
+    labs(
+      x = "NO log2FC (2 min)",
+      y = "Tryptamine log2FC",
+      title = "Phosphosite logFC Correlation: NO vs Tryptamine",
+      subtitle = "Shared hits/candidates only",
+      color = "Direction"
+    ) +
+    theme_paper() +
+    coord_fixed(ratio = 1)
+
+  print(p_scatter)
+
+  ggsave(
+    file.path(dir_out, "scatter_logFC_correlation.pdf"),
+    p_scatter, width = 12, height = 8
+  )
+  ggsave(
+    file.path(dir_out, "scatter_logFC_correlation.png"),
+    p_scatter, width = 12, height = 8, dpi = 300
+  )
+}
+```
+
+### Plot 2: Overlap Summary Bar Chart
+
+```{r plot-overlap-bars}
+#| label: plot-overlap-bars
+#| fig-width: 10
+#| fig-height: 6
+
+# Reshape summary for plotting
+overlap_long <- summary_df %>%
+  select(comparison, same_direction, opposite_direction) %>%
+  pivot_longer(
+    cols = c(same_direction, opposite_direction),
+    names_to = "direction_type",
+    values_to = "count"
+  ) %>%
+  mutate(
+    comparison = factor(comparison, levels = c("3min", "15min", "30min", "Δ3→15min", "Δ15→30min")),
+    direction_type = factor(direction_type, levels = c("same_direction", "opposite_direction"),
+                           labels = c("Same Direction", "Opposite Direction"))
+  )
+
+p_bars <- ggplot(overlap_long, aes(x = comparison, y = count, fill = direction_type)) +
+  geom_col(position = "stack", width = 0.7) +
+  geom_text(
+    aes(label = count),
+    position = position_stack(vjust = 0.5),
+    size = 3.5, color = "white", fontface = "bold"
+  ) +
+  scale_fill_manual(values = c("Same Direction" = "#00A087", "Opposite Direction" = "#E64B35")) +
+  labs(
+    x = "Tryptamine Comparison",
+    y = "Number of Shared Phosphosites",
+    title = "Shared Significant Phosphosites: NO vs Tryptamine",
+    subtitle = "Direction concordance in shared hits/candidates",
+    fill = ""
+  ) +
+  theme_paper() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+print(p_bars)
+
+ggsave(
+  file.path(dir_out, "barplot_direction_concordance.pdf"),
+  p_bars, width = 10, height = 6
+)
+ggsave(
+  file.path(dir_out, "barplot_direction_concordance.png"),
+  p_bars, width = 10, height = 6, dpi = 300
+)
+```
+
+### Plot 3: Heatmap of Shared Phosphosites Across Comparisons
+
+```{r plot-heatmap}
+#| label: plot-heatmap
+#| fig-width: 14
+#| fig-height: 10
+
+# Get all unique sites that are shared in at least one comparison
+all_shared_sites <- unique(all_shared$site_id)
+
+if (length(all_shared_sites) > 0) {
+  # Create matrix of logFC values across comparisons
+  heatmap_data <- tryp_phospho %>%
+    filter(
+      site_id %in% all_shared_sites,
+      hit_annotation %in% c("hit", "candidate")
+    ) %>%
+    select(site_id, Gene.short, comparison_short, logFC) %>%
+    distinct() %>%
+    # Add NO data
+    left_join(
+      no_significant %>% select(site_id, logFC_NO),
+      by = "site_id"
+    ) %>%
+    # Create wide format
+    pivot_wider(
+      names_from = comparison_short,
+      values_from = logFC
+    ) %>%
+    # Reorder columns
+    select(site_id, Gene.short, logFC_NO, `3min`, `15min`, `30min`, `Δ3→15min`, `Δ15→30min`)
+
+  # Convert to long for ggplot heatmap
+  heatmap_long <- heatmap_data %>%
+    pivot_longer(
+      cols = c(logFC_NO, `3min`, `15min`, `30min`, `Δ3→15min`, `Δ15→30min`),
+      names_to = "treatment",
+      values_to = "logFC"
+    ) %>%
+    mutate(
+      treatment = factor(treatment, levels = c("logFC_NO", "3min", "15min", "30min", "Δ3→15min", "Δ15→30min"),
+                        labels = c("NO 2min", "Tryp 3min", "Tryp 15min", "Tryp 30min", "Δ3→15min", "Δ15→30min")),
+      label = paste0(Gene.short, " (", str_extract(site_id, "[STY][0-9]+"), ")")
+    )
+
+  # Cluster sites by logFC pattern
+  if (nrow(heatmap_data) > 2) {
+    logfc_matrix <- heatmap_data %>%
+      select(-site_id, -Gene.short) %>%
+      as.matrix()
+    logfc_matrix[is.na(logfc_matrix)] <- 0
+
+    hclust_result <- hclust(dist(logfc_matrix))
+    site_order <- heatmap_data$site_id[hclust_result$order]
+
+    heatmap_long <- heatmap_long %>%
+      mutate(site_id = factor(site_id, levels = site_order))
+  }
+
+  # Limit to top sites if too many
+  n_sites <- n_distinct(heatmap_long$site_id)
+  if (n_sites > 50) {
+    cat("Showing top 50 sites by variance in logFC\n")
+    top_sites <- heatmap_data %>%
+      rowwise() %>%
+      mutate(var = var(c_across(where(is.numeric)), na.rm = TRUE)) %>%
+      ungroup() %>%
+      slice_max(var, n = 50) %>%
+      pull(site_id)
+    heatmap_long <- heatmap_long %>% filter(site_id %in% top_sites)
+  }
+
+  p_heatmap <- ggplot(heatmap_long, aes(x = treatment, y = label, fill = logFC)) +
+    geom_tile(color = "white", linewidth = 0.5) +
+    scale_fill_gradient2(
+      low = "#4DBBD5", mid = "white", high = "#E64B35",
+      midpoint = 0, na.value = "grey90",
+      limits = c(-3, 3), oob = scales::squish,
+      name = "log2FC"
+    ) +
+    labs(
+      x = "",
+      y = "",
+      title = "Phosphosite Response Patterns: NO vs Tryptamine",
+      subtitle = "Shared significant phosphosites across treatments"
+    ) +
+    theme_paper() +
+    theme(
+      axis.text.x = element_text(angle = 45, hjust = 1),
+      axis.text.y = element_text(size = 7)
+    )
+
+  print(p_heatmap)
+
+  ggsave(
+    file.path(dir_out, "heatmap_shared_phosphosites.pdf"),
+    p_heatmap, width = 14, height = max(8, n_distinct(heatmap_long$site_id) * 0.2)
+  )
+  ggsave(
+    file.path(dir_out, "heatmap_shared_phosphosites.png"),
+    p_heatmap, width = 14, height = max(8, n_distinct(heatmap_long$site_id) * 0.2), dpi = 300
+  )
+}
+```
+
+### Plot 4: UpSet Plot of Shared Hits Across Comparisons
+
+```{r plot-upset}
+#| label: plot-upset
+#| fig-width: 10
+#| fig-height: 6
+
+# Check if UpSetR is available
+if (requireNamespace("UpSetR", quietly = TRUE)) {
+  library(UpSetR)
+
+  # Create list of significant sites per comparison
+  site_lists <- list(
+    "NO 2min" = no_significant$site_id,
+    "Tryp 3min" = tryp_phospho %>% filter(comparison_short == "3min", hit_annotation %in% c("hit", "candidate")) %>% pull(site_id) %>% unique(),
+    "Tryp 15min" = tryp_phospho %>% filter(comparison_short == "15min", hit_annotation %in% c("hit", "candidate")) %>% pull(site_id) %>% unique(),
+    "Tryp 30min" = tryp_phospho %>% filter(comparison_short == "30min", hit_annotation %in% c("hit", "candidate")) %>% pull(site_id) %>% unique(),
+    "Tryp Δ3→15" = tryp_phospho %>% filter(comparison_short == "Δ3→15min", hit_annotation %in% c("hit", "candidate")) %>% pull(site_id) %>% unique(),
+    "Tryp Δ15→30" = tryp_phospho %>% filter(comparison_short == "Δ15→30min", hit_annotation %in% c("hit", "candidate")) %>% pull(site_id) %>% unique()
+  )
+
+  # Create upset plot
+  pdf(file.path(dir_out, "upset_shared_phosphosites.pdf"), width = 10, height = 6)
+  print(upset(fromList(site_lists),
+              order.by = "freq",
+              nsets = 6,
+              sets = c("NO 2min", "Tryp 3min", "Tryp 15min", "Tryp 30min", "Tryp Δ3→15", "Tryp Δ15→30"),
+              keep.order = TRUE,
+              mainbar.y.label = "Phosphosite Intersections",
+              sets.x.label = "Hits/Candidates per Comparison"))
+  dev.off()
+
+  cat("UpSet plot saved to:", file.path(dir_out, "upset_shared_phosphosites.pdf"), "\n")
+} else {
+  cat("UpSetR package not installed - skipping UpSet plot\n")
+}
+```
+
+## 9. Export Results
+
+```{r export}
+#| label: export
+
+# Save mapped NO data
+write_csv(no_mapped, file.path(dir_out, "NO_phosphosites_mapped.csv"))
+cat("Mapped NO data saved to:", file.path(dir_out, "NO_phosphosites_mapped.csv"), "\n")
+
+# Save detailed comparison tables for each comparison
+for (comp in names(detailed_tables)) {
+  tbl <- detailed_tables[[comp]]
+  if (!is.null(tbl) && nrow(tbl) > 0) {
+    # Create filesystem-safe filename (remove delta, replace arrow)
+    filename_safe <- comp %>%
+      str_replace("Δ", "") %>%
+      str_replace("→", "_to_")
+    filename <- paste0("shared_", filename_safe, ".csv")
+    write_csv(tbl, file.path(dir_out, filename))
+    cat("Saved:", filename, "(", nrow(tbl), "sites)\n")
+  }
+}
+
+# Save combined table of all shared significant sites
+all_detailed <- bind_rows(detailed_tables, .id = "tryptamine_comparison")
+write_csv(all_detailed, file.path(dir_out, "shared_all_comparisons.csv"))
+cat("\nCombined table saved: shared_all_comparisons.csv (", nrow(all_detailed), "rows)\n")
+
+# Save summary statistics
+write_csv(summary_df, file.path(dir_out, "comparison_summary.csv"))
+cat("\nSummary saved: comparison_summary.csv\n")
+
+# Print final summary
+cat("\n")
+cat("========================================\n")
+cat("=== FINAL SUMMARY ===\n")
+cat("========================================\n\n")
+
+cat("NO hits/candidates:", nrow(no_significant), "\n\n")
+
+cat("Shared significant phosphosites by comparison:\n")
+for (i in 1:nrow(summary_df)) {
+  cat(sprintf("  %-12s: %3d shared (%3d same dir, %3d opposite)\n",
+              summary_df$comparison[i],
+              summary_df$shared[i],
+              summary_df$same_direction[i],
+              summary_df$opposite_direction[i]))
+}
+
+cat("\n\nOutput files saved to:", dir_out, "\n")
+cat("- NO_phosphosites_mapped.csv (all mapped NO data)\n")
+cat("- shared_3min.csv, shared_15min.csv, shared_30min.csv (timepoint comparisons)\n")
+cat("- shared_3_to_15min.csv, shared_15_to_30min.csv (diff-in-diff comparisons)\n")
+cat("- shared_all_comparisons.csv (combined)\n")
+cat("- comparison_summary.csv\n")
+cat("- scatter_logFC_correlation.pdf/png\n")
+cat("- barplot_direction_concordance.pdf/png\n")
+cat("- heatmap_shared_phosphosites.pdf/png\n")
+cat("- upset_shared_phosphosites.pdf\n")
+cat("- go_enrichment_shared_*.csv/pdf (GO enrichment results)\n")
+```
+
+## 10. Session Info
+
+```{r session-info}
+#| label: session-info
+
+sessionInfo()
+```

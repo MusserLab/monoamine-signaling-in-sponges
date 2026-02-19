@@ -1,0 +1,39 @@
+# Generated outputs
+outs/
+
+# R session files
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj
+
+# renv library (restored from renv.lock)
+renv/library/
+renv/staging/
+renv/cellar/
+renv/python/
+renv/sandbox/
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Conda
+.conda/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE
+.vscode/
+.idea/
+
+# Quarto output
+*_files/
+*.html
+!README.html
+
+# Claude Code
+.claude/
