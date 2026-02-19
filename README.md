@@ -51,7 +51,7 @@ This repository contains the data processing pipelines, statistical analyses, an
 | Fig S19, S21 | — | `AF3DockingScript.json` | `phylogenetics_and_structure/` |
 | Fig S27 | — | `Halichondria_insilicoPCR_pipeline.txt` | `phylogenetics_and_structure/` |
 | Fig S28 | — | `Eunapius_GetOrganelle_pipeline.txt` | `phylogenetics_and_structure/` |
-| Methods | — | `Transcriptomic_analysis_v2.Rmd` | `transcriptomics/` |
+| Fig 4 | Methods | `Transcriptomic_analysis_v2.Rmd` | `transcriptomics/` |
 | Methods | — | `transcriptomic_mapping_pipline.txt` | `transcriptomics/` |
 
 ## Directory structure
