@@ -6,9 +6,9 @@ RNA-seq differential expression analysis of tryptamine-treated *Spongilla lacust
 
 | Script | Language | Figure | Description |
 |--------|----------|--------|-------------|
-| `Transcriptomic_analysis_v2.Rmd` | R | Fig 4F–G, Methods | DESeq2 interaction model (`~ Timepoint + Treatment + Timepoint:Treatment`): read count normalization, differential expression, hit/candidate calling |
+| `Transcriptomic_analysis_v2.Rmd` | R | Methods | DESeq2 interaction model (`~ Timepoint + Treatment + Timepoint:Treatment`): read count normalization, differential expression, hit/candidate calling |
 | `TranscriptomicGOTermAnalysis.Rmd` | R | Fig 4F | GO term enrichment using goseq with EggNOG-based GO annotations |
-| `heatmap_transcriptomics.py` | Python | Fig 4G | Module heatmap of significant transcriptomics genes organized by functional category |
+| `heatmap_transcriptomics.py` | Python | Fig 4G, S17 | Module heatmap of significant transcriptomics genes organized by functional category |
 | `transcriptomic_mapping_pipline.txt` | — | Methods | Read mapping pipeline documentation: fastp (QC/trimming) → STAR (alignment) → featureCounts (quantification) |
 
 ## Data files

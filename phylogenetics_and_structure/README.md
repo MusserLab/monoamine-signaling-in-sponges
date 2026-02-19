@@ -8,10 +8,10 @@ Phylogenetic tree construction pipelines and AlphaFold3 docking configuration fo
 |--------|--------|-------------|
 | `gene_tree.decarboxylase_pipeline.txt` | Fig 3F | Aromatic amino acid decarboxylase gene tree: BLAST/PROST homolog retrieval → MAFFT alignment → IQ-TREE maximum likelihood tree |
 | `gene_tree.transproter_pipeline.txt` | Fig 3G | MFS vesicular transporter gene tree: same pipeline as decarboxylases |
-| `gene_tree.gpcr_pipeline.txt` | Fig 5A, S18–S21 | GPCR gene trees for aminergic receptor families |
-| `AF3DockingScript.json` | Fig 5A–B | Example AlphaFold3 input configuration for NPY1R-tyramine docking prediction |
-| `Halichondria_insilicoPCR_pipeline.txt` | Fig S26 | *Halichondria pinaza* species identification: in silico PCR → 28S rRNA alignment → ML tree |
-| `Eunapius_GetOrganelle_pipeline.txt` | Fig S27 | *Eunapius fragilis* species identification: GetOrganelle mitogenome assembly → COI alignment → ML tree |
+| `gene_tree.gpcr_pipeline.txt` | Fig 5A, S19–S20 | GPCR gene trees for aminergic receptor families |
+| `AF3DockingScript.json` | Fig 5A–B, S19, S21 | Example AlphaFold3 input configuration for NPY1R-tyramine docking prediction |
+| `Halichondria_insilicoPCR_pipeline.txt` | Fig S27 | *Halichondria pinaza* species identification: in silico PCR → 28S rRNA alignment → ML tree |
+| `Eunapius_GetOrganelle_pipeline.txt` | Fig S28 | *Eunapius fragilis* species identification: GetOrganelle mitogenome assembly → COI alignment → ML tree |
 
 ## Software requirements
 

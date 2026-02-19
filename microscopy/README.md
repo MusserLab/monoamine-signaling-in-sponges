@@ -6,7 +6,7 @@ Quantitative image analysis scripts for canal kymograph measurements and immunof
 
 | Script | Language | Figure | Description |
 |--------|----------|--------|-------------|
-| `tyramine_sl_kymograph_analysis_final.Rmd` | R | Fig 1K–M | Kymograph analysis: reads canal diameter measurements over time, computes Pearson distance between paired canals to quantify coordination of contraction/relaxation across DMSO and tyramine conditions |
+| `tyramine_sl_kymograph_analysis_final.Rmd` | R | Fig 1K, M | Kymograph analysis: reads canal diameter measurements over time, computes Pearson distance between paired canals to quantify coordination of contraction/relaxation across DMSO and tyramine conditions |
 | `vinc_analysis_count_batch.ijm` | ImageJ macro | Fig 5L | Batch counting of vinculin foci in immunofluorescence images |
 | `vinc_analysis_areaFoci_batch.ijm` | ImageJ macro | Fig 5M | Batch measurement of vinculin foci area |
 | `Pmyl_intensity_analysis_batch_v2.ijm` | ImageJ macro | Fig 5N | Batch measurement of phospho-myosin light chain (pMYL) fluorescence intensity on F-actin structures |
@@ -16,9 +16,8 @@ Quantitative image analysis scripts for canal kymograph measurements and immunof
 | File | Description |
 |------|-------------|
 | `data/kymo_metadata.tsv` | Kymograph metadata: sample IDs, conditions (DMSO/tyramine), replicate numbers |
-| `data/DMSO_R*_kym.csv` | Kymograph measurements for DMSO-treated replicates (7 files) |
+| `data/DMSO_R*_kym.csv` | Kymograph measurements for DMSO-treated replicates (6 files) |
 | `data/Tyr_R*_kym.csv` | Kymograph measurements for tyramine-treated replicates (7 files) |
-| `data/Kymograph_*.csv` | Additional kymograph measurements (2 files) |
 
 ## Running
 

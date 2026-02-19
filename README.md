@@ -30,7 +30,7 @@ This repository contains the data processing pipelines, statistical analyses, an
 
 | Figure | Panel | Script | Directory |
 |--------|-------|--------|-----------|
-| Fig 1 | K–M | `tyramine_sl_kymograph_analysis_final.Rmd` | `microscopy/` |
+| Fig 1 | K, M | `tyramine_sl_kymograph_analysis_final.Rmd` | `microscopy/` |
 | Fig 3 | F | `gene_tree.decarboxylase_pipeline.txt` | `phylogenetics_and_structure/` |
 | Fig 3 | G | `gene_tree.transproter_pipeline.txt` | `phylogenetics_and_structure/` |
 | Fig 4 | Methods | `tryptamine_phosphoproteomics_analysis_cleaned.qmd` | `phosphoproteomics/` |
@@ -39,16 +39,19 @@ This repository contains the data processing pipelines, statistical analyses, an
 | Fig 4 | D | `heatmap_figure_4D.py` | `phosphoproteomics/` |
 | Fig 4 | E | `phospho_NO_tryptamine_comparison.qmd`, `NO_tryptamine_scatter.py` | `phosphoproteomics/` |
 | Fig 4 | F | `TranscriptomicGOTermAnalysis.Rmd` | `transcriptomics/` |
-| Fig 4 | F–G | `Transcriptomic_analysis_v2.Rmd` | `transcriptomics/` |
 | Fig 4 | G | `heatmap_transcriptomics.py` | `transcriptomics/` |
-| Fig 5 | A, S18–S21 | `gene_tree.gpcr_pipeline.txt` | `phylogenetics_and_structure/` |
+| Fig 5 | A | `gene_tree.gpcr_pipeline.txt` | `phylogenetics_and_structure/` |
 | Fig 5 | A–B | `AF3DockingScript.json` | `phylogenetics_and_structure/` |
 | Fig 5 | L | `vinc_analysis_count_batch.ijm` | `microscopy/` |
 | Fig 5 | M | `vinc_analysis_areaFoci_batch.ijm` | `microscopy/` |
 | Fig 5 | N | `Pmyl_intensity_analysis_batch_v2.ijm` | `microscopy/` |
 | Fig S16 | — | `heatmap_supplemental.py` | `phosphoproteomics/` |
-| Fig S26 | — | `Halichondria_insilicoPCR_pipeline.txt` | `phylogenetics_and_structure/` |
-| Fig S27 | — | `Eunapius_GetOrganelle_pipeline.txt` | `phylogenetics_and_structure/` |
+| Fig S17 | — | `heatmap_transcriptomics.py` | `transcriptomics/` |
+| Fig S19–S20 | — | `gene_tree.gpcr_pipeline.txt` | `phylogenetics_and_structure/` |
+| Fig S19, S21 | — | `AF3DockingScript.json` | `phylogenetics_and_structure/` |
+| Fig S27 | — | `Halichondria_insilicoPCR_pipeline.txt` | `phylogenetics_and_structure/` |
+| Fig S28 | — | `Eunapius_GetOrganelle_pipeline.txt` | `phylogenetics_and_structure/` |
+| Methods | — | `Transcriptomic_analysis_v2.Rmd` | `transcriptomics/` |
 | Methods | — | `transcriptomic_mapping_pipline.txt` | `transcriptomics/` |
 
 ## Directory structure
