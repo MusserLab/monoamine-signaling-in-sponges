@@ -1,6 +1,6 @@
 # An ancient monoaminergic signaling system coordinates contractility in a nerveless sponge
 
-**Rong Xuan Zang<sup>1</sup>\*&dagger;, Nawaphat Malaiwong<sup>1</sup>&dagger;, Ling Wang<sup>2</sup>\*&dagger;, Jamie D. Maziarz<sup>1</sup>&dagger;, Kejue Jia<sup>1</sup>&dagger;, Bernhard Drotleff<sup>3</sup>, Frank Stein<sup>4</sup>, Mah Noor<sup>1</sup>, C. Jackson Roberts<sup>1</sup>, Mandy Rettel<sup>4</sup>, Jennifer J. Schwarz<sup>4</sup>, Aissam Ikmi<sup>5</sup>, Shigeki Watanabe<sup>6,7,8</sup>, Robert Prevedel<sup>2</sup>, Michael P. O'Donnell<sup>1,10</sup>, Jacob M. Musser<sup>1,10,11</sup>\***
+**Rong Xuan Zang<sup>1</sup>\*&dagger;, Nawaphat Malaiwong<sup>1</sup>&dagger;, Ling Wang<sup>2</sup>\*&dagger;, Jamie D. Maziarz<sup>1</sup>&dagger;, Kejue Jia<sup>1</sup>&dagger;, Bernhard Drotleff<sup>3</sup>, Frank Stein<sup>4</sup>, Mah Noor<sup>1</sup>, C. Jackson Roberts<sup>1</sup>, Mandy Rettel<sup>4</sup>, Jennifer J. Schwarz<sup>4</sup>, Aissam Ikmi<sup>5</sup>, Shigeki Watanabe<sup>6,7,8</sup>, Robert Prevedel<sup>9</sup>, Michael P. O'Donnell<sup>1,10</sup>, Jacob M. Musser<sup>1,10,11</sup>\***
 
 &dagger; These authors contributed equally to this work.
 
@@ -69,7 +69,7 @@ Each directory has its own `README.md` with detailed descriptions of its scripts
 
 ### 1. Clone the repository (with Git LFS)
 
-This repository uses [Git LFS](https://git-lfs.com/) to store large data files (>100 MB). You must install Git LFS before cloning:
+This repository uses [Git LFS](https://git-lfs.com/) to store large data files (>50 MB). You must install Git LFS before cloning:
 
 ```bash
 # Install Git LFS (if not already installed)
@@ -90,6 +90,7 @@ The following files are stored in Git LFS:
 - `phosphoproteomics/data/limma_results_annotated.rds` (~91 MB)
 - `phosphoproteomics/data/limma_results_annotated.tsv` (~367 MB)
 - `phosphoproteomics/data/mdata.rds` (~98 MB)
+- `transcriptomics/data/Master_DE_Results_Interaction_V2.tsv` (~71 MB)
 
 If you cloned without Git LFS, run `git lfs pull` to download the large files.
 
