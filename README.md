@@ -144,7 +144,7 @@ python phosphoproteomics/volcano_plot.py
 
 | Data type | Repository | Accession |
 |-----------|-----------|-----------|
-| Raw mass spectrometry | PRIDE | TBD |
+| Raw mass spectrometry | PRIDE | [PXD073078](https://www.ebi.ac.uk/pride/archive/projects/PXD073078) |
 | Raw/processed sequencing | NCBI GEO | [GSE134912](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE134912) |
 
 Processed intermediate data files needed to run the scripts in this repository are included directly (see each directory's `README.md` for descriptions).
