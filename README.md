@@ -112,12 +112,22 @@ If you cloned without Git LFS, run `git lfs pull` to download the large files.
 
 ### 2. Set up the R environment
 
+Open R/RStudio/Positron from the repository root directory, then:
+
 ```r
-# Open R/RStudio/Positron from the repository root, then:
+# Install CRAN packages (exact versions pinned in renv.lock)
 renv::restore()
+
+# Install Bioconductor packages
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install(c(
+    "limma", "DESeq2", "goseq", "vsn", "MSnbase",
+    "biobroom", "rrvgo", "GO.db", "org.Hs.eg.db", "Biostrings"
+))
 ```
 
-This installs all R packages at the exact versions used in the paper. Key packages include limma, DESeq2, goseq, and their dependencies.
+`renv::restore()` installs CRAN packages at the exact versions used in the paper. Bioconductor packages are installed separately via BiocManager, which automatically selects the correct versions for your R installation.
 
 ### 3. Set up the Python environment
 
