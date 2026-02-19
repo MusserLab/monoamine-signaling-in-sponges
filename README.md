@@ -74,10 +74,11 @@ Each directory has its own `README.md` with detailed descriptions of its scripts
 
 ### Prerequisites
 
-- **R** >= 4.3 (with [renv](https://rstudio.github.io/renv/))
-- **Python** 3.11 (via [conda](https://docs.conda.io/) or [mamba](https://mamba.readthedocs.io/))
-- **Quarto** >= 1.3 (for rendering `.qmd` scripts; [install](https://quarto.org/docs/get-started/))
-- **Git LFS** (for cloning large data files; [install](https://git-lfs.com/))
+- **R** >= 4.3 — [download](https://cran.r-project.org/)
+- **renv** (R package manager) — install from an R console with `install.packages("renv")`. renv records the exact package versions used in this project so results are reproducible; see the [renv documentation](https://rstudio.github.io/renv/) for details.
+- **conda** (Python environment manager) — install [Miniconda](https://docs.anaconda.com/miniconda/) or [Miniforge](https://github.com/conda-forge/miniforge). conda creates an isolated Python environment with the correct package versions; see the [conda documentation](https://docs.conda.io/) for details.
+- **Quarto** >= 1.3 (for rendering `.qmd` scripts) — [install](https://quarto.org/docs/get-started/)
+- **Git LFS** (for cloning large data files) — [install](https://git-lfs.com/)
 
 ### 1. Clone the repository (with Git LFS)
 
