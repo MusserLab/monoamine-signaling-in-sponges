@@ -110,7 +110,7 @@ If you cloned without Git LFS, run `git lfs pull` to download the large files.
 ### 2. Set up the R environment
 
 ```r
-# Open R in the repository root directory, then:
+# Open R/RStudio/Positron from the repository root, then:
 renv::restore()
 ```
 
