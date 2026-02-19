@@ -14,7 +14,7 @@ semantic similarity reduction (treemaps and scatterplots).
 ### Input files
 
 - `transcriptomics/data/Master_DE_Results_Interaction_V2.tsv` — DESeq2 differential expression results
-- `data/gene_lengths.txt` — Gene lengths for goseq bias correction
+- `data/GO_GeneLengths.tsv` — Gene lengths for goseq bias correction (two columns: `length`, `gene_names`)
 - `data/sl_go_merged_id.tsv` — Gene-to-GO term mapping (PROST-based annotations)
 
 ### Output files
@@ -43,11 +43,14 @@ go_map <- read.delim(here("data", "sl_go_merged_id.tsv"), header = FALSE, string
 colnames(go_map) <- c("gene_id", "go_id")
 
 # B. Gene Lengths (for goseq length-bias correction)
-# NOTE: gene_lengths$gene_names is not extracted from rownames here (unlike the
-# phospho GO script). This means all genes receive the median length in the
-# match below, effectively running goseq WITHOUT length-bias correction.
-# This is intentional — see PhosphoGOTermAnalysis.Rmd for the length-corrected version.
-gene_lengths <- read.delim(here("data", "gene_lengths.txt"), header = TRUE, stringsAsFactors = FALSE)
+# File has two named columns: 'length' and 'gene_names' — read directly.
+# The file uses Windows line endings (\r\n); trimws() strips the trailing \r
+# from gene_names so IDs match correctly against de_data and go_map.
+gene_lengths <- read.delim(here("data", "GO_GeneLengths.tsv"), header = TRUE, stringsAsFactors = FALSE)
+gene_lengths$gene_names <- trimws(gene_lengths$gene_names)
+
+message(paste("gene_lengths loaded:", nrow(gene_lengths), "unique genes"))
+message(paste("First 3 gene_names:", paste(head(gene_lengths$gene_names, 3), collapse = ", ")))
 
 # C. Transcriptomic Data
 de_data <- read.delim(here("transcriptomics", "data", "Master_DE_Results_Interaction_V2.tsv"), header = TRUE, stringsAsFactors = FALSE)
@@ -62,8 +65,49 @@ de_data$short_gene_id <- sub(" .*", "", de_data$GeneID)
 go_map$gene_id <- sub(" .*", "", go_map$gene_id)
 go_map$gene_id <- sub("_", "-", go_map$gene_id)
 # =============================================================================
-# 4. DEFINE PER-COMPARISON FUNCTION
+# 4. DEFINE HELPER & PER-COMPARISON FUNCTIONS
 # =============================================================================
+
+# Helper: run nullp() with fallback if too few unique bias values for spline fitting.
+# goseq requires >= 6 unique gene lengths to fit its cubic regression spline (k=6 knots).
+# If that threshold isn't met we try method="discrete"; if that also fails we fall back
+# to no length-bias correction (bias.data = NULL) and emit a warning.
+safe_nullp <- function(genes_vector, bias_data, label = "") {
+  n_unique <- length(unique(bias_data))
+  if (n_unique >= 6) {
+    tryCatch(
+      nullp(genes_vector, genome = "custom", id = "custom",
+            bias.data = bias_data, plot.fit = FALSE),
+      error = function(e) {
+        warning(paste0("[", label, "] nullp spline failed (", e$message,
+                       "). Retrying with method='discrete'."))
+        tryCatch(
+          nullp(genes_vector, genome = "custom", id = "custom",
+                bias.data = bias_data, plot.fit = FALSE, method = "discrete"),
+          error = function(e2) {
+            warning(paste0("[", label, "] method='discrete' also failed. ",
+                           "Running WITHOUT length-bias correction."))
+            nullp(genes_vector, genome = "custom", id = "custom",
+                  plot.fit = FALSE)
+          }
+        )
+      }
+    )
+  } else {
+    warning(paste0("[", label, "] Only ", n_unique, " unique gene lengths — ",
+                   "insufficient for spline (need >= 6). Using method='discrete'."))
+    tryCatch(
+      nullp(genes_vector, genome = "custom", id = "custom",
+            bias.data = bias_data, plot.fit = FALSE, method = "discrete"),
+      error = function(e) {
+        warning(paste0("[", label, "] method='discrete' failed. ",
+                       "Running WITHOUT length-bias correction."))
+        nullp(genes_vector, genome = "custom", id = "custom",
+              plot.fit = FALSE)
+      }
+    )
+  }
+}
 
 run_goseq_transcriptome <- function(current_label) {
   
@@ -91,15 +135,21 @@ run_goseq_transcriptome <- function(current_label) {
   names(genes_vector) <- universe_ids
   
   matched_lengths <- gene_lengths$length[match(names(genes_vector), gene_lengths$gene_names)]
+  n_matched   <- sum(!is.na(matched_lengths))
+  n_unmatched <- sum(is.na(matched_lengths))
+  message(paste0("  [", current_label, "] Length matches: ", n_matched,
+                 " matched, ", n_unmatched, " imputed to median (",
+                 length(unique(matched_lengths[!is.na(matched_lengths)])),
+                 " unique lengths before imputation)"))
   if(any(is.na(matched_lengths))) matched_lengths[is.na(matched_lengths)] <- median(gene_lengths$length, na.rm = TRUE)
   names(matched_lengths) <- names(genes_vector)
-  
-  pwf <- nullp(genes_vector, genome = "custom", id = "custom", bias.data = matched_lengths, plot.fit = FALSE)
+
+  pwf <- safe_nullp(genes_vector, matched_lengths, label = current_label)
   GO_results <- goseq(pwf, gene2cat = go_map, use_genes_without_cat = FALSE)
-  
+
   GO_results$padj <- p.adjust(GO_results$over_represented_pvalue, method = "BH")
   GO_results$comparison_label <- current_label
-  
+
   return(GO_results)
 }
 
@@ -145,10 +195,16 @@ if(length(global_valid_hits) > 5) {
   names(genes_vector) <- global_universe_ids
   
   matched_lengths <- gene_lengths$length[match(names(genes_vector), gene_lengths$gene_names)]
+  n_matched   <- sum(!is.na(matched_lengths))
+  n_unmatched <- sum(is.na(matched_lengths))
+  message(paste0("  [Global] Length matches: ", n_matched,
+                 " matched, ", n_unmatched, " imputed to median (",
+                 length(unique(matched_lengths[!is.na(matched_lengths)])),
+                 " unique lengths before imputation)"))
   if(any(is.na(matched_lengths))) matched_lengths[is.na(matched_lengths)] <- median(gene_lengths$length, na.rm = TRUE)
   names(matched_lengths) <- names(genes_vector)
-  
-  pwf <- nullp(genes_vector, genome = "custom", id = "custom", bias.data = matched_lengths, plot.fit = FALSE)
+
+  pwf <- safe_nullp(genes_vector, matched_lengths, label = "Global_Transcriptome_Combined")
   global_res <- goseq(pwf, gene2cat = go_map, use_genes_without_cat = FALSE)
   
   global_res$padj <- p.adjust(global_res$over_represented_pvalue, method = "BH")

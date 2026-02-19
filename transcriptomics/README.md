@@ -22,7 +22,7 @@ RNA-seq differential expression analysis of tryptamine-treated *Spongilla lacust
 Shared reference files used by scripts in this directory (located in `../data/`):
 - `spongilla_gene_names_final.tsv` — gene name lookup (join on `Trinity_geneID`, label with `Zang_et_al_2026`)
 - `sl_go_merged_id.tsv` — gene-to-GO term mapping
-- `gene_lengths.txt` — gene lengths for goseq
+- `GO_GeneLengths.tsv` — gene lengths for goseq
 
 ## Key analytical choices
 
