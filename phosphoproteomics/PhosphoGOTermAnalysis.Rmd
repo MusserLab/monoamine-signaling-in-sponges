@@ -260,7 +260,9 @@ if (nrow(GO_results) > 0) {
 # =============================================================================
 
 library(rrvgo)
-library(org.Hs.eg.db)
+library(org.Hs.eg.db)  # Used for GO term information content (IC) in rrvgo;
+                        # GO hierarchy is organism-independent, and human provides
+                        # reasonable IC weights for non-model organisms
 library(GO.db)
 
 # Load results (using global results; switch to per_comparison for per-timepoint plots)

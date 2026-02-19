@@ -438,7 +438,7 @@ for (c in diff_comparisons) cat("  -", c, "\n")
 # Tryptamine data: filter to comparisons of interest
 tryp_phospho <- tryp_data %>%
   filter(
-    sample == "input.norm.phospho",
+    sample == "phospho",
     comparison %in% all_comparisons
   ) %>%
   select(
@@ -536,7 +536,8 @@ for (comp in c("3min", "15min", "30min", "Δ3→15min", "Δ15→30min")) {
   # Summary stats
   n_tryp_sig <- tryp_phospho %>%
     filter(comparison_short == comp, hit_annotation %in% c("hit", "candidate")) %>%
-    n_distinct(.$site_id)
+    pull(site_id) %>%
+    n_distinct()
 
   comparison_summaries[[comp]] <- tibble(
     comparison = comp,

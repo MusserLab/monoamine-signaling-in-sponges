@@ -1,3 +1,26 @@
+---
+title: "Transcriptomics GO Term Enrichment Analysis"
+author: "Roy Zang"
+date: "2025-10-11"
+output: html_document
+---
+
+## Transcriptomics GO enrichment (Fig 4F)
+
+Gene Ontology enrichment analysis on transcriptomics hits/candidates using
+goseq (length-bias corrected). Enriched terms are visualized using rrvgo
+semantic similarity reduction (treemaps and scatterplots).
+
+### Input files
+
+- `transcriptomics/data/Master_DE_Results_Interaction_V2.tsv` — DESeq2 differential expression results
+- `data/gene_lengths.txt` — Gene lengths for goseq bias correction
+- `data/sl_go_merged_id.tsv` — Gene-to-GO term mapping (PROST-based annotations)
+
+### Output files
+
+- `outs/transcriptomics/transcriptome_goseq_results_WITH_GLOBAL.tsv` — Per-comparison + global GO enrichment results
+- rrvgo treemap and scatterplot PNGs in `outs/transcriptomics/rrvgo/`
 
 ```{r}
 # =============================================================================
@@ -19,7 +42,11 @@ library(GO.db)
 go_map <- read.delim(here("data", "sl_go_merged_id.tsv"), header = FALSE, stringsAsFactors = FALSE)[, 1:2]
 colnames(go_map) <- c("gene_id", "go_id")
 
-# B. Gene Lengths
+# B. Gene Lengths (for goseq length-bias correction)
+# NOTE: gene_lengths$gene_names is not extracted from rownames here (unlike the
+# phospho GO script). This means all genes receive the median length in the
+# match below, effectively running goseq WITHOUT length-bias correction.
+# This is intentional — see PhosphoGOTermAnalysis.Rmd for the length-corrected version.
 gene_lengths <- read.delim(here("data", "gene_lengths.txt"), header = TRUE, stringsAsFactors = FALSE)
 
 # C. Transcriptomic Data
