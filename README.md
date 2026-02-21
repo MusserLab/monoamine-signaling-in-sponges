@@ -129,6 +129,8 @@ BiocManager::install(c(
 
 `renv::restore()` installs CRAN packages at the exact versions used in the paper. Bioconductor packages are installed separately via BiocManager, which automatically selects the correct versions for your R installation.
 
+**Troubleshooting:** If you encounter errors with `renv::restore()` or BiocManager, you can skip the bulk setup and instead install packages on demand — each script will report missing packages when you run it via `library()` errors. Install them as needed with `install.packages()` (CRAN) or `BiocManager::install()` (Bioconductor).
+
 ### 3. Set up the Python environment
 
 ```bash
