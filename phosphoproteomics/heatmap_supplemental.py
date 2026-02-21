@@ -88,7 +88,7 @@ _REPO_ROOT = _SCRIPT_DIR.parent
 
 dir_data = _SCRIPT_DIR / "data"
 dir_annot = _REPO_ROOT / "data"
-dir_out = _REPO_ROOT / "outs" / "phosphoproteomics" / "supplemental_heatmaps"
+dir_out = _SCRIPT_DIR / "outs" / "supplemental_heatmaps"
 
 dir_out.mkdir(parents=True, exist_ok=True)
 
@@ -369,10 +369,6 @@ def generate_module_heatmap(mod_data, mod_name, max_abs, output_dir):
     # ---- Save ----
     base_filename = f"{slugify(display_name)}_heatmap"
 
-    fig.savefig(Path(output_dir) / f"{base_filename}.pdf",
-                dpi=DPI, facecolor="white")
-    fig.savefig(Path(output_dir) / f"{base_filename}.png",
-                dpi=DPI, facecolor="white")
     fig.savefig(Path(output_dir) / f"{base_filename}.svg",
                 facecolor="white")
 
@@ -610,7 +606,7 @@ def main():
             output_dir=dir_out,
         )
         if saved is not None:
-            print(f"  Saved: {saved} (.pdf/.svg/.png)")
+            print(f"  Saved: {saved} (.svg)")
         print()
 
     # ---- Export summary CSV ----
@@ -627,7 +623,7 @@ def main():
     print(f"Unique genes: {heatmap_data['Gene.short'].nunique()}")
     print(f"Modules: {heatmap_data['module'].nunique()}")
     print(f"Output directory: {dir_out}")
-    print(f"Formats: PDF, SVG, PNG")
+    print(f"Format: SVG")
 
 
 if __name__ == "__main__":

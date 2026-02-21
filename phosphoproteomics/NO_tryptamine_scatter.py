@@ -1,27 +1,20 @@
 """
-Scatter plots comparing phosphosite-level log2FC values between
+Scatter plot comparing phosphosite-level log2FC values between
 tryptamine (15 min, raw phospho) and NO phosphoproteomics.
 
-Generates five versions as PDF, PNG, and SVG:
-  A  — No module coloring.  Grey background, grey55 for sig-in-one,
-       pink (#D81B60) for sig-in-both.  Gene labels for curated genes.
-  B  — Same dot colors as A, but text labels colored by module
-       (Rho=pink, NO=blue, Calcium=yellow, Other=black).
-  C  — Module-colored DOTS for sig-in-both.  Three sub-variants:
-       C_all            — all genes in NO / Actin dynamics / Rac1 GTPase
-       C_plot_module    — Plot_Module subset only
-       C_label_name     — Label_Name_orig subset only
+Generates module-colored dot scatter plot as SVG:
+  Dots colored by module (NO signaling, Actin dynamics, Rac1 GTPase signaling)
+  for phosphosites significant in both datasets.
 
 Required files (relative to repo root):
   1. phosphoproteomics/data/NO_phosphosites_mapped.csv
   2. phosphoproteomics/data/limma_results_annotated.tsv
   3. phosphoproteomics/data/modules_long_RAW_PHOSPHO_RZ_merged.tsv
   4. data/spongilla_gene_names_final.tsv
-  5. phosphoproteomics/data/NO_scatter_label_candidates_RZ.tsv
-  6. phosphoproteomics/data/gene_list_with_modules_Fig4D_Fig4E.tsv
+  5. phosphoproteomics/data/gene_list_with_modules_Fig4D_Fig4E.tsv
 
 Usage:
-  pip install pandas matplotlib adjustText
+  conda env create -f environment.yml && conda activate monoamine-sponges
   python phosphoproteomics/NO_tryptamine_scatter.py
 """
 
@@ -32,7 +25,6 @@ import matplotlib.font_manager as fm
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from adjustText import adjust_text
 from pathlib import Path
 from scipy import stats
 
@@ -65,16 +57,7 @@ plt.rcParams.update({
 # Colors (matches R custom_cols4)
 COLORS4 = ["#D81B60", "#1E88E5", "#FFC107", "#004D40"]
 
-# Target modules for Version B label coloring
-TARGET_MODULES_B = ["Rho signaling", "NO signaling", "Regulation of calcium signaling"]
-MODULE_COLORS_B = {
-    "Rho signaling": COLORS4[0],
-    "NO signaling": COLORS4[1],
-    "Regulation of calcium signaling": COLORS4[2],
-    "Other": "black",
-}
-
-# Target modules for Version C dot coloring
+# Target modules for module-colored dots
 MODULES_C = ["NO signaling", "Actin dynamics", "Rac1 GTPase signaling"]
 MODULE_COLORS_C = {
     "NO signaling": COLORS4[1],
@@ -93,7 +76,7 @@ _REPO_ROOT = _SCRIPT_DIR.parent
 dir_data = _SCRIPT_DIR / "data"
 dir_annot = _REPO_ROOT / "data"
 dir_no = _SCRIPT_DIR / "data"
-dir_out = _REPO_ROOT / "outs" / "phosphoproteomics" / "NO_tryptamine_scatter"
+dir_out = _SCRIPT_DIR / "outs" / "NO_tryptamine_scatter"
 
 dir_out.mkdir(parents=True, exist_ok=True)
 
@@ -115,9 +98,7 @@ def slugify(text):
 
 
 def save_figure(fig, filepath_stem):
-    """Save figure as PDF, PNG (300 dpi), and SVG."""
-    fig.savefig(f"{filepath_stem}.pdf", dpi=DPI, bbox_inches="tight")
-    fig.savefig(f"{filepath_stem}.png", dpi=DPI, bbox_inches="tight")
+    """Save figure as SVG."""
     fig.savefig(f"{filepath_stem}.svg", bbox_inches="tight")
     plt.close(fig)
 
@@ -201,26 +182,6 @@ def load_tryptamine_data():
     print(f"\nTryptamine raw phospho 15min: {len(tryp)} rows")
     print(f"Unique sites: {tryp['site_id'].nunique()}")
     return tryp
-
-
-def load_modules():
-    """Load module assignments for Version B label coloring."""
-    path = dir_data / "modules_long_RAW_PHOSPHO_RZ_merged.tsv"
-
-    modules = pd.read_csv(path, sep="\t")
-    modules["automated_name_norm"] = modules["Automated.name"].apply(normalize_name)
-    return modules[["automated_name_norm", "module"]].drop_duplicates()
-
-
-def load_label_candidates():
-    """Load curated label list for scatter plots."""
-    path = dir_data / "NO_scatter_label_candidates_RZ.tsv"
-
-    labels = pd.read_csv(path, sep="\t")
-    labels["label"] = labels["label"].isin([True, "TRUE", "True", "T", 1, "1"])
-    genes_to_label = labels.loc[labels["label"], "Gene.short"].tolist()
-    print(f"\nCurated labels loaded: {len(genes_to_label)} genes to label")
-    return genes_to_label
 
 
 def load_fig4_genes():
@@ -325,168 +286,8 @@ def _setup_scatter_axes(ax, axis_max, cor_label, lm_x, lm_y,
     ax.set_facecolor("white")
 
 
-def _select_label_sites(plot_data, genes_to_label, require_sig_both=True):
-    """Select best phosphosite per gene for labeling.
-
-    For each labeled gene, pick the phosphosite with the largest
-    combined |logFC_Tryp| + |logFC_NO|.
-    """
-    mask = plot_data["Gene.short"].isin(genes_to_label)
-    if require_sig_both:
-        mask = mask & plot_data["sig_both"]
-    subset = plot_data.loc[mask].copy()
-
-    if len(subset) == 0:
-        return subset
-
-    subset["combined_fc"] = subset["logFC_Tryp"].abs() + subset["logFC_NO"].abs()
-    # One site per gene (best combined FC)
-    best = (subset
-            .sort_values("combined_fc", ascending=False)
-            .drop_duplicates(subset="Gene.short", keep="first"))
-    best["plot_label"] = (best["Gene.short"].astype(str) + " (" +
-                          best["phospho_position"].astype(str) + ")")
-    return best
-
-
 # ============================================================================
-# Version A: No module coloring
-# ============================================================================
-
-def plot_version_a(plot_data, axis_max, cor_label, lm_x, lm_y,
-                   genes_to_label):
-    """Scatter with sig-in-one = grey55, sig-in-both = pink, gene labels."""
-    fig, ax = plt.subplots(figsize=(W, H))
-    fig.patch.set_facecolor("white")
-
-    n_sig_either = plot_data["sig_either"].sum()
-    n_sig_both = plot_data["sig_both"].sum()
-
-    # Layer 1: Non-significant (grey85) - increased size
-    ns = plot_data[~plot_data["sig_either"]]
-    ax.scatter(ns["logFC_Tryp"], ns["logFC_NO"],
-               c="#D9D9D9", s=1.5, alpha=0.3, linewidths=0,
-               zorder=1, rasterized=True)
-
-    # Layer 2: Significant in one only (grey55) - increased size
-    one = plot_data[plot_data["sig_either"] & ~plot_data["sig_both"]]
-    ax.scatter(one["logFC_Tryp"], one["logFC_NO"],
-               c="#8C8C8C", s=3, alpha=0.5, linewidths=0,
-               zorder=2, rasterized=True)
-
-    # Layer 3: Significant in both (pink) - increased size
-    both = plot_data[plot_data["sig_both"]]
-    ax.scatter(both["logFC_Tryp"], both["logFC_NO"],
-               c=COLORS4[0], s=6, alpha=0.9, linewidths=0,
-               zorder=3)
-
-    # Labels
-    label_df = _select_label_sites(plot_data, genes_to_label, require_sig_both=True)
-    texts = []
-    for _, row in label_df.iterrows():
-        t = ax.text(row["logFC_Tryp"], row["logFC_NO"], row["plot_label"],
-                    fontsize=5, ha="center", va="center", zorder=4)
-        texts.append(t)
-    if texts:
-        adjust_text(texts, ax=ax,
-                    arrowprops=dict(arrowstyle="-", color="grey", alpha=0.5,
-                                   lw=0.2),
-                    expand=(1.3, 1.5),
-                    force_text=(0.8, 1.0),
-                    force_points=(0.3, 0.4))
-
-    title = "Tryptamine (15 min) vs NO phosphoproteomics"
-    subtitle = (f"All shared phosphosites (n = {len(plot_data)}); "
-                f"{n_sig_either} significant in \u22651; {n_sig_both} in both (pink)")
-    _setup_scatter_axes(ax, axis_max, cor_label, lm_x, lm_y, title, subtitle)
-    ax.legend().set_visible(False) if ax.get_legend() else None
-
-    plt.tight_layout()
-    return fig
-
-
-# ============================================================================
-# Version B: Module label coloring
-# ============================================================================
-
-def plot_version_b(plot_data, axis_max, cor_label, lm_x, lm_y,
-                   genes_to_label, modules_df):
-    """Same dot colors as A but text labels colored by module."""
-    fig, ax = plt.subplots(figsize=(W, H))
-    fig.patch.set_facecolor("white")
-
-    # Assign modules to plot_data for label coloring (one module per gene)
-    pd_copy = plot_data.copy()
-    pd_copy["automated_name_norm"] = pd_copy["automated_name"].apply(normalize_name)
-    mod_target = modules_df[modules_df["module"].isin(TARGET_MODULES_B)].copy()
-    # Priority: keep first matching target module per gene
-    mod_target["priority"] = mod_target["module"].apply(
-        lambda m: TARGET_MODULES_B.index(m) if m in TARGET_MODULES_B else 99)
-    mod_target = (mod_target.sort_values("priority")
-                  .drop_duplicates(subset="automated_name_norm", keep="first")
-                  .drop(columns="priority"))
-    pd_copy = pd_copy.merge(mod_target, on="automated_name_norm", how="left")
-    pd_copy["module_color_name"] = pd_copy["module"].fillna("Other")
-
-    # Layer 1: Non-significant (grey85) - increased size
-    ns = pd_copy[~pd_copy["sig_either"]]
-    ax.scatter(ns["logFC_Tryp"], ns["logFC_NO"],
-               c="#D9D9D9", s=1.5, alpha=0.3, linewidths=0,
-               zorder=1, rasterized=True)
-
-    # Layer 2: Significant in one only (grey55) - increased size
-    one = pd_copy[pd_copy["sig_either"] & ~pd_copy["sig_both"]]
-    ax.scatter(one["logFC_Tryp"], one["logFC_NO"],
-               c="#8C8C8C", s=3, alpha=0.5, linewidths=0,
-               zorder=2, rasterized=True)
-
-    # Layer 3: Significant in both (pink) - increased size
-    both = pd_copy[pd_copy["sig_both"]]
-    ax.scatter(both["logFC_Tryp"], both["logFC_NO"],
-               c=COLORS4[0], s=6, alpha=0.9, linewidths=0,
-               zorder=3)
-
-    # Labels with module-colored text
-    label_df = _select_label_sites(pd_copy, genes_to_label, require_sig_both=True)
-    texts = []
-    for _, row in label_df.iterrows():
-        color = MODULE_COLORS_B.get(row.get("module_color_name", "Other"), "black")
-        t = ax.text(row["logFC_Tryp"], row["logFC_NO"], row["plot_label"],
-                    fontsize=5, ha="center", va="center",
-                    color=color, zorder=4)
-        texts.append(t)
-    if texts:
-        adjust_text(texts, ax=ax,
-                    arrowprops=dict(arrowstyle="-", color="grey", alpha=0.5,
-                                   lw=0.2),
-                    expand=(1.3, 1.5),
-                    force_text=(0.8, 1.0),
-                    force_points=(0.3, 0.4))
-
-    title = "Tryptamine (15 min) vs NO phosphoproteomics"
-    subtitle = (f"All shared phosphosites (n = {len(plot_data)}); "
-                "module labels colored")
-    _setup_scatter_axes(ax, axis_max, cor_label, lm_x, lm_y, title, subtitle)
-
-    # Compact legend in 4th quadrant
-    from matplotlib.lines import Line2D
-    handles = [Line2D([0], [0], marker="o", color="w", linestyle='',
-                      markerfacecolor=MODULE_COLORS_B[m], markersize=3,
-                      label=m)
-               for m in TARGET_MODULES_B]
-    leg = ax.legend(handles=handles, loc="lower right",
-              bbox_to_anchor=(0.98, 0.02),
-              frameon=True, framealpha=1.0, edgecolor='none',
-              fontsize=6, title="Module", title_fontproperties={'weight': 'bold', 'size': 5},
-              handletextpad=0.1, labelspacing=0.2, borderpad=0.3)
-    leg.get_frame().set_facecolor('white')
-
-    plt.tight_layout()
-    return fig
-
-
-# ============================================================================
-# Version C: Module-colored dots (3 sub-variants)
+# Module-colored dot scatter
 # ============================================================================
 
 def _get_module_assignments_c(fig4_genes, filter_col=None):
@@ -582,41 +383,6 @@ def plot_version_c(plot_data, axis_max, cor_label, lm_x, lm_y,
 
 
 # ============================================================================
-# Export CSV
-# ============================================================================
-
-def export_data(plot_data, modules_df):
-    """Export joined scatter data as CSV."""
-    pd_copy = plot_data.copy()
-    pd_copy["automated_name_norm"] = pd_copy["automated_name"].apply(normalize_name)
-    mod_target = modules_df[modules_df["module"].isin(TARGET_MODULES_B)].copy()
-    # Deduplicate: one module per gene (keep first matching target)
-    mod_target["priority"] = mod_target["module"].apply(
-        lambda m: TARGET_MODULES_B.index(m) if m in TARGET_MODULES_B else 99)
-    mod_target = (mod_target.sort_values("priority")
-                  .drop_duplicates(subset="automated_name_norm", keep="first")
-                  .drop(columns="priority"))
-    pd_copy = pd_copy.merge(mod_target, on="automated_name_norm", how="left")
-    pd_copy["module_color"] = pd_copy["module"].fillna("Other")
-
-    export = pd_copy[[
-        "site_id", "Gene.short", "automated_name",
-        "logFC_Tryp", "fdr_Tryp", "hit_annotation_Tryp",
-        "logFC_NO", "fdr_NO", "hit_annotation_NO",
-        "sig_both", "sig_category", "module_color"
-    ]].copy()
-
-    export["sort_key"] = export["logFC_Tryp"].abs() + export["logFC_NO"].abs()
-    export = export.sort_values(["sig_both", "sort_key"],
-                                ascending=[False, False])
-    export.drop(columns="sort_key", inplace=True)
-
-    out_path = dir_out / "NO_vs_tryptamine_scatter_data.csv"
-    export.to_csv(out_path, index=False)
-    print(f"Exported scatter data to {out_path}")
-
-
-# ============================================================================
 # Summary statistics
 # ============================================================================
 
@@ -656,8 +422,6 @@ def main():
     # 1. Load datasets
     no_data = load_no_data()
     tryp_data = load_tryptamine_data()
-    modules_df = load_modules()
-    genes_to_label = load_label_candidates()
     fig4_genes = load_fig4_genes()
 
     # 2. Join and classify
@@ -666,43 +430,18 @@ def main():
     # 3. Compute statistics
     cor_label, axis_max, lm_x, lm_y = compute_stats(plot_data)
 
-    # ------- Version A -------
-    print("\n=== Version A: No module coloring ===")
-    fig_a = plot_version_a(plot_data, axis_max, cor_label, lm_x, lm_y,
-                           genes_to_label)
-    save_figure(fig_a, str(dir_out / "NO_vs_tryptamine_15min_scatter"))
-    print("Version A saved (PDF, SVG, PNG)")
+    # ------- Module-colored dots scatter -------
+    print("\n=== Module-colored dots ===")
+    ma = _get_module_assignments_c(fig4_genes, filter_col=None)
+    if len(ma) > 0:
+        print(ma["module_c"].value_counts().to_string())
 
-    # ------- Version B -------
-    print("\n=== Version B: Module label coloring ===")
-    fig_b = plot_version_b(plot_data, axis_max, cor_label, lm_x, lm_y,
-                           genes_to_label, modules_df)
-    save_figure(fig_b, str(dir_out / "NO_vs_tryptamine_15min_scatter_modules"))
-    print("Version B saved (PDF, SVG, PNG)")
+    fig = plot_version_c(plot_data, axis_max, cor_label, lm_x, lm_y,
+                         ma, "all module genes")
+    save_figure(fig, str(dir_out / "NO_vs_tryptamine_15min_scatter_module_dots"))
+    print("Saved (SVG)")
 
-    # ------- Version C (3 sub-variants) -------
-    print("\n=== Version C: Module-colored dots ===")
-    variants = [
-        (None,              "all module genes",        "module_dots"),
-        ("Plot_Module",     "Plot_Module subset",      "module_dots_plot_module"),
-        ("Label_Name_orig", "Label_Name_orig subset",  "module_dots_label_name"),
-    ]
-
-    for filter_col, suffix, tag in variants:
-        ma = _get_module_assignments_c(fig4_genes, filter_col=filter_col)
-        print(f"\n--- {suffix} ---")
-        if len(ma) > 0:
-            print(ma["module_c"].value_counts().to_string())
-        else:
-            print("  (no genes)")
-
-        fig = plot_version_c(plot_data, axis_max, cor_label, lm_x, lm_y,
-                             ma, suffix)
-        save_figure(fig, str(dir_out / f"NO_vs_tryptamine_15min_scatter_{tag}"))
-        print(f"Version C ({suffix}) saved")
-
-    # ------- Export & summary -------
-    export_data(plot_data, modules_df)
+    # ------- Summary -------
     print_summary(plot_data)
 
     print("\nDone!")

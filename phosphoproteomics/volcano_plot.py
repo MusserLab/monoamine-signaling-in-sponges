@@ -1,10 +1,9 @@
 """
 Volcano plots for tryptamine phosphoproteomics (raw phospho).
 
-Generates three types of volcano plots as PDF, PNG, and SVG:
-  1. volcano_hits_raw_phospho/ — hits and candidates highlighted (single color)
-  2. volcano_module_overlay_raw_phospho/ — multiple modules colored on same plot
-  3. volcano_per_module_raw_phospho/ — individual module plots with gene labels
+Generates two types of volcano plots as SVG:
+  1. volcano_hits/ — hits and candidates highlighted (single color)
+  2. volcano_overlay/ — multiple modules colored on same plot
 
 Required files (relative to repo root):
   1. phosphoproteomics/data/limma_results_annotated.tsv
@@ -12,7 +11,7 @@ Required files (relative to repo root):
   3. data/spongilla_gene_names_final.tsv
 
 Usage:
-  pip install pandas matplotlib adjustText
+  conda env create -f environment.yml && conda activate monoamine-sponges
   python phosphoproteomics/volcano_plot.py
 """
 
@@ -21,7 +20,6 @@ import re
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from adjustText import adjust_text
 from pathlib import Path
 
 # ============================================================================
@@ -93,9 +91,8 @@ _REPO_ROOT = _SCRIPT_DIR.parent
 dir_data = _SCRIPT_DIR / "data"
 dir_annot = _REPO_ROOT / "data"
 
-dir_hits = _REPO_ROOT / "outs" / "phosphoproteomics" / "volcano_hits"
-dir_overlay = _REPO_ROOT / "outs" / "phosphoproteomics" / "volcano_overlay"
-dir_per_module = _REPO_ROOT / "outs" / "phosphoproteomics" / "volcano_per_module"
+dir_hits = _SCRIPT_DIR / "outs" / "volcano_hits"
+dir_overlay = _SCRIPT_DIR / "outs" / "volcano_overlay"
 
 # ============================================================================
 # Data loading
@@ -175,9 +172,7 @@ def _setup_figure_dpi(fig):
 
 
 def save_figure(fig, filepath_stem):
-    """Save figure as PDF, PNG, and SVG."""
-    fig.savefig(f"{filepath_stem}.pdf", dpi=DPI, bbox_inches="tight")
-    fig.savefig(f"{filepath_stem}.png", dpi=DPI, bbox_inches="tight")
+    """Save figure as SVG."""
     fig.savefig(f"{filepath_stem}.svg", bbox_inches="tight")
     plt.close(fig)
 
@@ -249,66 +244,16 @@ def plot_volcano_overlay(df, modules, modules_keep, comparison):
 
 
 # ============================================================================
-# Plot type 3: Per-module with gene labels
-# ============================================================================
-
-def plot_volcano_per_module(df, modules, module_name, comparison,
-                            mod_color, label_genes=True):
-    """Volcano for a single module with optional gene labels."""
-    df = df.copy()
-    mod_genes = set(modules[modules["module"] == module_name]["Gene_norm"].unique())
-    df["in_module"] = df["Gene_norm"].isin(mod_genes)
-    bg = df.copy()
-    fg = df[df["in_module"] & df["hit_annotation"].isin(["hit", "candidate"])]
-
-    fig, ax = plt.subplots(figsize=(W, H))
-    _setup_figure_dpi(fig)
-    _plot_background(ax, bg)
-
-    # Module points
-    if len(fg) > 0:
-        ax.scatter(fg["logFC"], -np.log10(fg["pvalue"]),
-                   c=mod_color, s=4, alpha=0.8, marker="o",
-                   linewidths=0, zorder=2)
-
-    # Gene labels
-    if label_genes and len(fg) > 0:
-        # One label per gene (lowest p-value)
-        lab = (fg
-               .sort_values("pvalue")
-               .drop_duplicates(subset="Gene_norm", keep="first"))
-        texts = []
-        for _, row in lab.iterrows():
-            t = ax.text(row["logFC"], -np.log10(row["pvalue"]),
-                        row["Gene.short"],
-                        fontsize=3, ha="center", va="center",
-                        zorder=3)
-            texts.append(t)
-        if texts:
-            adjust_text(texts, ax=ax,
-                        arrowprops=dict(arrowstyle="-", color="grey", alpha=0.4, lw=0.3),
-                        expand=(1.2, 1.4))
-
-    _setup_axes(ax)
-    fig.patch.set_facecolor("white")
-    ax.set_facecolor("white")
-    plt.tight_layout(pad=0.3)
-    return fig
-
-
-# ============================================================================
 # Main
 # ============================================================================
 
 def main():
     print("Loading data...")
     res, modules = load_data()
-    all_modules = sorted(modules["module"].unique())
 
     # Create output directories
     dir_hits.mkdir(parents=True, exist_ok=True)
     dir_overlay.mkdir(parents=True, exist_ok=True)
-    dir_per_module.mkdir(parents=True, exist_ok=True)
 
     # ------- 1. Hits/Candidates -------
     print("\n=== Hits/Candidates ===")
@@ -334,33 +279,9 @@ def main():
         fig = plot_volcano_overlay(df, modules, OVERLAY_MODULES, comp)
         save_figure(fig, str(dir_overlay / f"volcano_cytoskeleton_adhesion_{slugify(comp)}"))
 
-    # ------- 3. Per-module -------
-    print("\n=== Per-module ===")
-    for comp in COMPARISONS:
-        df = res[(res["comparison.label"] == comp) & (res["sample"] == SAMPLE)]
-        if len(df) == 0:
-            continue
-
-        for i, mod_name in enumerate(all_modules):
-            mod_color = COLORS4[i % len(COLORS4)]
-            mod_genes = set(modules[modules["module"] == mod_name]["Gene_norm"].unique())
-
-            # Skip if no hits/candidates in this module
-            n_hc = ((df["Gene_norm"].isin(mod_genes)) &
-                    (df["hit_annotation"].isin(["hit", "candidate"]))).sum()
-            if n_hc == 0:
-                continue
-
-            fig = plot_volcano_per_module(df, modules, mod_name, comp,
-                                          mod_color=mod_color, label_genes=True)
-            save_figure(fig, str(dir_per_module / f"volcano_{slugify(mod_name)}_{slugify(comp)}"))
-
-        print(f"  Completed: {comp[:50]}...")
-
     print(f"\nDone!")
-    print(f"  Hits:       {dir_hits}")
-    print(f"  Overlays:   {dir_overlay}")
-    print(f"  Per-module: {dir_per_module}")
+    print(f"  Hits:     {dir_hits}")
+    print(f"  Overlays: {dir_overlay}")
 
 
 if __name__ == "__main__":

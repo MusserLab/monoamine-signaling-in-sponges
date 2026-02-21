@@ -1,3 +1,8 @@
+/*This script measures phospho-myosin light chain (pMYL) fluorescence intensity
+ * from IF data of sponges treated with various chemicals.
+ * Images are segmented using percentile thresholding and Analyze Particles.
+ * Mean fluorescence intensity is measured per ROI and saved as CSV.
+ */
 
 // 1. Get the directory containing your TIFF files
 inputDir = getDirectory("Choose Source Directory ");

@@ -1,6 +1,6 @@
 # An ancient monoaminergic signaling system coordinates contractility in a nerveless sponge
 
-**Rong Xuan Zang<sup>1</sup>\*&dagger;, Nawaphat Malaiwong<sup>1</sup>&dagger;, Ling Wang<sup>2</sup>\*&dagger;, Jamie D. Maziarz<sup>1</sup>&dagger;, Kejue Jia<sup>1</sup>&dagger;, Bernhard Drotleff<sup>3</sup>, Frank Stein<sup>4</sup>, Mah Noor<sup>1</sup>, C. Jackson Roberts<sup>1</sup>, Mandy Rettel<sup>4</sup>, Jennifer J. Schwarz<sup>4</sup>, Aissam Ikmi<sup>5</sup>, Shigeki Watanabe<sup>6,7,8</sup>, Robert Prevedel<sup>9</sup>, Michael P. O'Donnell<sup>1,10</sup>, Jacob M. Musser<sup>1,10,11</sup>\***
+**Rong Xuan Zang<sup>1</sup>\*, Nawaphat Malaiwong<sup>1</sup>&dagger;, Ling Wang<sup>2</sup>\*&dagger;, Jamie D. Maziarz<sup>1</sup>&dagger;, Kejue Jia<sup>1</sup>&dagger;, Bernhard Drotleff<sup>3</sup>, Frank Stein<sup>4</sup>, Mah Noor<sup>1</sup>, C. Jackson Roberts<sup>1</sup>, Mandy Rettel<sup>4</sup>, Jennifer J. Schwarz<sup>4</sup>, Aissam Ikmi<sup>5</sup>, Shigeki Watanabe<sup>6,7,8</sup>, Robert Prevedel<sup>9</sup>, Michael P. O'Donnell<sup>1,10</sup>, Jacob M. Musser<sup>1,10,11</sup>\***
 
 <sup>1</sup> Department of Molecular, Cellular and Developmental Biology, Yale University; New Haven, 06511, USA
 <br><sup>2</sup> College of Optical and Electronic Technology, China Jiliang University, Hangzhou, Zhejiang, 310018, China
@@ -14,7 +14,7 @@
 <br><sup>10</sup> Wu Tsai Institute, Yale University; New Haven, 06511, USA
 <br><sup>11</sup> Systems Biology Institute, Yale West Campus, West Haven, 06516, USA
 
-&dagger; These authors contributed equally to this work.
+&dagger; These second authors contributed equally to this work.
 
 \* Corresponding authors: jacob.musser@yale.edu, zangrongxuan@gmail.com, ling.wang@cjlu.edu.cn
 

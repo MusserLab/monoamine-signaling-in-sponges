@@ -1,21 +1,21 @@
 """
 Per-module heatmaps for tryptamine transcriptomics.
 
-Generates three types of output per module:
+Generates two versions of per-module heatmaps as SVG:
   1. *_all — heatmap with all genes in the module
   2. *_symbols_only — heatmap restricted to genes with symbol names
-  3. Combined summary heatmap with module annotation sidebar
 
-Replicates the R script transcriptomics_module_heatmaps.qmd.
+Uses DESeq2 Log2FoldChange values directly from the master differential
+expression results (not recomputed from raw counts).
 
-Required files:
+Required files (relative to repo root):
   1. transcriptomics/data/Master_DE_Results_Interaction_V2.tsv
   2. transcriptomics/data/transcriptomics_module_assignments.csv
   3. data/spongilla_gene_names_final.tsv
 
 Usage:
-  pip install pandas matplotlib seaborn numpy scipy
-  python heatmap_transcriptomics.py
+  conda env create -f environment.yml && conda activate monoamine-sponges
+  python transcriptomics/heatmap_transcriptomics.py
 """
 
 import re
@@ -24,12 +24,9 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
-import matplotlib.patches as mpatches
 import numpy as np
 import pandas as pd
 import seaborn as sns
-from scipy.cluster.hierarchy import linkage, leaves_list
-from scipy.spatial.distance import pdist
 
 warnings.filterwarnings("ignore", category=FutureWarning)
 
@@ -41,7 +38,6 @@ MAX_ABS_CAP = 5.0         # cap symmetric color scale at +/- 5
 CELL_SIZE_INCHES = 0.112  # each square is 0.095 inch x 0.095 inch
 FONT_SIZE = 7             # title font size
 FONT_SIZE_LABELS = 6      # gene name labels font size
-PSEUDOCOUNT = 0.1         # avoid log(0)
 
 plt.rcParams.update({
     'font.family': 'Arial',
@@ -58,13 +54,6 @@ TIMEPOINT_ORDER = ["1h", "4h", "Recovery"]
 
 DPI = 300
 
-# Set3-like module colors (12 from brewer + extended via interpolation)
-SET3_COLORS = [
-    "#8DD3C7", "#FFFFB3", "#BEBADA", "#FB8072", "#80B1D3", "#FDB462",
-    "#B3DE69", "#FCCDE5", "#D9D9D9", "#BC80BD", "#CCEBC5", "#FFED6F",
-]
-
-
 # ============================================================================
 # Paths  (relative to this script's location in the repo)
 # ============================================================================
@@ -74,7 +63,7 @@ REPO_ROOT  = SCRIPT_DIR.parent                        # monoamine-signaling-in-s
 
 dir_data  = SCRIPT_DIR / "data"                       # transcriptomics/data/
 dir_annot = REPO_ROOT  / "data"                       # data/  (shared gene names)
-dir_out   = REPO_ROOT  / "outs" / "transcriptomics" / "heatmaps"
+dir_out   = SCRIPT_DIR / "outs" / "heatmaps"
 
 dir_out.mkdir(parents=True, exist_ok=True)
 
@@ -154,32 +143,6 @@ def load_master(path_master, path_annot):
     return master
 
 
-def parse_sample_columns(master: pd.DataFrame):
-    """Identify sample columns and parse metadata from column names.
-
-    Returns:
-        sample_cols: list of sample column names
-        sample_meta: DataFrame with col_name, replicate, treatment, timepoint
-    """
-    all_cols = master.columns.tolist()
-    sample_cols = [c for c in all_cols if "star_trans_clean_out" in c]
-    print(f"Found {len(sample_cols)} sample columns")
-
-    # Parse: R{rep}{T|D}_T{timepoint}
-    tp_map = {"1": "1h", "4": "4h", "4_W24": "Recovery"}
-    rows = []
-    for col in sample_cols:
-        m = re.search(r"(R\d)([TD])_T(\d+(?:_W24)?)", col)
-        if m:
-            rows.append({
-                "col_name": col,
-                "replicate": m.group(1),
-                "treatment": "Tryptamine" if m.group(2) == "T" else "DMSO",
-                "timepoint": tp_map.get(m.group(3), m.group(3)),
-            })
-    sample_meta = pd.DataFrame(rows)
-    print(f"Parsed {len(sample_meta)} samples")
-    return sample_cols, sample_meta
 
 
 def load_modules(path_modules):
@@ -203,65 +166,49 @@ def load_modules(path_modules):
 # Compute log2 fold changes
 # ============================================================================
 
-def compute_log2fc(master: pd.DataFrame, sample_cols: list, sample_meta: pd.DataFrame):
-    """Compute log2FC = log2((Tryptamine + 0.1) / (DMSO + 0.1)) per gene per timepoint.
+def extract_deseq2_log2fc(master: pd.DataFrame):
+    """Extract DESeq2 Log2FoldChange per gene per timepoint.
+
+    Uses the pre-computed Log2FoldChange from DESeq2 output rather than
+    recomputing from raw counts, as DESeq2 applies size factor normalization
+    and shrinkage for more robust estimates.
 
     Returns DataFrame with columns:
         GeneID, Gene.short, name_type, log2FC_1h, log2FC_4h, log2FC_Recovery
     """
-    # Unique genes (first row per GeneID — expression is the same across comparisons)
-    expr_wide = (
-        master[["GeneID", "Gene.short", "name_type"] + sample_cols]
-        .drop_duplicates(subset="GeneID")
-    )
-    print(f"Unique genes with expression data: {len(expr_wide)}")
-    print(f"  Name type distribution: {dict(expr_wide['name_type'].value_counts())}")
+    # Map comparison labels to timepoint names
+    comp_to_tp = {
+        "Tryptamine_vs_DMSO_1h": "1h",
+        "Tryptamine_vs_DMSO_4h": "4h",
+        "Tryptamine_vs_DMSO_Rec": "Recovery",
+    }
 
-    # Pivot to long format
-    expr_long = expr_wide.melt(
-        id_vars=["GeneID", "Gene.short", "name_type"],
-        value_vars=sample_cols,
-        var_name="col_name",
-        value_name="expression",
-    )
-    expr_long = expr_long.merge(sample_meta, on="col_name")
+    # Filter to the 3 direct Tryptamine vs DMSO comparisons
+    mask = master["Comparison_Label"].isin(comp_to_tp.keys())
+    df = master.loc[mask, ["GeneID", "Gene.short", "name_type",
+                           "Comparison_Label", "Log2FoldChange"]].copy()
+    df["timepoint"] = df["Comparison_Label"].map(comp_to_tp)
+    df["Log2FoldChange"] = pd.to_numeric(df["Log2FoldChange"], errors="coerce")
 
-    # Mean expression per gene x treatment x timepoint
-    expr_means = (
-        expr_long
-        .groupby(["GeneID", "Gene.short", "name_type", "treatment", "timepoint"],
-                 as_index=False)
-        ["expression"]
-        .mean()
-    )
-
-    # Pivot to get Tryptamine and DMSO side by side
-    expr_pivot = expr_means.pivot_table(
-        index=["GeneID", "Gene.short", "name_type", "timepoint"],
-        columns="treatment",
-        values="expression",
-    ).reset_index()
-
-    # Compute log2FC with pseudocount
-    expr_pivot["log2FC"] = np.log2(
-        (expr_pivot["Tryptamine"] + PSEUDOCOUNT) /
-        (expr_pivot["DMSO"] + PSEUDOCOUNT)
-    )
+    print(f"Rows with DESeq2 log2FC: {df['Log2FoldChange'].notna().sum()} / {len(df)}")
 
     # Pivot timepoints to columns
-    log2fc_wide = expr_pivot.pivot_table(
+    log2fc_wide = df.pivot_table(
         index=["GeneID", "Gene.short", "name_type"],
         columns="timepoint",
-        values="log2FC",
+        values="Log2FoldChange",
     ).reset_index()
+    log2fc_wide.columns.name = None
 
     # Rename columns
-    log2fc_wide.columns = [
-        f"log2FC_{c}" if c in TIMEPOINT_ORDER else c
-        for c in log2fc_wide.columns
-    ]
+    log2fc_wide = log2fc_wide.rename(columns={
+        "1h": "log2FC_1h",
+        "4h": "log2FC_4h",
+        "Recovery": "log2FC_Recovery",
+    })
 
     print(f"Log2FC matrix: {len(log2fc_wide)} genes x 3 timepoints")
+    print(f"  Name type distribution: {dict(log2fc_wide['name_type'].value_counts())}")
     return log2fc_wide
 
 
@@ -302,15 +249,6 @@ def generate_colorbar(max_abs, output_dir):
     
     print(f"Saved colorbar: {colorbar_path}")
     return colorbar_path
-
-
-def _cluster_rows(mat: np.ndarray):
-    """Hierarchical clustering of rows. Returns reordered indices."""
-    if mat.shape[0] <= 2:
-        return np.arange(mat.shape[0])
-    dist = pdist(mat, metric="euclidean")
-    link = linkage(dist, method="complete")
-    return leaves_list(link)
 
 
 def generate_per_module_heatmap(
@@ -449,195 +387,12 @@ def generate_per_module_heatmap(
     # ---- Save with fixed figure size (no bbox_inches="tight") ----
     base_filename = f"{slugify(mod_name)}_heatmap{suffix}"
 
-    fig.savefig(str(output_dir / f"{base_filename}.pdf"),
-                dpi=DPI, facecolor="white")
-    fig.savefig(str(output_dir / f"{base_filename}.png"),
-                dpi=DPI, facecolor="white")
     fig.savefig(str(output_dir / f"{base_filename}.svg"),
                 facecolor="white")
 
     plt.close(fig)
 
     return base_filename
-
-
-def generate_combined_heatmap(
-    heatmap_data: pd.DataFrame,
-    max_abs: float,
-    output_dir: Path,
-):
-    """Generate combined summary heatmap with module annotation sidebar.
-
-    All annotated genes, clustered rows, module color sidebar.
-    """
-    from matplotlib.patches import Rectangle
-
-    n_genes = len(heatmap_data)
-    if n_genes < 2:
-        print("  Too few genes for combined heatmap")
-        return
-
-    # Create unique row labels for duplicate Gene.short names
-    dup_counts = heatmap_data["Gene.short"].value_counts()
-    dups = set(dup_counts[dup_counts > 1].index)
-
-    row_labels = []
-    for _, row in heatmap_data.iterrows():
-        gs = row["Gene.short"]
-        if gs in dups:
-            # Extract Trinity ID for disambiguation
-            gid = row["GeneID"]
-            trinity = re.search(r"c\d+-g\d+", gid)
-            trinity_str = f" ({trinity.group()})" if trinity else ""
-            row_labels.append(f"{gs}{trinity_str}")
-        else:
-            row_labels.append(gs)
-
-    # Capitalize gene names (first letter uppercase, rest lowercase)
-    row_labels = [capitalize_gene_name(label) for label in row_labels]
-
-    heatmap_data = heatmap_data.copy()
-    heatmap_data["row_label"] = row_labels
-
-    # Build matrix
-    fc_cols = ["log2FC_1h", "log2FC_4h", "log2FC_Recovery"]
-    # Sort rows within each module: Inflammation by 4h, others by Recovery
-    heatmap_data = heatmap_data.copy()
-    
-    def get_sort_value(row):
-        if row["Module"] == "Inflammation":
-            return row["log2FC_4h"]
-        return row["log2FC_Recovery"]
-    
-    heatmap_data["_sort_val"] = heatmap_data.apply(get_sort_value, axis=1)
-    heatmap_data = (
-        heatmap_data
-        .sort_values(["Module", "_sort_val"], ascending=[True, False])
-        .drop(columns="_sort_val")
-        .reset_index(drop=True)
-    )
-    
-    mat = heatmap_data[fc_cols].values.copy()
-    mat = np.nan_to_num(mat, nan=0.0)
-    mat = np.clip(mat, -max_abs, max_abs)
-    
-    row_labels_ordered = [row_labels[i] for i in range(len(row_labels))]
-    modules_ordered = heatmap_data["Module"].values
-    order = _cluster_rows(mat)
-    mat = mat[order]
-    row_labels_ordered = [row_labels[i] for i in order]
-    modules_ordered = heatmap_data["Module"].values[order]
-
-    # Module colors
-    unique_modules = heatmap_data["Module"].unique()
-    n_modules = len(unique_modules)
-    if n_modules <= len(SET3_COLORS):
-        mod_colors = {m: SET3_COLORS[i] for i, m in enumerate(unique_modules)}
-    else:
-        cmap_qual = plt.cm.Set3
-        mod_colors = {
-            m: mcolors.rgb2hex(cmap_qual(i / n_modules))
-            for i, m in enumerate(unique_modules)
-        }
-
-    # ---- Figure dimensions ----
-    n_cols = 3
-    sidebar_width_in = 0.1  # module sidebar width
-    heatmap_width_in = n_cols * CELL_SIZE_INCHES
-    heatmap_height_in = n_genes * CELL_SIZE_INCHES
-    gap = 0.02  # gap between sidebar and heatmap
-
-    # Total figure size
-    page_width = sidebar_width_in + gap + heatmap_width_in
-    page_height = heatmap_height_in
-
-    fig = plt.figure(figsize=(page_width, page_height))
-
-    # ---- Module sidebar axes ----
-    sidebar_left = 0
-    sidebar_width = sidebar_width_in / page_width
-    ax_sidebar = fig.add_axes([sidebar_left, 0, sidebar_width, 1])
-
-    # Draw colored rectangles for sidebar
-    for i, mod in enumerate(modules_ordered):
-        color = mod_colors[mod]
-        ax_sidebar.add_patch(
-            mpatches.Rectangle((0, i), 1, 1, facecolor=color, edgecolor="none")
-        )
-    ax_sidebar.set_xlim(0, 1)
-    ax_sidebar.set_ylim(0, n_genes)
-    ax_sidebar.invert_yaxis()
-    ax_sidebar.set_xticks([])
-    ax_sidebar.set_yticks([])
-    for spine in ax_sidebar.spines.values():
-        spine.set_visible(False)
-
-    # ---- Main heatmap axes ----
-    heatmap_left = (sidebar_width_in + gap) / page_width
-    heatmap_width = heatmap_width_in / page_width
-    ax_heat = fig.add_axes([heatmap_left, 0, heatmap_width, 1])
-
-    # Create DataFrame for seaborn
-    mat_df = pd.DataFrame(mat, index=row_labels_ordered, columns=["1h", "4h", "Recovery"])
-
-    cmap = plt.cm.RdBu_r
-    inner_border_width = 0.1
-
-    sns.heatmap(
-        mat_df,
-        ax=ax_heat,
-        cmap=cmap,
-        vmin=-max_abs,
-        vmax=max_abs,
-        center=0,
-        linewidths=inner_border_width,
-        linecolor="black",
-        cbar=False,
-        square=True,
-        xticklabels=False,
-        yticklabels=False,
-        annot=False,
-    )
-
-    # Remove tick marks
-    ax_heat.tick_params(axis='both', which='both', length=0)
-
-    # Hide default spines
-    for spine in ax_heat.spines.values():
-        spine.set_visible(False)
-
-    # Draw rectangle border
-    rect = Rectangle((0, 0), n_cols, n_genes,
-                      fill=False,
-                      edgecolor='black',
-                      linewidth=inner_border_width,
-                      clip_on=False)
-    ax_heat.add_patch(rect)
-
-    ax_heat.set_ylabel("")
-    ax_heat.set_xlabel("")
-
-    # Add gene names on the right side (only if reasonable number)
-    if n_genes <= 100:
-        for i, label in enumerate(row_labels_ordered):
-            ax_heat.text(n_cols + 0.15, i + 0.5, label,
-                        ha='left', va='center', fontsize=FONT_SIZE_LABELS,
-                        fontstyle='italic')
-
-    fig.patch.set_facecolor("white")
-
-    # ---- Save ----
-    base_filename = "all_modules_combined_heatmap"
-
-    fig.savefig(str(output_dir / f"{base_filename}.pdf"),
-                dpi=DPI, facecolor="white")
-    fig.savefig(str(output_dir / f"{base_filename}.png"),
-                dpi=DPI, facecolor="white")
-    fig.savefig(str(output_dir / f"{base_filename}.svg"),
-                facecolor="white")
-
-    plt.close(fig)
-    print(f"Combined heatmap saved: {base_filename} (.pdf/.svg/.png)")
 
 
 # ============================================================================
@@ -716,15 +471,14 @@ def main():
     path_modules = dir_data  / "transcriptomics_module_assignments.csv"
 
     master = load_master(path_master, path_annot)
-    sample_cols, sample_meta = parse_sample_columns(master)
     modules = load_modules(path_modules)
 
-    # --- Compute log2FC ---
+    # --- Extract DESeq2 log2FC ---
     print("\n" + "=" * 60)
-    print("Computing log2 fold changes")
+    print("Extracting DESeq2 log2 fold changes")
     print("=" * 60)
 
-    log2fc_wide = compute_log2fc(master, sample_cols, sample_meta)
+    log2fc_wide = extract_deseq2_log2fc(master)
 
     # --- Join with modules ---
     # Join on GeneID only (modules has old Gene.short values)
@@ -770,7 +524,7 @@ def main():
                 mod_data_all, mod, max_abs, dir_out, suffix="_all",
             )
             if saved:
-                print(f"  Saved: {saved} (.pdf/.svg/.png)")
+                print(f"  Saved: {saved} (.svg)")
         else:
             print("  Skipping all version - too few genes")
 
@@ -780,16 +534,9 @@ def main():
                 mod_data_symbols, mod, max_abs, dir_out, suffix="_symbols_only",
             )
             if saved:
-                print(f"  Saved: {saved} (.pdf/.svg/.png)")
+                print(f"  Saved: {saved} (.svg)")
         else:
             print("  Skipping symbols_only version - too few symbol genes")
-
-    # --- Combined summary heatmap ---
-    print("\n" + "=" * 60)
-    print("Generating combined summary heatmap")
-    print("=" * 60)
-
-    generate_combined_heatmap(heatmap_data, max_abs, dir_out)
 
     # --- Export CSV summaries ---
     print("\n" + "=" * 60)
@@ -806,7 +553,7 @@ def main():
     print(f"Total genes: {len(heatmap_data)}")
     print(f"Unique modules: {heatmap_data['Module'].nunique()}")
     print(f"Output directory: {dir_out}")
-    print(f"Formats: PDF, SVG, PNG")
+    print(f"Format: SVG")
 
 
 if __name__ == "__main__":

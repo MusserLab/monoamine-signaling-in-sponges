@@ -1,7 +1,8 @@
-/*This script analyze IF data of sponges treated with various chemicals and stained for Vinculin.
+/*This script analyzes vinculin foci number normalized by DAPI cell count from IF data
+ * of sponges treated with various chemicals.
  * Number of cells is identified via counting DAPI objects.
- * Vinculin signal will be thresholded 
- * Obtain number of vinculin foci and size of foci
+ * Vinculin signal will be thresholded.
+ * Obtain number of vinculin foci normalized by number of cells.
  */
 
 // 1. Get the directory containing your TIFF files
@@ -52,6 +53,13 @@ for (i = 0; i < list.length; i++) {
 	close("\\Others");
 	
 	resetMinAndMax;
+
+	// Manual correction for two images with aberrant intensity range
+	if (file_name == "MAX_20251102_B22p18_P1022_TryptamineIF_Dish4_DAPI_ATub488_Pha568_EmVinc647_40xW_sponge3_zstack_tent-02-Airyscan Processing-52_Z80-537.tif" ||
+	    file_name == "MAX_20251102_B22p18_P1022_TryptamineIF_Dish4_DAPI_ATub488_Pha568_EmVinc647_40xW_sponge3_zstack_tent-01-Airyscan Processing-51_Z280-663.tif") {
+	        setMinAndMax(50, 250);
+	}
+
 	run("8-bit");
 	run("Gaussian Blur...", "sigma=2");
 	run("Subtract Background...", "rolling=10");

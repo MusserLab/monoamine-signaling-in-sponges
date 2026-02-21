@@ -1,7 +1,6 @@
-/*This script analyze IF data of sponges treated with various chemicals and stained for Vinculin.
- * Number of cells is identified via counting DAPI objects.
- * Vinculin signal will be thresholded 
- * Obtain number of vinculin foci and size of foci
+/*This script analyzes vinculin area from IF data of sponges treated with various chemicals.
+ * Vinculin signal will be thresholded.
+ * Obtain number of vinculin foci and size of foci.
  */
 
 // 1. Get the directory containing your TIFF files

@@ -20,7 +20,6 @@ DESeq2 with an interaction model.
 
 - `outs/transcriptomics/Master_Differential_Expression_Results_Interaction_V2.csv/tsv` — Full differential expression results
 - `outs/transcriptomics/Unique_Significant_Hits_Candidates_Interaction_V2.csv` — Unique significant genes
-- `outs/transcriptomics/MA_Plots_Analysis_interaction_v2.pdf` — MA plots for all comparisons
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -204,25 +203,6 @@ summary(res_4h)
 summary(res_Rec)
 summary(res_Time_4vs1)
 summary(res_Time_Recvs4)
-```
-
-```{r ma_plots}
-# MA plots for all comparisons
-output_dir <- here("outs", "transcriptomics")
-dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
-
-pdf(file.path(output_dir, "MA_Plots_Analysis_interaction_v2.pdf"), width = 8, height = 6)
-
-plotMA(res_1h, ylim = c(-5, 5), main = "Tryptamine vs DMSO (1h)")
-plotMA(res_4h, ylim = c(-5, 5), main = "Tryptamine vs DMSO (4h)")
-plotMA(res_Rec, ylim = c(-5, 5), main = "Tryptamine vs DMSO (Recovery)")
-plotMA(res_Time_4vs1, ylim = c(-5, 5),
-       main = "Time Interaction: 1h -> 4h\n(Diff in Tryptamine relative to DMSO)")
-plotMA(res_Time_Recvs4, ylim = c(-5, 5),
-       main = "Time Interaction: 4h -> Rec\n(Diff in Tryptamine relative to DMSO)")
-
-dev.off()
-message("Plots saved to ", file.path(output_dir, "MA_Plots_Analysis_interaction_v2.pdf"))
 ```
 
 ```{r hit_calling_and_master_table}

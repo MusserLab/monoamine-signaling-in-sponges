@@ -875,7 +875,7 @@ save_plot(p_corr_all, "all_replicates_corr_distance_curves_clipped.png")
 
 ```
 
-```{r movement correlation curves across reps ylim clipped}
+```{r movement correlation mean se ribbon ylim clipped}
 p_corr_all <- ggplot(ts_all,
                      aes(x = time, y = corr_dist,
                          color = treatment, fill = treatment,
