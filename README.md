@@ -161,7 +161,7 @@ python phosphoproteomics/volcano_plot.py
 
 | Data type | Repository | Accession |
 |-----------|-----------|-----------|
-| Raw metabolomics data | MetaboLights | [PR002929](https://www.ebi.ac.uk/metabolights/PR002929), [ST004638](https://www.ebi.ac.uk/metabolights/ST004638) |
+| Raw metabolomics data | Metabolomics Workbench | [PR002929](https://www.metabolomicsworkbench.org/data/DRCCMetadata.php?Mode=Project&ProjectID=PR002929), [ST004638](https://www.metabolomicsworkbench.org/data/DRCCMetadata.php?Mode=Study&StudyID=ST004638) |
 | Raw mass spectrometry | PRIDE | [PXD073078](https://www.ebi.ac.uk/pride/archive/projects/PXD073078) |
 | Raw and processed DNA and RNA sequencing datasets | NCBI | [PRJNA1425054](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1425054) |
 
