@@ -57,7 +57,7 @@ Quantitative TMT phosphoproteomics analysis of tryptamine-treated *Spongilla lac
 |------|-------------|
 | `data/GO_enrichment_background_genes_gene_level.tsv` | Background gene universe for goseq |
 
-| `data/sl_go_merged_id.tsv` | Gene-to-GO term mapping (PROST-based annotations) |
+| `data/sl_go_prost.tsv` | Gene-to-GO term mapping (PROST-based annotations) |
 
 Shared reference files used by scripts in this directory (located in `../data/`):
 - `spongilla_gene_names_final.tsv` — gene name lookup (join on `Trinity_geneID`, label with `Zang_et_al_2026`)
