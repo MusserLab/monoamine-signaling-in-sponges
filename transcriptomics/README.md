@@ -19,9 +19,10 @@ RNA-seq differential expression analysis of tryptamine-treated *Spongilla lacust
 | `data/Master_DE_Results_Interaction_V2.tsv` | Pre-computed DESeq2 results for all comparisons (original output without gene short names — names are joined at runtime from `spongilla_gene_names_final.tsv`) |
 | `data/transcriptomics_module_assignments.csv` | Significant genes with curated module/category assignments for the heatmap |
 
+| `data/2020_08_13_merged_trinity_gene_gene_ontology_assignments_jake_manual_additions2_forsl2_final2.txt` | Gene-to-GO term mapping (eggNOG mapper + manual corrections from Musser et al. 2021) |
+
 Shared reference files used by scripts in this directory (located in `../data/`):
 - `spongilla_gene_names_final.tsv` — gene name lookup (join on `Trinity_geneID`, label with `Zang_et_al_2026`)
-- `sl_go_merged_id.tsv` — gene-to-GO term mapping
 - `GO_GeneLengths.tsv` — gene lengths for goseq
 
 ## Key analytical choices

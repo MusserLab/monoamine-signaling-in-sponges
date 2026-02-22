@@ -1,6 +1,6 @@
 # An ancient monoaminergic signaling system coordinates contractility in a nerveless sponge
 
-**Rong Xuan Zang<sup>1</sup>\*, Nawaphat Malaiwong<sup>1</sup>&dagger;, Ling Wang<sup>2</sup>\*&dagger;, Jamie D. Maziarz<sup>1</sup>&dagger;, Kejue Jia<sup>1</sup>&dagger;, Bernhard Drotleff<sup>3</sup>, Frank Stein<sup>4</sup>, Mah Noor<sup>1</sup>, C. Jackson Roberts<sup>1</sup>, Mandy Rettel<sup>4</sup>, Jennifer J. Schwarz<sup>4</sup>, Aissam Ikmi<sup>5</sup>, Shigeki Watanabe<sup>6,7,8</sup>, Robert Prevedel<sup>9</sup>, Michael P. O'Donnell<sup>1,10</sup>, Jacob M. Musser<sup>1,10,11</sup>\***
+**Rong Xuan Zang<sup>1</sup>\*, Nawaphat Malaiwong<sup>1</sup>&dagger;, Ling Wang<sup>2</sup>&dagger;, Jamie D. Maziarz<sup>1</sup>&dagger;, Kejue Jia<sup>1</sup>&dagger;, Bernhard Drotleff<sup>3</sup>, Frank Stein<sup>4</sup>, Mah Noor<sup>1</sup>, C. Jackson Roberts<sup>1</sup>, Mandy Rettel<sup>4</sup>, Jennifer J. Schwarz<sup>4</sup>, Aissam Ikmi<sup>5</sup>, Shigeki Watanabe<sup>6,7,8</sup>, Robert Prevedel<sup>9</sup>, Noriko Funayama<sup>10</sup>, Michael P. O'Donnell<sup>1,11</sup>, Jacob M. Musser<sup>1,11,12</sup>\***
 
 <sup>1</sup> Department of Molecular, Cellular and Developmental Biology, Yale University; New Haven, 06511, USA
 <br><sup>2</sup> College of Optical and Electronic Technology, China Jiliang University, Hangzhou, Zhejiang, 310018, China
@@ -11,12 +11,13 @@
 <br><sup>7</sup> Solomon H. Snyder Department of Neuroscience, Johns Hopkins University School of Medicine; Baltimore, 21205, USA
 <br><sup>8</sup> The Center for Cell Dynamics, Johns Hopkins University School of Medicine; Baltimore, 21205, USA
 <br><sup>9</sup> Cell Biology and Biophysics Unit, European Molecular Biology Laboratory; Heidelberg, 69117, Germany
-<br><sup>10</sup> Wu Tsai Institute, Yale University; New Haven, 06511, USA
-<br><sup>11</sup> Systems Biology Institute, Yale West Campus, West Haven, 06516, USA
+<br><sup>10</sup> Department of Biophysics, Graduate School of Science, Kyoto University; Kyoto, 606-8502, Japan
+<br><sup>11</sup> Wu Tsai Institute, Yale University; New Haven, 06511, USA
+<br><sup>12</sup> Systems Biology Institute, Yale West Campus, West Haven, 06516, USA
 
 &dagger; These second authors contributed equally to this work.
 
-\* Corresponding authors: jacob.musser@yale.edu, zangrongxuan@gmail.com, ling.wang@cjlu.edu.cn
+\* Corresponding authors: jacob.musser@yale.edu, zangrongxuan@gmail.com
 
 **Abstract:** Chemical neurotransmission was a key animal innovation, enabling multicellular coordination of physiology and locomotion. Sponges are early-diverging animals that lack neurons and muscles, yet still coordinate contraction and relaxation of their filter-feeding water canals. Here, we show that *Spongilla lacustris* synthesizes the monoamines tryptamine, phenethylamine, and tyramine to elicit distinct canal behaviors. We identify previously uncharacterized decarboxylases and vesicular transporters coexpressed in secretory neuroid and metabolic cells. Using phosphoproteomics and label-free 3D imaging, we show that tryptamine activates GPCR signaling and Rho GTPases, remodeling adhesion and actomyosin networks in contractile canal epithelia to drive localized constrictions and whole-body deflations. Together, these findings define an ancestral monoaminergic signaling system linking secretory and contractile cell types that predate neurons and was later elaborated for neuromodulation of synaptic transmission.
 
@@ -38,6 +39,7 @@ This repository contains the data processing pipelines, statistical analyses, an
 | Fig 4 | C | `PhosphoGOTermAnalysis.Rmd` | `phosphoproteomics/` |
 | Fig 4 | D | `heatmap_figure_4D.py` | `phosphoproteomics/` |
 | Fig 4 | E | `phospho_NO_tryptamine_comparison.qmd`, `NO_tryptamine_scatter.py` | `phosphoproteomics/` |
+| Fig 4 | Methods | `Transcriptomic_analysis_v2.Rmd` | `transcriptomics/` |
 | Fig 4 | F | `TranscriptomicGOTermAnalysis.Rmd` | `transcriptomics/` |
 | Fig 4 | G | `heatmap_transcriptomics.py` | `transcriptomics/` |
 | Fig 5 | A | `gene_tree.gpcr_pipeline.txt` | `phylogenetics_and_structure/` |
@@ -51,7 +53,6 @@ This repository contains the data processing pipelines, statistical analyses, an
 | Fig S19, S21 | — | `AF3DockingScript.json` | `phylogenetics_and_structure/` |
 | Fig S27 | — | `Halichondria_insilicoPCR_pipeline.txt` | `phylogenetics_and_structure/` |
 | Fig S28 | — | `Eunapius_GetOrganelle_pipeline.txt` | `phylogenetics_and_structure/` |
-| Fig 4 | Methods | `Transcriptomic_analysis_v2.Rmd` | `transcriptomics/` |
 | Methods | — | `transcriptomic_mapping_pipline.txt` | `transcriptomics/` |
 
 ## Directory structure
@@ -160,8 +161,9 @@ python phosphoproteomics/volcano_plot.py
 
 | Data type | Repository | Accession |
 |-----------|-----------|-----------|
+| Raw metabolomics data | MetaboLights | [PR002929](https://www.ebi.ac.uk/metabolights/PR002929), [ST004638](https://www.ebi.ac.uk/metabolights/ST004638) |
 | Raw mass spectrometry | PRIDE | [PXD073078](https://www.ebi.ac.uk/pride/archive/projects/PXD073078) |
-| Raw/processed sequencing | NCBI | TBD |
+| Raw and processed DNA and RNA sequencing datasets | NCBI | [PRJNA1425054](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1425054) |
 
 Processed intermediate data files needed to run the scripts in this repository are included directly (see each directory's `README.md` for descriptions).
 
@@ -173,7 +175,7 @@ Gene names in this repository follow the conventions described in Zang et al. (2
 
 If you use code or data from this repository, please cite:
 
-> Zang RX, Malaiwong N, Wang L, Maziarz JD, Jia K, Drotleff B, Stein F, Noor M, Roberts CJ, Rettel M, Schwarz JJ, Ikmi A, Watanabe S, Prevedel R, O'Donnell MP, Musser JM. An ancient monoaminergic signaling system coordinates contractility in a nerveless sponge. *Science* (2026).
+> Zang RX, Malaiwong N, Wang L, Maziarz JD, Jia K, Drotleff B, Stein F, Noor M, Roberts CJ, Rettel M, Schwarz JJ, Ikmi A, Watanabe S, Prevedel R, Funayama N, O'Donnell MP, Musser JM. An ancient monoaminergic signaling system coordinates contractility in a nerveless sponge. *Science* (2026).
 
 ## License
 

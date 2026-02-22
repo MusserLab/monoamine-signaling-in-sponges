@@ -15,7 +15,7 @@ semantic similarity reduction (treemaps and scatterplots).
 
 - `transcriptomics/data/Master_DE_Results_Interaction_V2.tsv` — DESeq2 differential expression results
 - `data/GO_GeneLengths.tsv` — Gene lengths for goseq bias correction (two columns: `length`, `gene_names`)
-- `data/2020_08_13_merged_trinity_gene_gene_ontology_assignments_jake_manual_additions2_forsl2_final2.txt` — Gene-to-GO term mapping (eggNOG mapper + manual corrections from Musser et al. 2021)
+- `transcriptomics/data/2020_08_13_merged_trinity_gene_gene_ontology_assignments_jake_manual_additions2_forsl2_final2.txt` — Gene-to-GO term mapping (eggNOG mapper + manual corrections from Musser et al. 2021)
 
 ### Output files
 
@@ -39,7 +39,7 @@ library(GO.db)
 # =============================================================================
 
 # A. GO Terms (eggNOG mapper + manual corrections from Musser et al. 2021)
-go_map <- read.delim(here("data", "2020_08_13_merged_trinity_gene_gene_ontology_assignments_jake_manual_additions2_forsl2_final2.txt"), header = TRUE, stringsAsFactors = FALSE)[, 1:2]
+go_map <- read.delim(here("transcriptomics", "data", "2020_08_13_merged_trinity_gene_gene_ontology_assignments_jake_manual_additions2_forsl2_final2.txt"), header = TRUE, stringsAsFactors = FALSE)[, 1:2]
 colnames(go_map) <- c("gene_id", "go_id")
 
 # B. Gene Lengths (for goseq length-bias correction)
@@ -302,7 +302,7 @@ Check if there are missing GO terms for DE genes
 library(dplyr)
 
 # 1. Load Data (re-use here() paths from above)
-go_map <- read.delim(here("data", "2020_08_13_merged_trinity_gene_gene_ontology_assignments_jake_manual_additions2_forsl2_final2.txt"), header = TRUE, stringsAsFactors = FALSE)[, 1:2]
+go_map <- read.delim(here("transcriptomics", "data", "2020_08_13_merged_trinity_gene_gene_ontology_assignments_jake_manual_additions2_forsl2_final2.txt"), header = TRUE, stringsAsFactors = FALSE)[, 1:2]
 colnames(go_map) <- c("gene_id", "go_id")
 go_map$gene_id <- sub(" .*", "", go_map$gene_id)
 go_map$gene_id <- sub("_", "-", go_map$gene_id)

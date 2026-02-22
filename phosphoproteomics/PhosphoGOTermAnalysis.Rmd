@@ -15,7 +15,7 @@ semantic similarity reduction (treemaps and scatterplots).
 
 - `phosphoproteomics/data/limma_results_annotated.rds` — Differential phosphoproteomics results (from core pipeline)
 - `data/GO_GeneLengths.tsv` — Gene lengths for goseq bias correction (two columns: `length`, `gene_names`)
-- `data/sl_go_merged_id.tsv` — Gene-to-GO term mapping (PROST-based annotations)
+- `phosphoproteomics/data/sl_go_merged_id.tsv` — Gene-to-GO term mapping (PROST-based annotations)
 - `phosphoproteomics/data/GO_enrichment_background_genes_gene_level.tsv` — Background gene universe (all detected genes)
 
 ### Output files
@@ -72,7 +72,7 @@ cat("Loaded", nrow(phospho_data), "phospho rows across",
 cat("Unique genes:", length(unique(phospho_data$short_gene_id)), "\n")
 
 # --- B. GO terms (Gene ID -> GO ID) ---
-go_map <- read.delim(here("data", "sl_go_merged_id.tsv"),
+go_map <- read.delim(here("phosphoproteomics", "data", "sl_go_merged_id.tsv"),
                      header = FALSE, stringsAsFactors = FALSE)[, 1:2]
 colnames(go_map) <- c("gene_id", "go_id")
 
