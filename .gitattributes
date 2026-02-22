@@ -3,4 +3,4 @@ phosphoproteomics/data/limma_results_annotated.rds filter=lfs diff=lfs merge=lfs
 phosphoproteomics/data/limma_results_annotated.tsv filter=lfs diff=lfs merge=lfs -text
 phosphoproteomics/data/mdata.rds filter=lfs diff=lfs merge=lfs -text
 transcriptomics/data/Master_DE_Results_Interaction_V2.tsv filter=lfs diff=lfs merge=lfs -text
-transcriptomics/data/2020_08_13_merged_trinity_gene_gene_ontology_assignments_jake_manual_additions2_forsl2_final2.txt filter=lfs diff=lfs merge=lfs -text
+transcriptomics/data/sl_go_eggnog.txt filter=lfs diff=lfs merge=lfs -text
