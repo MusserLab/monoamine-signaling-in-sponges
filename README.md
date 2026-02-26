@@ -177,6 +177,15 @@ If you use code or data from this repository, please cite:
 
 > Zang RX, Malaiwong N, Wang L, Maziarz JD, Jia K, Drotleff B, Stein F, Noor M, Roberts CJ, Rettel M, Schwarz JJ, Ikmi A, Watanabe S, Prevedel R, Funayama N, O'Donnell MP, Musser JM. An ancient monoaminergic signaling system coordinates contractility in a nerveless sponge. *Science* (2026).
 
+## Contributors
+
+- **Rong Xuan Zang** ([@ViciousPlants](https://github.com/ViciousPlants)) — phosphoproteomics and transcriptomics analysis scripts, GO enrichment, heatmaps, volcano plots, phylogenetic pipelines, microscopy analysis
+- **Jacob M. Musser** ([@JMusser499](https://github.com/JMusser499)) — phosphoproteomics pipeline, NO comparison analysis, repository assembly and documentation
+
+## AI assistance
+
+We utilized ChatGPT 5.2, Gemini 3, and Opus 4.5 and 4.6 to assist with code generation and managing git. All AI-generated code was carefully reviewed and validated by the authors.
+
 ## License
 
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
