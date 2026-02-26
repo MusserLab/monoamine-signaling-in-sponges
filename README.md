@@ -185,7 +185,7 @@ If you use code or data from this repository, please cite:
 
 ## AI assistance
 
-We utilized ChatGPT 5.2, Gemini 3, and Opus 4.5 and 4.6 to assist with code generation and managing git. All AI-generated code was carefully reviewed and validated by the authors.
+We utilized ChatGPT 5.2, Gemini 3, and Claude Opus 4.5 and 4.6 to assist with code generation and managing git. All AI-generated code was carefully reviewed and validated by the authors.
 
 ## License
 
