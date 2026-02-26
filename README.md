@@ -175,11 +175,12 @@ Gene names in this repository follow the conventions described in Zang et al. (2
 
 If you use code or data from this repository, please cite:
 
-> Zang RX, Malaiwong N, Wang L, Maziarz JD, Jia K, Drotleff B, Stein F, Noor M, Roberts CJ, Rettel M, Schwarz JJ, Ikmi A, Watanabe S, Prevedel R, Funayama N, O'Donnell MP, Musser JM. An ancient monoaminergic signaling system coordinates contractility in a nerveless sponge. *Science* (2026).
+> Zang RX, Malaiwong N, Wang L, Maziarz JD, Jia K, Drotleff B, Stein F, Noor M, Roberts CJ, Rettel M, Schwarz JJ, Ikmi A, Watanabe S, Prevedel R, Funayama N, O'Donnell MP, Musser JM. An ancient monoaminergic signaling system coordinates contractility in a nerveless sponge. *bioRxiv* (2026). doi: [10.64898/2026.02.14.704838v1](https://doi.org/10.64898/2026.02.14.704838v1)
 
 ## Contributors
 
 - **Rong Xuan Zang** ([@ViciousPlants](https://github.com/ViciousPlants)) — phosphoproteomics and transcriptomics analysis scripts, GO enrichment, heatmaps, volcano plots, phylogenetic pipelines, microscopy analysis
+- **Kejue Jia** ([@jkjium](https://github.com/jkjium)) — phylogenetic pipelines and PROST ortholog annotation
 - **Jacob M. Musser** ([@JMusser499](https://github.com/JMusser499)) — phosphoproteomics pipeline, NO comparison analysis, repository assembly and documentation
 
 ## AI assistance
