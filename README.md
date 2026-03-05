@@ -116,21 +116,13 @@ If you cloned without Git LFS, run `git lfs pull` to download the large files.
 Open R/RStudio/Positron from the repository root directory, then:
 
 ```r
-# Install CRAN packages (exact versions pinned in renv.lock)
+# Install all R packages (CRAN + Bioconductor, exact versions pinned in renv.lock)
 renv::restore()
-
-# Install Bioconductor packages
-if (!require("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-BiocManager::install(c(
-    "limma", "DESeq2", "goseq", "vsn", "MSnbase",
-    "biobroom", "rrvgo", "GO.db", "org.Hs.eg.db", "Biostrings"
-))
 ```
 
-`renv::restore()` installs CRAN packages at the exact versions used in the paper. Bioconductor packages are installed separately via BiocManager, which automatically selects the correct versions for your R installation.
+`renv::restore()` installs all R packages at the exact versions used in the paper, including Bioconductor packages (limma, DESeq2, vsn, etc.).
 
-**Troubleshooting:** If you encounter errors with `renv::restore()` or BiocManager, you can skip the bulk setup and instead install packages on demand — each script will report missing packages when you run it via `library()` errors. Install them as needed with `install.packages()` (CRAN) or `BiocManager::install()` (Bioconductor).
+**Troubleshooting:** If `renv::restore()` fails on specific packages, you can install them individually with `install.packages()` (CRAN) or `BiocManager::install()` (Bioconductor), then retry `renv::restore()` for the rest.
 
 ### 3. Set up the Python environment
 
