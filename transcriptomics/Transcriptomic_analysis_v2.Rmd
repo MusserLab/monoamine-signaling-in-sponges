@@ -67,7 +67,7 @@ gene_names_dedup <- gene_names %>%
 
 # Join gene names to count matrix
 result <- count_mat %>%
-  left_join(gene_names_dedup[, c("Trinity_geneID", "seurat_name", "Zang_et_al_2026")],
+  left_join(gene_names_dedup[, c("Trinity_geneID", "seurat_name")],
             by = c("Geneid" = "Trinity_geneID")) %>%
   # Use seurat_name (full automated name) if available, otherwise keep Geneid
   mutate(Final_Name = coalesce(seurat_name, Geneid))
@@ -79,7 +79,7 @@ result <- count_mat %>%
 # Extract count matrix: sample count columns only (exclude featureCounts metadata and added cols)
 featurecounts_meta_cols <- c("Geneid", "Chr", "Start", "End", "Strand", "Length")
 added_cols <- c("lengths_list", "lengths_numeric", "median_length",
-                "seurat_name", "Zang_et_al_2026", "Final_Name")
+                "seurat_name", "Final_Name")
 sample_cols <- setdiff(names(result), c(featurecounts_meta_cols, added_cols))
 
 count_mat_extract <- result[, sample_cols]
@@ -269,7 +269,7 @@ master_table <- master_table %>%
     by = c("trinity_gene_id" = "Trinity_geneID")
   ) %>%
   # Use Zang_et_al_2026 as the clean gene name
-  rename(clean_geneName = Zang_et_al_2026)
+  dplyr::rename(clean_geneName = Zang_et_al_2026)
 
 # Save master table
 output_dir <- here("outs", "transcriptomics")

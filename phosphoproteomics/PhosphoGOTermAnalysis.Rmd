@@ -24,6 +24,20 @@ semantic similarity reduction (treemaps and scatterplots).
 - `phospho_goseq_results_global.tsv` — Global (all hits combined) GO enrichment results
 - rrvgo treemap and scatterplot PNGs in `GO_enrichment/` output directory
 
+### Figure assembly notes (Fig 4C)
+
+The following post-processing steps were applied manually during figure assembly
+and are not scripted here:
+
+- **Ontology filtering:** Fig 4C shows Molecular Function (MF) and Cellular
+  Component (CC) only. This script computes enrichment for all three ontologies
+  (BP, MF, CC).
+- **Keyword exclusion:** Terms containing "phosphorylation," "kinase activity,"
+  "phosphotransferase," "kinase," or "signal transduction" were excluded from
+  the visualization.
+- **Top-term selection:** The top 6 most significant terms per ontology were
+  selected for the final figure.
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(here)

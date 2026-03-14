@@ -58,28 +58,9 @@ tryp_data <- readRDS(
 cat("Tryptamine dataset:", nrow(tryp_data), "rows\n")
 cat("Unique phosphosites:", n_distinct(tryp_data$sequence.id), "\n")
 
-# Load gene annotations from canonical gene names file (Zang et al. 2026)
-gene_annotations <- readr::read_tsv(
-  here("data", "spongilla_gene_names_final.tsv"),
-  show_col_types = FALSE
-) %>%
-  dplyr::select(
-    trinity_gene_id = Trinity_geneID,
-    Gene.short.new = Zang_et_al_2026,
-    name_type
-  ) %>%
-  dplyr::distinct(trinity_gene_id, .keep_all = TRUE)
-
-# Join to update Gene.short with Zang et al. 2026 names
-tryp_data <- tryp_data %>%
-  dplyr::left_join(gene_annotations, by = "trinity_gene_id") %>%
-  dplyr::mutate(
-    Gene.short = dplyr::if_else(!is.na(Gene.short.new), Gene.short.new, Gene.short),
-    name_type = dplyr::if_else(is.na(name_type), "trinity_only", name_type)
-  ) %>%
-  dplyr::select(-Gene.short.new)
-
-cat("Gene names updated from spongilla_gene_names_final.tsv\n")
+# Note: limma_results_annotated.rds (260217 re-render) already contains
+# Zang_et_al_2026 gene names in the Gene.short column and name_type column.
+# No additional gene annotation join is needed.
 
 # Proteome FASTA
 fasta_path <- here("phosphoproteomics", "data", "spongilla_proteome.fasta")
@@ -842,12 +823,24 @@ if (length(all_shared_sites) > 0) {
       no_significant %>% select(site_id, logFC_NO),
       by = "site_id"
     ) %>%
-    # Create wide format
+    # Create wide format (use mean if multiple peptides map to same site)
     pivot_wider(
       names_from = comparison_short,
-      values_from = logFC
-    ) %>%
-    # Reorder columns
+      values_from = logFC,
+      values_fn = mean
+    )
+
+  # Ensure all expected comparison columns exist (some may be absent if
+
+  # no shared sites are hits/candidates for that comparison)
+  expected_cols <- c("3min", "15min", "30min", "Δ3→15min", "Δ15→30min")
+  for (col in expected_cols) {
+    if (!col %in% names(heatmap_data)) {
+      heatmap_data[[col]] <- NA_real_
+    }
+  }
+
+  heatmap_data <- heatmap_data %>%
     select(site_id, Gene.short, logFC_NO, `3min`, `15min`, `30min`, `Δ3→15min`, `Δ15→30min`)
 
   # Convert to long for ggplot heatmap
@@ -1020,7 +1013,6 @@ cat("- scatter_logFC_correlation.pdf/png\n")
 cat("- barplot_direction_concordance.pdf/png\n")
 cat("- heatmap_shared_phosphosites.pdf/png\n")
 cat("- upset_shared_phosphosites.pdf\n")
-cat("- go_enrichment_shared_*.csv/pdf (GO enrichment results)\n")
 ```
 
 ## 10. Session Info
