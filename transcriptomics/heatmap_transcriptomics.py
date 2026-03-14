@@ -77,25 +77,6 @@ def slugify(text: str) -> str:
     return re.sub(r"[^a-z0-9]+", "_", text.lower()).strip("_")
 
 
-def capitalize_gene_name(name: str) -> str:
-    """Capitalize gene name: first letter uppercase, rest lowercase.
-    
-    E.g., 'GAPDH' -> 'Gapdh', 'ATP1A1' -> 'Atp1a1'
-    Preserves any parenthetical suffixes like ' (c12345-g1)'.
-    """
-    if not name:
-        return name
-    
-    # Check for parenthetical suffix (e.g., " (c12345-g1)")
-    match = re.match(r'^(.+?)(\s*\([^)]+\))$', name)
-    if match:
-        base_name = match.group(1)
-        suffix = match.group(2)
-        return base_name.capitalize() + suffix
-    else:
-        return name.capitalize()
-
-
 def standardize_module(name: str) -> str:
     """Fix typos and inconsistencies in module names."""
     low = name.lower()
@@ -284,9 +265,6 @@ def generate_per_module_heatmap(
     
     row_labels = mod_data["Gene.short"].tolist()
 
-    # Capitalize gene names (first letter uppercase, rest lowercase)
-    row_labels = [capitalize_gene_name(label) for label in row_labels]
-
     # Sort rows: Inflammation by 4h, all others by Recovery (highest to lowest)
     if mod_name == "Inflammation":
         sort_col_idx = 1  # log2FC_4h
@@ -414,9 +392,6 @@ def export_summary(heatmap_data: pd.DataFrame, output_dir: Path):
             row_labels.append(f"{gs}{trinity_str}")
         else:
             row_labels.append(gs)
-
-    # Capitalize gene names (first letter uppercase, rest lowercase)
-    row_labels = [capitalize_gene_name(label) for label in row_labels]
 
     export = heatmap_data[
         ["GeneID", "Gene.short", "Module", "Important",
