@@ -10,5 +10,6 @@ dependencies:
   - matplotlib
   - seaborn
   - pyreadr
+  - pip
   - pip:
     - adjustText
