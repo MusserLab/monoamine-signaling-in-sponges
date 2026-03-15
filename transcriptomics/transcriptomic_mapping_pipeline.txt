@@ -11,11 +11,11 @@ $fastp \
 # STAR mapping
 $STAR --runThreadN $THREADS \
     --genomeDir ./star_transcriptome_index \
-    --readFilesIn $R1 $R2 \
+    --readFilesIn $OUT_R1 $OUT_R2 \
     --readFilesCommand zcat \
     --outFileNamePrefix $OUT_PREFIX \
     --outSAMtype BAM SortedByCoordinate \
     --quantMode GeneCounts
 
-# featuresCounts
-# featureCounts -T $THREADS -p -B -C --countReadPairs -g gene_id -a spongilla_transcriptome_annotated_200501.gtf -o featuresCounts_trans_clean_out/counts.txt star_trans_clean_out/*.bam
+# featureCounts
+featureCounts -T $THREADS -p -B -C --countReadPairs -g gene_id -a spongilla_transcriptome_annotated_200501.gtf -o featureCounts_trans_clean_out/counts.txt star_trans_clean_out/*.bam

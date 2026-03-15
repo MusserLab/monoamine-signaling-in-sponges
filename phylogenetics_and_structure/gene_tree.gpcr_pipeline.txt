@@ -13,7 +13,7 @@ $ awk -F '\t' '{print $NF}' 10.tn.blast.gpcr_to_all_21.txt > 11.tn.blast.gpcr_to
 # Run PROST using 11 sponge GPCRs as query on the individual proteome. For each query sequence, take the top 5 hits of each spcies. Take the union of BLAST and PROST.
 
 # 1. prost individual proteome
-$ python prost.py makedb --no-cache 01.sl_gpcr.fasta.prdb 01.sl_gpcr.fasta.prdb
+$ python prost.py makedb --no-cache 01.sl_gpcr.fasta 01.sl_gpcr.fasta.prdb
 $ awk -F '\t' '{printf "python prost.py search --thr=0.00001 --jobs 12 01.sl_gpcr.fasta.prdb ../proteome/%s.prdb prost.gpcr_to_%s.tsv\n", $2,$1}' species.stub |sh
 ## output: prost.*.tsv
 
@@ -33,9 +33,5 @@ $ cat 01.sl_gpcr.fasta 30.relaxed.nr.seq.fas > g.fas
 # generate MSA and tree
 $ mafft --maxiterate 1000 --localpair --thread 32 g.fas > g.msa
 $ iqtree2 -s g.msa -m MFP -bb 1000 -alrt 1000 -nt 32
-
-
-
-
 
 

@@ -19,7 +19,7 @@
     {
       "ligand": {
         "id": "B",
-        // The identity of monoamines, AEF - Tyramine, PHE - phenethylamine, TSS - Tryptamine
+        // The identity of monoamines, AEF - Tyramine, PEA - Phenethylamine, TSS - Tryptamine
         "ccdCodes": [
           "AEF"
         ]
