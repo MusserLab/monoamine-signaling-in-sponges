@@ -3,7 +3,7 @@
 # Run BLAST using 11 sponge GPCRs as query on the merged proteome. For each query sequence, take the top 30 hits overall all. 
 
 # 1. blast all.21.fasta (combined 21 proteomes)
-$ sh run_blast.sh --tr1 01.sl_gpcr.fasta --t1 prot --n1 gpcr --tr2 ../proteome/all.21.fasta --t2 prot --n2 all_20
+$ sh run_blast.sh --tr1 01.sl_gpcr.fasta --t1 prot --n1 gpcr --tr2 ../proteome/all.21.fasta --t2 prot --n2 all_21
 
 # 2. for each query get top 30 hits	
 $ for h in $(cat 01.sl_gpcr.header);do awk -F '\t' -v _h=$h '$1==_h{print $0}' out.gpcr_to_all_21.txt|head -n 30; done > 10.tn.blast.gpcr_to_all_21.txt
@@ -27,7 +27,7 @@ $ cat top.prost.*| awk -F '\t' '{print $2}' > 11.tn.prost.gpcr_to_all_individual
 $ cat 11.tn.* |sort -u > 20.top.nr.header.txt
 
 # get sequences
-$ python utils_pfammsa.py getbatchseq ../proteome/all.20.fasta 20.top.nr.header.txt 30.relaxed.nr.seq.fas
+$ python utils_pfammsa.py getbatchseq ../proteome/all.21.fasta 20.top.nr.header.txt 30.relaxed.nr.seq.fas
 $ cat 01.sl_gpcr.fasta 30.relaxed.nr.seq.fas > g.fas
 
 # generate MSA and tree
