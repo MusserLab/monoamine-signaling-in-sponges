@@ -16,7 +16,7 @@
 
 &dagger; These authors contributed equally to this work.
 
-&Dagger; Current address: College of Optical and Electronic Technology, China Jiliang University, Hangzhou, Zhejiang, 310018, China
+&Dagger; Current address: College of Optical and Electronic Technology, China Jiliang University, Hangzhou, 310018, China
 
 \* Corresponding authors: jacob.musser@yale.edu, zangrongxuan@gmail.com
 
