@@ -40036,7 +40036,7 @@ c96773-g2	c84854-g1 1-to-1 METTL25 methyltransferase like 25	Mettl25	prmA, Aquif
 c96774-g1	c96774-g1 8-to-3 MCOLN1,MCOLN3,MCOLN2 mucolipin 1	Mcoln1/2/3	hs-PACC1	NA	NA	symbol	Mcoln1/2/3	Gene_short_automated
 c96775-g1	c96775-g1	c96775-g1	NA	NA	NA	trinity_only	c96775-g1	trinity_only
 c96775-g2	c96775-g2	c96775-g2	NA	NA	NA	trinity_only	c96775-g2	trinity_only
-c96776-g1	c78726-g1 1-to-3 SLC17A7,SLC17A6,SLC17A8 solute carrier family 17 member 7	Slc17a6/7/8	cml, Escherichia coli	Slc17A6/7/8 vesicular glutamate transporter	NA	symbol	Slc17a6/7/8	manual_review
+c96776-g1	c78726-g1 1-to-3 SLC17A7,SLC17A6,SLC17A8 solute carrier family 17 member 7	Slc17a6/7/8	cml, Escherichia coli	Slc17A6/7/8 vesicular glutamate transporter	NA	symbol	Slc17a1-8	manual_review
 c96779-g1	c96779-g1	c96779-g1	NA	NA	NA	trinity_only	c96779-g1	trinity_only
 c96779-g2	c96779-g2	c96779-g2	NA	NA	NA	trinity_only	c96779-g2	trinity_only
 c96780-g1	c96780-g1 1-to-1 PSMD7 proteasome 26S subunit, non-ATPase 7	Psmd7	hs-PSMD7,ABRAXAS1,ABRAXAS2,ODR4,PSMD14,EIF3H	NA	NA	symbol	Psmd7	Gene_short_automated
